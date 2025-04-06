@@ -1,0 +1,52 @@
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 11:50:46 on Apr 03,2025
+# vlog fully_connected_network.v 
+# -- Compiling module fully_connected_network
+# 
+# Top level modules:
+# 	fully_connected_network
+# End time: 11:50:46 on Apr 03,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 11:50:46 on Apr 03,2025
+# vlog spi_master.v 
+# -- Compiling module spi_master
+# 
+# Top level modules:
+# 	spi_master
+# End time: 11:50:47 on Apr 03,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 11:50:47 on Apr 03,2025
+# vlog top_level.v 
+# -- Compiling module top_level
+# 
+# Top level modules:
+# 	top_level
+# End time: 11:50:47 on Apr 03,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 11:50:47 on Apr 03,2025
+# vlog tb_top_level.v 
+# -- Compiling module tb_top_level
+# 
+# Top level modules:
+# 	tb_top_level
+# End time: 11:50:47 on Apr 03,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2024.2 Lib Mapping Utility 2024.05 May 20 2024
+# vmap work ./work 
+# Modifying modelsim.ini
+# vsim tb_top_level 
+# Start time: 11:50:47 on Apr 03,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error (suppressible): top_level.v(32): (vopt-2732) Module parameter 'THRESHOLD' not found for override.
+# ** Error (suppressible): top_level.v(33): (vopt-2732) Module parameter 'REFRACTORY_PERIOD' not found for override.
+# ** Error (suppressible): top_level.v(34): (vopt-2732) Module parameter 'SYNAPSE_WEIGHTS' not found for override.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=0.
+# Error loading design
+# End time: 11:50:48 on Apr 03,2025, Elapsed time: 0:00:01
+# Errors: 3, Warnings: 0
