@@ -1,0 +1,30 @@
+/////////////////////////////////////////////////////////////
+// Created by: Synopsys DC Ultra(TM) in wire load mode
+// Version   : Q-2019.12-SP3
+// Date      : Mon Apr  7 10:14:20 2025
+/////////////////////////////////////////////////////////////
+
+
+module NeuronNetworkSystem ( clk, rst, sclk, mosi, ss, neuron_outputs );
+  output [7:0] neuron_outputs;
+  input clk, rst, sclk, mosi, ss;
+
+  tri   clk;
+  tri   rst;
+  tri   sclk;
+  tri   mosi;
+  tri   ss;
+  tri   [7:0] neuron_outputs;
+  tri   wr_en;
+  tri   [4:0] wr_addr;
+  tri   [7:0] wr_data;
+  tri   [255:0] all_parameters;
+
+  SPI_Slave spi_slave_inst ( .clk(clk), .rst(rst), .sclk(sclk), .mosi(mosi), 
+        .ss(ss), .wr_en(wr_en), .wr_addr(wr_addr), .wr_data(wr_data) );
+  RegisterFile reg_file_inst ( .clk(clk), .rst(rst), .wr_en(wr_en), .wr_addr(
+        wr_addr), .wr_data(wr_data), .all_data_out(all_parameters) );
+  MultiNeuronNetwork neuron_net_inst ( .clk(clk), .rst(rst), .all_parameters(
+        all_parameters), .neuron_outputs(neuron_outputs) );
+endmodule
+

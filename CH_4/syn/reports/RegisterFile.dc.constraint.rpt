@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : RegisterFile
+Version: Q-2019.12-SP3
+Date   : Mon Apr  7 10:33:09 2025
+****************************************
+
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   RegisterFile                 0.00       119427864.00   -119427864.00
+                                                                    (VIOLATED)
+
+
+1

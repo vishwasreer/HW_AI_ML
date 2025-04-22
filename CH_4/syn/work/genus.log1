@@ -1,0 +1,465 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[10:26:55.350106] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+Version: 23.10-p004_1, built Thu Feb 01 13:43:46 PST 2024
+Options: 
+Date:    Mon Apr 07 10:26:55 2025
+Host:    auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon Processor (Cascadelake) 16384KB) (125666820KB)
+PID:     17574
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[10:26:55.094512] Periodic Lic check successful
+[10:26:55.618843] Feature usage summary:
+[10:26:55.618843] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (22 seconds elapsed).
+
+WARNING: This version of the tool is 430 days old.
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> set top_design NeuronNetworkSystem
+NeuronNetworkSystem
+@genus:root: 2> source ../scripts/genus.tcl
+Sourcing '../scripts/genus.tcl' (Mon Apr 07 10:27:43 PDT 2025)...
+#@ Begin verbose source ../scripts/genus.tcl
+@file(genus.tcl) 1: history keep 100
+@file(genus.tcl) 2: set_db timing_report_fields "delay arrival transition fanout load cell timing_point"
+  Setting attribute of root '/': 'timing_report_fields' = delay arrival transition fanout load cell timing_point
+@file(genus.tcl) 4: source -echo -verbose ../scripts/$top_design.design_config.tcl
+Sourcing '../scripts/NeuronNetworkSystem.design_config.tcl' (Mon Apr 07 10:27:43 PDT 2025)...
+#@ Begin verbose source ../scripts/NeuronNetworkSystem.design_config.tcl
+@file(NeuronNetworkSystem.design_config.tcl) 1: set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+@file(NeuronNetworkSystem.design_config.tcl) 2: set hack_lef_dir /u/bcruik2/hacked_lefs
+set hack_lef_dir /u/bcruik2/hacked_lefs
+@file(NeuronNetworkSystem.design_config.tcl) 25: set add_ios 0
+set add_ios 0
+@file(NeuronNetworkSystem.design_config.tcl) 26: set pad_design 0
+set pad_design 0
+@file(NeuronNetworkSystem.design_config.tcl) 27: set design_size { 580 580  } 
+set design_size { 580 580  } 
+@file(NeuronNetworkSystem.design_config.tcl) 28: set design_io_border 310
+set design_io_border 310
+@file(NeuronNetworkSystem.design_config.tcl) 29: set dc_floorplanning 1
+set dc_floorplanning 1
+@file(NeuronNetworkSystem.design_config.tcl) 30: set enable_dft 0
+set enable_dft 0
+@file(NeuronNetworkSystem.design_config.tcl) 31: set innovus_enable_manual_macro_placement 0
+set innovus_enable_manual_macro_placement 0
+@file(NeuronNetworkSystem.design_config.tcl) 44: set rtl_list {}
+set rtl_list {}
+@file(NeuronNetworkSystem.design_config.tcl) 46: lappend rtl_list ../rtl/MultiNeuron_Network.sv
+lappend rtl_list ../rtl/MultiNeuron_Network.sv
+@file(NeuronNetworkSystem.design_config.tcl) 47: lappend rtl_list ../rtl/NeuronNetworkSystem.sv
+lappend rtl_list ../rtl/NeuronNetworkSystem.sv
+@file(NeuronNetworkSystem.design_config.tcl) 48: lappend rtl_list ../rtl/RegisterFile.sv
+lappend rtl_list ../rtl/RegisterFile.sv
+@file(NeuronNetworkSystem.design_config.tcl) 49: lappend rtl_list ../rtl/SPI_Slave.sv
+lappend rtl_list ../rtl/SPI_Slave.sv
+@file(NeuronNetworkSystem.design_config.tcl) 50: lappend rtl_list ../rtl/leaky_integrate_fire_neuron.sv
+lappend rtl_list ../rtl/leaky_integrate_fire_neuron.sv
+@file(NeuronNetworkSystem.design_config.tcl) 51: lappend rtl_list ../rtl/two_layer_neural_network.sv
+lappend rtl_list ../rtl/two_layer_neural_network.sv
+@file(NeuronNetworkSystem.design_config.tcl) 55: set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+@file(NeuronNetworkSystem.design_config.tcl) 56: set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+@file(NeuronNetworkSystem.design_config.tcl) 57: set synth_corners $slow_corner
+set synth_corners $slow_corner
+@file(NeuronNetworkSystem.design_config.tcl) 58: set synth_corners_target "ss0p95v125c" 
+set synth_corners_target "ss0p95v125c" 
+@file(NeuronNetworkSystem.design_config.tcl) 60: set synth_corners_slow $slow_corner
+set synth_corners_slow $slow_corner
+@file(NeuronNetworkSystem.design_config.tcl) 61: set synth_corners_fast $fast_corner
+set synth_corners_fast $fast_corner
+@file(NeuronNetworkSystem.design_config.tcl) 62: set slow_metal Cmax_125
+set slow_metal Cmax_125
+@file(NeuronNetworkSystem.design_config.tcl) 63: set fast_metal Cmax_125
+set fast_metal Cmax_125
+@file(NeuronNetworkSystem.design_config.tcl) 64: set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+@file(NeuronNetworkSystem.design_config.tcl) 65: set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+@file(NeuronNetworkSystem.design_config.tcl) 66: set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+@file(NeuronNetworkSystem.design_config.tcl) 68: set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+@file(NeuronNetworkSystem.design_config.tcl) 69: set sub_lib_type_target "saed32rvt_"
+set sub_lib_type_target "saed32rvt_"
+@file(NeuronNetworkSystem.design_config.tcl) 70: set tech_lef ${hack_lef_dir}/tech.lef 
+set tech_lef ${hack_lef_dir}/tech.lef 
+@file(NeuronNetworkSystem.design_config.tcl) 73: set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+@file(NeuronNetworkSystem.design_config.tcl) 81: set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+@file(NeuronNetworkSystem.design_config.tcl) 82: set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+@file(NeuronNetworkSystem.design_config.tcl) 88: set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+@file(NeuronNetworkSystem.design_config.tcl) 91: set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+@file(NeuronNetworkSystem.design_config.tcl) 92: set FCL 0
+set FCL 0
+@file(NeuronNetworkSystem.design_config.tcl) 93: set split_constraints 0
+set split_constraints 0
+#@ End verbose source ../scripts/NeuronNetworkSystem.design_config.tcl
+@file(genus.tcl) 6: set designs [get_db designs * ]
+@file(genus.tcl) 7: if { $designs != "" } {
+  delete_obj $designs
+}
+@file(genus.tcl) 11: source ../scripts/genus-get-timlibslefs.tcl
+Sourcing '../scripts/genus-get-timlibslefs.tcl' (Mon Apr 07 10:27:43 PDT 2025)...
+#@ Begin verbose source ../scripts/genus-get-timlibslefs.tcl
+@file(genus-get-timlibslefs.tcl) 9: set search_path ""
+@file(genus-get-timlibslefs.tcl) 10: foreach i $lib_types { lappend search_path $i }
+@file(genus-get-timlibslefs.tcl) 20: set link_library ""
+@file(genus-get-timlibslefs.tcl) 21: foreach i $search_path {
+  foreach k $synth_corners {
+      foreach m $sub_lib_type {
+        foreach j [glob -nocomplain $i/$m$k.lib ] {
+          lappend link_library [file tail $j ]
+        }
+      }
+  }
+}
+@file(genus-get-timlibslefs.tcl) 32: foreach i $lib_types_target { 
+   lappend search_path_target $i 
+   lappend search_path $i 
+}
+@file(genus-get-timlibslefs.tcl) 45: set target_library ""
+@file(genus-get-timlibslefs.tcl) 46: foreach i $search_path_target {
+  foreach k $synth_corners_target {
+      foreach m $sub_lib_type_target {
+        foreach j [glob -nocomplain $i/$m$k.lib ] {
+          lappend target_library [file tail $j ]
+          lappend link_library [file tail $j ]
+        }
+      }
+  }
+}
+@file(genus-get-timlibslefs.tcl) 58: set lef_path ""
+@file(genus-get-timlibslefs.tcl) 59: foreach k $lef_types {
+  foreach m $sub_lef_type {
+    foreach j [glob -nocomplain $k/$m ] {
+      lappend lef_path  $j 
+    }
+  }
+}
+@file(genus-get-timlibslefs.tcl) 69: lappend search_path .
+#@ End verbose source ../scripts/genus-get-timlibslefs.tcl
+@file(genus.tcl) 13: set_db init_lib_search_path $search_path
+  Setting attribute of root '/': 'init_lib_search_path' = /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm .
+@file(genus.tcl) 15: set_db library $link_library
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 75612)
+        : Sequential timing checks, such as 'setup_rising' or 'hold_rising', on flop and latch cells require a clock pin. Verify that the 'clock' attribute of the clock pin is set to 'true' or that the clock pin has a 'clocked_on' attribute.
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 75949)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 226626 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 226627 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 226628 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 75616)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'LNANDX2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 75953)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 226346 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 226347 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 226348 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 15913 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 15914 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 15915 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW1024x8' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 1441)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW128x46' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 1881)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW128x48' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 2321)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW128x8' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 2761)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x32' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 3641)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x128' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 3201)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x46' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 4081)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x48' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 4521)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW256x8' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 4961)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW32x50' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 5401)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW512x128' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 5841)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW512x8' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 6721)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW512x32' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 6281)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW64x128' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 7161)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 24401 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 24402 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 24403 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW64x32' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 7601)
+Warning : Missing clock pin in the sequential cell. [LBR-525]
+        : Clock pin absent in sequential cell(s) 'SRAM1RW64x34' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib, Line 8041)
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-525'.
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_operating_conditions on line 1766 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load on line 1767 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+Warning : An attribute is used before it is defined. [LBR-511]
+        : The library level attribute default_wire_load_selection on line 1768 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+
+  Message Summary for Library all 5 libraries:
+  ********************************************
+  Missing clock pin in the sequential cell. [LBR-525]: 40
+  Missing a function attribute in the output pin definition. [LBR-518]: 140
+  An attribute is used before it is defined. [LBR-511]: 15
+  An unsupported construct was detected in this library. [LBR-40]: 96
+  ********************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, 125.000000) in library 'saed32rvt_ss0p95v125c.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, 125.000000) in library 'saed32hvt_ss0p95v125c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, 125.000000) in library 'saed32io_wb_ss0p95v125c_2p25v.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, 125.000000) in library 'saed32sram_ss0p95v125c.lib'.
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (0.990000, 0.950000, 125.000000) in library 'saed32pll_ss0p95v125c_2p25v.lib'.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER01' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER01' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER10' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER15' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER15' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER20' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER20' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER35' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER35' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER40' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER40' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER50' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER50' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER5' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER5' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'FILLER' must have an output pin.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-9'.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX1_HVT'.  Ignoring the test_cell.
+        : Review the definition of the test_cell's function or its parent library-cell's function.  An inconsistency between the two may exist.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRARX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRARX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRASX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRASX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRSSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRSSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFSSRX1_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'SDFFSSRX2_HVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX1_RVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRARX2_RVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX1_RVT'.  Ignoring the test_cell.
+Warning : Malformed test_cell. [LBR-64]
+        : Unusable test_cell in 'RSDFFNSRASX2_RVT'.  Ignoring the test_cell.
+Warning : Maximum message print count reached. [MESG-11]
+        : Maximum print count of '20' reached for message 'LBR-64'.
+  Setting attribute of root '/': 'library' = saed32rvt_ss0p95v125c.lib saed32hvt_ss0p95v125c.lib saed32io_wb_ss0p95v125c_2p25v.lib saed32sram_ss0p95v125c.lib saed32pll_ss0p95v125c_2p25v.lib saed32rvt_ss0p95v125c.lib
+@file(genus.tcl) 17: set_db dft_opcg_domain_blocking true
+  Setting attribute of root '/': 'dft_opcg_domain_blocking' = true
+@file(genus.tcl) 19: set_db auto_ungroup none
+  Setting attribute of root '/': 'auto_ungroup' = none
+@file(genus.tcl) 23: read_hdl -language sv ../rtl/${top_design}.sv
+    state_t state = IDLE;
+                        |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '../rtl/SPI_Slave.sv' on line 20, column 25.
+        : For example, the following constructs will be ignored:
+    - initial block
+    - final block
+    - program block
+    - property block
+    - sequence block
+    - covergroup
+    - checker block
+    - gate drive strength
+    - system task enable
+    - reg declaration with initial value
+    - specify block.
+@file(genus.tcl) 35: elaborate $top_design
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX1_RVT/D' has no incoming setup arc.
+        : Pin used in a next_state function must have an incoming setup timing arc. Otherwise, the library cell will be treated as a timing model.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX2_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX1_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX2_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_RVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_RVT/SI' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_RVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_RVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_RVT/SI' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX1_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFNX2_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX1_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RDFFX2_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_HVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX1_HVT/SI' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_HVT/D' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_HVT/SE' has no incoming setup arc.
+Warning : Missing an incoming setup timing arc for next_state library pin. [LBR-34]
+        : Library pin 'RSDFFNSRX2_HVT/SI' has no incoming setup arc.
+Warning : Found a combinational arc in a sequential cell. [LBR-126]
+        : The arc is named 'REF_CLK_CLK_1X_n91' between pins 'REF_CLK' and 'CLK_1X' in libcell 'PLL'.
+        : The timing arc connects two pins that are already connected by a sequential arc. It is not recommended to mix combinational arcs with sequential arcs in a sequential cell.
+Warning : Found a combinational arc in a sequential cell. [LBR-126]
+        : The arc is named 'REF_CLK_CLK_2X_n93' between pins 'REF_CLK' and 'CLK_2X' in libcell 'PLL'.
+Warning : Found a combinational arc in a sequential cell. [LBR-126]
+        : The arc is named 'REF_CLK_CLK_4X_n95' between pins 'REF_CLK' and 'CLK_4X' in libcell 'PLL'.
+  Libraries have 260 usable logic and 216 usable sequential lib-cells.
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'NeuronNetworkSystem' from file '../rtl/NeuronNetworkSystem.sv'.
+Warning : In legacy_ui mode, Genus creates a blackbox as description for a module is not found. Black boxes represent unresolved references in the design and are usually not expected. Another possible reason is, some libraries are not read and the tool could not get the content for some macros or lib_cells. [CDFG-428]
+        : A blackbox was created for instance 'spi_slave_inst' in file '../rtl/NeuronNetworkSystem.sv' on line 25.
+        : Check the kind of module a black box is. If it is a lib_cell or a macro, check why the corresponding .lib was not read in. This could be either due to a missing or faulty file or due to an incomplete init_lib_search_path attribute value making restricting access to the missing file. If it is a module of your design, verify whether the path to this module is a part of the files you read or else check that the init_hdl_search_path attribute is not missing some paths.
+Error   : Unknown parameter. [CDFG-214] [elaborate]
+        : Could not find the parameter 'NUM_REGS' in module 'RegisterFile' in file '../rtl/NeuronNetworkSystem.sv' on line 37.
+        : Ensure that the desired parameter is specified correctly in the HDL.
+Info    : Unable to elaborate the design. [ELAB-4]
+        : Module 'NeuronNetworkSystem' contains errors and cannot be elaborated.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+#@ End verbose source ../scripts/genus.tcl
+1
+@genus:root: 3> exit
+
+Lic Summary:
+[10:27:52.373368] Cdslmd servers: gashapon
+[10:27:52.373394] Feature usage summary:
+[10:27:52.373409] Genus_Synthesis
+
+Normal exit.

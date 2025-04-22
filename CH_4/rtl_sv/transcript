@@ -1,0 +1,60 @@
+# ** Warning: (vlib-34) Library already exists at "work".
+# Errors: 0, Warnings: 1
+# QuestaSim-64 vmap 2024.2 Lib Mapping Utility 2024.05 May 20 2024
+# vmap work work 
+# Modifying modelsim.ini
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:19:44 on Apr 06,2025
+# vlog SPI_Slave.sv 
+# -- Compiling module spi_slave
+# 
+# Top level modules:
+# 	spi_slave
+# End time: 17:19:44 on Apr 06,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:19:44 on Apr 06,2025
+# vlog RegisterFile.sv 
+# -- Compiling module RegisterFile
+# 
+# Top level modules:
+# 	RegisterFile
+# End time: 17:19:44 on Apr 06,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:19:44 on Apr 06,2025
+# vlog MultiNeuron_Network.sv 
+# -- Compiling module MultiNeuron_Network
+# 
+# Top level modules:
+# 	MultiNeuron_Network
+# End time: 17:19:44 on Apr 06,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 17:19:44 on Apr 06,2025
+# vlog NeuronNetworkSystem.sv 
+# -- Compiling module NeuronNetworkSystem
+# 
+# Top level modules:
+# 	NeuronNetworkSystem
+# End time: 17:19:45 on Apr 06,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim work.RegisterFile 
+# Start time: 17:19:45 on Apr 06,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.RegisterFile(fast)
