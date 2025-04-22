@@ -1,0 +1,207 @@
+m255
+K4
+z2
+!s12c _opt
+Z0 !s99 nomlopt
+!s11f vlog 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z1 d/u/routh/HW_AI_ML/CH_4/rtl_sv
+T_opt
+!s110 1743981057
+VPc0TIm>PCckEWN@VJj7Bz2
+04 12 4 work RegisterFile fast 0
+=1-5254006cf05e-67f30a00-99390-696e
+R0
+!s12f OEM100
+!s12b OEM100
+!s124 OEM100
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2024.2;79
+R1
+vleaky_integrate_fire_neuron
+2leaky_integrate_fire_neuron.sv
+Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1743984529
+!i10b 1
+!s100 BjPU955YeHEk41cJb_8FR3
+I:LQ8OM;FUXGH4CGno`j2?3
+S1
+R1
+w1743962982
+8leaky_integrate_fire_neuron.sv
+Fleaky_integrate_fire_neuron.sv
+!i122 40
+L0 1 60
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+Z5 OL;L;2024.2;79
+r1
+!s85 0
+31
+Z6 !s108 1743984529.000000
+!s107 leaky_integrate_fire_neuron.sv|
+!s90 leaky_integrate_fire_neuron.sv|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vMultiNeuron_Network
+2MultiNeuron_Network.sv
+R3
+Z8 !s110 1743985184
+!i10b 1
+!s100 @DZT_;^cbT8j>^Q8EGgZJ3
+IgV9>ejKEMmBdL9iOU4VcP2
+S1
+R1
+w1743985157
+8MultiNeuron_Network.sv
+FMultiNeuron_Network.sv
+!i122 66
+L0 2 17
+R4
+R5
+r1
+!s85 0
+31
+Z9 !s108 1743985184.000000
+!s107 MultiNeuron_Network.sv|
+!s90 MultiNeuron_Network.sv|
+!i113 0
+R7
+R2
+n@multi@neuron_@network
+vNeuronNetworkSystem
+2NeuronNetworkSystem.sv
+R3
+!s110 1743985185
+!i10b 1
+!s100 G1oF>a`P1h]e?QdE0eDbL0
+IJFUXXoPgBD`gD=IMFFBSo1
+S1
+R1
+w1743984812
+8NeuronNetworkSystem.sv
+FNeuronNetworkSystem.sv
+!i122 67
+L0 3 45
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 NeuronNetworkSystem.sv|
+!s90 NeuronNetworkSystem.sv|
+!i113 0
+R7
+R2
+n@neuron@network@system
+vRegisterFile
+2RegisterFile.sv
+R3
+R8
+!i10b 1
+!s100 h6]]mzEdG`LPahQ;g0z?03
+IXQE]H6WHH3:SN39=`O9bj0
+S1
+R1
+w1743967415
+8RegisterFile.sv
+FRegisterFile.sv
+!i122 65
+L0 3 29
+R4
+R5
+r1
+!s85 0
+31
+R9
+!s107 RegisterFile.sv|
+!s90 RegisterFile.sv|
+!i113 0
+R7
+R2
+n@register@file
+vSPI_Slave
+Z10 2SPI_Slave.sv
+R3
+!s110 1743967803
+!i10b 1
+!s100 aWP?;ITVBhZkZ@[FfRjh:2
+IfnU6`af2SkAS@E[`7J4[Z1
+S1
+R1
+w1743967798
+Z11 8SPI_Slave.sv
+Z12 FSPI_Slave.sv
+!i122 8
+L0 3 44
+R4
+R5
+r1
+!s85 0
+31
+!s108 1743967803.000000
+Z13 !s107 SPI_Slave.sv|
+Z14 !s90 SPI_Slave.sv|
+!i113 0
+R7
+R2
+n@s@p@i_@slave
+vspi_slave
+R10
+R3
+R8
+!i10b 1
+!s100 Zoo`E4ok^8T5TN9VY<YJm1
+IWUj>nL<f1c8O]EDT:b`4b3
+S1
+R1
+w1743979133
+R11
+R12
+!i122 64
+L0 1 116
+R4
+R5
+r1
+!s85 0
+31
+R9
+R13
+R14
+!i113 0
+R7
+R2
+vtwo_layer_neural_network
+2two_layer_neural_network.sv
+R3
+!s110 1743984530
+!i10b 1
+!s100 JSWRhH8<^R5NZN75Yc3fT1
+IhNQB4hXBIFHL?<3?nOONT2
+S1
+R1
+w1743980148
+8two_layer_neural_network.sv
+Ftwo_layer_neural_network.sv
+!i122 41
+L0 1 59
+R4
+R5
+r1
+!s85 0
+31
+R6
+!s107 two_layer_neural_network.sv|
+!s90 two_layer_neural_network.sv|
+!i113 0
+R7
+R2
