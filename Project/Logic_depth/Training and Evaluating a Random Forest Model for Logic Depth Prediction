@@ -1,0 +1,70 @@
+/////////////////////////////////////////////////
+*          RandomForestRegressor                *
+/////////////////////////////////////////////////
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error
+import numpy as np
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.model_selection import RandomizedSearchCV
+
+# Load the dataset
+dataset = pd.read_csv("logic_depth_data.csv")
+
+# Rename columns to snake_case and lowercase
+dataset.rename(columns={"Fan-In": "fan_in", "Fan-Out": "fan_out", "Gate-Type": "gate_type", "Actual-Depth": "actual_depth"}, inplace=True)
+dataset.columns = dataset.columns.str.strip().str.lower().str.replace("-", "_")
+
+# One-Hot Encode the 'gate_type' column
+dataset = pd.get_dummies(dataset, columns=['gate_type'], prefix='gate_type', dtype=int)
+
+
+# Define Features and Target Variable
+X = dataset.drop(columns=["actual_depth"])  # Drop 'actual_depth' for features
+y = dataset["actual_depth"]  # Target variable
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+# Standardize feature names (this MUST be done before training)
+X_train.columns = (
+    X_train.columns.str.strip()
+    .str.lower()
+    .str.replace("-", "_")
+    .str.replace(" ", "_")
+)
+
+X_test.columns = (
+    X_test.columns.str.strip()
+    .str.lower()
+    .str.replace("-", "_")
+    .str.replace(" ", "_")
+)
+
+# Now fit the model using the standardized column names
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+
+# Ensure test features match training features - use X_train.columns which has been transformed
+X_test = X_test.reindex(columns=X_train.columns, fill_value=0)
+
+# Predict
+y_pred = model.predict(X_test)
+
+print(f"Mean Absolute Error: {mean_absolute_error(y_test, y_pred)}")
+
+
+/////////////////////////////////////////////////
+*                 OUTPUT                        *
+/////////////////////////////////////////////////
+
+//Mean Absolute Error: 0.31000000000000005
+/* This project uses Machine Learning to predict the logic depth of digital circuits-Random Forest Regressor is trained on key features like Fan-In, Fan-Out, and Gate Type to provide fast and accurate predictions.*/
+/*Mean Absolute Error (MAE) of 0.31, indicating strong prediction accuracy*/
+
+
+
