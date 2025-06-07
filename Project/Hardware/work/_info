@@ -1,0 +1,188 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+Z2 !s12c _opt2
+R1
+R0
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R2
+R1
+R0
+R1
+R0
+R1
+!s11f vlog 2024.2 2024.05, May 20 2024
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z3 d/u/routh/repos/Systolic-Array-Matrix-Multiplication
+T_opt
+!s110 1749284543
+V@;Jfe_jH@^<I`BYCC==_;3
+Z4 04 8 4 work test_TPU fast 0
+=1-5254006cf05e-6843f6be-6f95d-3eed
+R1
+Z5 !s12f OEM100
+Z6 !s12b OEM100
+Z7 !s124 OEM100
+Z8 !s135 nogc
+o-quiet -auto_acc_if_foreign -work work +acc
+Z9 tCvgOpt 0
+n@_opt
+Z10 OL;O;2024.2;79
+T_opt2
+!s110 1749284534
+V1:`XI^3Z[aNFBAilXhQ[C0
+R4
+=1-5254006cf05e-6843f6b5-87fcf-3e4f
+R1
+R5
+R6
+R7
+R8
+o-quiet -auto_acc_if_foreign -work work
+R9
+n@_opt2
+R10
+R3
+vMAC
+2MAC.sv
+Z11 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
+!s110 1749264211
+!i10b 1
+!s100 27HLaVKBQKi[EC6NieKC?0
+IG5R0b1HM9bLEndi:n?7Y72
+S1
+R3
+w1749262100
+8MAC.sv
+FMAC.sv
+!i122 79
+L0 1 40
+Z12 VDg1SIo80bB@j0V0VzS_@n1
+Z13 OL;L;2024.2;79
+r1
+!s85 0
+31
+!s108 1749264211.000000
+!s107 MAC.sv|
+!s90 -reportprogress|300|MAC.sv|
+!i113 0
+Z14 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R9
+n@m@a@c
+vMMU
+2MMU.sv
+R11
+!s110 1749284532
+!i10b 1
+!s100 P5<NCj[9fdX1OI0fFHXaD1
+IL1bmCSKRTj]FG8zEb[HRm0
+S1
+Z15 d/u/routh/HW_AI_ML/Project/Hardware
+w1749283594
+8MMU.sv
+FMMU.sv
+!i122 127
+L0 1 118
+R12
+R13
+r1
+!s85 0
+31
+Z16 !s108 1749284532.000000
+!s107 MMU.sv|
+!s90 -reportprogress|300|MMU.sv|
+!i113 0
+R14
+R9
+n@m@m@u
+vtest_TPU
+2test_TPU.sv
+R11
+!s110 1749284533
+!i10b 1
+!s100 FNHlBhL`oYmM8AcK<4Ez[1
+Ijlfa<ViNRmob@M:Gc]o223
+S1
+R15
+w1749283655
+8test_TPU.sv
+Ftest_TPU.sv
+!i122 128
+L0 3 68
+R12
+R13
+r1
+!s85 0
+31
+R16
+!s107 test_TPU.sv|
+!s90 -reportprogress|300|test_TPU.sv|
+!i113 0
+R14
+R9
+ntest_@t@p@u
+vTPU
+2TPU.sv
+R11
+!s110 1749270073
+!i10b 1
+!s100 Z7eghM=fg6b]V^fbRLWlm1
+IocknH2oKU74M3OkoEhWEh3
+S1
+R3
+w1749268122
+8TPU.sv
+FTPU.sv
+!i122 110
+L0 1 100
+R12
+R13
+r1
+!s85 0
+31
+!s108 1749270072.000000
+!s107 TPU.sv|
+!s90 -reportprogress|300|TPU.sv|
+!i113 0
+R14
+R9
+n@t@p@u

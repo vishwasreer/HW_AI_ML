@@ -1,0 +1,1 @@
+/pkgs/mentor/questa/2024.2/questasim/linux_x86_64/VisualizerRls/bin/viscom -nolock -quiet -jmem_size 393216 work.test_TPU -quiet -auto_acc_if_foreign -work work -allow_unnamed -o _opt2 -id 1-5254006cf05e-6843f6b5-87fcf-3e4f +__design_bin_path+/u/routh/HW_AI_ML/Project/Hardware

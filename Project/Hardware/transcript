@@ -1,0 +1,85 @@
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+do run.do
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:22:12 on Jun 07,2025
+# vlog -reportprogress 300 MAC.sv 
+# -- Compiling module MMU
+# 
+# Top level modules:
+# 	MMU
+# End time: 01:22:12 on Jun 07,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:22:12 on Jun 07,2025
+# vlog -reportprogress 300 TPU.sv 
+# -- Compiling module MMU
+# 
+# Top level modules:
+# 	MMU
+# End time: 01:22:12 on Jun 07,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:22:12 on Jun 07,2025
+# vlog -reportprogress 300 MMU.sv 
+# -- Compiling module MMU
+# 
+# Top level modules:
+# 	MMU
+# End time: 01:22:12 on Jun 07,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 01:22:12 on Jun 07,2025
+# vlog -reportprogress 300 test_TPU.sv 
+# -- Compiling module test_TPU
+# 
+# Top level modules:
+# 	test_TPU
+# End time: 01:22:13 on Jun 07,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim work.test_TPU 
+# Start time: 01:22:13 on Jun 07,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: test_TPU.sv(16): (vopt-2241) Connection width does not match width of port 'data_arr'. The port definition is at: MMU.sv(10).
+# ** Warning: test_TPU.sv(16): (vopt-2241) Connection width does not match width of port 'wt_arr'. The port definition is at: MMU.sv(11).
+# ** Warning: test_TPU.sv(16): (vopt-2241) Connection width does not match width of port 'acc_out'. The port definition is at: MMU.sv(12).
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=3.
+# Loading sv_std.std
+# Loading work.test_TPU(fast)
+# End time: 01:22:22 on Jun 07,2025, Elapsed time: 0:00:09
+# Errors: 0, Warnings: 3
+# vsim -voptargs="+acc" work.test_TPU 
+# Start time: 01:22:22 on Jun 07,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility. The +acc switch would be deprecated in a future release.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.test_TPU(fast)
+# Loading work.MMU(fast)
+# Loading work.MAC(fast)
+# ** Warning: (vsim-3015) [PCDPC] - Port size (256) does not match connection size (32) for port 'data_arr'. The port definition is at: MMU.sv(10).
+#    Time: 0 ps  Iteration: 0  Instance: /test_TPU/uut File: test_TPU.sv Line: 16
+# ** Warning: (vsim-3015) [PCDPC] - Port size (256) does not match connection size (32) for port 'wt_arr'. The port definition is at: MMU.sv(11).
+#    Time: 0 ps  Iteration: 0  Instance: /test_TPU/uut File: test_TPU.sv Line: 16
+# ** Warning: (vsim-3015) [PCDPC] - Port size (1024) does not match connection size (128) for port 'acc_out'. The port definition is at: MMU.sv(12).
+#    Time: 0 ps  Iteration: 0  Instance: /test_TPU/uut File: test_TPU.sv Line: 16
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 3 of file "matrix_a.mem". (Current address [32], address range [0:31])    : test_TPU.sv(37)
+#    Time: 0 ps  Iteration: 0  Instance: /test_TPU
+# ** Warning: (vsim-PLI-3407) Too many data words read on line 3 of file "matrix_b.mem". (Current address [32], address range [0:31])    : test_TPU.sv(38)
+#    Time: 0 ps  Iteration: 0  Instance: /test_TPU
+# Break key hit
+# Simulation stop requested.
+# End time: 01:22:51 on Jun 07,2025, Elapsed time: 0:00:29
+# Errors: 0, Warnings: 6
