@@ -1,3 +1,6 @@
+`include MAC.sv
+
+
 module MMU #(
     parameter int depth = 16,
     parameter int bit_width = 8,

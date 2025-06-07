@@ -1,42 +1,42 @@
-Warning: Design 'MMU' has '1' unresolved references. For more detailed information, use the "link" command. (UID-341)
-Information: Updating graph... (UID-83)
-Warning: Design 'MMU' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: The cache entry '/u/routh/synopsys_cache_Q-2019.12-SP3/DW02/DW02_mult/apparch/8/8/generic_5019/8167_8167/mapped.ddc'
+	has been corrupted, so it is being removed. (DWSC-18)
 Information: Updating design information... (UID-85)
-Warning: Design 'MMU' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Design 'MMU' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
  
 ****************************************
 Report : qor
 Design : MMU
 Version: Q-2019.12-SP3
-Date   : Sat Jun  7 00:17:16 2025
+Date   : Sat Jun  7 10:02:23 2025
 ****************************************
 
 
-  Timing Path Group (none)
+  Timing Path Group 'clk'
   -----------------------------------
-  Levels of Logic:               0.00
+  Levels of Logic:               1.00
   Critical Path Length:          0.00
-  Critical Path Slack:         uninit
-  Critical Path Clk Period:       n/a
+  Critical Path Slack:           1.97
+  Critical Path Clk Period:      2.00
   Total Negative Slack:          0.00
   No. of Violating Paths:        0.00
-  Worst Hold Violation:          0.00
-  Total Hold Violation:          0.00
-  No. of Hold Violations:        0.00
+  Worst Hold Violation:         -0.02
+  Total Hold Violation:        -18.80
+  No. of Hold Violations:      752.00
   -----------------------------------
 
 
   Cell Count
   -----------------------------------
-  Hierarchical Cell Count:          0
-  Hierarchical Port Count:          0
-  Leaf Cell Count:                533
-  Buf/Inv Cell Count:               4
-  Buf Cell Count:                   3
-  Inv Cell Count:                   1
+  Hierarchical Cell Count:         80
+  Hierarchical Port Count:       5472
+  Leaf Cell Count:               4661
+  Buf/Inv Cell Count:             340
+  Buf Cell Count:                  35
+  Inv Cell Count:                 305
   CT Buf/Inv Cell Count:            0
-  Combinational Cell Count:        21
-  Sequential Cell Count:          512
+  Combinational Cell Count:      3381
+  Sequential Cell Count:         1280
   Macro Count:                      0
   -----------------------------------
 
@@ -57,7 +57,7 @@ Date   : Sat Jun  7 00:17:16 2025
 
   Design Rules
   -----------------------------------
-  Total Number of Nets:          1417
+  Total Number of Nets:          7241
   Nets With Violations:             0
   Max Trans Violations:             0
   Max Cap Violations:               0
@@ -80,7 +80,7 @@ Date   : Sat Jun  7 00:17:16 2025
   Design  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
 
 
-  Design (Hold)  WNS: 0.00  TNS: 0.00  Number of Violating Paths: 0
+  Design (Hold)  WNS: 0.02  TNS: 18.80  Number of Violating Paths: 752
 
   --------------------------------------------------------------------
 
