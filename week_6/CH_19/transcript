@@ -1,0 +1,83 @@
+# //  Questa Sim-64
+# //  Version 2024.2 linux_x86_64 May 20 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+do run.do
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 16:45:30 on Jun 07,2025
+# vlog -reportprogress 300 lif_neuron_binary.sv 
+# -- Compiling module lif_neuron_binary
+# 
+# Top level modules:
+# 	lif_neuron_binary
+# End time: 16:45:30 on Jun 07,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 2024.2 Compiler 2024.05 May 20 2024
+# Start time: 16:45:30 on Jun 07,2025
+# vlog -reportprogress 300 tb_lif_neuron_binary.sv 
+# -- Compiling module tb_lif_neuron_binary
+# 
+# Top level modules:
+# 	tb_lif_neuron_binary
+# End time: 16:45:30 on Jun 07,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim work.tb_lif_neuron_binary 
+# Start time: 16:45:30 on Jun 07,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading sv_std.std
+# Loading work.tb_lif_neuron_binary(fast)
+# Time	In	Potential	Spike
+# 0	0	    0		0
+# 
+# -- Scenario 1: Constant input below threshold --
+# 10	1	    0		0
+# 15	1	  256		0
+# 25	1	  486		0
+# 35	1	  692		0
+# 45	1	  128		1
+# 55	1	  371		0
+# 
+# -- Scenario 2: Leakage with no input --
+# 60	0	  371		0
+# 65	0	  333		0
+# 75	0	  299		0
+# 85	0	  268		0
+# 95	0	  240		0
+# 105	0	  215		0
+# 115	0	  193		0
+# 125	0	  173		0
+# 135	0	  155		0
+# 145	0	  139		0
+# 155	0	  124		0
+# 
+# -- Scenario 3: Accumulation to threshold --
+# 160	1	  124		0
+# 165	1	  367		0
+# 175	1	  585		0
+# 185	1	  128		1
+# 195	1	  371		0
+# 205	1	  589		0
+# 215	1	  128		1
+# 225	1	  371		0
+# 235	1	  589		0
+# 245	1	  128		1
+# 255	1	  371		0
+# 265	1	  589		0
+# 275	1	  128		1
+# 285	1	  371		0
+# 295	1	  589		0
+# 305	1	  128		1
+# 
+# -- Scenario 4: Immediate spike from strong input --
+# End time: 16:46:13 on Jun 07,2025, Elapsed time: 0:00:43
+# Errors: 0, Warnings: 0

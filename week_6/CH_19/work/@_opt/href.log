@@ -1,0 +1,3 @@
+BEGIN 1:lif_neuron_binary:fast:work
+    membrane_potential_q :  1:tb_lif_neuron_binary:fast:work
+END 
