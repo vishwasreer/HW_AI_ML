@@ -13,13 +13,11 @@ Report : timing
         -capacitance
 Design : MMU
 Version: Q-2019.12-SP3
-Date   : Sat Jun  7 10:02:23 2025
+Date   : Wed Jun 11 20:26:01 2025
 ****************************************
 
- # A fanout number of 1000 was used for high fanout net computations.
-
-Operating Conditions: nom_pvt   Library: dw_foundation.sldb
-Wire Load Model Mode: top
+Operating Conditions: ss0p95vn40c   Library: saed32rvt_ss0p95vn40c
+Wire Load Model Mode: enclosed
 No paths.
 
 1

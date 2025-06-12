@@ -1,0 +1,51 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[20:03:53.350058] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+Version: 23.10-p004_1, built Thu Feb 01 13:43:46 PST 2024
+Options: 
+Date:    Wed Jun 11 20:03:53 2025
+Host:    auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon Processor (Cascadelake) 16384KB) (125666820KB)
+PID:     21687
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[20:03:53.253082] Periodic Lic check successful
+[20:03:53.777402] Feature usage summary:
+[20:03:53.777402] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (16 seconds elapsed).
+
+WARNING: This version of the tool is 496 days old.
+@genus:root: 1> set top_design MMU
+MMU
+@genus:root: 2> source ../genus.tcl
+Sourcing '../genus.tcl' (Wed Jun 11 20:05:00 PDT 2025)...
+#@ Begin verbose source ../genus.tcl
+@file(genus.tcl) 1: history keep 100
+@file(genus.tcl) 2: set_db timing_report_fields "delay arrival transition fanout load cell timing_point"
+  Setting attribute of root '/': 'timing_report_fields' = delay arrival transition fanout load cell timing_point
+@file(genus.tcl) 4: source -echo -verbose $top_design.design_config.tcl
+#@ End verbose source ../genus.tcl
+File 'MMU.design_config.tcl' does not exist.
+@genus:root: 3> exit
+
+Lic Summary:
+[20:05:56.146483] Cdslmd servers: gashapon
+[20:05:56.670801] Feature usage summary:
+[20:05:56.670803] Genus_Synthesis
+
+Normal exit.

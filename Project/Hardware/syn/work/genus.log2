@@ -1,0 +1,191 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[20:06:00.350018] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+Version: 23.10-p004_1, built Thu Feb 01 13:43:46 PST 2024
+Options: 
+Date:    Wed Jun 11 20:06:00 2025
+Host:    auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon Processor (Cascadelake) 16384KB) (125666820KB)
+PID:     25351
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[20:06:00.022290] Periodic Lic check successful
+[20:06:00.546618] Feature usage summary:
+[20:06:00.546618] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (16 seconds elapsed).
+
+WARNING: This version of the tool is 496 days old.
+@genus:root: 1> set top_design MMU
+MMU
+@genus:root: 2> source ../genus.tcl
+Sourcing '../genus.tcl' (Wed Jun 11 20:07:34 PDT 2025)...
+#@ Begin verbose source ../genus.tcl
+@file(genus.tcl) 1: history keep 100
+@file(genus.tcl) 2: set_db timing_report_fields "delay arrival transition fanout load cell timing_point"
+  Setting attribute of root '/': 'timing_report_fields' = delay arrival transition fanout load cell timing_point
+@file(genus.tcl) 4: source -echo -verbose ../$top_design.design_config.tcl
+Sourcing '../MMU.design_config.tcl' (Wed Jun 11 20:07:34 PDT 2025)...
+#@ Begin verbose source ../MMU.design_config.tcl
+@file(MMU.design_config.tcl) 1: set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK
+@file(MMU.design_config.tcl) 29: set FCL 1
+set FCL 1
+@file(MMU.design_config.tcl) 30: set add_ios 0
+set add_ios 0
+@file(MMU.design_config.tcl) 31: set pad_design 0
+set pad_design 0
+@file(MMU.design_config.tcl) 32: set design_size {1000 644 }
+set design_size {1000 644 }
+@file(MMU.design_config.tcl) 33: set design_io_border 10
+set design_io_border 10
+@file(MMU.design_config.tcl) 34: set dc_floorplanning 1
+set dc_floorplanning 1
+@file(MMU.design_config.tcl) 35: set enable_dft 0
+set enable_dft 0
+@file(MMU.design_config.tcl) 36: set innovus_enable_manual_macro_placement 1
+set innovus_enable_manual_macro_placement 1
+@file(MMU.design_config.tcl) 37: set split_constraints 0
+set split_constraints 0
+@file(MMU.design_config.tcl) 42: set rtl_list [list ../../$top_design.sv ]
+set rtl_list [list ../../$top_design.sv ]
+@file(MMU.design_config.tcl) 44: set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+@file(MMU.design_config.tcl) 45: set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+@file(MMU.design_config.tcl) 46: set slow_metal Cmax.tlup_-40
+set slow_metal Cmax.tlup_-40
+@file(MMU.design_config.tcl) 47: set fast_metal Cmin.tlup_-40
+set fast_metal Cmin.tlup_-40
+@file(MMU.design_config.tcl) 49: set synth_corners $slow_corner
+set synth_corners $slow_corner
+@file(MMU.design_config.tcl) 50: set synth_corners_slow $slow_corner
+set synth_corners_slow $slow_corner
+@file(MMU.design_config.tcl) 51: set synth_corners_fast $fast_corner
+set synth_corners_fast $fast_corner
+@file(MMU.design_config.tcl) 53: set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+@file(MMU.design_config.tcl) 55: set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+@file(MMU.design_config.tcl) 58: if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+@file(MMU.design_config.tcl) 72: set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+@file(MMU.design_config.tcl) 75: set sub_block {SDRAM_TOP 
+				BLENDER_0 
+				PCI_TOP 
+				CONTEXT_MEM 
+				RISC_CORE 
+				CLOCKING 
+				BLENDER_1 
+				PARSER 
+				}
+set sub_block {SDRAM_TOP 
+				BLENDER_0 
+				PCI_TOP 
+				CONTEXT_MEM 
+				RISC_CORE 
+				CLOCKING 
+				BLENDER_1 
+				PARSER 
+				}
+@file(MMU.design_config.tcl) 84: 				
+				
+@file(MMU.design_config.tcl) 85: set sub_block_I {I_SDRAM_TOP I_BLENDER_1  I_BLENDER_0 I_RISC_CORE I_CONTEXT_MEM I_PCI_TOP I_PARSER I_CLOCKING}
+set sub_block_I {I_SDRAM_TOP I_BLENDER_1  I_BLENDER_0 I_RISC_CORE I_CONTEXT_MEM I_PCI_TOP I_PARSER I_CLOCKING}
+@file(MMU.design_config.tcl) 86: 				
+				
+@file(MMU.design_config.tcl) 87: set macro_block {I_SDRAM_TOP I_PCI_TOP I_RISC_CORE I_CONTEXT_MEM}
+set macro_block {I_SDRAM_TOP I_PCI_TOP I_RISC_CORE I_CONTEXT_MEM}
+@file(MMU.design_config.tcl) 90: if {[info exists synopsys_program_name]} {
+        if { $synopsys_program_name == "dc_shell" } {
+           set_host_options -max_cores 4
+        } 
+        if { $synopsys_program_name == "icc2_shell" } {
+           set_host_options -max_cores 4
+        }
+} elseif {[get_db root: .program_short_name] == "innovus"} {
+  setMultiCpuUsage -localCpu 8 
+} elseif {[get_db root: .program_short_name] == "genus"} {
+  set_db / .max_cpus_per_server 8 
+}
+if {[info exists synopsys_program_name]} {
+        if { $synopsys_program_name == "dc_shell" } {
+           set_host_options -max_cores 4
+        } 
+        if { $synopsys_program_name == "icc2_shell" } {
+           set_host_options -max_cores 4
+        }
+} elseif {[get_db root: .program_short_name] == "innovus"} {
+  setMultiCpuUsage -localCpu 8 
+} elseif {[get_db root: .program_short_name] == "genus"} {
+  set_db / .max_cpus_per_server 8 
+}
+  Setting attribute of root '/': 'max_cpus_per_server' = 8
+#@ End verbose source ../MMU.design_config.tcl
+@file(genus.tcl) 7: source ../genus-get-timlibslefs.tcl
+Sourcing '../genus-get-timlibslefs.tcl' (Wed Jun 11 20:07:34 PDT 2025)...
+#@ Begin verbose source ../genus-get-timlibslefs.tcl
+@file(genus-get-timlibslefs.tcl) 9: set search_path ""
+@file(genus-get-timlibslefs.tcl) 10: foreach i $lib_types { lappend search_path $i }
+@file(genus-get-timlibslefs.tcl) 20: set link_library ""
+@file(genus-get-timlibslefs.tcl) 21: foreach i $search_path {
+  foreach k $synth_corners {
+      foreach m $sub_lib_type {
+        foreach j [glob -nocomplain $i/$m$k.lib ] {
+          lappend link_library [file tail $j ]
+        }
+      }
+  }
+}
+@file(genus-get-timlibslefs.tcl) 32: foreach i $lib_types_target { 
+   lappend search_path_target $i 
+   lappend search_path $i 
+}
+#@ End verbose source ../genus-get-timlibslefs.tcl
+#@ End verbose source ../genus.tcl
+can't read "lib_types_target": no such variable
+@genus:root: 3> exit
+
+Lic Summary:
+[20:11:45.255321] Cdslmd servers: gashapon
+[20:11:45.779665] Feature usage summary:
+[20:11:45.779667] Genus_Synthesis
+
+Normal exit.

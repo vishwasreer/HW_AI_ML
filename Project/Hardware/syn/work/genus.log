@@ -1,0 +1,25 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+Version: 17.14-s037_1, built Wed Apr 18 2018
+Options: 
+Date:    Wed Jun 11 19:50:28 2025
+Host:    auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*32physical cpus*Intel Xeon Processor (Cascadelake) 16384KB) (125666820KB)
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+
+Loading tool scripts...
+
+Another Ctrl-C within 1 second will terminate the tool.
+
+Another Ctrl-C within 1 second will terminate the tool.
+Finished loading tool scripts (289 seconds elapsed).
+
+WARNING: This version of the tool is 2611 days old.
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
+@genus:root: 1> 
