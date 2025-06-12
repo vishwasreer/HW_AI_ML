@@ -11,18 +11,18 @@ z2
 cModel Technology
 Z0 d/u/routh/HW_AI_ML/Project/Design
 T_opt
-!s110 1749754706
-V[L?:>UZAKihdN^4jB[MOa2
+!s110 1749764814
+V=_QCiF>J<b7Cm]23ER[463
 04 10 4 work matmul_top fast 0
-=1-5254006cf05e-684b2352-271e7-274
+=1-5254006cf05e-684b4acd-d7157-3475
 !s124 OEM100
-o-quiet +acc -auto_acc_if_foreign -work work
+o-quiet +acc -auto_acc_if_foreign -work work +acc
 Z1 tCvgOpt 0
 n@_opt
 OL;O;2021.3_1;73
 Yapb_if
 Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z3 !s110 1749754705
+Z3 !s110 1749764813
 !i10b 1
 !s100 i;b`YHC[co]OfL8R8Tm]D0
 Ib:0G17[<O^=>b`8JDaR;i2
@@ -38,7 +38,7 @@ Z5 OL;L;2021.3_1;73
 r1
 !s85 0
 31
-Z6 !s108 1749754705.000000
+Z6 !s108 1749764813.000000
 Z7 !s107 apb_if.sv|MAC.sv|/u/routh/HW_AI_ML/Project/Design/matmul_top.sv|/u/routh/HW_AI_ML/Project/Design/MMU.sv|/u/routh/HW_AI_ML/Project/Design/MAC.sv|/u/routh/HW_AI_ML/Project/Design/apb_if.sv|
 Z8 !s90 -work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|-sv|+acc|/u/routh/HW_AI_ML/Project/Design/apb_if.sv|/u/routh/HW_AI_ML/Project/Design/MAC.sv|/u/routh/HW_AI_ML/Project/Design/MMU.sv|/u/routh/HW_AI_ML/Project/Design/matmul_top.sv|
 !i113 0

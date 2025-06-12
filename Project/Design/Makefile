@@ -17,6 +17,13 @@ MODULE = Apb_master
 
 # Extra compile arguments (SystemVerilog support)
 COMPILE_ARGS += -sv
+# QuestaSim Simulation Arguments
+VSIM_ARGS += -voptargs=+acc
+
+
+# Optional: dump waveform
+WAVES = 1
+GUI = 0
 
 # Simulation build output directory
 BUILD_DIR = sim_build

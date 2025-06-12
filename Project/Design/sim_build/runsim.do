@@ -7,7 +7,8 @@ if [file exists sim_build/work] {vdel -lib sim_build/work -all}
 vlib sim_build/work
 vmap work sim_build/work
 vlog -work work +define+COCOTB_SIM -sv -timescale 1ns/1ps -mfcu -sv +acc  /u/routh/HW_AI_ML/Project/Design/apb_if.sv /u/routh/HW_AI_ML/Project/Design/MAC.sv /u/routh/HW_AI_ML/Project/Design/MMU.sv /u/routh/HW_AI_ML/Project/Design/matmul_top.sv
-vsim  -onfinish exit -pli /u/routh/.local/lib/python3.6/site-packages/cocotb/libs/libcocotbvpi_modelsim.so   work.matmul_top
+vsim -voptargs=+acc  -onfinish exit -pli /u/routh/.local/lib/python3.6/site-packages/cocotb/libs/libcocotbvpi_modelsim.so   work.matmul_top
+log -recursive /*
 onbreak resume
 run -all
 quit
