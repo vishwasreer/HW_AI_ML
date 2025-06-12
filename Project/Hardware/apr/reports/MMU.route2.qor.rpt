@@ -1,0 +1,79 @@
+****************************************
+Report : qor
+Design : MMU
+Version: V-2023.12
+Date   : Wed Jun 11 21:53:13 2025
+****************************************
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+
+Scenario           'func_slow'
+Timing Path Group  'clk'
+----------------------------------------
+Levels of Logic:                     16
+Critical Path Length:              1.92
+Critical Path Slack:              -0.12
+Critical Path Clk Period:          2.00
+Total Negative Slack:             -2.93
+No. of Violating Paths:              73
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:             16
+Hierarchical Port Count:           1708
+Leaf Cell Count:                   5806
+Buf/Inv Cell Count:                 882
+Buf Cell Count:                     288
+Inv Cell Count:                     594
+Combinational Cell Count:          5258
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              548
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       548
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            14795.25
+Noncombinational Area:          4826.70
+Buf/Inv Area:                   1717.51
+Total Buffer Area:               872.73
+Total Inverter Area:             844.77
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                   85998.68
+Net YLength:                   52743.42
+----------------------------------------
+Cell Area (netlist):                          19621.95
+Cell Area (netlist and physical only):       587708.00
+Net Length:                   138742.11
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              6549
+Nets with Violations:                 2
+Max Trans Violations:                 0
+Max Cap Violations:                   2
+----------------------------------------
+
+1

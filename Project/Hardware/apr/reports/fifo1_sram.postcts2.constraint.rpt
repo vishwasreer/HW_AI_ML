@@ -1,0 +1,94 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : fifo1_sram
+Version: V-2023.12
+Date   : Tue Apr  9 21:28:08 2024
+****************************************
+
+   late_timing
+   -----------
+
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+wptr_full/wfull_reg/D (SDFFARX1_RVT)   2.32 r     2.15           0.00    -0.16   wclk     func_slow
+rptr_empty/rempty_reg/D (SDFFASX1_RVT)   2.53 r   2.29           0.01    -0.24   rclk     func_slow
+wdata_reg_6_/D (SDFFARX1_HVT)      0.92 f         0.89           0.00    -0.03   INPUTS   func_slow
+rdata[6] (out)                     3.13 f         3.04           0.00    -0.09   OUTPUTS  func_slow
+rdata[4] (out)                     3.11 f         3.04           0.00    -0.07   OUTPUTS  func_slow
+rdata[5] (out)                     3.11 f         3.04           0.00    -0.07   OUTPUTS  func_slow
+rdata[7] (out)                     3.06 f         3.04           0.00    -0.01   OUTPUTS  func_slow
+
+   early_timing
+   -----------
+
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   Mode: func Corner: slow
+   Scenario: func_slow
+   max_transition                                                              
+                             Required        Actual                            
+   Net                      Transition     Transition        Slack  Violation  
+  ---------------------------------------------------------------------------
+   HFSNET_6                     0.18           0.16           0.02  (MET)      
+
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: func Corner: slow
+   Scenario: func_slow
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   fifomem/n72                 25.00          43.99         -18.99  (VIOLATED) 
+     PIN : fifomem/genblk1_3__U/O2[5]    25.00    43.99     -18.99  (VIOLATED) 
+
+   fifomem/n71                 25.00          43.61         -18.61  (VIOLATED) 
+     PIN : fifomem/genblk1_2__U/O2[5]    25.00    43.61     -18.61  (VIOLATED) 
+
+   fifomem/n80                 25.00          38.88         -13.88  (VIOLATED) 
+     PIN : fifomem/genblk1_3__U/O2[6]    25.00    38.88     -13.88  (VIOLATED) 
+
+   fifomem/n51                 25.00          29.07          -4.07  (VIOLATED) 
+     PIN : fifomem/genblk1_6__U/O2[2]    25.00    29.07      -4.07  (VIOLATED) 
+
+   fifomem/n68                 25.00          28.98          -3.98  (VIOLATED) 
+     PIN : fifomem/genblk1_7__U/O2[4]    25.00    28.98      -3.98  (VIOLATED) 
+
+   fifomem/n44                 25.00          28.45          -3.45  (VIOLATED) 
+     PIN : fifomem/genblk1_7__U/O2[1]    25.00    28.45      -3.45  (VIOLATED) 
+
+   fifomem/n84                 25.00          28.40          -3.40  (VIOLATED) 
+     PIN : fifomem/genblk1_7__U/O2[6]    25.00    28.40      -3.40  (VIOLATED) 
+
+   fifomem/n59                 25.00          27.99          -2.99  (VIOLATED) 
+     PIN : fifomem/genblk1_6__U/O2[3]    25.00    27.99      -2.99  (VIOLATED) 
+
+   fifomem/n92                 25.00          27.02          -2.02  (VIOLATED) 
+     PIN : fifomem/genblk1_7__U/O2[7]    25.00    27.02      -2.02  (VIOLATED) 
+
+   fifomem/n67                 25.00          26.16          -1.16  (VIOLATED) 
+     PIN : fifomem/genblk1_6__U/O2[4]    25.00    26.16      -1.16  (VIOLATED) 
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 10
+
+
+   Mode: func Corner: slow
+   Scenario: func_slow
+  ---------------------------------------------------------------------------
+   Number of min_capacitance violation(s): 0
+
+  Mode: func
+  Corner: slow
+  Scenario: func_slow
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 10
+1

@@ -1,0 +1,975 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	
+Date:		Tue Apr  9 20:33:50 2024
+Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.105.1.el7.x86_64) (1core*32cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[20:33:50.402282] Configured Lic search path (21.01-s002): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+Sourcing startup file ./enc.tcl
+<CMD> alias fs set top_design fifo1_sram
+<CMD> alias f set top_design fifo1
+<CMD> alias o set top_design ORCA_TOP
+<CMD> alias e set top_design ExampleRocketSystem
+<CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+**WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+<CMD> set_global report_timing_format  {delay arrival slew cell hpin}
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> win
+<CMD> fs
+### Start verbose source output (echo mode) for '../../fifo1_sram.design_config.tcl' ...
+# set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+# set hack_lef_dir /u/bcruik2/hacked_lefs
+# set add_ios 1
+# set pad_design 1
+# set design_size { 580 580  } 
+# set design_io_border 310
+# set dc_floorplanning 1
+# set enable_dft 0
+# set innovus_enable_manual_macro_placement 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+# set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+# set synth_corners $slow_corner
+# set synth_corners_target "ss0p95v125c" 
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set slow_metal Cmax_125
+# set fast_metal Cmax_125
+# set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+# set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+# set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+# set sub_lib_type_target "saed32rvt_"
+# set tech_lef ${hack_lef_dir}/tech.lef 
+# set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+# set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+# set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+# set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+# set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+# set FCL 0
+# set split_constraints 0
+### End verbose source output for '../../fifo1_sram.design_config.tcl'.
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> set search_path {}
+<CMD> set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+<CMD> is_common_ui_mode
+<CMD> is_common_ui_mode
+<CMD> set init_mmmc_file mmmc.tcl
+<CMD> set init_design_netlisttype Verilog
+<CMD> set init_verilog ../../syn/outputs/fifo1_sram.genus.vg
+<CMD> set init_top_cell fifo1_sram
+<CMD> set init_pwr_net VDD
+<CMD> set init_gnd_net VSS
+<CMD> init_design
+#% Begin Load MMMC data ... (date=04/09 20:35:12, mem=737.7M)
+#% End Load MMMC data ... (date=04/09 20:35:12, total cpu=0:00:00.1, real=0:00:00.0, peak res=738.3M, current mem=738.3M)
+cmin cmax
+
+Loading LEF file /u/bcruik2/hacked_lefs/tech.lef ...
+
+Loading LEF file saed32_io_wb_all.lef ...
+Set DBUPerIGU to M2 pitch 152.
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32_io_wb_all.lef at line 285838.
+
+Loading LEF file saed32nm_lvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_lvt_1p9m.lef at line 67466.
+
+Loading LEF file saed32_PLL.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32_PLL.lef at line 372.
+
+Loading LEF file saed32nm_hvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_hvt_1p9m.lef at line 191962.
+
+Loading LEF file saed32nm_rvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_rvt_1p9m.lef at line 148040.
+
+Loading LEF file saed32sram.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32sram.lef at line 197399.
+
+viaInitial starts at Tue Apr  9 20:35:16 2024
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR_C' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG_C' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG' and 'VIA12SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23BAR_C' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23LG_C' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23BAR' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23LG' and 'VIA23SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34BAR_C' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34LG_C' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34BAR' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34LG' and 'VIA34SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45BAR_C' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45LG_C' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45BAR' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45LG' and 'VIA45SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56BAR_C' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56LG_C' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56BAR' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56LG' and 'VIA56SQ_C'.
+Type 'man IMPPP-543' for more detail.
+**WARN: (EMS-27):	Message (IMPPP-543) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+viaInitial ends at Tue Apr  9 20:35:16 2024
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from mmmc.tcl
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84607)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84658)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84709)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120047)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120098)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120149)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226626 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226627 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226628 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+Read 294 cells in library 'saed32rvt_ss0p95v125c' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84611)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84662)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84713)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120051)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120102)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120153)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226346 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226347 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226348 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+Read 294 cells in library 'saed32hvt_ss0p95v125c' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib' ...
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 15913 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 15914 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 15915 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+Read 62 cells in library 'saed32io_wb_ss0p95v125c_2p25v' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib' ...
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 24401 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 24402 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 24403 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+Read 35 cells in library 'saed32sram_ss0p95v125c' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib' ...
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 1766 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 1767 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 1768 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PLL'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+Read 1 cells in library 'saed32pll_ss0p95v125c_2p25v' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84607)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84658)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84709)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120047)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120098)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120149)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226448 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+Read 294 cells in library 'saed32rvt_ff0p95vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84607)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84658)
+Message <TECHLIB-1277> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+Message <TECHLIB-1161> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 294 cells in library 'saed32rvt_ff1p16vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95vn40c.lib' ...
+Read 294 cells in library 'saed32hvt_ff0p95vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16vn40c.lib' ...
+Read 294 cells in library 'saed32hvt_ff1p16vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ff1p16vn40c_2p75v.lib' ...
+Read 62 cells in library 'saed32io_wb_ff1p16vn40c_2p75v' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16vn40c.lib' ...
+Read 35 cells in library 'saed32sram_ff1p16vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ff1p16vn40c_2p75v.lib' ...
+Read 1 cells in library 'saed32pll_ff1p16vn40c_2p75v' 
+*** End library_loading (cpu=0.20min, real=0.20min, mem=41.9M, fe_cpu=1.09min, fe_real=1.63min, fe_mem=1092.6M) ***
+#% Begin Load netlist data ... (date=04/09 20:35:28, mem=796.7M)
+*** Begin netlist parsing (mem=1092.6M) ***
+Created 686 new cells from 12 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../../syn/outputs/fifo1_sram.genus.vg'
+
+*** Memory Usage v#1 (Current mem = 1092.551M, initial mem = 390.141M) ***
+*** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=1092.6M) ***
+#% End Load netlist data ... (date=04/09 20:35:28, total cpu=0:00:00.2, real=0:00:00.0, peak res=817.6M, current mem=817.6M)
+Set top cell to fifo1_sram.
+Hooked 1960 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell fifo1_sram ...
+*** Netlist is unique.
+** info: there are 2428 modules.
+** info: there are 222 stdCell insts.
+** info: there are 25 Pad insts.
+** info: there are 8 macros.
+
+*** Memory Usage v#1 (Current mem = 1170.977M, initial mem = 390.141M) ***
+Initializing I/O assignment ...
+Adjusting Core to Left to: 0.0480. Core to Bottom to: 0.0480.
+**WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 0 (derived)
+Vertical Layer M2 offset = 0 (derived)
+Start create_tracks
+Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap ...
+Process name: saed32nm_1p9m_Cmax.
+Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap ...
+Process name: saed32nm_1p9m_Cmin.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_max_scenario
+    RC-Corner Name        : cmax
+    RC-Corner Index       : 0
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+ 
+ Analysis View: func_min_scenario
+    RC-Corner Name        : cmin
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+Current (total cpu=0:01:09, real=0:01:42, peak res=1160.5M, current mem=1160.5M)
+Number of path exceptions in the constraint file = 2
+Number of paths exceptions after getting compressed = 2
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.2, real=0:00:00.0, peak res=1198.3M, current mem=1198.3M)
+Current (total cpu=0:01:09, real=0:01:42, peak res=1198.3M, current mem=1198.3M)
+Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+Current (total cpu=0:01:09, real=0:01:42, peak res=1198.3M, current mem=1198.3M)
+Number of path exceptions in the constraint file = 2
+Number of paths exceptions after getting compressed = 2
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1198.6M, current mem=1198.6M)
+Current (total cpu=0:01:09, real=0:01:42, peak res=1198.6M, current mem=1198.6M)
+**WARN: (TA-976):	Path groups asserted by the group_path constraint are considered by the software to be global in nature - they cannot be restricted to specific constraint modes. Due to this restriction, the group_path constraint is not supported directly in the constraint files which are configured in mode-specific commands such as create_constraint_mode. The current group_path entry will be ignored. You can enter the group_path constraint interactively or as part of a general command script -  where it will be interpreted as global and will be in effect for all modes.
+Total number of combinational cells: 268
+Total number of sequential cells: 264
+Total number of tristate cells: 12
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 32
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: NBUFFX2_HVT NBUFFX16_HVT NBUFFX32_HVT NBUFFX4_HVT NBUFFX8_HVT NBUFFX2_RVT NBUFFX16_RVT NBUFFX32_RVT NBUFFX4_RVT NBUFFX8_RVT
+Total number of usable buffers: 10
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: IBUFFX2_HVT IBUFFX16_HVT IBUFFX32_HVT INVX0_HVT IBUFFX4_HVT IBUFFX8_HVT INVX16_HVT INVX1_HVT INVX2_HVT INVX32_HVT INVX4_HVT IBUFFX2_RVT INVX8_HVT IBUFFX16_RVT IBUFFX32_RVT INVX0_RVT IBUFFX4_RVT IBUFFX8_RVT INVX16_RVT INVX1_RVT INVX2_RVT INVX32_RVT INVX4_RVT INVX8_RVT
+Total number of usable inverters: 24
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DELLN1X2_HVT DELLN2X2_HVT DELLN3X2_HVT DELLN1X2_RVT DELLN2X2_RVT DELLN3X2_RVT
+Total number of identified usable delay cells: 6
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+#% Begin Load MMMC data post ... (date=04/09 20:35:33, mem=1202.1M)
+#% End Load MMMC data post ... (date=04/09 20:35:33, total cpu=0:00:00.1, real=0:00:00.0, peak res=1202.1M, current mem=1202.1M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   IMPPP-543           28  Inconsistent cut size definition in VIAR...
+WARNING   TA-976               1  Path groups asserted by the group_path c...
+WARNING   TECHLIB-302         38  No function defined for cell '%s'. The c...
+WARNING   TECHLIB-1161        36  The library level attribute %s on line %...
+WARNING   TECHLIB-1277        36  The %s '%s' has been defined for %s %s '...
+*** Message Summary: 143 warning(s), 0 error(s)
+
+### Start verbose source output (echo mode) for '../../fifo1_sram.design_options.tcl' ...
+# if { [info exists synopsys_program_name ] } { 
+    set_app_option -name place.coarse.continue_on_missing_scandef -value true
+
+    #set enable_recovery_removal_arcs true
+    set_app_option -name time.disable_recovery_removal_checks -value false
+    #set timing_enable_multiple_clocks_per_reg true
+    #set timing_remove_clock_reconvergence_pessimism true
+    set_app_option -name timer.remove_clock_reconvergence_pessimism -value true
+
+    #set physopt_enable_via_res_support true
+    #set physopt_hard_keepout_distance 5
+    #set_preferred_routing_direction -direction vertical -l {M2 M4}
+    #set_preferred_routing_direction -direction horizontal -l {M3 M5}
+    set_ignored_layers  -min_routing_layer M2 -max_routing_layer M7
+
+
+    # To optimize DW components (I think only adders right now??) - default is false
+    #set physopt_dw_opto true
+
+    #set_ahfs_options -remove_effort high
+    #set_buffer_opt_strategy -effort medium
+
+    # Dont use delay buffers
+    #set_dont_use [get_lib_cells */DELLN* ]
+    set_lib_cell_purpose -include hold [get_lib_cells */DELLN* ]
+
+    #FIXME
+    #set_host_options -max_cores 1 -num_processes 1 mo.ece.pdx.edu
+    set_app_options -name compile.flow.trial_clock_tree -value false
+    set_app_options -name place_opt.flow.trial_clock_tree -value false
+    set_app_options -name compile.flow.enable_ccd -value false
+    set_app_options -name place_opt.flow.enable_ccd -value false
+    set_app_options -name clock_opt.flow.enable_ccd -value false
+    set_app_options -name route_opt.flow.enable_ccd -value false
+    set_app_options -name ccd.max_postpone -value 0
+    set_app_options -name ccd.max_prepone -value 0
+
+    ###########################  CTS Related
+    create_routing_rule clock_double_spacing -spacings {M1 0.1 M2 0.112 M3 0.112 M4 0.112 M5 0.112 M6 0.112 M7 0.112 M8 0.112}
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type internal -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type root -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    # Set other cts app_options?  Bufs vs Inverters, certain drive strengths.  
+
+    # Allow delay buffers just for hold fixing
+    #set_prefer -min [get_lib_cells */DELLN*HVT ]
+    #set_fix_hold_options -preferred_buffer
+    # fix hold on all clocks
+    #set_fix_hold [all_clocks]
+    # If design blows up, try turning hold fixing off. 
+    # -optimize_dft is good if scan is inserted.
+    # Sometimes better to separate CTS and setup/hold so any hold concerns can be seen before hold fixing.
+    # Can look in the log at the beginning of clock_opt hold fixing to see if there was a large hold problem to fix.
+    # set_app_option -name clock_opt.flow.skip_hold -value true
+
+    ########################## Route related
+    set_app_option -name route_opt.flow.xtalk_reduction -value true
+    set_app_option -name time.si_enable_analysis -value true
+
+    if { $top_design == "ORCA_TOP" } {
+      create_voltage_area  -region {{580 0} {1000 400}} -power_domains PD_RISC_CORE
+    }
+} else {
+
+    # Try reducing the search and repair iterations for now.
+    if [is_common_ui_mode ] { set_db route_design_detail_end_iteration 10
+    } else { setNanoRouteMode -drouteEndIteration 10  }
+}
+<CMD> is_common_ui_mode
+<CMD> setNanoRouteMode -drouteEndIteration 10
+### End verbose source output for '../../fifo1_sram.design_options.tcl'.
+### Start verbose source output (echo mode) for '../scripts/floorplan-innovus.tcl' ...
+# defIn "../outputs/${top_design}.floorplan.innovus.macros.def" 
+<CMD> defIn ../outputs/fifo1_sram.floorplan.innovus.macros.def
+Reading DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def', current time is Tue Apr  9 20:35:33 2024 ...
+--- DIVIDERCHAR '/'
+--- UnitsPerDBU = 1.0000
+**WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 0 (derived)
+Vertical Layer M2 offset = 0 (derived)
+Start create_tracks
+Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+--- DIEAREA (0 0) (1200096 1200096)
+DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def' is parsed, current time is Tue Apr  9 20:35:33 2024.
+Updating the floorplan ...
+# add_tracks -honor_pitch
+<CMD> add_tracks -honor_pitch
+Start create_tracks
+Generated pitch 2.432 in MRDL is different from previous one 0.228 in unpreferred direction.
+Generated pitch 1.216 in M9 is different from previous one 0.152 in unpreferred direction.
+Generated pitch 2.432 in M9 is different from previous one 0.228 in preferred direction.
+Generated pitch 1.216 in M8 is different from previous one 0.152 in unpreferred direction.
+Generated pitch 1.216 in M8 is different from previous one 0.152 in preferred direction.
+Generated pitch 0.608 in M7 is different from previous one 0.152 in unpreferred direction.
+Generated pitch 1.216 in M7 is different from previous one 0.152 in preferred direction.
+Generated pitch 0.608 in M6 is different from previous one 0.152 in unpreferred direction.
+Generated pitch 0.608 in M6 is different from previous one 0.152 in preferred direction.
+Generated pitch 0.304 in M5 is different from previous one 0.152 in unpreferred direction.
+Generated pitch 0.608 in M5 is different from previous one 0.152 in preferred direction.
+Generated pitch 0.304 in M4 is different from previous one 0.152 in unpreferred direction.
+Generated pitch 0.304 in M4 is different from previous one 0.152 in preferred direction.
+Generated pitch 0.304 in M3 is different from previous one 0.152 in preferred direction.
+# clearGlobalNets
+<CMD> clearGlobalNets
+# globalNetConnect VDD -type pgpin -pin VDD -inst *
+<CMD> globalNetConnect VDD -type pgpin -pin VDD -inst *
+# globalNetConnect VSS -type pgpin -pin VSS -inst *
+<CMD> globalNetConnect VSS -type pgpin -pin VSS -inst *
+# checkDesign -powerGround -noHtml -outfile pg.rpt
+<CMD> checkDesign -powerGround -noHtml -outfile pg.rpt
+Design check done.
+
+
+---
+--- Please refer to file pg.rpt for detailed report.
+---
+*** Message Summary: 0 warning(s), 0 error(s)
+
+# addRing -type core_rings -nets {VDD VSS} -layer {top M8 bottom M8 left M7 right M7} -offset 1 -width 4 -spacing 1.0
+<CMD> addRing -type core_rings -nets {VDD VSS} -layer {top M8 bottom M8 left M7 right M7} -offset 1 -width 4 -spacing 1.0
+#% Begin addRing (date=04/09 20:35:33, mem=1203.6M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1479.9M)
+Ring generation is complete.
+vias are now being generated.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 300.000000) (299.000000, 300.190002).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 339.809998) (299.000000, 340.000000).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 380.014008) (299.000000, 380.204010).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 419.824005) (299.000000, 420.014008).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 460.028015) (299.000000, 460.217987).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 499.838013) (299.000000, 500.028015).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 540.041992) (299.000000, 540.231995).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 579.851990) (299.000000, 580.041992).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 620.054993) (299.000000, 620.244995).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 659.864990) (299.000000, 660.054993).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 700.067993) (299.000000, 700.257996).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 739.877991) (299.000000, 740.067993).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 780.081970) (299.000000, 780.271973).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 819.892029) (299.000000, 820.081970).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 860.096008) (299.000000, 860.286011).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (295.000000, 899.906006) (299.000000, 900.096008).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (901.096008, 300.000000) (905.096008, 300.190002).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (901.096008, 339.809998) (905.096008, 340.000000).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (901.096008, 380.014008) (905.096008, 380.204010).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (901.096008, 419.824005) (905.096008, 420.014008).
+Type 'man IMPPP-570' for more detail.
+**WARN: (EMS-27):	Message (IMPPP-570) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (900.10, 899.91) (905.10, 900.10).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (295.00, 899.91) (300.00, 900.10).
+addRing created 8 wires.
+ViaGen created 244 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  VIA5  |       100      |        0       |
+|  VIA6  |       100      |        0       |
+|   M7   |        4       |       NA       |
+|  VIA7  |       44       |        0       |
+|   M8   |        4       |       NA       |
++--------+----------------+----------------+
+#% End addRing (date=04/09 20:35:33, total cpu=0:00:00.1, real=0:00:00.0, peak res=1206.8M, current mem=1206.8M)
+# addStripe -nets {VDD VSS} -direction vertical   -layer M4 -width 0.060 -set_to_set_distance 20 -spacing 10
+<CMD> addStripe -nets {VDD VSS} -direction vertical -layer M4 -width 0.060 -set_to_set_distance 20 -spacing 10
+#% Begin addStripe (date=04/09 20:35:33, mem=1206.8M)
+
+Initialize fgc environment(mem: 1480.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1480.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1480.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1480.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1480.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Completing 10% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1482.9M)
+Completing 20% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1482.9M)
+Completing 30% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1482.9M)
+Completing 40% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1482.9M)
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer VIA4 at (620.10, 290.00) (620.15, 294.00).
+Completing 50% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Completing 60% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Completing 70% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Completing 80% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Completing 90% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Stripe generation is complete.
+vias are now being generated.
+addStripe created 167 wires.
+ViaGen created 470 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|   M3   |        2       |       NA       |
+|  VIA3  |        4       |        0       |
+|   M4   |       164      |       NA       |
+|  VIA4  |       118      |        0       |
+|   M5   |        1       |       NA       |
+|  VIA5  |       116      |        0       |
+|  VIA6  |       116      |        0       |
+|  VIA7  |       116      |        0       |
++--------+----------------+----------------+
+#% End addStripe (date=04/09 20:35:33, total cpu=0:00:00.2, real=0:00:01.0, peak res=1212.6M, current mem=1212.6M)
+# addStripe -nets {VDD VSS} -direction horizontal   -layer M5 -width 0.120 -set_to_set_distance 20 -spacing 10
+<CMD> addStripe -nets {VDD VSS} -direction horizontal -layer M5 -width 0.120 -set_to_set_distance 20 -spacing 10
+#% Begin addStripe (date=04/09 20:35:34, mem=1212.6M)
+
+Initialize fgc environment(mem: 1483.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Completing 10% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1483.9M)
+Completing 20% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1484.9M)
+Completing 30% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1484.9M)
+Completing 40% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1484.9M)
+Completing 50% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Completing 60% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Completing 70% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Completing 80% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Completing 90% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Stripe generation is complete.
+vias are now being generated.
+addStripe created 144 wires.
+ViaGen created 1592 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|   M4   |       12       |       NA       |
+|  VIA4  |      1360      |        0       |
+|   M5   |       132      |       NA       |
+|  VIA5  |       116      |        0       |
+|  VIA6  |       116      |        0       |
++--------+----------------+----------------+
+#% End addStripe (date=04/09 20:35:34, total cpu=0:00:00.4, real=0:00:00.0, peak res=1215.3M, current mem=1215.3M)
+# addStripe -nets {VDD VSS} -direction vertical   -layer M6 -width 0.120 -set_to_set_distance 20 -spacing 10
+<CMD> addStripe -nets {VDD VSS} -direction vertical -layer M6 -width 0.120 -set_to_set_distance 20 -spacing 10
+#% Begin addStripe (date=04/09 20:35:34, mem=1215.3M)
+
+Initialize fgc environment(mem: 1485.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1485.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Completing 10% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1486.9M)
+Completing 20% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1486.9M)
+Completing 30% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1487.9M)
+Completing 40% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1487.9M)
+Completing 50% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1487.9M)
+Completing 60% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1487.9M)
+Completing 70% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1487.9M)
+Completing 80% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 90% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Stripe generation is complete.
+vias are now being generated.
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M6 & M4 at (310.03, 295.00) (310.09, 393.96).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M6 & M4 at (310.03, 459.35) (310.09, 602.96).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M6 & M4 at (310.03, 668.35) (310.09, 673.18).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M6 & M4 at (310.03, 738.58) (310.09, 743.40).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M6 & M4 at (310.03, 808.80) (310.09, 903.58).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 396.59) (310.33, 396.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 417.29) (310.33, 417.59).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 412.79) (310.33, 413.09).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 405.59) (310.33, 405.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 404.69) (310.33, 404.99).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 401.09) (310.33, 401.39).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 400.19) (310.33, 400.49).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 407.39) (310.33, 407.69).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 437.09) (310.33, 437.39).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 432.59) (310.33, 432.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 421.79) (310.33, 422.09).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 423.59) (310.33, 423.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 428.09) (310.33, 428.39).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 427.19) (310.33, 427.49).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M6 at (310.03, 420.89) (310.33, 421.19).
+**WARN: (EMS-27):	Message (IMPPP-532) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPPP-612):	The intersection area is insufficient to satisfy MINIMUMCUT rule, so no via was created between layer: M5 & M6, size: 0.12 x 0.30 at (330.12, 465.68).
+**WARN: (IMPPP-612):	The intersection area is insufficient to satisfy MINIMUMCUT rule, so no via was created between layer: M5 & M6, size: 0.12 x 0.30 at (360.26, 465.68).
+addStripe created 64 wires.
+ViaGen created 1799 vias, deleted 226 vias to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  VIA4  |        1       |        0       |
+|  VIA5  |      1560      |        0       |
+|   M6   |       61       |       NA       |
+|  VIA6  |       122      |       113      |
+|   M7   |        3       |       NA       |
+|  VIA7  |       116      |       113      |
++--------+----------------+----------------+
+#% End addStripe (date=04/09 20:35:34, total cpu=0:00:00.4, real=0:00:00.0, peak res=1217.8M, current mem=1217.8M)
+# addStripe -nets {VDD VSS} -direction horizontal   -layer M7 -width 2 -set_to_set_distance 40 -spacing 20
+<CMD> addStripe -nets {VDD VSS} -direction horizontal -layer M7 -width 2 -set_to_set_distance 40 -spacing 20
+#% Begin addStripe (date=04/09 20:35:34, mem=1217.8M)
+
+Initialize fgc environment(mem: 1488.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Completing 10% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 20% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 30% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 40% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 50% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 60% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 70% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 80% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 90% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Completing 100% stripe generation(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1488.9M)
+Stripe generation is complete.
+vias are now being generated.
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 310.03) (905.10, 310.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 350.03) (905.10, 350.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 390.03) (905.10, 390.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 430.03) (310.95, 430.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (442.14, 430.03) (905.10, 430.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M7 at (310.03, 431.69) (310.33, 431.99).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 470.03) (310.36, 470.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (375.75, 470.03) (905.10, 470.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 510.03) (310.36, 510.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (375.75, 510.03) (905.10, 510.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 550.03) (310.36, 550.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (375.75, 550.03) (905.10, 550.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 590.03) (310.36, 590.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (375.75, 590.03) (905.10, 590.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 630.03) (310.95, 630.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (442.14, 630.03) (455.70, 630.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (586.99, 630.03) (905.10, 630.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (295.00, 670.03) (454.80, 670.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M7 & M5 at (585.99, 670.03) (905.10, 670.15).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M7 at (586.61, 671.10) (586.91, 671.40).
+**WARN: (IMPPP-610):	The power planner failed to find a matching VIARULE, so no via was created between layer: M6 & M7, size: 0.30 x 2.00 at (586.76, 672.02).
+Type 'man IMPPP-610' for more detail.
+**WARN: (EMS-27):	Message (IMPPP-532) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+addStripe created 57 wires.
+ViaGen created 2321 vias, deleted 363 vias to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  VIA4  |       671      |       358      |
+|  VIA5  |       714      |        5       |
+|  VIA6  |       880      |        0       |
+|   M7   |       29       |       NA       |
+|  VIA7  |       56       |        0       |
+|   M8   |       28       |       NA       |
++--------+----------------+----------------+
+#% End addStripe (date=04/09 20:35:35, total cpu=0:00:00.4, real=0:00:01.0, peak res=1219.4M, current mem=1219.4M)
+# addStripe -nets {VDD VSS} -direction vertical   -layer M8 -width 4 -set_to_set_distance 80 -spacing 40
+<CMD> addStripe -nets {VDD VSS} -direction vertical -layer M8 -width 4 -set_to_set_distance 80 -spacing 40
+#% Begin addStripe (date=04/09 20:35:35, mem=1219.4M)
+
+Initialize fgc environment(mem: 1490.9M) ...  fail and won't use fgc to check drc(cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1490.9M)
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1490.9M)
+Loading wires (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1490.9M)
+Loading via instances (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1490.9M)
+Starting stripe generation ...
+Non-Default Mode Option Settings :
+  NONE
+Stripe generation is complete.
+vias are now being generated.
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M8 & M4 at (310.03, 295.00) (310.09, 393.96).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M8 & M4 at (310.03, 459.35) (310.09, 602.96).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M8 & M4 at (310.03, 668.35) (310.09, 673.18).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M8 & M4 at (310.03, 738.58) (310.09, 743.40).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M8 & M4 at (310.03, 808.80) (310.09, 903.58).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M8 & M6 at (310.03, 295.00) (310.15, 903.58).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 396.59) (310.33, 396.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 417.29) (310.33, 417.59).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 412.79) (310.33, 413.09).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 405.59) (310.33, 405.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 404.69) (310.33, 404.99).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 401.09) (310.33, 401.39).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 400.19) (310.33, 400.49).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 407.39) (310.33, 407.69).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 437.09) (310.33, 437.39).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 432.59) (310.33, 432.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 421.79) (310.33, 422.09).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 423.59) (310.33, 423.89).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 428.09) (310.33, 428.39).
+**WARN: (IMPPP-532):	ViaGen Warning: The top layer and bottom layer have same direction but only orthogonal via is allowed between layer M5 & M8 at (310.03, 427.19) (310.33, 427.49).
+**WARN: (EMS-27):	Message (IMPPP-532) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+**WARN: (IMPPP-531):	ViaGen Warning: Due to MINAREA rule violation, viaGen fail to generate via on layer M7 at (310.03, 694.09) (310.33, 694.12).
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (393.350006, 295.000000) (393.540009, 300.000000).
+Type 'man IMPPP-570' for more detail.
+**WARN: (IMPPP-570):	The power planner detected cut layer obstruction(s) and cannot create via on the VIA4 layer at (713.206970, 295.000000) (713.396973, 300.000000).
+Type 'man IMPPP-570' for more detail.
+addStripe created 29 wires.
+ViaGen created 1827 vias, deleted 405 vias to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|  VIA5  |       564      |       396      |
+|  VIA6  |       560      |        7       |
+|  VIA7  |       675      |        2       |
+|   M8   |       15       |       NA       |
+|  VIA8  |       28       |        0       |
+|   M9   |       14       |       NA       |
++--------+----------------+----------------+
+#% End addStripe (date=04/09 20:35:35, total cpu=0:00:00.3, real=0:00:00.0, peak res=1222.8M, current mem=1222.8M)
+# sroute -connect {corePin padPin} -crossoverViaLayerRange {1 4}
+<CMD> sroute -connect {corePin padPin} -crossoverViaLayerRange {1 4}
+#% Begin sroute (date=04/09 20:35:35, mem=1222.8M)
+*** Begin SPECIAL ROUTE on Tue Apr  9 20:35:35 2024 ***
+SPECIAL ROUTE ran on directory: /u/routh/ECE510-2024-SPRING/lab1-vishwasreer/apr/work
+SPECIAL ROUTE ran on machine: auto.ece.pdx.edu (Linux 3.10.0-1160.105.1.el7.x86_64 Xeon 2.60Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSpecial set to true
+srouteConnectBlockPin set to false
+srouteConnectConverterPin set to false
+srouteConnectStripe set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 4
+srouteFollowCorePinEnd set to 3
+srouteFollowPadPin set to false
+srouteJogControl set to "preferWithChanges differentLayer"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2984.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 21 layers, 10 routing layers, 1 overlap layer
+Read in 1053 macros, 22 used
+Read in 52 components
+  19 core components: 19 unplaced, 0 placed, 0 fixed
+  25 pad components: 0 unplaced, 0 placed, 25 fixed
+  8 block/ring components: 0 unplaced, 0 placed, 8 fixed
+Read in 25 logical pins
+Read in 1 blockages
+Read in 25 nets
+Read in 2 special nets, 2 routed
+Read in 104 terminals
+Begin power routing ...
+**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDD net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VSS net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (333.503, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (334.871, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (336.239, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (337.607, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (338.975, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (340.343, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (341.711, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (343.079, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (344.755, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (346.123, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (347.491, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (348.859, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (350.227, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (351.595, 597.586), it will not be connected.
+**WARN: (IMPSR-481):	Row/Power/Ground pin overlap with a block or obstruction around (352.963, 597.586), it will not be connected.
+CPU time for VDD FollowPin 1 seconds
+CPU time for VSS FollowPin 1 seconds
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer VIA4 at (295.00, 370.21) (299.00, 370.25).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer VIA4 at (901.10, 370.21) (905.10, 370.25).
+  Number of IO ports routed: 0
+  Number of Core ports routed: 1431  open: 75
+  Number of Followpin connections: 753
+End power routing: cpu: 0:00:17, real: 0:00:17, peak: 3066.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 33 via definition ...Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+
+
+sroute post-processing starts at Tue Apr  9 20:35:53 2024
+The viaGen is rebuilding shadow vias for net VSS.
+sroute post-processing ends at Tue Apr  9 20:35:54 2024
+
+sroute post-processing starts at Tue Apr  9 20:35:54 2024
+The viaGen is rebuilding shadow vias for net VDD.
+**WARN: (IMPPP-4500):	Extended number of geometries exist around 349.939000, 597.160000 between the M1 and M4 layers. This may increase the run time.
+Type 'man IMPPP-4500' for more detail.
+**WARN: (IMPPP-4500):	Extended number of geometries exist around 350.060000, 597.616000 between the M1 and M2 layers. This may increase the run time.
+Type 'man IMPPP-4500' for more detail.
+**WARN: (IMPPP-4500):	Extended number of geometries exist around 335.310000, 597.955000 between the M2 and M3 layers. This may increase the run time.
+Type 'man IMPPP-4500' for more detail.
+**WARN: (IMPPP-4500):	Extended number of geometries exist around 335.310000, 597.885000 between the M1 and M2 layers. This may increase the run time.
+Type 'man IMPPP-4500' for more detail.
+**WARN: (IMPPP-4500):	Extended number of geometries exist around 335.662000, 597.955000 between the M2 and M3 layers. This may increase the run time.
+Type 'man IMPPP-4500' for more detail.
+**WARN: (IMPPP-4500):	Extended number of geometries exist around 335.662000, 597.885000 between the M1 and M2 layers. This may increase the run time.
+Type 'man IMPPP-4500' for more detail.
+sroute post-processing ends at Tue Apr  9 20:35:54 2024
+sroute created 3311 wires.
+ViaGen created 33249 vias, deleted 8 vias to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|   M1   |      1487      |       NA       |
+|  VIA1  |      9677      |        0       |
+|   M2   |       183      |       NA       |
+|  VIA2  |      9645      |        0       |
+|   M3   |       237      |       NA       |
+|  VIA3  |      9629      |        0       |
+|  VIA4  |      1310      |        0       |
+|   M5   |       531      |       NA       |
+|  VIA5  |      1306      |        4       |
+|   M6   |       357      |       NA       |
+|  VIA6  |      1681      |        4       |
+|   M7   |       516      |       NA       |
+|  VIA7  |        1       |        0       |
++--------+----------------+----------------+
+#% End sroute (date=04/09 20:35:54, total cpu=0:00:19.0, real=0:00:19.0, peak res=1314.7M, current mem=1239.5M)
+# if { [get_db sites unitdouble ] != "" } {
+   createRow -area "0.0000 0.0000 [lindex $design_size 0 ] [ lindex $design_size 1 ]" -site unitdouble
+}
+<CMD> createRow -area {0.0000 0.0000 580 580} -site unitdouble
+# deleteInst [get_db [ get_db insts -if ".base_cell.name==*_?VT" ] .name ]
+<CMD> deleteInst {fifomem/g234__2398 fifomem/g235__5107 fifomem/g236__6260 fifomem/g237__4319 fifomem/g238__8428 fifomem/g239__5526 fifomem/g240__6783 fifomem/g241__3680 fifomem/g242 fifomem/g243__1617 fifomem/g244__2802 fifomem/g245 fifomem/g246__1705 fifomem/g247__5122 fifomem/g248 fifomem/g249 fifomem/g250 fifomem/g251__8246 fifomem/g252__7098 fifomem/g253__6131 fifomem/g254__1881 fifomem/g255__5115 fifomem/g256__7482 fifomem/g257__4733 fifomem/g258__6161 fifomem/g259 fifomem/g260__9315 fifomem/g261__9945 fifomem/g262 fifomem/g263__2883 fifomem/g264__2346 fifomem/g265 fifomem/g266 fifomem/g267 rptr_empty/rptr_reg_7_ rptr_empty/rptr_reg_6_ rptr_empty/rptr_reg_5_ rptr_empty/g472__1666 rptr_empty/rptr_reg_8_ rptr_empty/rptr_reg_9_ rptr_empty/rptr_reg_4_ rptr_empty/rptr_reg_2_ rptr_empty/rptr_reg_3_ rptr_empty/g481__7410 rptr_empty/rptr_reg_1_ rptr_empty/g486__6417 rptr_empty/g487__5477 rptr_empty/g490__2398 rptr_empty/g491__5107 rptr_empty/rptr_reg_0_ rptr_empty/g493__6260 rptr_empty/g494__4319 rptr_empty/g496__8428 rptr_empty/g497__5526 rptr_empty/g498__6783 rptr_empty/g499__3680 rptr_empty/g500__1617 rptr_empty/g501 rptr_empty/g504__2802 rptr_empty/g506__1705 rptr_empty/g508__5122 rptr_empty/g510__8246 rptr_empty/g512__7098 rptr_empty/g514__6131 rptr_empty/g516__1881 rptr_empty/g518__5115 rptr_empty/g520__7482 rptr_empty/g522__4733 rptr_empty/g524__6161 rptr_empty/g526__9315 rptr_empty/g528__9945 rptr_empty/rempty_reg rptr_empty/g440__2883 rptr_empty/g441__2346 rptr_empty/g442__1666 rptr_empty/g443__7410 rptr_empty/g444__6417 rptr_empty/g445__5477 rptr_empty/g446__2398 rptr_empty/g447__5107 rptr_empty/g449__6260 rptr_empty/g450__4319 rptr_empty/g451__8428 rptr_empty/g452__5526 rptr_empty/rbin_reg_2_ rptr_empty/rbin_reg_3_ rptr_empty/rbin_reg_4_ rptr_empty/rbin_reg_5_ rptr_empty/rbin_reg_6_ rptr_empty/rbin_reg_7_ rptr_empty/g459__6783 rptr_empty/rbin_reg_9_ rptr_empty/rbin_reg_10_ rptr_empty/rbin_reg_1_ rptr_empty/rbin_reg_0_ rptr_empty/g464__3680 rptr_empty/rbin_reg_8_ rptr_empty/g466 rptr_empty/g467 rptr_empty/drc_bufs529 rptr_empty/g469__1617 sync_r2w/wq2_rptr_reg_7_ sync_r2w/wq2_rptr_reg_9_ sync_r2w/wq2_rptr_reg_10_ sync_r2w/wq2_rptr_reg_3_ sync_r2w/wq2_rptr_reg_2_ sync_r2w/wq2_rptr_reg_6_ sync_r2w/wq2_rptr_reg_1_ sync_r2w/wq2_rptr_reg_0_ sync_r2w/wq2_rptr_reg_8_ sync_r2w/wq2_rptr_reg_5_ sync_r2w/wq2_rptr_reg_4_ sync_r2w/wq1_rptr_reg_8_ sync_r2w/wq1_rptr_reg_7_ sync_r2w/wq1_rptr_reg_6_ sync_r2w/wq1_rptr_reg_9_ sync_r2w/wq1_rptr_reg_10_ sync_r2w/wq1_rptr_reg_5_ sync_r2w/wq1_rptr_reg_1_ sync_r2w/wq1_rptr_reg_3_ sync_r2w/wq1_rptr_reg_0_ sync_r2w/wq1_rptr_reg_2_ sync_r2w/wq1_rptr_reg_4_ sync_w2r/rq2_wptr_reg_7_ sync_w2r/rq2_wptr_reg_9_ sync_w2r/rq2_wptr_reg_10_ sync_w2r/rq2_wptr_reg_3_ sync_w2r/rq2_wptr_reg_2_ sync_w2r/rq2_wptr_reg_6_ sync_w2r/rq2_wptr_reg_1_ sync_w2r/rq2_wptr_reg_0_ sync_w2r/rq2_wptr_reg_8_ sync_w2r/rq2_wptr_reg_5_ sync_w2r/rq2_wptr_reg_4_ sync_w2r/rq1_wptr_reg_8_ sync_w2r/rq1_wptr_reg_7_ sync_w2r/rq1_wptr_reg_6_ sync_w2r/rq1_wptr_reg_9_ sync_w2r/rq1_wptr_reg_10_ sync_w2r/rq1_wptr_reg_5_ sync_w2r/rq1_wptr_reg_1_ sync_w2r/rq1_wptr_reg_3_ sync_w2r/rq1_wptr_reg_0_ sync_w2r/rq1_wptr_reg_2_ sync_w2r/rq1_wptr_reg_4_ wptr_full/wptr_reg_7_ wptr_full/wptr_reg_6_ wptr_full/wptr_reg_5_ wptr_full/g478__2802 wptr_full/wptr_reg_8_ wptr_full/wptr_reg_9_ wptr_full/wptr_reg_4_ wptr_full/wptr_reg_2_ wptr_full/wptr_reg_3_ wptr_full/g487__1705 wptr_full/wptr_reg_1_ wptr_full/g492__5122 wptr_full/g493__8246 wptr_full/g496__7098 wptr_full/g497__6131 wptr_full/wptr_reg_0_ wptr_full/g499__1881 wptr_full/g500__5115 wptr_full/g502__7482 wptr_full/g503__4733 wptr_full/g504__6161 wptr_full/g505__9315 wptr_full/g506__9945 wptr_full/g509__2883 wptr_full/g511__2346 wptr_full/g513__1666 wptr_full/g515__7410 wptr_full/g517__6417 wptr_full/g519__5477 wptr_full/g521__2398 wptr_full/g523__5107 wptr_full/g525__6260 wptr_full/g527__4319 wptr_full/g529__8428 wptr_full/g531__5526 wptr_full/g533__6783 wptr_full/wfull_reg wptr_full/g442__3680 wptr_full/g443__1617 wptr_full/g444__2802 wptr_full/g445__1705 wptr_full/g446__5122 wptr_full/g447__8246 wptr_full/g448__7098 wptr_full/g449__6131 wptr_full/g450__1881 wptr_full/g451__5115 wptr_full/g452__7482 wptr_full/g453__4733 wptr_full/g454__6161 wptr_full/wbin_reg_6_ wptr_full/wbin_reg_3_ wptr_full/wbin_reg_4_ wptr_full/wbin_reg_5_ wptr_full/wbin_reg_2_ wptr_full/wbin_reg_7_ wptr_full/wbin_reg_8_ wptr_full/wbin_reg_9_ wptr_full/g463__9315 wptr_full/wbin_reg_0_ wptr_full/wbin_reg_1_ wptr_full/g466__9945 wptr_full/g467__2883 wptr_full/g468__2346 wptr_full/g469__1666 wptr_full/g470__7410 wptr_full/wbin_reg_10_ wptr_full/g472 wptr_full/g473 wdata_reg_4_ wdata_reg_5_ wdata_reg_0_ wdata_reg_3_ wdata_reg_1_ wdata_reg_7_ wdata_reg_2_ wdata_reg_6_}
+# defOut -noStdCells "../outputs/${top_design}.floorplan.innovus.def"
+<CMD> defOut -noStdCells ../outputs/fifo1_sram.floorplan.innovus.def
+Writing DEF file '../outputs/fifo1_sram.floorplan.innovus.def', current time is Tue Apr  9 20:35:54 2024 ...
+unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+DEF file '../outputs/fifo1_sram.floorplan.innovus.def' is written, current time is Tue Apr  9 20:35:54 2024 ...
+# deselectAll
+<CMD> deselectAll
+# select_obj [ get_ports * ]
+<CMD> select_obj [ get_ports * ]
+# select_obj [ get_db insts -if ".is_black_box==true" ]
+<CMD> select_obj {inst:fifo1_sram/fifomem/genblk1_0__U inst:fifo1_sram/fifomem/genblk1_1__U inst:fifo1_sram/fifomem/genblk1_2__U inst:fifo1_sram/fifomem/genblk1_3__U inst:fifo1_sram/fifomem/genblk1_4__U inst:fifo1_sram/fifomem/genblk1_5__U inst:fifo1_sram/fifomem/genblk1_6__U inst:fifo1_sram/fifomem/genblk1_7__U}
+# select_obj [ get_db insts -if ".is_pad==true" ]
+<CMD> select_obj {inst:fifo1_sram/io_b_rclk inst:fifo1_sram/io_b_rinc inst:fifo1_sram/io_b_rrst_n inst:fifo1_sram/io_b_wclk inst:fifo1_sram/io_b_wclk2x inst:fifo1_sram/io_b_winc inst:fifo1_sram/io_b_wrst_n inst:fifo1_sram/io_l_rdata_0_ inst:fifo1_sram/io_l_rdata_1_ inst:fifo1_sram/io_l_rdata_2_ inst:fifo1_sram/io_l_rdata_3_ inst:fifo1_sram/io_l_rdata_4_ inst:fifo1_sram/io_l_rdata_5_ inst:fifo1_sram/io_l_rdata_6_ inst:fifo1_sram/io_l_rdata_7_ inst:fifo1_sram/io_r_wdata_in_0_ inst:fifo1_sram/io_r_wdata_in_1_ inst:fifo1_sram/io_r_wdata_in_2_ inst:fifo1_sram/io_r_wdata_in_3_ inst:fifo1_sram/io_r_wdata_in_4_ inst:fifo1_sram/io_r_wdata_in_5_ inst:fifo1_sram/io_r_wdata_in_6_ inst:fifo1_sram/io_r_wdata_in_7_ inst:fifo1_sram/io_t_rempty inst:fifo1_sram/io_t_wfull}
+# puts "Logfile message: writing def file completed ..."
+### End verbose source output for '../scripts/floorplan-innovus.tcl'.
+-format html requires a -file argument to report_metric
+
+*** Memory Usage v#1 (Current mem = 1782.156M, initial mem = 390.141M) ***
+*** Message Summary: 602 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:01:39, real=0:02:40, mem=1782.2M) ---

@@ -1,0 +1,61 @@
+[04/07 20:44:04      0s] 
+[04/07 20:44:04      0s] Cadence Innovus(TM) Implementation System.
+[04/07 20:44:04      0s] Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+[04/07 20:44:04      0s] 
+[04/07 20:44:04      0s] Version:	v23.10-p003_1, built Thu Feb 1 13:54:57 PST 2024
+[04/07 20:44:04      0s] Options:	-stylus 
+[04/07 20:44:04      0s] Date:		Mon Apr  7 20:44:04 2025
+[04/07 20:44:04      0s] Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+[04/07 20:44:04      0s] OS:		CentOS Linux 7 (Core)
+[04/07 20:44:04      0s] 
+[04/07 20:44:04      0s] License:
+[04/07 20:44:04      0s] 		[20:44:04.350066] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+[04/07 20:44:04      0s] 
+[04/07 20:44:04      0s] 		invs	Innovus Implementation System	23.1	checkout succeeded
+[04/07 20:44:04      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[04/07 20:44:06      1s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[04/07 20:44:21     17s] 
+[04/07 20:44:21     17s] 
+[04/07 20:44:23     18s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v23.10-p003_1 (64bit) 02/01/2024 13:54 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:44:25     20s] @(#)CDS: NanoRoute 23.10-p003_1 NR240109-1512/23_10-UB (database version 18.20.618) {superthreading v2.20}
+[04/07 20:44:25     20s] @(#)CDS: AAE 23.10-p002 (64bit) 02/01/2024 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:44:25     20s] @(#)CDS: CTE 23.10-p003_1 () Dec  5 2023 19:42:23 ( )
+[04/07 20:44:25     20s] @(#)CDS: SYNTECH 23.10-p002_1 () Nov 29 2023 02:17:21 ( )
+[04/07 20:44:25     20s] @(#)CDS: CPE v23.10-p004
+[04/07 20:44:25     20s] @(#)CDS: IQuantus/TQuantus 22.1.1-s215 (64bit) Mon Nov 20 10:05:08 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:44:25     20s] @(#)CDS: OA 22.61-p007 Wed Sep 27 19:40:10 2023
+[04/07 20:44:25     20s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[04/07 20:44:25     20s] @(#)CDS: RCDB 11.15.0
+[04/07 20:44:25     20s] @(#)CDS: STYLUS 23.10-a001_1 (12/04/2023 04:39 PST)
+[04/07 20:44:25     20s] @(#)CDS: IntegrityPlanner-23.10-12651 (23.10) (2023-09-06 08:32:42+0800)
+[04/07 20:44:25     20s] @(#)CDS: SYNTHESIS_ENGINE 23.10-b027
+[04/07 20:44:25     20s] Create and set the environment variable TMPDIR to /u/routh/ECE530-2024-SPRING/lab1-vishwasreer/apr/work/innovus_temp_20243_auto.ece.pdx.edu_routh_6KPlOk.
+
+[04/07 20:44:25     20s] Create and set the environment variable TMPDIR to /u/routh/ECE530-2024-SPRING/lab1-vishwasreer/apr/work/innovus_temp_20243_auto.ece.pdx.edu_routh_6KPlOk.
+[04/07 20:44:25     20s] 
+[04/07 20:44:25     20s] Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+[04/07 20:44:27     21s] [INFO] Loading Pegasus 23.20 fill procedures
+[04/07 20:44:28     22s] #@ Loading startup files...
+[04/07 20:44:28     22s] @innovus 1> source innovus_startup.tcl
+[04/07 20:44:28     22s] #@ Begin verbose source (pre): source innovus_startup.tcl
+[04/07 20:44:28     22s] @@file 1: alias fs set top_design fifo1_sram
+[04/07 20:44:28     22s] @@file 2: alias f set top_design fifo1
+[04/07 20:44:28     22s] @@file 3: alias o set top_design ORCA_TOP
+[04/07 20:44:28     22s] @@file 4: alias e set top_design ExampleRocketSystem
+[04/07 20:44:28     22s] @file 5:
+[04/07 20:44:28     22s] @@file 6: set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+[04/07 20:44:28     22s] **WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+[04/07 20:44:28     22s] @file 7: set_global report_timing_format  {delay arrival slew cell hpin}
+[04/07 20:44:28     22s] **ERROR: (IMPSYC-6318):	Legacy timing global variables are now represented as root attributes in the software.  You should use the get_db and set_db commands for controlling the state of these attributes.  You can also use the get_common_ui_map command to determine if commands or global names have changed in the current software. Similar commands would be dbSet, dbGet.
+[04/07 20:44:28     22s] @file 8:
+[04/07 20:44:28     22s] @file 9: history keep 100
+[04/07 20:44:28     22s] @file 10: #set systemTime [clock seconds]
+[04/07 20:44:28     22s] @file 11: #set timefield  [clock format $systemTime -format %y-%m-%d_%H-%m]
+[04/07 20:44:28     22s] @file 12: #set_db log_file innovus.log.$timefield
+[04/07 20:44:28     22s] @file 13: #set_db logv_file innovus.cmd.$timefield
+[04/07 20:44:28     22s] @file 14:
+[04/07 20:44:28     22s] #@ End verbose source: innovus_startup.tcl
+[04/07 20:44:28     22s] 
+[04/07 20:44:28     22s] **INFO:  MMMC transition support version v31-84 
+[04/07 20:44:28     22s] 
+[04/07 20:44:32     26s] @innovus 2> 

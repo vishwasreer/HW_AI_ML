@@ -1,0 +1,37 @@
+****************************************
+Report : clock timing
+        -type skew
+        -nworst 1
+        -setup
+Design : fifo1_sram
+Version: V-2023.12
+Date   : Tue Apr  9 21:29:41 2024
+****************************************
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+  Mode: func
+  Clock: wclk
+
+  Clock Pin                                 Latency      CRP      Skew             Corner
+---------------------------------------------------------------------------------------------------
+  sync_r2w/wq2_rptr_reg_5_/CLK                 0.48                       rp-+       slow
+  wptr_full/wfull_reg/CLK                      0.44     0.00      0.03    rp-+       slow
+
+---------------------------------------------------------------------------------------------------
+
+  Mode: func
+  Clock: rclk
+
+  Clock Pin                                 Latency      CRP      Skew             Corner
+---------------------------------------------------------------------------------------------------
+  rptr_empty/rbin_reg_2_/CLK                   0.60                       rp-+       slow
+  rptr_empty/rptr_reg_9_/CLK                   0.57     0.01      0.02    rp-+       slow
+
+---------------------------------------------------------------------------------------------------
+
+  Mode: func
+  Clock: wclk2x
+
+  No local skews.
+
+1

@@ -1,0 +1,1335 @@
+[04/09 20:23:10      0s] 
+[04/09 20:23:10      0s] Cadence Innovus(TM) Implementation System.
+[04/09 20:23:10      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[04/09 20:23:10      0s] 
+[04/09 20:23:10      0s] Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+[04/09 20:23:10      0s] Options:	
+[04/09 20:23:10      0s] Date:		Tue Apr  9 20:23:10 2024
+[04/09 20:23:10      0s] Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.105.1.el7.x86_64) (1core*32cpus*Intel Xeon E312xx (Sandy Bridge, IBRS update) 16384KB)
+[04/09 20:23:10      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[04/09 20:23:10      0s] 
+[04/09 20:23:10      0s] License:
+[04/09 20:23:10      0s] 		[20:23:10.402242] Configured Lic search path (21.01-s002): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+[04/09 20:23:10      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[04/09 20:23:10      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[04/09 20:23:40     27s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+[04/09 20:23:49     35s] @(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+[04/09 20:23:49     35s] @(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+[04/09 20:23:49     35s] @(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+[04/09 20:23:49     35s] @(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+[04/09 20:23:49     35s] @(#)CDS: CPE v21.14-s062
+[04/09 20:23:49     35s] @(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[04/09 20:23:49     35s] @(#)CDS: OA 22.60-p074 Tue Apr 12 12:08:19 2022
+[04/09 20:23:49     35s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[04/09 20:23:49     35s] @(#)CDS: RCDB 11.15.0
+[04/09 20:23:49     35s] @(#)CDS: STYLUS 21.12-s008_1 (04/27/2022 03:28 PDT)
+[04/09 20:23:49     35s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_16509_auto.ece.pdx.edu_routh_upfsEU.
+
+[04/09 20:23:49     36s] Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+[04/09 20:23:53     40s] Sourcing startup file ./enc.tcl
+[04/09 20:23:53     40s] <CMD> alias fs set top_design fifo1_sram
+[04/09 20:23:53     40s] <CMD> alias f set top_design fifo1
+[04/09 20:23:53     40s] <CMD> alias o set top_design ORCA_TOP
+[04/09 20:23:53     40s] <CMD> alias e set top_design ExampleRocketSystem
+[04/09 20:23:53     40s] <CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+[04/09 20:23:53     40s] **WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+[04/09 20:23:53     40s] <CMD> set_global report_timing_format  {delay arrival slew cell hpin}
+[04/09 20:23:53     40s] 
+[04/09 20:23:53     40s] **INFO:  MMMC transition support version v31-84 
+[04/09 20:23:53     40s] 
+[04/09 20:23:53     40s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/09 20:23:53     40s] <CMD> suppressMessage ENCEXT-2799
+[04/09 20:23:54     40s] <CMD> win
+[04/09 20:24:45     52s] <CMD> getAnalysisMode -checkType -quiet
+[04/09 20:25:08     56s] <CMD> fs
+[04/09 20:25:41     63s] ### Start verbose source output (echo mode) for '../../fifo1_sram.design_config.tcl' ...
+[04/09 20:25:41     63s] # set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+# set hack_lef_dir /u/bcruik2/hacked_lefs
+# set add_ios 1
+# set pad_design 1
+# set design_size { 580 580  } 
+# set design_io_border 310
+# set dc_floorplanning 1
+# set enable_dft 0
+# set innovus_enable_manual_macro_placement 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+# set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+# set synth_corners $slow_corner
+# set synth_corners_target "ss0p95v125c" 
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set slow_metal Cmax_125
+# set fast_metal Cmax_125
+# set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+# set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+# set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+# set sub_lib_type_target "saed32rvt_"
+# set tech_lef ${hack_lef_dir}/tech.lef 
+# set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+# set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+# set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+# set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+# set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+# set FCL 0
+# set split_constraints 0
+### End verbose source output for '../../fifo1_sram.design_config.tcl'.
+[04/09 20:25:41     63s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/09 20:25:41     63s] <CMD> set search_path {}
+[04/09 20:25:41     63s] <CMD> set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+[04/09 20:25:41     63s] <CMD> is_common_ui_mode
+[04/09 20:25:42     63s] <CMD> is_common_ui_mode
+[04/09 20:25:42     63s] <CMD> set init_mmmc_file mmmc.tcl
+[04/09 20:25:42     63s] <CMD> set init_design_netlisttype Verilog
+[04/09 20:25:42     63s] <CMD> set init_verilog ../../syn/outputs/fifo1_sram.genus.vg
+[04/09 20:25:42     63s] <CMD> set init_top_cell fifo1_sram
+[04/09 20:25:42     63s] <CMD> set init_pwr_net VDD
+[04/09 20:25:42     63s] <CMD> set init_gnd_net VSS
+[04/09 20:25:42     63s] <CMD> init_design
+[04/09 20:25:42     63s] #% Begin Load MMMC data ... (date=04/09 20:25:42, mem=750.6M)
+[04/09 20:25:42     63s] #% End Load MMMC data ... (date=04/09 20:25:42, total cpu=0:00:00.1, real=0:00:00.0, peak res=751.6M, current mem=751.6M)
+[04/09 20:25:42     63s] 
+[04/09 20:25:42     63s] Loading LEF file /u/bcruik2/hacked_lefs/tech.lef ...
+[04/09 20:25:42     63s] 
+[04/09 20:25:42     63s] Loading LEF file saed32_io_wb_all.lef ...
+[04/09 20:25:42     64s] Set DBUPerIGU to M2 pitch 152.
+[04/09 20:25:43     65s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+[04/09 20:25:43     65s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/09 20:25:43     65s] Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32_io_wb_all.lef at line 285838.
+[04/09 20:25:43     65s] 
+[04/09 20:25:43     65s] Loading LEF file saed32nm_lvt_1p9m.lef ...
+[04/09 20:25:44     65s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+[04/09 20:25:44     65s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/09 20:25:44     65s] Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_lvt_1p9m.lef at line 67466.
+[04/09 20:25:44     65s] 
+[04/09 20:25:44     65s] Loading LEF file saed32_PLL.lef ...
+[04/09 20:25:44     65s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+[04/09 20:25:44     65s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/09 20:25:44     65s] Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32_PLL.lef at line 372.
+[04/09 20:25:44     65s] 
+[04/09 20:25:44     65s] Loading LEF file saed32nm_hvt_1p9m.lef ...
+[04/09 20:25:45     66s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+[04/09 20:25:45     66s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/09 20:25:45     66s] Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_hvt_1p9m.lef at line 191962.
+[04/09 20:25:45     66s] 
+[04/09 20:25:45     66s] Loading LEF file saed32nm_rvt_1p9m.lef ...
+[04/09 20:25:45     67s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+[04/09 20:25:45     67s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/09 20:25:45     67s] Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32nm_rvt_1p9m.lef at line 148040.
+[04/09 20:25:45     67s] 
+[04/09 20:25:45     67s] Loading LEF file saed32sram.lef ...
+[04/09 20:25:46     68s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement on LEF file with version 5.5 and earlier.
+[04/09 20:25:46     68s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/09 20:25:46     68s] Refer the LEF/DEF 5.5 or earlier Language Referece manual on how to define this statement. See file saed32sram.lef at line 197399.
+[04/09 20:25:46     68s] 
+[04/09 20:25:46     68s] viaInitial starts at Tue Apr  9 20:25:46 2024
+**WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR_C' and 'VIA12SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG_C' and 'VIA12SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12BAR' and 'VIA12SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA12LG' and 'VIA12SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23BAR_C' and 'VIA23SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23LG_C' and 'VIA23SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23BAR' and 'VIA23SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA23LG' and 'VIA23SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34BAR_C' and 'VIA34SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34LG_C' and 'VIA34SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34BAR' and 'VIA34SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA34LG' and 'VIA34SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45BAR_C' and 'VIA45SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45LG_C' and 'VIA45SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45BAR' and 'VIA45SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA45LG' and 'VIA45SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56BAR_C' and 'VIA56SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56LG_C' and 'VIA56SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56BAR' and 'VIA56SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (IMPPP-543):	Inconsistent cut size definition in VIARULE 'VIA56LG' and 'VIA56SQ_C'.
+[04/09 20:25:46     68s] Type 'man IMPPP-543' for more detail.
+[04/09 20:25:46     68s] **WARN: (EMS-27):	Message (IMPPP-543) has exceeded the current message display limit of 20.
+[04/09 20:25:46     68s] To increase the message display limit, refer to the product command reference manual.
+[04/09 20:25:46     68s] viaInitial ends at Tue Apr  9 20:25:46 2024
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[04/09 20:25:46     68s] Loading view definition file from mmmc.tcl
+[04/09 20:25:46     68s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib' ...
+[04/09 20:25:46     68s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84607)
+[04/09 20:25:46     68s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84658)
+[04/09 20:25:46     68s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84709)
+[04/09 20:25:47     68s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120047)
+[04/09 20:25:47     68s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120098)
+[04/09 20:25:47     68s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120149)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226626 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226627 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226628 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/09 20:25:47     69s] Read 294 cells in library 'saed32rvt_ss0p95v125c' 
+[04/09 20:25:47     69s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib' ...
+[04/09 20:25:48     69s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84611)
+[04/09 20:25:48     69s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84662)
+[04/09 20:25:48     69s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84713)
+[04/09 20:25:48     70s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120051)
+[04/09 20:25:48     70s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120102)
+[04/09 20:25:48     70s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120153)
+[04/09 20:25:48     70s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226346 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:48     70s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226347 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:48     70s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226348 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/09 20:25:49     70s] Read 294 cells in library 'saed32hvt_ss0p95v125c' 
+[04/09 20:25:49     70s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib' ...
+[04/09 20:25:49     70s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 15913 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 15914 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+[04/09 20:25:49     70s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 15915 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+[04/09 20:25:49     71s] Read 62 cells in library 'saed32io_wb_ss0p95v125c_2p25v' 
+[04/09 20:25:49     71s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib' ...
+[04/09 20:25:50     71s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 24401 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+[04/09 20:25:50     71s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 24402 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+[04/09 20:25:50     71s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 24403 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+[04/09 20:25:50     71s] Read 35 cells in library 'saed32sram_ss0p95v125c' 
+[04/09 20:25:50     71s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib' ...
+[04/09 20:25:50     71s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 1766 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/09 20:25:50     71s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 1767 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/09 20:25:50     71s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 1768 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/09 20:25:50     71s] **WARN: (TECHLIB-302):	No function defined for cell 'PLL'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/09 20:25:50     71s] Read 1 cells in library 'saed32pll_ss0p95v125c_2p25v' 
+[04/09 20:25:50     71s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib' ...
+[04/09 20:25:50     72s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84607)
+[04/09 20:25:50     72s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84658)
+[04/09 20:25:50     72s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84709)
+[04/09 20:25:50     72s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120047)
+[04/09 20:25:50     72s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120098)
+[04/09 20:25:50     72s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120149)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226448 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     72s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/09 20:25:51     73s] Read 294 cells in library 'saed32rvt_ff0p95vn40c' 
+[04/09 20:25:51     73s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib' ...
+[04/09 20:25:51     73s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84607)
+[04/09 20:25:51     73s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84658)
+[04/09 20:25:51     73s] Message <TECHLIB-1277> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/09 20:25:52     74s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/09 20:25:52     74s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/09 20:25:52     74s] Message <TECHLIB-1161> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/09 20:25:52     74s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/09 20:25:52     74s] Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/09 20:25:52     74s] Read 294 cells in library 'saed32rvt_ff1p16vn40c' 
+[04/09 20:25:52     74s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95vn40c.lib' ...
+[04/09 20:25:53     75s] Read 294 cells in library 'saed32hvt_ff0p95vn40c' 
+[04/09 20:25:53     75s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16vn40c.lib' ...
+[04/09 20:25:55     76s] Read 294 cells in library 'saed32hvt_ff1p16vn40c' 
+[04/09 20:25:55     76s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ff1p16vn40c_2p75v.lib' ...
+[04/09 20:25:55     77s] Read 62 cells in library 'saed32io_wb_ff1p16vn40c_2p75v' 
+[04/09 20:25:55     77s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16vn40c.lib' ...
+[04/09 20:25:55     77s] Read 35 cells in library 'saed32sram_ff1p16vn40c' 
+[04/09 20:25:55     77s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ff1p16vn40c_2p75v.lib' ...
+[04/09 20:25:55     77s] Read 1 cells in library 'saed32pll_ff1p16vn40c_2p75v' 
+[04/09 20:25:56     77s] Ending "PreSetAnalysisView" (total cpu=0:00:09.8, real=0:00:10.0, peak res=928.8M, current mem=809.6M)
+[04/09 20:25:56     77s] *** End library_loading (cpu=0.16min, real=0.17min, mem=39.4M, fe_cpu=1.30min, fe_real=2.77min, fe_mem=1090.6M) ***
+[04/09 20:25:56     77s] #% Begin Load netlist data ... (date=04/09 20:25:56, mem=809.6M)
+[04/09 20:25:56     77s] *** Begin netlist parsing (mem=1090.6M) ***
+[04/09 20:25:56     78s] Created 686 new cells from 12 timing libraries.
+[04/09 20:25:56     78s] Reading netlist ...
+[04/09 20:25:56     78s] Backslashed names will retain backslash and a trailing blank character.
+[04/09 20:25:56     78s] Reading verilog netlist '../../syn/outputs/fifo1_sram.genus.vg'
+[04/09 20:25:56     78s] 
+[04/09 20:25:56     78s] *** Memory Usage v#1 (Current mem = 1090.598M, initial mem = 390.141M) ***
+[04/09 20:25:56     78s] *** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=1090.6M) ***
+[04/09 20:25:56     78s] #% End Load netlist data ... (date=04/09 20:25:56, total cpu=0:00:00.2, real=0:00:00.0, peak res=830.5M, current mem=830.5M)
+[04/09 20:25:56     78s] Set top cell to fifo1_sram.
+[04/09 20:25:57     79s] Hooked 1960 DB cells to tlib cells.
+[04/09 20:25:57     79s] Ending "BindLib:" (total cpu=0:00:00.8, real=0:00:01.0, peak res=898.7M, current mem=898.7M)
+[04/09 20:25:57     79s] Starting recursive module instantiation check.
+[04/09 20:25:57     79s] No recursion found.
+[04/09 20:25:57     79s] Building hierarchical netlist for Cell fifo1_sram ...
+[04/09 20:25:57     79s] *** Netlist is unique.
+[04/09 20:25:57     79s] Setting Std. cell height to 1672 DBU (smallest netlist inst).
+[04/09 20:25:57     79s] ** info: there are 2428 modules.
+[04/09 20:25:57     79s] ** info: there are 222 stdCell insts.
+[04/09 20:25:57     79s] ** info: there are 25 Pad insts.
+[04/09 20:25:57     79s] ** info: there are 8 macros.
+[04/09 20:25:57     79s] 
+[04/09 20:25:57     79s] *** Memory Usage v#1 (Current mem = 1172.023M, initial mem = 390.141M) ***
+[04/09 20:25:57     79s] Initializing I/O assignment ...
+[04/09 20:25:57     79s] Adjusting Core to Left to: 0.0480. Core to Bottom to: 0.0480.
+[04/09 20:25:57     79s] **WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:25:57     79s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:25:57     79s] **WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:25:57     79s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:25:57     79s] **WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:25:57     79s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:25:57     79s] **WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:25:57     79s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:25:57     79s] Horizontal Layer M1 offset = 0 (derived)
+[04/09 20:25:57     79s] Vertical Layer M2 offset = 0 (derived)
+[04/09 20:25:57     79s] Start create_tracks
+[04/09 20:25:57     79s] Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+[04/09 20:25:57     79s] Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+[04/09 20:25:57     79s] Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+[04/09 20:25:57     79s] Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+[04/09 20:25:57     79s] Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+[04/09 20:25:57     79s] Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+[04/09 20:25:57     79s] Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+[04/09 20:25:58     79s] Extraction setup Started 
+[04/09 20:25:58     79s] 
+[04/09 20:25:58     79s] Trim Metal Layers:
+[04/09 20:25:58     79s] Initializing multi-corner RC extraction with 2 active RC Corners ...
+[04/09 20:25:58     79s] Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap ...
+[04/09 20:25:58     79s] Process name: saed32nm_1p9m_Cmax.
+[04/09 20:25:58     80s] Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap ...
+[04/09 20:25:58     80s] Process name: saed32nm_1p9m_Cmin.
+[04/09 20:25:58     80s] Importing multi-corner RC tables ... 
+[04/09 20:25:58     80s] Summary of Active RC-Corners : 
+[04/09 20:25:58     80s]  
+[04/09 20:25:58     80s]  Analysis View: func_max_scenario
+[04/09 20:25:58     80s]     RC-Corner Name        : cmax
+[04/09 20:25:58     80s]     RC-Corner Index       : 0
+[04/09 20:25:58     80s]     RC-Corner Temperature : -40 Celsius
+[04/09 20:25:58     80s]     RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap'
+[04/09 20:25:58     80s]     RC-Corner PreRoute Res Factor         : 1
+[04/09 20:25:58     80s]     RC-Corner PreRoute Cap Factor         : 1
+[04/09 20:25:58     80s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[04/09 20:25:58     80s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[04/09 20:25:58     80s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[04/09 20:25:58     80s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[04/09 20:25:58     80s]  
+[04/09 20:25:58     80s]  Analysis View: func_min_scenario
+[04/09 20:25:58     80s]     RC-Corner Name        : cmin
+[04/09 20:25:58     80s]     RC-Corner Index       : 1
+[04/09 20:25:58     80s]     RC-Corner Temperature : -40 Celsius
+[04/09 20:25:58     80s]     RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap'
+[04/09 20:25:58     80s]     RC-Corner PreRoute Res Factor         : 1
+[04/09 20:25:58     80s]     RC-Corner PreRoute Cap Factor         : 1
+[04/09 20:25:58     80s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[04/09 20:25:58     80s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[04/09 20:25:58     80s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[04/09 20:25:58     80s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[04/09 20:25:58     80s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[04/09 20:25:58     80s] 
+[04/09 20:25:58     80s] Trim Metal Layers:
+[04/09 20:25:58     80s] LayerId::1 widthSet size::4
+[04/09 20:25:58     80s] LayerId::2 widthSet size::4
+[04/09 20:25:58     80s] LayerId::3 widthSet size::4
+[04/09 20:25:58     80s] LayerId::4 widthSet size::4
+[04/09 20:25:58     80s] LayerId::5 widthSet size::4
+[04/09 20:25:58     80s] LayerId::6 widthSet size::4
+[04/09 20:25:58     80s] LayerId::7 widthSet size::4
+[04/09 20:25:58     80s] LayerId::8 widthSet size::4
+[04/09 20:25:58     80s] LayerId::9 widthSet size::4
+[04/09 20:25:58     80s] LayerId::10 widthSet size::2
+[04/09 20:25:58     80s] Updating RC grid for preRoute extraction ...
+[04/09 20:25:58     80s] eee: pegSigSF::1.070000
+[04/09 20:25:58     80s] Initializing multi-corner capacitance tables ... 
+[04/09 20:25:58     80s] Initializing multi-corner resistance tables ...
+[04/09 20:25:58     80s] eee: l::1 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::2 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::3 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::4 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::5 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::6 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::7 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::8 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::9 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] eee: l::10 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[04/09 20:25:58     80s] {RT cmax 0 10 10 {9 0} 1}
+[04/09 20:25:58     80s] eee: LAM: n=32 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 wcR=0.718100 newSi=0.000000 wHLS=1.795250 siPrev=0 viaL=0.000000
+[04/09 20:25:58     80s] *Info: initialize multi-corner CTS.
+[04/09 20:25:59     80s] Ending "SetAnalysisView" (total cpu=0:00:00.3, real=0:00:01.0, peak res=1161.5M, current mem=887.8M)
+[04/09 20:26:00     81s] Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+[04/09 20:26:00     81s] Current (total cpu=0:01:21, real=0:02:50, peak res=1170.6M, current mem=1170.6M)
+[04/09 20:26:00     81s] Number of path exceptions in the constraint file = 2
+[04/09 20:26:00     81s] Number of paths exceptions after getting compressed = 2
+[04/09 20:26:00     81s] INFO (CTE): Constraints read successfully.
+[04/09 20:26:00     81s] Ending "Constraint file reading stats" (total cpu=0:00:00.2, real=0:00:00.0, peak res=1208.3M, current mem=1208.3M)
+[04/09 20:26:00     81s] Current (total cpu=0:01:21, real=0:02:50, peak res=1208.3M, current mem=1208.3M)
+[04/09 20:26:00     81s] Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+[04/09 20:26:00     81s] Current (total cpu=0:01:21, real=0:02:50, peak res=1208.4M, current mem=1208.4M)
+[04/09 20:26:00     81s] Number of path exceptions in the constraint file = 2
+[04/09 20:26:00     81s] Number of paths exceptions after getting compressed = 2
+[04/09 20:26:00     81s] INFO (CTE): Constraints read successfully.
+[04/09 20:26:00     81s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1208.7M, current mem=1208.7M)
+[04/09 20:26:00     81s] Current (total cpu=0:01:22, real=0:02:50, peak res=1208.7M, current mem=1208.7M)
+[04/09 20:26:00     81s] **WARN: (TA-976):	Path groups asserted by the group_path constraint are considered by the software to be global in nature - they cannot be restricted to specific constraint modes. Due to this restriction, the group_path constraint is not supported directly in the constraint files which are configured in mode-specific commands such as create_constraint_mode. The current group_path entry will be ignored. You can enter the group_path constraint interactively or as part of a general command script -  where it will be interpreted as global and will be in effect for all modes.
+[04/09 20:26:00     81s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[04/09 20:26:00     81s] 
+[04/09 20:26:00     81s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[04/09 20:26:00     81s] Summary for sequential cells identification: 
+[04/09 20:26:00     81s]   Identified SBFF number: 92
+[04/09 20:26:00     81s]   Identified MBFF number: 0
+[04/09 20:26:00     81s]   Identified SB Latch number: 0
+[04/09 20:26:00     81s]   Identified MB Latch number: 0
+[04/09 20:26:00     81s]   Not identified SBFF number: 120
+[04/09 20:26:00     81s]   Not identified MBFF number: 0
+[04/09 20:26:00     81s]   Not identified SB Latch number: 0
+[04/09 20:26:00     81s]   Not identified MB Latch number: 0
+[04/09 20:26:00     81s]   Number of sequential cells which are not FFs: 52
+[04/09 20:26:00     81s] Total number of combinational cells: 268
+[04/09 20:26:00     81s] Total number of sequential cells: 264
+[04/09 20:26:00     81s] Total number of tristate cells: 12
+[04/09 20:26:00     81s] Total number of level shifter cells: 0
+[04/09 20:26:00     81s] Total number of power gating cells: 0
+[04/09 20:26:00     81s] Total number of isolation cells: 32
+[04/09 20:26:00     81s] Total number of power switch cells: 0
+[04/09 20:26:00     81s] Total number of pulse generator cells: 0
+[04/09 20:26:00     81s] Total number of always on buffers: 0
+[04/09 20:26:00     81s] Total number of retention cells: 0
+[04/09 20:26:00     81s] List of usable buffers: NBUFFX2_HVT NBUFFX16_HVT NBUFFX32_HVT NBUFFX4_HVT NBUFFX8_HVT NBUFFX2_RVT NBUFFX16_RVT NBUFFX32_RVT NBUFFX4_RVT NBUFFX8_RVT
+[04/09 20:26:00     81s] Total number of usable buffers: 10
+[04/09 20:26:00     81s] List of unusable buffers:
+[04/09 20:26:00     81s] Total number of unusable buffers: 0
+[04/09 20:26:00     81s] List of usable inverters: IBUFFX2_HVT IBUFFX16_HVT IBUFFX32_HVT INVX0_HVT IBUFFX4_HVT IBUFFX8_HVT INVX16_HVT INVX1_HVT INVX2_HVT INVX32_HVT INVX4_HVT IBUFFX2_RVT INVX8_HVT IBUFFX16_RVT IBUFFX32_RVT INVX0_RVT IBUFFX4_RVT IBUFFX8_RVT INVX16_RVT INVX1_RVT INVX2_RVT INVX32_RVT INVX4_RVT INVX8_RVT
+[04/09 20:26:00     81s] Total number of usable inverters: 24
+[04/09 20:26:00     81s] List of unusable inverters:
+[04/09 20:26:00     81s] Total number of unusable inverters: 0
+[04/09 20:26:00     81s] List of identified usable delay cells: DELLN1X2_HVT DELLN2X2_HVT DELLN3X2_HVT DELLN1X2_RVT DELLN2X2_RVT DELLN3X2_RVT
+[04/09 20:26:00     81s] Total number of identified usable delay cells: 6
+[04/09 20:26:00     81s] List of identified unusable delay cells:
+[04/09 20:26:00     81s] Total number of identified unusable delay cells: 0
+[04/09 20:26:00     81s] 
+[04/09 20:26:00     81s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[04/09 20:26:00     81s] 
+[04/09 20:26:00     81s] TimeStamp Deleting Cell Server Begin ...
+[04/09 20:26:00     81s] 
+[04/09 20:26:00     81s] TimeStamp Deleting Cell Server End ...
+[04/09 20:26:00     81s] Ending "Cell type marking" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1211.7M, current mem=1211.7M)
+[04/09 20:26:00     81s] 
+[04/09 20:26:00     81s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[04/09 20:26:00     81s] Summary for sequential cells identification: 
+[04/09 20:26:00     81s]   Identified SBFF number: 92
+[04/09 20:26:00     81s]   Identified MBFF number: 0
+[04/09 20:26:00     81s]   Identified SB Latch number: 0
+[04/09 20:26:00     81s]   Identified MB Latch number: 0
+[04/09 20:26:00     81s]   Not identified SBFF number: 120
+[04/09 20:26:00     81s]   Not identified MBFF number: 0
+[04/09 20:26:00     81s]   Not identified SB Latch number: 0
+[04/09 20:26:00     81s]   Not identified MB Latch number: 0
+[04/09 20:26:00     81s]   Number of sequential cells which are not FFs: 52
+[04/09 20:26:00     81s]  Visiting view : func_max_scenario
+[04/09 20:26:00     81s]    : PowerDomain = none : Weighted F : unweighted  = 13.30 (1.000) with rcCorner = 0
+[04/09 20:26:00     81s]    : PowerDomain = none : Weighted F : unweighted  = 13.00 (1.000) with rcCorner = -1
+[04/09 20:26:00     81s]  Visiting view : func_min_scenario
+[04/09 20:26:00     81s]    : PowerDomain = none : Weighted F : unweighted  = 6.80 (1.000) with rcCorner = 1
+[04/09 20:26:00     81s]    : PowerDomain = none : Weighted F : unweighted  = 6.70 (1.000) with rcCorner = -1
+[04/09 20:26:00     81s] TLC MultiMap info (StdDelay):
+[04/09 20:26:00     81s]   : min_corner + libs_min + 1 + no RcCorner := 6.7ps
+[04/09 20:26:00     81s]   : min_corner + libs_min + 1 + cmin := 6.8ps
+[04/09 20:26:00     81s]   : max_corner + libs_max + 1 + no RcCorner := 13ps
+[04/09 20:26:00     81s]   : max_corner + libs_max + 1 + cmax := 13.3ps
+[04/09 20:26:00     81s]  Setting StdDelay to: 13.3ps
+[04/09 20:26:00     81s] 
+[04/09 20:26:00     81s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[04/09 20:26:00     81s] #% Begin Load MMMC data post ... (date=04/09 20:26:00, mem=1212.2M)
+[04/09 20:26:01     81s] #% End Load MMMC data post ... (date=04/09 20:26:00, total cpu=0:00:00.1, real=0:00:00.0, peak res=1212.2M, current mem=1212.2M)
+[04/09 20:26:01     81s] 
+[04/09 20:26:01     81s] *** Summary of all messages that are not suppressed in this session:
+[04/09 20:26:01     81s] Severity  ID               Count  Summary                                  
+[04/09 20:26:01     81s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[04/09 20:26:01     81s] WARNING   IMPPP-543           28  Inconsistent cut size definition in VIAR...
+[04/09 20:26:01     81s] WARNING   TA-976               1  Path groups asserted by the group_path c...
+[04/09 20:26:01     81s] WARNING   TECHLIB-302         38  No function defined for cell '%s'. The c...
+[04/09 20:26:01     81s] WARNING   TECHLIB-1161        36  The library level attribute %s on line %...
+[04/09 20:26:01     81s] WARNING   TECHLIB-1277        36  The %s '%s' has been defined for %s %s '...
+[04/09 20:26:01     81s] *** Message Summary: 143 warning(s), 0 error(s)
+[04/09 20:26:01     81s] 
+[04/09 20:26:01     81s] <CMD> all_constraint_modes -active
+[04/09 20:26:01     81s] <CMD> set_interactive_constraint_modes [all_constraint_modes -active]
+[04/09 20:26:01     81s] <CMD> floorPlan -s 580 580 10 10 10 10 -flip s -coreMarginsBy io
+[04/09 20:26:01     81s] **WARN: (IMPFP-4026):	Adjusting core to 'Left' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/09 20:26:01     81s] **WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/09 20:26:01     81s] **WARN: (IMPFP-4026):	Adjusting core to 'Right' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/09 20:26:01     81s] **WARN: (IMPFP-4026):	Adjusting core to 'Top' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/09 20:26:01     81s] **WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:26:01     81s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:26:01     81s] **WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:26:01     81s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:26:01     81s] **WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:26:01     81s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:26:01     81s] **WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/09 20:26:01     81s] Type 'man IMPFP-3961' for more detail.
+[04/09 20:26:01     81s] Horizontal Layer M1 offset = 0 (derived)
+[04/09 20:26:01     81s] Vertical Layer M2 offset = 0 (derived)
+[04/09 20:26:01     81s] Start create_tracks
+[04/09 20:26:01     81s] Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+[04/09 20:26:01     81s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[04/09 20:26:01     82s] <CMD> is_common_ui_mode
+[04/09 20:26:01     82s] <CMD> loadIoFile fifo1_sram.io
+[04/09 20:26:01     82s] Reading IO assignment file "fifo1_sram.io" ...
+[04/09 20:26:01     82s] <CMD> loadIoFile fifo1_sram.io
+[04/09 20:26:01     82s] Reading IO assignment file "fifo1_sram.io" ...
+[04/09 20:26:01     82s] ### Start verbose source output (echo mode) for '../../fifo1_sram.design_options.tcl' ...
+[04/09 20:26:01     82s] # if { [info exists synopsys_program_name ] } { 
+    set_app_option -name place.coarse.continue_on_missing_scandef -value true
+
+    #set enable_recovery_removal_arcs true
+    set_app_option -name time.disable_recovery_removal_checks -value false
+    #set timing_enable_multiple_clocks_per_reg true
+    #set timing_remove_clock_reconvergence_pessimism true
+    set_app_option -name timer.remove_clock_reconvergence_pessimism -value true
+
+    #set physopt_enable_via_res_support true
+    #set physopt_hard_keepout_distance 5
+    #set_preferred_routing_direction -direction vertical -l {M2 M4}
+    #set_preferred_routing_direction -direction horizontal -l {M3 M5}
+    set_ignored_layers  -min_routing_layer M2 -max_routing_layer M7
+
+
+    # To optimize DW components (I think only adders right now??) - default is false
+    #set physopt_dw_opto true
+
+    #set_ahfs_options -remove_effort high
+    #set_buffer_opt_strategy -effort medium
+
+    # Dont use delay buffers
+    #set_dont_use [get_lib_cells */DELLN* ]
+    set_lib_cell_purpose -include hold [get_lib_cells */DELLN* ]
+
+    #FIXME
+    #set_host_options -max_cores 1 -num_processes 1 mo.ece.pdx.edu
+    set_app_options -name compile.flow.trial_clock_tree -value false
+    set_app_options -name place_opt.flow.trial_clock_tree -value false
+    set_app_options -name compile.flow.enable_ccd -value false
+    set_app_options -name place_opt.flow.enable_ccd -value false
+    set_app_options -name clock_opt.flow.enable_ccd -value false
+    set_app_options -name route_opt.flow.enable_ccd -value false
+    set_app_options -name ccd.max_postpone -value 0
+    set_app_options -name ccd.max_prepone -value 0
+
+    ###########################  CTS Related
+    create_routing_rule clock_double_spacing -spacings {M1 0.1 M2 0.112 M3 0.112 M4 0.112 M5 0.112 M6 0.112 M7 0.112 M8 0.112}
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type internal -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type root -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    # Set other cts app_options?  Bufs vs Inverters, certain drive strengths.  
+
+    # Allow delay buffers just for hold fixing
+    #set_prefer -min [get_lib_cells */DELLN*HVT ]
+    #set_fix_hold_options -preferred_buffer
+    # fix hold on all clocks
+    #set_fix_hold [all_clocks]
+    # If design blows up, try turning hold fixing off. 
+    # -optimize_dft is good if scan is inserted.
+    # Sometimes better to separate CTS and setup/hold so any hold concerns can be seen before hold fixing.
+    # Can look in the log at the beginning of clock_opt hold fixing to see if there was a large hold problem to fix.
+    # set_app_option -name clock_opt.flow.skip_hold -value true
+
+    ########################## Route related
+    set_app_option -name route_opt.flow.xtalk_reduction -value true
+    set_app_option -name time.si_enable_analysis -value true
+
+    if { $top_design == "ORCA_TOP" } {
+      create_voltage_area  -region {{580 0} {1000 400}} -power_domains PD_RISC_CORE
+    }
+} else {
+
+    # Try reducing the search and repair iterations for now.
+    if [is_common_ui_mode ] { set_db route_design_detail_end_iteration 10
+    } else { setNanoRouteMode -drouteEndIteration 10  }
+}
+<CMD> is_common_ui_mode
+[04/09 20:26:01     82s] <CMD> setNanoRouteMode -drouteEndIteration 10
+[04/09 20:26:01     82s] ### End verbose source output for '../../fifo1_sram.design_options.tcl'.
+[04/09 20:26:01     82s] <CMD> placeAIO
+[04/09 20:26:01     82s] OPERPROF: Starting DPlace-Init at level 1, MEM:1483.9M, EPOCH TIME: 1712719561.485947
+[04/09 20:26:01     82s] Processing tracks to init pin-track alignment.
+[04/09 20:26:01     82s] z: 2, totalTracks: 1
+[04/09 20:26:01     82s] z: 4, totalTracks: 1
+[04/09 20:26:01     82s] z: 6, totalTracks: 1
+[04/09 20:26:01     82s] z: 8, totalTracks: 1
+[04/09 20:26:02     82s] #spOpts: N=32 hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/09 20:26:02     82s] All LLGs are deleted
+[04/09 20:26:02     82s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     82s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     82s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1500.9M, EPOCH TIME: 1712719562.296101
+[04/09 20:26:02     82s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.000, REAL:0.002, MEM:1500.9M, EPOCH TIME: 1712719562.298162
+[04/09 20:26:02     82s] # Building fifo1_sram llgBox search-tree.
+[04/09 20:26:02     82s] OPERPROF:   Starting spInitSiteArr at level 2, MEM:1500.9M, EPOCH TIME: 1712719562.300635
+[04/09 20:26:02     82s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     82s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     82s] OPERPROF:     Starting spiInitFpSiteArr at level 3, MEM:1500.9M, EPOCH TIME: 1712719562.301563
+[04/09 20:26:02     82s] Max number of tech site patterns supported in site array is 256.
+[04/09 20:26:02     82s] **WARN: (IMPSP-362):	Site 'unit' has one std.Cell height, so ignoring its X-symmetry.
+[04/09 20:26:02     82s] Type 'man IMPSP-362' for more detail.
+[04/09 20:26:02     82s] Core basic site is unit
+[04/09 20:26:02     82s] OPERPROF:       Starting spiCheckSiteIfFastDPInitAvailable at level 4, MEM:1501.9M, EPOCH TIME: 1712719562.366758
+[04/09 20:26:02     82s] After signature check, allow fast init is false, keep pre-filter is false.
+[04/09 20:26:02     82s] After signature check and other controls, allow fast init is false, keep pre-filter is false.
+[04/09 20:26:02     82s] OPERPROF:       Finished spiCheckSiteIfFastDPInitAvailable at level 4, CPU:0.000, REAL:0.000, MEM:1501.9M, EPOCH TIME: 1712719562.367255
+[04/09 20:26:02     82s] Use non-trimmed site array because memory saving is not enough.
+[04/09 20:26:02     82s] SiteArray: non-trimmed site array dimensions = 346 x 3816
+[04/09 20:26:02     82s] SiteArray: use 6,643,712 bytes
+[04/09 20:26:02     82s] SiteArray: current memory after site array memory allocation 1508.3M
+[04/09 20:26:02     82s] SiteArray: FP blocked sites are writable
+[04/09 20:26:02     82s] Estimated cell power/ground rail width = 0.209 um
+[04/09 20:26:02     82s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/09 20:26:02     82s] OPERPROF:       Starting RoutingBlockageFromWireViaStBox at level 4, MEM:1508.3M, EPOCH TIME: 1712719562.400499
+[04/09 20:26:02     82s] OPERPROF:       Finished RoutingBlockageFromWireViaStBox at level 4, CPU:0.000, REAL:0.000, MEM:1508.3M, EPOCH TIME: 1712719562.400739
+[04/09 20:26:02     83s] SiteArray: number of non floorplan blocked sites for llg default is 1320336
+[04/09 20:26:02     83s] Atter site array init, number of instance map data is 0.
+[04/09 20:26:02     83s] OPERPROF:     Finished spiInitFpSiteArr at level 3, CPU:0.120, REAL:0.116, MEM:1508.3M, EPOCH TIME: 1712719562.417692
+[04/09 20:26:02     83s] 
+[04/09 20:26:02     83s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:02     83s] OPERPROF:     Starting CMU at level 3, MEM:1508.3M, EPOCH TIME: 1712719562.422770
+[04/09 20:26:02     83s] OPERPROF:     Finished CMU at level 3, CPU:0.000, REAL:0.002, MEM:1508.3M, EPOCH TIME: 1712719562.424289
+[04/09 20:26:02     83s] 
+[04/09 20:26:02     83s] Bad Lib Cell Checking (CMU) is done! (0)
+[04/09 20:26:02     83s] OPERPROF:   Finished spInitSiteArr at level 2, CPU:0.130, REAL:0.127, MEM:1508.3M, EPOCH TIME: 1712719562.427923
+[04/09 20:26:02     83s] OPERPROF:   Starting PlacementInitSBTree at level 2, MEM:1508.3M, EPOCH TIME: 1712719562.428104
+[04/09 20:26:02     83s] OPERPROF:   Finished PlacementInitSBTree at level 2, CPU:0.000, REAL:0.000, MEM:1508.3M, EPOCH TIME: 1712719562.428284
+[04/09 20:26:02     83s] [CPU] DPlace-Init (cpu=0:00:00.9, real=0:00:01.0, mem=1508.3MB).
+[04/09 20:26:02     83s] OPERPROF: Finished DPlace-Init at level 1, CPU:0.930, REAL:0.959, MEM:1508.3M, EPOCH TIME: 1712719562.445429
+[04/09 20:26:02     83s] OPERPROF: Starting spDPlaceCleanup(auto) at level 1, MEM:1508.3M, EPOCH TIME: 1712719562.445770
+[04/09 20:26:02     83s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] All LLGs are deleted
+[04/09 20:26:02     83s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1508.3M, EPOCH TIME: 1712719562.457359
+[04/09 20:26:02     83s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.000, REAL:0.001, MEM:1508.3M, EPOCH TIME: 1712719562.458411
+[04/09 20:26:02     83s] OPERPROF: Finished spDPlaceCleanup(auto) at level 1, CPU:0.020, REAL:0.018, MEM:1508.3M, EPOCH TIME: 1712719562.463369
+[04/09 20:26:02     83s] INFO: #ExclusiveGroups=0
+[04/09 20:26:02     83s] INFO: There are no Exclusive Groups.
+[04/09 20:26:02     83s] Extracting standard cell pins and blockage ...... 
+[04/09 20:26:02     83s] Pin and blockage extraction finished
+[04/09 20:26:02     83s] Extracting macro/IO cell pins and blockage ...... 
+[04/09 20:26:02     83s] Pin and blockage extraction finished
+[04/09 20:26:02     83s] *** Starting "NanoPlace(TM) placement v#8 (mem=1508.3M)" ...
+[04/09 20:26:02     83s] No user-set net weight.
+[04/09 20:26:02     83s] Net fanout histogram:
+[04/09 20:26:02     83s] 2		: 163 (59.5%) nets
+[04/09 20:26:02     83s] 3		: 42 (15.3%) nets
+[04/09 20:26:02     83s] 4     -	14	: 65 (23.7%) nets
+[04/09 20:26:02     83s] 15    -	39	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 40    -	79	: 4 (1.5%) nets
+[04/09 20:26:02     83s] 80    -	159	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 160   -	319	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 320   -	639	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 640   -	1279	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 1280  -	2559	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 2560  -	5119	: 0 (0.0%) nets
+[04/09 20:26:02     83s] 5120+		: 0 (0.0%) nets
+[04/09 20:26:02     83s] no activity file in design. spp won't run.
+[04/09 20:26:02     83s] Options: clkGateAware ignoreScan pinGuide congEffort=medium gpeffort=fast 
+[04/09 20:26:02     83s] Scan chains were not defined.
+[04/09 20:26:02     83s] Processing tracks to init pin-track alignment.
+[04/09 20:26:02     83s] z: 2, totalTracks: 1
+[04/09 20:26:02     83s] z: 4, totalTracks: 1
+[04/09 20:26:02     83s] z: 6, totalTracks: 1
+[04/09 20:26:02     83s] z: 8, totalTracks: 1
+[04/09 20:26:02     83s] #spOpts: N=32 mergeVia=F hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/09 20:26:02     83s] All LLGs are deleted
+[04/09 20:26:02     83s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1509.3M, EPOCH TIME: 1712719562.623434
+[04/09 20:26:02     83s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.010, REAL:0.002, MEM:1510.3M, EPOCH TIME: 1712719562.625452
+[04/09 20:26:02     83s] #std cell=222 (0 fixed + 222 movable) #buf cell=1 #inv cell=15 #block=8 (8 floating + 0 preplaced)
+[04/09 20:26:02     83s] #ioInst=25 #net=274 #term=1128 #term/net=4.12, #fixedIo=25, #floatIo=0, #fixedPin=15, #floatPin=0
+[04/09 20:26:02     83s] stdCell: 222 single + 0 double + 0 multi
+[04/09 20:26:02     83s] Total standard cell length = 0.6060 (mm), area = 0.0010 (mm^2)
+[04/09 20:26:02     83s] OPERPROF: Starting spInitSiteArr at level 1, MEM:1510.3M, EPOCH TIME: 1712719562.628382
+[04/09 20:26:02     83s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:02     83s] OPERPROF:   Starting spiInitFpSiteArr at level 2, MEM:1510.3M, EPOCH TIME: 1712719562.628991
+[04/09 20:26:02     83s] Max number of tech site patterns supported in site array is 256.
+[04/09 20:26:02     83s] Core basic site is unit
+[04/09 20:26:02     83s] OPERPROF:     Starting spiCheckSiteIfFastDPInitAvailable at level 3, MEM:1510.3M, EPOCH TIME: 1712719562.680486
+[04/09 20:26:02     83s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:02     83s] After signature check and other controls, allow fast init is false, keep pre-filter is false.
+[04/09 20:26:02     83s] OPERPROF:     Finished spiCheckSiteIfFastDPInitAvailable at level 3, CPU:0.000, REAL:0.001, MEM:1510.3M, EPOCH TIME: 1712719562.681039
+[04/09 20:26:02     83s] SiteArray: non-trimmed site array dimensions = 346 x 3816
+[04/09 20:26:02     83s] SiteArray: use 6,643,712 bytes
+[04/09 20:26:02     83s] SiteArray: current memory after site array memory allocation 1510.3M
+[04/09 20:26:02     83s] SiteArray: FP blocked sites are writable
+[04/09 20:26:02     83s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/09 20:26:02     83s] OPERPROF:     Starting RoutingBlockageFromWireViaStBox at level 3, MEM:1510.3M, EPOCH TIME: 1712719562.719886
+[04/09 20:26:02     83s] OPERPROF:     Finished RoutingBlockageFromWireViaStBox at level 3, CPU:0.000, REAL:0.000, MEM:1510.3M, EPOCH TIME: 1712719562.720107
+[04/09 20:26:02     83s] SiteArray: number of non floorplan blocked sites for llg default is 1320336
+[04/09 20:26:02     83s] Atter site array init, number of instance map data is 0.
+[04/09 20:26:02     83s] OPERPROF:   Finished spiInitFpSiteArr at level 2, CPU:0.100, REAL:0.106, MEM:1510.3M, EPOCH TIME: 1712719562.734639
+[04/09 20:26:02     83s] 
+[04/09 20:26:02     83s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:02     83s] OPERPROF: Finished spInitSiteArr at level 1, CPU:0.110, REAL:0.115, MEM:1510.3M, EPOCH TIME: 1712719562.743240
+[04/09 20:26:02     83s] 
+[04/09 20:26:02     83s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:02     83s] Average module density = 0.211.
+[04/09 20:26:02     83s] Density for the design = 0.211.
+[04/09 20:26:02     83s]        = (stdcell_area 3987 sites (1013 um^2) + block_area 274479 sites (69757 um^2)) / alloc_area 1320336 sites (335555 um^2).
+[04/09 20:26:02     83s] Pin Density = 0.0008543.
+[04/09 20:26:02     83s]             = total # of pins 1128 / total area 1320336.
+[04/09 20:26:02     83s] OPERPROF: Starting spSetupSpareRegionBox at level 1, MEM:1510.3M, EPOCH TIME: 1712719562.764578
+[04/09 20:26:02     83s] OPERPROF: Finished spSetupSpareRegionBox at level 1, CPU:0.010, REAL:0.011, MEM:1510.3M, EPOCH TIME: 1712719562.775198
+[04/09 20:26:02     83s] OPERPROF: Starting spMPad at level 1, MEM:1510.3M, EPOCH TIME: 1712719562.778283
+[04/09 20:26:02     83s] OPERPROF:   Starting spContextMPad at level 2, MEM:1510.3M, EPOCH TIME: 1712719562.778691
+[04/09 20:26:02     83s] OPERPROF:   Finished spContextMPad at level 2, CPU:0.000, REAL:0.000, MEM:1510.3M, EPOCH TIME: 1712719562.778860
+[04/09 20:26:02     83s] OPERPROF: Finished spMPad at level 1, CPU:0.000, REAL:0.001, MEM:1510.3M, EPOCH TIME: 1712719562.779051
+[04/09 20:26:02     83s] Initial padding reaches pin density 0.390 for top
+[04/09 20:26:02     83s] InitPadU 0.211 -> 0.211 for top
+[04/09 20:26:02     83s] OPERPROF: Starting spSectionHeadInit at level 1, MEM:1510.3M, EPOCH TIME: 1712719562.850388
+[04/09 20:26:02     83s] OPERPROF: Finished spSectionHeadInit at level 1, CPU:0.020, REAL:0.021, MEM:1510.3M, EPOCH TIME: 1712719562.871404
+[04/09 20:26:02     83s] OPERPROF: Starting spInitNetWt at level 1, MEM:1510.3M, EPOCH TIME: 1712719562.877125
+[04/09 20:26:02     83s] no activity file in design. spp won't run.
+[04/09 20:26:02     83s] [spp] 0
+[04/09 20:26:02     83s] [adp] 0:1:1:3
+[04/09 20:26:02     83s] Applying critslk net weight for 0 nets ...
+[04/09 20:26:02     83s] OPERPROF: Finished spInitNetWt at level 1, CPU:0.000, REAL:0.001, MEM:1510.3M, EPOCH TIME: 1712719562.877974
+[04/09 20:26:02     83s] Clock gating cells determined by native netlist tracing.
+[04/09 20:26:02     83s] no activity file in design. spp won't run.
+[04/09 20:26:02     83s] no activity file in design. spp won't run.
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/09 20:26:02     83s] Iteration  1: Total net bbox = 1.107e+04 (6.11e+03 4.96e+03)
+[04/09 20:26:02     83s]               Est.  stn bbox = 1.535e+04 (8.28e+03 7.07e+03)
+[04/09 20:26:02     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1510.3M
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/09 20:26:02     83s] Iteration  2: Total net bbox = 2.097e+04 (6.11e+03 1.49e+04)
+[04/09 20:26:02     83s]               Est.  stn bbox = 2.863e+04 (8.28e+03 2.04e+04)
+[04/09 20:26:02     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1510.3M
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 599288 hiBox.ll.y: 599288 
+[04/09 20:26:02     83s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/09 20:26:02     83s] Iteration  3: Total net bbox = 2.508e+04 (1.05e+04 1.46e+04)
+[04/09 20:26:02     83s]               Est.  stn bbox = 3.470e+04 (1.44e+04 2.03e+04)
+[04/09 20:26:02     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1510.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.195406
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1511.3M, EPOCH TIME: 1712719563.196169
+[04/09 20:26:03     83s] Iteration  4: Total net bbox = 2.799e+04 (1.15e+04 1.64e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.863e+04 (1.58e+04 2.28e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.2 real = 0:00:01.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.226714
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1511.3M, EPOCH TIME: 1712719563.227105
+[04/09 20:26:03     83s] Iteration  5: Total net bbox = 2.754e+04 (1.11e+04 1.64e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.818e+04 (1.53e+04 2.28e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.257172
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1511.3M, EPOCH TIME: 1712719563.257608
+[04/09 20:26:03     83s] Iteration  6: Total net bbox = 2.744e+04 (1.11e+04 1.63e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.799e+04 (1.53e+04 2.27e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.290328
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1511.3M, EPOCH TIME: 1712719563.290757
+[04/09 20:26:03     83s] Iteration  7: Total net bbox = 2.749e+04 (1.11e+04 1.63e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.804e+04 (1.54e+04 2.27e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.310116
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1511.3M, EPOCH TIME: 1712719563.310503
+[04/09 20:26:03     83s] Iteration  8: Total net bbox = 2.792e+04 (1.11e+04 1.68e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.856e+04 (1.54e+04 2.32e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.331343
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1511.3M, EPOCH TIME: 1712719563.331774
+[04/09 20:26:03     83s] Iteration  9: Total net bbox = 2.838e+04 (1.16e+04 1.68e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.909e+04 (1.59e+04 2.32e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.355158
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1511.3M, EPOCH TIME: 1712719563.355671
+[04/09 20:26:03     83s] Iteration 10: Total net bbox = 2.852e+04 (1.16e+04 1.69e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.921e+04 (1.59e+04 2.33e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     83s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1511.3M, EPOCH TIME: 1712719563.383594
+[04/09 20:26:03     83s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     83s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1511.3M, EPOCH TIME: 1712719563.384097
+[04/09 20:26:03     83s] Iteration 11: Total net bbox = 2.865e+04 (1.17e+04 1.69e+04)
+[04/09 20:26:03     83s]               Est.  stn bbox = 3.938e+04 (1.61e+04 2.33e+04)
+[04/09 20:26:03     83s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1511.3M
+[04/09 20:26:03     84s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1512.3M, EPOCH TIME: 1712719563.417050
+[04/09 20:26:03     84s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     84s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1512.3M, EPOCH TIME: 1712719563.417457
+[04/09 20:26:03     84s] Iteration 12: Total net bbox = 2.886e+04 (1.17e+04 1.71e+04)
+[04/09 20:26:03     84s]               Est.  stn bbox = 3.961e+04 (1.61e+04 2.35e+04)
+[04/09 20:26:03     84s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1512.3M
+[04/09 20:26:03     84s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1513.3M, EPOCH TIME: 1712719563.461635
+[04/09 20:26:03     84s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     84s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1513.3M, EPOCH TIME: 1712719563.462032
+[04/09 20:26:03     84s] Iteration 13: Total net bbox = 2.893e+04 (1.17e+04 1.72e+04)
+[04/09 20:26:03     84s]               Est.  stn bbox = 3.968e+04 (1.61e+04 2.36e+04)
+[04/09 20:26:03     84s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1513.3M
+[04/09 20:26:03     84s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1514.3M, EPOCH TIME: 1712719563.514460
+[04/09 20:26:03     84s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     84s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1514.3M, EPOCH TIME: 1712719563.514973
+[04/09 20:26:03     84s] Iteration 14: Total net bbox = 2.895e+04 (1.17e+04 1.72e+04)
+[04/09 20:26:03     84s]               Est.  stn bbox = 3.971e+04 (1.61e+04 2.36e+04)
+[04/09 20:26:03     84s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1514.3M
+[04/09 20:26:03     84s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719563.591782
+[04/09 20:26:03     84s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:03     84s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719563.592292
+[04/09 20:26:03     84s] Iteration 15: Total net bbox = 2.894e+04 (1.17e+04 1.72e+04)
+[04/09 20:26:03     84s]               Est.  stn bbox = 3.970e+04 (1.61e+04 2.36e+04)
+[04/09 20:26:03     84s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:03     84s] macro_flip: HPWL decrease ratio is 0.005984, horizontally flipped 0, vertically flipped 1
+[04/09 20:26:03     84s] Iteration 16: Total net bbox = 2.909e+04 (1.20e+04 1.71e+04)
+[04/09 20:26:03     84s]               Est.  stn bbox = 3.987e+04 (1.64e+04 2.35e+04)
+[04/09 20:26:03     84s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:03     84s] *** cost = 2.909e+04 (1.20e+04 1.71e+04) (cpu for global=0:00:00.8) real=0:00:01.0***
+[04/09 20:26:03     84s] Info: 0 clock gating cells identified, 0 (on average) moved 0/12
+[04/09 20:26:03     84s] Saved padding area to DB
+[04/09 20:26:03     84s] All LLGs are deleted
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:359).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1517.3M, EPOCH TIME: 1712719563.691570
+[04/09 20:26:03     84s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719563.692691
+[04/09 20:26:03     84s] OPERPROF: Starting DPlace-Init at level 1, MEM:1517.3M, EPOCH TIME: 1712719563.699063
+[04/09 20:26:03     84s] Processing tracks to init pin-track alignment.
+[04/09 20:26:03     84s] z: 2, totalTracks: 1
+[04/09 20:26:03     84s] z: 4, totalTracks: 1
+[04/09 20:26:03     84s] z: 6, totalTracks: 1
+[04/09 20:26:03     84s] z: 8, totalTracks: 1
+[04/09 20:26:03     84s] #spOpts: N=32 hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/09 20:26:03     84s] All LLGs are deleted
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1517.3M, EPOCH TIME: 1712719563.720007
+[04/09 20:26:03     84s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.010, REAL:0.002, MEM:1517.3M, EPOCH TIME: 1712719563.722416
+[04/09 20:26:03     84s] OPERPROF:   Starting spInitSiteArr at level 2, MEM:1517.3M, EPOCH TIME: 1712719563.725236
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] OPERPROF:     Starting spiInitFpSiteArr at level 3, MEM:1517.3M, EPOCH TIME: 1712719563.726148
+[04/09 20:26:03     84s] Max number of tech site patterns supported in site array is 256.
+[04/09 20:26:03     84s] Core basic site is unit
+[04/09 20:26:03     84s] OPERPROF:       Starting spiCheckSiteIfFastDPInitAvailable at level 4, MEM:1517.3M, EPOCH TIME: 1712719563.787419
+[04/09 20:26:03     84s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:03     84s] After signature check and other controls, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:03     84s] OPERPROF:       Finished spiCheckSiteIfFastDPInitAvailable at level 4, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719563.787871
+[04/09 20:26:03     84s] Fast DP-INIT is on for default
+[04/09 20:26:03     84s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/09 20:26:03     84s] Atter site array init, number of instance map data is 0.
+[04/09 20:26:03     84s] OPERPROF:     Finished spiInitFpSiteArr at level 3, CPU:0.090, REAL:0.090, MEM:1517.3M, EPOCH TIME: 1712719563.816434
+[04/09 20:26:03     84s] 
+[04/09 20:26:03     84s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:03     84s] OPERPROF:     Starting CMU at level 3, MEM:1517.3M, EPOCH TIME: 1712719563.823293
+[04/09 20:26:03     84s] OPERPROF:     Finished CMU at level 3, CPU:0.010, REAL:0.003, MEM:1517.3M, EPOCH TIME: 1712719563.825899
+[04/09 20:26:03     84s] 
+[04/09 20:26:03     84s] Bad Lib Cell Checking (CMU) is done! (0)
+[04/09 20:26:03     84s] OPERPROF:   Finished spInitSiteArr at level 2, CPU:0.100, REAL:0.105, MEM:1517.3M, EPOCH TIME: 1712719563.830492
+[04/09 20:26:03     84s] OPERPROF:   Starting PlacementInitSBTree at level 2, MEM:1517.3M, EPOCH TIME: 1712719563.830864
+[04/09 20:26:03     84s] OPERPROF:   Finished PlacementInitSBTree at level 2, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719563.831167
+[04/09 20:26:03     84s] [CPU] DPlace-Init (cpu=0:00:00.1, real=0:00:00.0, mem=1517.3MB).
+[04/09 20:26:03     84s] OPERPROF: Finished DPlace-Init at level 1, CPU:0.140, REAL:0.133, MEM:1517.3M, EPOCH TIME: 1712719563.831818
+[04/09 20:26:03     84s] *** Starting IO Refinement ...
+[04/09 20:26:03     84s] **WARN: (IMPSP-6008):	There are no area I/O rows.
+[04/09 20:26:03     84s] *** End IO Refinement (cpu=0:00:00.0, real=0:00:00.0, mem=1517.3M) ***
+[04/09 20:26:03     84s] OPERPROF: Starting spDPlaceCleanup(auto) at level 1, MEM:1517.3M, EPOCH TIME: 1712719563.833666
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] All LLGs are deleted
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1517.3M, EPOCH TIME: 1712719563.847859
+[04/09 20:26:03     84s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719563.849140
+[04/09 20:26:03     84s] OPERPROF: Finished spDPlaceCleanup(auto) at level 1, CPU:0.020, REAL:0.023, MEM:1517.3M, EPOCH TIME: 1712719563.856328
+[04/09 20:26:03     84s] INFO: #ExclusiveGroups=0
+[04/09 20:26:03     84s] INFO: There are no Exclusive Groups.
+[04/09 20:26:03     84s] *** Starting "NanoPlace(TM) placement v#8 (mem=1517.3M)" ...
+[04/09 20:26:03     84s] No user-set net weight.
+[04/09 20:26:03     84s] Net fanout histogram:
+[04/09 20:26:03     84s] 2		: 163 (59.5%) nets
+[04/09 20:26:03     84s] 3		: 42 (15.3%) nets
+[04/09 20:26:03     84s] 4     -	14	: 65 (23.7%) nets
+[04/09 20:26:03     84s] 15    -	39	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 40    -	79	: 4 (1.5%) nets
+[04/09 20:26:03     84s] 80    -	159	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 160   -	319	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 320   -	639	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 640   -	1279	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 1280  -	2559	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 2560  -	5119	: 0 (0.0%) nets
+[04/09 20:26:03     84s] 5120+		: 0 (0.0%) nets
+[04/09 20:26:03     84s] no activity file in design. spp won't run.
+[04/09 20:26:03     84s] Options: clkGateAware ignoreScan pinGuide congEffort=auto gpeffort=medium 
+[04/09 20:26:03     84s] Scan chains were not defined.
+[04/09 20:26:03     84s] Processing tracks to init pin-track alignment.
+[04/09 20:26:03     84s] z: 2, totalTracks: 1
+[04/09 20:26:03     84s] z: 4, totalTracks: 1
+[04/09 20:26:03     84s] z: 6, totalTracks: 1
+[04/09 20:26:03     84s] z: 8, totalTracks: 1
+[04/09 20:26:03     84s] #spOpts: N=32 hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/09 20:26:03     84s] All LLGs are deleted
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1517.3M, EPOCH TIME: 1712719563.874220
+[04/09 20:26:03     84s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.002, MEM:1517.3M, EPOCH TIME: 1712719563.876039
+[04/09 20:26:03     84s] #std cell=222 (0 fixed + 222 movable) #buf cell=1 #inv cell=15 #block=8 (8 floating + 0 preplaced)
+[04/09 20:26:03     84s] #ioInst=25 #net=274 #term=1128 #term/net=4.12, #fixedIo=25, #floatIo=0, #fixedPin=15, #floatPin=0
+[04/09 20:26:03     84s] stdCell: 222 single + 0 double + 0 multi
+[04/09 20:26:03     84s] Total standard cell length = 0.6060 (mm), area = 0.0010 (mm^2)
+[04/09 20:26:03     84s] OPERPROF: Starting spInitSiteArr at level 1, MEM:1517.3M, EPOCH TIME: 1712719563.878711
+[04/09 20:26:03     84s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:03     84s] OPERPROF:   Starting spiInitFpSiteArr at level 2, MEM:1517.3M, EPOCH TIME: 1712719563.879341
+[04/09 20:26:03     84s] Max number of tech site patterns supported in site array is 256.
+[04/09 20:26:03     84s] Core basic site is unit
+[04/09 20:26:03     84s] OPERPROF:     Starting spiCheckSiteIfFastDPInitAvailable at level 3, MEM:1517.3M, EPOCH TIME: 1712719563.929666
+[04/09 20:26:03     84s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:03     84s] After signature check and other controls, allow fast init is false, keep pre-filter is false.
+[04/09 20:26:03     84s] OPERPROF:     Finished spiCheckSiteIfFastDPInitAvailable at level 3, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719563.930076
+[04/09 20:26:03     84s] SiteArray: non-trimmed site array dimensions = 346 x 3816
+[04/09 20:26:03     84s] SiteArray: use 6,643,712 bytes
+[04/09 20:26:03     84s] SiteArray: current memory after site array memory allocation 1517.3M
+[04/09 20:26:03     84s] SiteArray: FP blocked sites are writable
+[04/09 20:26:03     84s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/09 20:26:03     84s] OPERPROF:     Starting RoutingBlockageFromWireViaStBox at level 3, MEM:1517.3M, EPOCH TIME: 1712719563.962222
+[04/09 20:26:03     84s] OPERPROF:     Finished RoutingBlockageFromWireViaStBox at level 3, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719563.962475
+[04/09 20:26:03     84s] SiteArray: number of non floorplan blocked sites for llg default is 1320336
+[04/09 20:26:03     84s] Atter site array init, number of instance map data is 0.
+[04/09 20:26:03     84s] OPERPROF:   Finished spiInitFpSiteArr at level 2, CPU:0.110, REAL:0.100, MEM:1517.3M, EPOCH TIME: 1712719563.978876
+[04/09 20:26:03     84s] 
+[04/09 20:26:03     84s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:03     84s] OPERPROF: Finished spInitSiteArr at level 1, CPU:0.120, REAL:0.110, MEM:1517.3M, EPOCH TIME: 1712719563.988674
+[04/09 20:26:03     84s] 
+[04/09 20:26:03     84s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:04     84s] Average module density = 0.211.
+[04/09 20:26:04     84s] Density for the design = 0.211.
+[04/09 20:26:04     84s]        = (stdcell_area 3987 sites (1013 um^2) + block_area 274479 sites (69757 um^2)) / alloc_area 1320336 sites (335555 um^2).
+[04/09 20:26:04     84s] Pin Density = 0.0008543.
+[04/09 20:26:04     84s]             = total # of pins 1128 / total area 1320336.
+[04/09 20:26:04     84s] OPERPROF: Starting spSetupSpareRegionBox at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.012239
+[04/09 20:26:04     84s] OPERPROF: Finished spSetupSpareRegionBox at level 1, CPU:0.010, REAL:0.012, MEM:1517.3M, EPOCH TIME: 1712719564.023943
+[04/09 20:26:04     84s] OPERPROF: Starting spMPad at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.026834
+[04/09 20:26:04     84s] OPERPROF:   Starting spContextMPad at level 2, MEM:1517.3M, EPOCH TIME: 1712719564.027144
+[04/09 20:26:04     84s] OPERPROF:   Finished spContextMPad at level 2, CPU:0.010, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.027307
+[04/09 20:26:04     84s] OPERPROF: Finished spMPad at level 1, CPU:0.010, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719564.027467
+[04/09 20:26:04     84s] Initial padding reaches pin density 0.390 for top
+[04/09 20:26:04     84s] InitPadU 0.211 -> 0.211 for top
+[04/09 20:26:04     84s] OPERPROF: Starting spSectionHeadInit at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.090876
+[04/09 20:26:04     84s] OPERPROF: Finished spSectionHeadInit at level 1, CPU:0.020, REAL:0.023, MEM:1517.3M, EPOCH TIME: 1712719564.113478
+[04/09 20:26:04     84s] OPERPROF: Starting spInitNetWt at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.119127
+[04/09 20:26:04     84s] no activity file in design. spp won't run.
+[04/09 20:26:04     84s] [spp] 0
+[04/09 20:26:04     84s] [adp] 0:1:1:3
+[04/09 20:26:04     84s] Applying critslk net weight for 0 nets ...
+[04/09 20:26:04     84s] OPERPROF: Finished spInitNetWt at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719564.119692
+[04/09 20:26:04     84s] Clock gating cells determined by native netlist tracing.
+[04/09 20:26:04     84s] no activity file in design. spp won't run.
+[04/09 20:26:04     84s] no activity file in design. spp won't run.
+[04/09 20:26:04     84s] Iteration  1: Total net bbox = 1.107e+04 (6.11e+03 4.96e+03)
+[04/09 20:26:04     84s]               Est.  stn bbox = 1.535e+04 (8.28e+03 7.07e+03)
+[04/09 20:26:04     84s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     84s] Iteration  2: Total net bbox = 2.097e+04 (6.11e+03 1.49e+04)
+[04/09 20:26:04     84s]               Est.  stn bbox = 2.863e+04 (8.28e+03 2.04e+04)
+[04/09 20:26:04     84s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     84s] Iteration  3: Total net bbox = 2.508e+04 (1.05e+04 1.46e+04)
+[04/09 20:26:04     84s]               Est.  stn bbox = 3.470e+04 (1.44e+04 2.03e+04)
+[04/09 20:26:04     84s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.441264
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719564.441785
+[04/09 20:26:04     85s] Iteration  4: Total net bbox = 2.799e+04 (1.15e+04 1.64e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.863e+04 (1.58e+04 2.28e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.2 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.476072
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719564.476710
+[04/09 20:26:04     85s] Iteration  5: Total net bbox = 2.754e+04 (1.11e+04 1.64e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.818e+04 (1.53e+04 2.28e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.514377
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719564.514909
+[04/09 20:26:04     85s] Iteration  6: Total net bbox = 2.744e+04 (1.11e+04 1.63e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.799e+04 (1.53e+04 2.27e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.552408
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.552877
+[04/09 20:26:04     85s] Iteration  7: Total net bbox = 2.749e+04 (1.11e+04 1.63e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.804e+04 (1.54e+04 2.27e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.572687
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.573111
+[04/09 20:26:04     85s] Iteration  8: Total net bbox = 2.792e+04 (1.11e+04 1.68e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.856e+04 (1.54e+04 2.32e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.597258
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.001, MEM:1517.3M, EPOCH TIME: 1712719564.597791
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] enableMT= 3
+[04/09 20:26:04     85s] useHNameCompare= 3 (lazy mode)
+[04/09 20:26:04     85s] doMTMainInit= 1
+[04/09 20:26:04     85s] doMTFlushLazyWireDelete= 1
+[04/09 20:26:04     85s] useFastLRoute= 0
+[04/09 20:26:04     85s] useFastCRoute= 1
+[04/09 20:26:04     85s] doMTNetInitAdjWires= 1
+[04/09 20:26:04     85s] wireMPoolNoThreadCheck= 1
+[04/09 20:26:04     85s] allMPoolNoThreadCheck= 1
+[04/09 20:26:04     85s] doNotUseMPoolInCRoute= 1
+[04/09 20:26:04     85s] doMTSprFixZeroViaCodes= 1
+[04/09 20:26:04     85s] doMTDtrRoute1CleanupA= 1
+[04/09 20:26:04     85s] doMTDtrRoute1CleanupB= 1
+[04/09 20:26:04     85s] doMTWireLenCalc= 0
+[04/09 20:26:04     85s] doSkipQALenRecalc= 1
+[04/09 20:26:04     85s] doMTMainCleanup= 1
+[04/09 20:26:04     85s] doMTMoveCellTermsToMSLayer= 1
+[04/09 20:26:04     85s] doMTConvertWiresToNewViaCode= 1
+[04/09 20:26:04     85s] doMTRemoveAntenna= 1
+[04/09 20:26:04     85s] doMTCheckConnectivity= 1
+[04/09 20:26:04     85s] enableRuntimeLog= 0
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Iteration  9: Total net bbox = 2.823e+04 (1.14e+04 1.68e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.894e+04 (1.58e+04 2.32e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.704974
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.705384
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Iteration 10: Total net bbox = 2.846e+04 (1.14e+04 1.70e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.916e+04 (1.58e+04 2.34e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.783538
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.783954
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Iteration 11: Total net bbox = 2.864e+04 (1.16e+04 1.70e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.937e+04 (1.60e+04 2.34e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.879930
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.880349
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:04     85s] Iteration 12: Total net bbox = 2.883e+04 (1.16e+04 1.72e+04)
+[04/09 20:26:04     85s]               Est.  stn bbox = 3.958e+04 (1.60e+04 2.36e+04)
+[04/09 20:26:04     85s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 1517.3M
+[04/09 20:26:04     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719564.983458
+[04/09 20:26:04     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:04     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719564.983913
+[04/09 20:26:05     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:05     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:05     85s] Iteration 13: Total net bbox = 2.886e+04 (1.16e+04 1.72e+04)
+[04/09 20:26:05     85s]               Est.  stn bbox = 3.961e+04 (1.60e+04 2.36e+04)
+[04/09 20:26:05     85s]               cpu = 0:00:00.1 real = 0:00:01.0 mem = 1517.3M
+[04/09 20:26:05     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1517.3M, EPOCH TIME: 1712719565.093038
+[04/09 20:26:05     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:05     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1517.3M, EPOCH TIME: 1712719565.093437
+[04/09 20:26:05     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:05     85s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/09 20:26:05     85s] Iteration 14: Total net bbox = 2.888e+04 (1.16e+04 1.73e+04)
+[04/09 20:26:05     85s]               Est.  stn bbox = 3.964e+04 (1.60e+04 2.37e+04)
+[04/09 20:26:05     85s]               cpu = 0:00:00.2 real = 0:00:00.0 mem = 1522.3M
+[04/09 20:26:05     85s] OPERPROF: Starting spMoveGatedClock at level 1, MEM:1522.3M, EPOCH TIME: 1712719565.247446
+[04/09 20:26:05     85s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/09 20:26:05     85s] OPERPROF: Finished spMoveGatedClock at level 1, CPU:0.000, REAL:0.000, MEM:1522.3M, EPOCH TIME: 1712719565.247851
+[04/09 20:26:05     85s] Iteration 15: Total net bbox = 2.888e+04 (1.16e+04 1.73e+04)
+[04/09 20:26:05     85s]               Est.  stn bbox = 3.963e+04 (1.60e+04 2.37e+04)
+[04/09 20:26:05     85s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1522.3M
+[04/09 20:26:05     85s] macro_flip: HPWL decrease ratio is 0.005553, horizontally flipped 0, vertically flipped 1
+[04/09 20:26:05     85s] Iteration 16: Total net bbox = 2.909e+04 (1.19e+04 1.71e+04)
+[04/09 20:26:05     85s]               Est.  stn bbox = 3.986e+04 (1.63e+04 2.35e+04)
+[04/09 20:26:05     85s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 1522.3M
+[04/09 20:26:05     85s] *** cost = 2.909e+04 (1.19e+04 1.71e+04) (cpu for global=0:00:01.2) real=0:00:01.0***
+[04/09 20:26:05     85s] Info: 0 clock gating cells identified, 0 (on average) moved 0/12
+[04/09 20:26:05     85s] Saved padding area to DB
+[04/09 20:26:05     85s] All LLGs are deleted
+[04/09 20:26:05     85s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:359).
+[04/09 20:26:05     85s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     85s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1522.3M, EPOCH TIME: 1712719565.314679
+[04/09 20:26:05     85s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.001, MEM:1522.3M, EPOCH TIME: 1712719565.315687
+[04/09 20:26:05     85s] **WARN: (IMPSP-9025):	No scan chain specified/traced.
+[04/09 20:26:05     85s] Type 'man IMPSP-9025' for more detail.
+[04/09 20:26:05     85s] OPERPROF: Starting RefinePlaceInit at level 1, MEM:1522.3M, EPOCH TIME: 1712719565.321066
+[04/09 20:26:05     85s] OPERPROF:   Starting DPlace-Init at level 2, MEM:1522.3M, EPOCH TIME: 1712719565.321474
+[04/09 20:26:05     85s] Processing tracks to init pin-track alignment.
+[04/09 20:26:05     85s] z: 2, totalTracks: 1
+[04/09 20:26:05     85s] z: 4, totalTracks: 1
+[04/09 20:26:05     85s] z: 6, totalTracks: 1
+[04/09 20:26:05     85s] z: 8, totalTracks: 1
+[04/09 20:26:05     85s] #spOpts: N=32 mergeVia=F hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/09 20:26:05     85s] All LLGs are deleted
+[04/09 20:26:05     85s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     85s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     85s] OPERPROF:     Starting spSiteCleanup(true) at level 3, MEM:1522.3M, EPOCH TIME: 1712719565.334314
+[04/09 20:26:05     85s] OPERPROF:     Finished spSiteCleanup(true) at level 3, CPU:0.000, REAL:0.001, MEM:1522.3M, EPOCH TIME: 1712719565.335721
+[04/09 20:26:05     85s] OPERPROF:     Starting spInitSiteArr at level 3, MEM:1522.3M, EPOCH TIME: 1712719565.337578
+[04/09 20:26:05     85s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     85s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     85s] OPERPROF:       Starting spiInitFpSiteArr at level 4, MEM:1522.3M, EPOCH TIME: 1712719565.338207
+[04/09 20:26:05     85s] Max number of tech site patterns supported in site array is 256.
+[04/09 20:26:05     85s] Core basic site is unit
+[04/09 20:26:05     85s] OPERPROF:         Starting spiCheckSiteIfFastDPInitAvailable at level 5, MEM:1522.3M, EPOCH TIME: 1712719565.392102
+[04/09 20:26:05     85s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:05     85s] After signature check and other controls, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:05     85s] OPERPROF:         Finished spiCheckSiteIfFastDPInitAvailable at level 5, CPU:0.000, REAL:0.001, MEM:1522.3M, EPOCH TIME: 1712719565.392731
+[04/09 20:26:05     85s] Fast DP-INIT is on for default
+[04/09 20:26:05     85s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/09 20:26:05     86s] Atter site array init, number of instance map data is 0.
+[04/09 20:26:05     86s] OPERPROF:       Finished spiInitFpSiteArr at level 4, CPU:0.090, REAL:0.084, MEM:1522.3M, EPOCH TIME: 1712719565.422088
+[04/09 20:26:05     86s] 
+[04/09 20:26:05     86s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:05     86s] OPERPROF:       Starting CMU at level 4, MEM:1522.3M, EPOCH TIME: 1712719565.427871
+[04/09 20:26:05     86s] OPERPROF:       Finished CMU at level 4, CPU:0.010, REAL:0.002, MEM:1522.3M, EPOCH TIME: 1712719565.429613
+[04/09 20:26:05     86s] 
+[04/09 20:26:05     86s] Bad Lib Cell Checking (CMU) is done! (0)
+[04/09 20:26:05     86s] OPERPROF:     Finished spInitSiteArr at level 3, CPU:0.100, REAL:0.096, MEM:1522.3M, EPOCH TIME: 1712719565.434071
+[04/09 20:26:05     86s] OPERPROF:     Starting PlacementInitSBTree at level 3, MEM:1522.3M, EPOCH TIME: 1712719565.434402
+[04/09 20:26:05     86s] OPERPROF:     Finished PlacementInitSBTree at level 3, CPU:0.000, REAL:0.000, MEM:1522.3M, EPOCH TIME: 1712719565.434665
+[04/09 20:26:05     86s] [CPU] DPlace-Init (cpu=0:00:00.1, real=0:00:00.0, mem=1522.3MB).
+[04/09 20:26:05     86s] OPERPROF:   Finished DPlace-Init at level 2, CPU:0.130, REAL:0.134, MEM:1522.3M, EPOCH TIME: 1712719565.455612
+[04/09 20:26:05     86s] OPERPROF: Finished RefinePlaceInit at level 1, CPU:0.130, REAL:0.135, MEM:1522.3M, EPOCH TIME: 1712719565.455961
+[04/09 20:26:05     86s] TDRefine: refinePlace mode is spiral
+[04/09 20:26:05     86s] GigaOpt Checkpoint: Intermediate DB Saving Point beforeRefinePlace.16509.1
+[04/09 20:26:05     86s] OPERPROF: Starting RefinePlace at level 1, MEM:1522.3M, EPOCH TIME: 1712719565.456467
+[04/09 20:26:05     86s] *** Starting refinePlace (0:01:26 mem=1522.3M) ***
+[04/09 20:26:05     86s] Total net bbox length = 2.909e+04 (1.194e+04 1.715e+04) (ext = 2.480e+03)
+[04/09 20:26:05     86s] 
+[04/09 20:26:05     86s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:05     86s] Move report: placeLevelShifters moves 0 insts, mean move: 0.00 um, max move: 0.00 um 
+[04/09 20:26:05     86s] OPERPROF:   Starting CellHaloInit at level 2, MEM:1522.3M, EPOCH TIME: 1712719565.465724
+[04/09 20:26:05     86s] OPERPROF:   Finished CellHaloInit at level 2, CPU:0.000, REAL:0.001, MEM:1522.3M, EPOCH TIME: 1712719565.467192
+[04/09 20:26:05     86s] (I)      Default pattern map key = fifo1_sram_default.
+[04/09 20:26:05     86s] (I)      Default pattern map key = fifo1_sram_default.
+[04/09 20:26:05     86s] OPERPROF:   Starting CellHaloInit at level 2, MEM:1522.3M, EPOCH TIME: 1712719565.473474
+[04/09 20:26:05     86s] OPERPROF:   Finished CellHaloInit at level 2, CPU:0.000, REAL:0.002, MEM:1522.3M, EPOCH TIME: 1712719565.475481
+[04/09 20:26:05     86s] OPERPROF:   Starting RefinePlace2 at level 2, MEM:1522.3M, EPOCH TIME: 1712719565.475813
+[04/09 20:26:05     86s] Starting refinePlace ...
+[04/09 20:26:05     86s] (I)      Default pattern map key = fifo1_sram_default.
+[04/09 20:26:05     86s] 
+[04/09 20:26:05     86s] Running Spiral with 1 thread in Normal Mode  fetchWidth=289 
+[04/09 20:26:05     86s] (I)      Default pattern map key = fifo1_sram_default.
+[04/09 20:26:05     86s] OPERPROF:     Starting AdvanceDataManager::initSiteMarkMT at level 3, MEM:1522.3M, EPOCH TIME: 1712719565.508432
+[04/09 20:26:05     86s] DDP initSite1 nrRow 346 nrJob 346
+[04/09 20:26:05     86s] OPERPROF:       Starting AdvanceDataManager::initSite1 at level 4, MEM:1522.3M, EPOCH TIME: 1712719565.508778
+[04/09 20:26:05     86s] OPERPROF:       Finished AdvanceDataManager::initSite1 at level 4, CPU:0.000, REAL:0.002, MEM:1522.3M, EPOCH TIME: 1712719565.510441
+[04/09 20:26:05     86s] OPERPROF:       Starting AdvanceDataManager::markSite at level 4, MEM:1522.3M, EPOCH TIME: 1712719565.510648
+[04/09 20:26:05     86s] DDP markSite nrRow 346 nrJob 346
+[04/09 20:26:05     86s] OPERPROF:       Finished AdvanceDataManager::markSite at level 4, CPU:0.010, REAL:0.005, MEM:1522.3M, EPOCH TIME: 1712719565.516046
+[04/09 20:26:05     86s] OPERPROF:     Finished AdvanceDataManager::initSiteMarkMT at level 3, CPU:0.010, REAL:0.008, MEM:1522.3M, EPOCH TIME: 1712719565.516266
+[04/09 20:26:05     86s] OPERPROF:     Starting AdvanceRowAssigner::collectAndSplitActiveRowMT() at level 3, MEM:1522.3M, EPOCH TIME: 1712719565.519014
+[04/09 20:26:05     86s] OPERPROF:       Starting AdvanceRowAssigner::cut row at level 4, MEM:1522.3M, EPOCH TIME: 1712719565.519210
+[04/09 20:26:05     86s] OPERPROF:       Finished AdvanceRowAssigner::cut row at level 4, CPU:0.020, REAL:0.025, MEM:1522.3M, EPOCH TIME: 1712719565.544020
+[04/09 20:26:05     86s] ** Cut row section cpu time 0:00:00.0.
+[04/09 20:26:05     86s]  ** Cut row section real time 0:00:00.0.
+[04/09 20:26:05     86s]  OPERPROF:     Finished AdvanceRowAssigner::collectAndSplitActiveRowMT() at level 3, CPU:0.020, REAL:0.025, MEM:1522.3M, EPOCH TIME: 1712719565.544405
+[04/09 20:26:05     86s]   Spread Effort: high, standalone mode, useDDP on.
+[04/09 20:26:05     86s] [CPU] RefinePlace/preRPlace (cpu=0:00:00.1, real=0:00:00.0, mem=1522.3MB) @(0:01:26 - 0:01:26).
+[04/09 20:26:05     86s] Move report: preRPlace moves 163 insts, mean move: 1.34 um, max move: 3.80 um 
+[04/09 20:26:05     86s] 	Max move on inst (sync_r2w/wq2_rptr_reg_4_): (450.33, 587.58) --> (452.46, 585.91)
+[04/09 20:26:05     86s] 	Length: 28 sites, height: 1 rows, site name: unit, cell type: DFFARX1_RVT
+[04/09 20:26:05     86s] wireLenOptFixPriorityInst 0 inst fixed
+[04/09 20:26:05     86s] Placement tweakage begins.
+[04/09 20:26:05     86s] wire length = 3.616e+04
+[04/09 20:26:05     86s] wire length = 3.590e+04
+[04/09 20:26:05     86s] Placement tweakage ends.
+[04/09 20:26:05     86s] Move report: tweak moves 100 insts, mean move: 2.86 um, max move: 14.14 um 
+[04/09 20:26:05     86s] 	Max move on inst (rptr_empty/rempty_reg): (432.09, 589.26) --> (422.97, 594.27)
+[04/09 20:26:05     86s] 
+[04/09 20:26:05     86s] Running Spiral with 1 thread in Normal Mode  fetchWidth=289 
+[04/09 20:26:05     86s] Move report: legalization moves 0 insts, mean move: 0.00 um, max move: 0.00 um spiral
+[04/09 20:26:05     86s] [CPU] RefinePlace/Spiral (cpu=0:00:00.0, real=0:00:00.0)
+[04/09 20:26:05     86s] [CPU] RefinePlace/Commit (cpu=0:00:00.0, real=0:00:00.0), EEQ(cpu=0:00:00.0, real=0:00:00.0), MTComit(cpu=0:00:00.0, real=0:00:00.0), leftOver(cpu=0:00:00.0, real=0:00:00.0)
+[04/09 20:26:05     86s] [CPU] RefinePlace/Legalization (cpu=0:00:00.0, real=0:00:00.0, mem=1522.3MB) @(0:01:26 - 0:01:26).
+[04/09 20:26:05     86s] Since WEEQ reclaim is enabled, PA align is changed to limited mode.
+[04/09 20:26:05     86s] Move report: Detail placement moves 170 insts, mean move: 1.91 um, max move: 14.14 um 
+[04/09 20:26:05     86s] 	Max move on inst (rptr_empty/rempty_reg): (432.09, 589.26) --> (422.97, 594.27)
+[04/09 20:26:05     86s] 	Runtime: CPU: 0:00:00.1 REAL: 0:00:00.0 MEM: 1522.3MB
+[04/09 20:26:05     86s] Statistics of distance of Instance movement in refine placement:
+[04/09 20:26:05     86s]   maximum (X+Y) =        14.14 um
+[04/09 20:26:05     86s]   inst (rptr_empty/rempty_reg) with max move: (432.088, 589.256) -> (422.968, 594.272)
+[04/09 20:26:05     86s]   mean    (X+Y) =         1.91 um
+[04/09 20:26:05     86s] Total instances flipped for legalization: 36
+[04/09 20:26:05     86s] Summary Report:
+[04/09 20:26:05     86s] Instances move: 170 (out of 230 movable)
+[04/09 20:26:05     86s] Instances flipped: 36
+[04/09 20:26:05     86s] Mean displacement: 1.91 um
+[04/09 20:26:05     86s] Max displacement: 14.14 um (Instance: rptr_empty/rempty_reg) (432.088, 589.256) -> (422.968, 594.272)
+[04/09 20:26:05     86s] 	Length: 28 sites, height: 1 rows, site name: unit, cell type: DFFASX1_RVT
+[04/09 20:26:05     86s] Total instances moved : 170
+[04/09 20:26:05     86s] OPERPROF:   Finished RefinePlace2 at level 2, CPU:0.130, REAL:0.131, MEM:1522.3M, EPOCH TIME: 1712719565.606806
+[04/09 20:26:05     86s] Total net bbox length = 2.892e+04 (1.174e+04 1.719e+04) (ext = 2.443e+03)
+[04/09 20:26:05     86s] Runtime: CPU: 0:00:00.2 REAL: 0:00:00.0 MEM: 1522.3MB
+[04/09 20:26:05     86s] [CPU] RefinePlace/total (cpu=0:00:00.2, real=0:00:00.0, mem=1522.3MB) @(0:01:26 - 0:01:26).
+[04/09 20:26:05     86s] *** Finished refinePlace (0:01:26 mem=1522.3M) ***
+[04/09 20:26:05     86s] GigaOpt Checkpoint: Intermediate DB Saving Point afterRefinePlace.16509.1
+[04/09 20:26:05     86s] OPERPROF: Finished RefinePlace at level 1, CPU:0.150, REAL:0.152, MEM:1522.3M, EPOCH TIME: 1712719565.607980
+[04/09 20:26:05     86s] OPERPROF: Starting spDPlaceCleanup(auto) at level 1, MEM:1522.3M, EPOCH TIME: 1712719565.608167
+[04/09 20:26:05     86s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:940).
+[04/09 20:26:05     86s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] All LLGs are deleted
+[04/09 20:26:05     86s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1522.3M, EPOCH TIME: 1712719565.615456
+[04/09 20:26:05     86s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.000, REAL:0.001, MEM:1522.3M, EPOCH TIME: 1712719565.616461
+[04/09 20:26:05     86s] OPERPROF: Finished spDPlaceCleanup(auto) at level 1, CPU:0.020, REAL:0.014, MEM:1518.3M, EPOCH TIME: 1712719565.622295
+[04/09 20:26:05     86s] *** End of Placement (cpu=0:00:01.8, real=0:00:02.0, mem=1518.3M) ***
+[04/09 20:26:05     86s] Processing tracks to init pin-track alignment.
+[04/09 20:26:05     86s] z: 2, totalTracks: 1
+[04/09 20:26:05     86s] z: 4, totalTracks: 1
+[04/09 20:26:05     86s] z: 6, totalTracks: 1
+[04/09 20:26:05     86s] z: 8, totalTracks: 1
+[04/09 20:26:05     86s] #spOpts: N=32 mergeVia=F hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/09 20:26:05     86s] All LLGs are deleted
+[04/09 20:26:05     86s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] OPERPROF: Starting spSiteCleanup(true) at level 1, MEM:1518.3M, EPOCH TIME: 1712719565.635221
+[04/09 20:26:05     86s] OPERPROF: Finished spSiteCleanup(true) at level 1, CPU:0.000, REAL:0.001, MEM:1518.3M, EPOCH TIME: 1712719565.636465
+[04/09 20:26:05     86s] OPERPROF: Starting spInitSiteArr at level 1, MEM:1518.3M, EPOCH TIME: 1712719565.636912
+[04/09 20:26:05     86s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] OPERPROF:   Starting spiInitFpSiteArr at level 2, MEM:1518.3M, EPOCH TIME: 1712719565.637483
+[04/09 20:26:05     86s] Max number of tech site patterns supported in site array is 256.
+[04/09 20:26:05     86s] Core basic site is unit
+[04/09 20:26:05     86s] OPERPROF:     Starting spiCheckSiteIfFastDPInitAvailable at level 3, MEM:1518.3M, EPOCH TIME: 1712719565.698470
+[04/09 20:26:05     86s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:05     86s] After signature check and other controls, allow fast init is true, keep pre-filter is true.
+[04/09 20:26:05     86s] OPERPROF:     Finished spiCheckSiteIfFastDPInitAvailable at level 3, CPU:0.000, REAL:0.001, MEM:1518.3M, EPOCH TIME: 1712719565.699016
+[04/09 20:26:05     86s] Fast DP-INIT is on for default
+[04/09 20:26:05     86s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/09 20:26:05     86s] Atter site array init, number of instance map data is 0.
+[04/09 20:26:05     86s] OPERPROF:   Finished spiInitFpSiteArr at level 2, CPU:0.100, REAL:0.094, MEM:1518.3M, EPOCH TIME: 1712719565.731012
+[04/09 20:26:05     86s] 
+[04/09 20:26:05     86s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/09 20:26:05     86s] OPERPROF: Finished spInitSiteArr at level 1, CPU:0.100, REAL:0.103, MEM:1518.3M, EPOCH TIME: 1712719565.739921
+[04/09 20:26:05     86s] OPERPROF: Starting spReportDensityMap (include fixed instaces) at level 1, MEM:1518.3M, EPOCH TIME: 1712719565.759113
+[04/09 20:26:05     86s] OPERPROF:   Starting Cal-LLG-Density-Map at level 2, MEM:1518.3M, EPOCH TIME: 1712719565.764003
+[04/09 20:26:05     86s] OPERPROF:   Finished Cal-LLG-Density-Map at level 2, CPU:0.010, REAL:0.018, MEM:1518.3M, EPOCH TIME: 1712719565.782123
+[04/09 20:26:05     86s] default core: bins with density > 0.750 = 18.94 % ( 232 / 1225 )
+[04/09 20:26:05     86s] Density distribution unevenness ratio = 75.766%
+[04/09 20:26:05     86s] OPERPROF: Finished spReportDensityMap (include fixed instaces) at level 1, CPU:0.030, REAL:0.024, MEM:1518.3M, EPOCH TIME: 1712719565.782749
+[04/09 20:26:05     86s] OPERPROF: Starting spDPlaceCleanup(auto) at level 1, MEM:1518.3M, EPOCH TIME: 1712719565.782988
+[04/09 20:26:05     86s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] All LLGs are deleted
+[04/09 20:26:05     86s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/09 20:26:05     86s] OPERPROF:   Starting spSiteCleanup(true) at level 2, MEM:1518.3M, EPOCH TIME: 1712719565.791979
+[04/09 20:26:05     86s] OPERPROF:   Finished spSiteCleanup(true) at level 2, CPU:0.010, REAL:0.001, MEM:1518.3M, EPOCH TIME: 1712719565.793408
+[04/09 20:26:05     86s] OPERPROF: Finished spDPlaceCleanup(auto) at level 1, CPU:0.010, REAL:0.015, MEM:1518.3M, EPOCH TIME: 1712719565.798286
+[04/09 20:26:05     86s] <CMD> deselectAll
+[04/09 20:26:05     86s] <CMD> select_obj [ get_ports * ]
+[04/09 20:26:05     86s] <CMD> select_obj {{port:fifo1_sram/rdata[7]} {port:fifo1_sram/rdata[6]} {port:fifo1_sram/rdata[5]} {port:fifo1_sram/rdata[4]} {port:fifo1_sram/rdata[3]} {port:fifo1_sram/rdata[2]} {port:fifo1_sram/rdata[1]} {port:fifo1_sram/rdata[0]} port:fifo1_sram/wfull port:fifo1_sram/rempty {port:fifo1_sram/wdata_in[7]} {port:fifo1_sram/wdata_in[6]} {port:fifo1_sram/wdata_in[5]} {port:fifo1_sram/wdata_in[4]} {port:fifo1_sram/wdata_in[3]} {port:fifo1_sram/wdata_in[2]} {port:fifo1_sram/wdata_in[1]} {port:fifo1_sram/wdata_in[0]} port:fifo1_sram/winc port:fifo1_sram/wclk port:fifo1_sram/wclk2x port:fifo1_sram/wrst_n port:fifo1_sram/rinc port:fifo1_sram/rclk port:fifo1_sram/rrst_n}
+[04/09 20:26:05     86s] <CMD> select_obj {inst:fifo1_sram/fifomem/genblk1_0__U inst:fifo1_sram/fifomem/genblk1_1__U inst:fifo1_sram/fifomem/genblk1_2__U inst:fifo1_sram/fifomem/genblk1_3__U inst:fifo1_sram/fifomem/genblk1_4__U inst:fifo1_sram/fifomem/genblk1_5__U inst:fifo1_sram/fifomem/genblk1_6__U inst:fifo1_sram/fifomem/genblk1_7__U}
+[04/09 20:26:05     86s] <CMD> select_obj {inst:fifo1_sram/io_b_rclk inst:fifo1_sram/io_b_rinc inst:fifo1_sram/io_b_rrst_n inst:fifo1_sram/io_b_wclk inst:fifo1_sram/io_b_wclk2x inst:fifo1_sram/io_b_winc inst:fifo1_sram/io_b_wrst_n inst:fifo1_sram/io_l_rdata_0_ inst:fifo1_sram/io_l_rdata_1_ inst:fifo1_sram/io_l_rdata_2_ inst:fifo1_sram/io_l_rdata_3_ inst:fifo1_sram/io_l_rdata_4_ inst:fifo1_sram/io_l_rdata_5_ inst:fifo1_sram/io_l_rdata_6_ inst:fifo1_sram/io_l_rdata_7_ inst:fifo1_sram/io_r_wdata_in_0_ inst:fifo1_sram/io_r_wdata_in_1_ inst:fifo1_sram/io_r_wdata_in_2_ inst:fifo1_sram/io_r_wdata_in_3_ inst:fifo1_sram/io_r_wdata_in_4_ inst:fifo1_sram/io_r_wdata_in_5_ inst:fifo1_sram/io_r_wdata_in_6_ inst:fifo1_sram/io_r_wdata_in_7_ inst:fifo1_sram/io_t_rempty inst:fifo1_sram/io_t_wfull}
+[04/09 20:26:05     86s] <CMD> defOut -selected ../outputs/fifo1_sram.floorplan.innovus.macros.def
+[04/09 20:26:05     86s] Writing DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def', current time is Tue Apr  9 20:26:05 2024 ...
+[04/09 20:26:05     86s] unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+[04/09 20:26:05     86s] DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def' is written, current time is Tue Apr  9 20:26:05 2024 ...
+[04/09 20:26:38     93s] 
+[04/09 20:26:38     93s] Usage: report_qor [-help] [<pattern>] [-format {html json excel text vivid}] [-id <string>] [-names <string>] [-out_file <string>]
+[04/09 20:26:38     93s] 
+[04/09 20:26:38     93s] **ERROR: (IMPTCM-48):	"-path_type" is not a legal option for command "report_qor". Either the current option or an option prior to it is not specified correctly.
+  
+[04/09 20:26:47     95s] 
+[04/09 20:26:47     95s] Usage: report_qor [-help] [<pattern>] [-format {html json excel text vivid}] [-id <string>] [-names <string>] [-out_file <string>]
+[04/09 20:26:47     95s] 
+[04/09 20:26:47     95s] **ERROR: (IMPTCM-48):	"-pathtype" is not a legal option for command "report_qor". Either the current option or an option prior to it is not specified correctly.
+  
+[04/09 20:27:01     98s] <CMD> man report_qor
+[04/09 20:27:52    102s] -format html requires a -file argument to report_metric
+[04/09 20:28:00    104s] <CMD> man report_qor
+[04/09 20:29:52    117s] <CMD> deselectAll
+[04/09 20:29:52    117s] **ERROR: (IMPSYT-6000):	No Object Selected.
+[04/09 20:29:58    118s] <CMD> selectInst fifomem/genblk1_0__U
+[04/09 20:30:01    119s] <CMD> deselectAll
+[04/09 20:30:03    120s] <CMD> selectInst fifomem/genblk1_4__U
+[04/09 20:30:06    120s] <CMD> deselectAll
+[04/09 20:30:06    120s] <CMD> selectInst fifomem/genblk1_1__U
+[04/09 20:30:07    121s] <CMD> deselectAll
+[04/09 20:30:07    121s] <CMD> selectInst fifomem/genblk1_2__U
+[04/09 20:30:45    129s] <CMD> setLayerPreference layoutObj -isVisible 1
+[04/09 20:31:29    139s] <CMD> setLayerPreference stdRow -isSelectable 1
+[04/09 20:31:32    140s] <CMD> setLayerPreference ioRow -isSelectable 1
+[04/09 20:31:34    140s] <CMD> setLayerPreference stdRow -isSelectable 0
+[04/09 20:31:36    140s] <CMD> setLayerPreference ioRow -isSelectable 0
+[04/09 20:31:41    142s] <CMD> setLayerPreference macroSitePattern -isVisible 1
+[04/09 20:31:52    144s] <CMD> setLayerPreference overlapMacro -isVisible 1
+[04/09 20:31:54    145s] <CMD> setLayerPreference overlapMacro -isVisible 0
+[04/09 20:31:57    145s] <CMD> setLayerPreference overlapBlk -isVisible 1
+[04/09 20:31:59    146s] <CMD> setLayerPreference overlapBlk -isVisible 0
+[04/09 20:32:06    147s] <CMD> setLayerPreference trackObj -isVisible 1
+[04/09 20:32:09    148s] <CMD> setLayerPreference trackObj -isVisible 0
+[04/09 20:32:17    150s] <CMD> setLayerPreference pgPower -isSelectable 0
+[04/09 20:32:19    151s] <CMD> setLayerPreference pgPower -isVisible 0
+[04/09 20:32:22    151s] <CMD> setLayerPreference pgPower -isVisible 1
+[04/09 20:32:23    151s] <CMD> setLayerPreference pgPower -isSelectable 1
+[04/09 20:32:31    154s] <CMD> deselectAll
+[04/09 20:32:35    154s] <CMD> selectInst fifomem/genblk1_1__U
+[04/09 20:33:14    163s] 
+[04/09 20:33:14    163s] *** Memory Usage v#1 (Current mem = 1902.441M, initial mem = 390.141M) ***
+[04/09 20:33:14    163s] 
+[04/09 20:33:14    163s] *** Summary of all messages that are not suppressed in this session:
+[04/09 20:33:14    163s] Severity  ID               Count  Summary                                  
+[04/09 20:33:14    163s] WARNING   IMPFP-325            1  Floorplan of the design is resized. All ...
+[04/09 20:33:14    163s] WARNING   IMPFP-3961           8  The techSite '%s' has no related standar...
+[04/09 20:33:14    163s] WARNING   IMPFP-4026           4  Adjusting core to '%s' to %f due to trac...
+[04/09 20:33:14    163s] ERROR     IMPSYT-6000          2  No Object Selected.                      
+[04/09 20:33:14    163s] WARNING   IMPPP-543           28  Inconsistent cut size definition in VIAR...
+[04/09 20:33:14    163s] WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+[04/09 20:33:14    163s] WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+[04/09 20:33:14    163s] WARNING   IMPSP-6008           1  There are no area I/O rows.              
+[04/09 20:33:14    163s] ERROR     IMPTCM-48            2  "%s" is not a legal option for command "...
+[04/09 20:33:14    163s] WARNING   TA-976               1  Path groups asserted by the group_path c...
+[04/09 20:33:15    163s] WARNING   TCLCMD-1083          1  '%s'                                     
+[04/09 20:33:15    163s] WARNING   TECHLIB-302         38  No function defined for cell '%s'. The c...
+[04/09 20:33:15    163s] WARNING   TECHLIB-1161        36  The library level attribute %s on line %...
+[04/09 20:33:15    163s] WARNING   TECHLIB-1277        36  The %s '%s' has been defined for %s %s '...
+[04/09 20:33:15    163s] *** Message Summary: 156 warning(s), 4 error(s)
+[04/09 20:33:15    163s] 
+[04/09 20:33:15    163s] --- Ending "Innovus" (totcpu=0:02:44, real=0:10:05, mem=1902.4M) ---

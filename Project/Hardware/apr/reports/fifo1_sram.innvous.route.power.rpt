@@ -1,0 +1,126 @@
+Using Power View: func_max_scenario.
+Load RC corner of view func_max_scenario
+Begin Boundary Leakage Calculation
+Ended Boundary Leakage Calculation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=1779.76MB/3813.03MB/2132.20MB)
+Begin Static Power Report Generation
+*----------------------------------------------------------------------------------------
+*	Innovus 21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2024-Apr-09 22:58:49 (2024-Apr-10 05:58:49 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: fifo1_sram
+*
+*	Liberty Libraries used:
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib
+*
+*	Parasitic Files used:
+*
+*       Power View : func_max_scenario
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs
+*
+*       report_power
+*
+-----------------------------------------------------------------------------------------
+*
+
+
+
+Total Power
+-----------------------------------------------------------------------------------------
+Total Internal Power:       10.92410199 	   61.4410%
+Total Switching Power:       5.66527875 	   31.8635%
+Total Leakage Power:         1.19045252 	    6.6955%
+Total Power:                17.77983327
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                        0.3076    0.009182     0.01616       0.333       1.873
+Macro                           0.003758     0.03018           0     0.03393      0.1909
+IO                                 10.13      0.7229       1.039       11.89        66.9
+Combinational                     0.3812       0.275      0.1254      0.7816       4.396
+Clock (Combinational)            0.09856       4.628    0.009783       4.736       26.64
+Clock (Sequential)                     0           0           0           0           0
+-----------------------------------------------------------------------------------------
+Total                              10.92       5.665        1.19       17.78         100
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                      0.95      10.92       5.665        1.19       17.78         100
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+rclk                              0.5028       1.205     0.04526       1.753       9.862
+wclk2x                            0.7749       2.345     0.04546       3.166       17.81
+wclk                              0.5019       1.209     0.04546       1.756       9.878
+-----------------------------------------------------------------------------------------
+Total                               1.78        4.76      0.1362       6.675       37.55
+-----------------------------------------------------------------------------------------
+Clock: rclk
+Clock Period: 0.002000 usec 
+Clock Toggle Rate:  1000.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: wclk2x
+Clock Period: 0.002000 usec 
+Clock Toggle Rate:  2000.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: wclk
+Clock Period: 0.002000 usec 
+Clock Toggle Rate:  1000.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+ 
+ 
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*              Highest Average Power:         CTS_csf_buf_00006 (NBUFFX32_RVT):            2.361
+*              Highest Leakage Power:                 io_b_rclk (I1025_NS):          0.04213
+*                Total Cap:      2.80842e-11 F
+*                Total instances in design:  1718
+*                Total instances in design with no power:     0
+*                Total instances in design with no activty:     0
+
+*                Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+ 
+** INFO:  (VOLTUS_POWR-3465): There are 0 decaps and 0 fillers in the design
+
+Ended Static Power Report Generation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=1779.76MB/3813.03MB/2132.20MB)
+

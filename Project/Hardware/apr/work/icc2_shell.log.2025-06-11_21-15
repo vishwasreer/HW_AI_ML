@@ -1,0 +1,20 @@
+setting auto_restore_mw_cel_lib_setup true
+icc2_shell> set top_design MMU
+MMU
+icc2_shell> source ../scripts/floorplan-macros2.tcl
+Error: could not open script file "../../MMU.design_config.tcl" (CMD-015)
+Information: script '/u/routh/HW_AI_ML/Project/Hardware/apr/scripts/floorplan-macros2.tcl'
+                stopped at line 1 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"source -echo -verbose ../../$top_design.design_config.tcl"
+    (file "/u/routh/HW_AI_ML/Project/Hardware/apr/scripts/floorplan-macros2.tcl" line 1)
+ -- End Extended Error Info
+icc2_shell> exit
+Maximum memory usage for this session: 326.19 MB
+Maximum memory usage for this session including child processes: 326.19 MB
+CPU usage for this session:      9 seconds (  0.00 hours)
+Elapsed time for this session:     52 seconds (  0.01 hours)
+Thank you for using IC Compiler II.
+

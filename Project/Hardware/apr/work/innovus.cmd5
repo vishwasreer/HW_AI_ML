@@ -1,0 +1,158 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Apr  9 22:06:54 2024                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+report_timing -machine_readable -path_group reg2reg > foo.mtarpt
+fs
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+is_common_ui_mode
+is_common_ui_mode
+set init_mmmc_file mmmc.tcl
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/fifo1_sram.genus_phys.vg
+set init_top_cell fifo1_sram
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+defIn ../outputs/fifo1_sram.floorplan.innovus.def
+add_tracks -honor_pitch
+is_common_ui_mode
+setNanoRouteMode -drouteEndIteration 10
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+create_clock -name "wclk" -period $wclk_period  wclk
+set_clock_uncertainty -setup 0.025 wclk
+set_clock_uncertainty -hold 0.025 wclk
+set_clock_latency 0.23 wclk
+set_clock_transition 0.25 wclk
+create_clock -name "rclk" -period $rclk_period rclk
+set_clock_uncertainty -setup 0.025 rclk
+set_clock_uncertainty -hold 0.025 rclk
+set_clock_latency 0.23 rclk
+set_clock_transition 0.25 rclk
+create_clock -name "wclk2x" -period $wclk2x_period wclk2x
+set_clock_uncertainty -setup 0.025 wclk2x
+set_clock_uncertainty -hold 0.025 wclk2x
+set_clock_latency 0.23 wclk2x
+set_clock_transition 0.25 wclk2x
+set_false_path -from [get_clocks wclk ] -to [get_clocks rclk]
+set_false_path -from [get_clocks rclk ] -to [ get_clocks wclk]
+group_path -name INPUTS -from [ get_ports -filter "direction==in&&full_name!~*clk*" ]
+group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
+set_input_delay 0.1 wdata_in* -clock wclk
+set_input_delay -clock wclk 0.0 [get_ports winc]
+set_input_delay -clock rclk 0.0 [get_ports rinc]
+set_input_delay -clock rclk 0.0 [get_ports rrst_n]
+set_input_delay 0.0 rrst_n -clock wclk -add_delay
+set_input_delay 0.0 rrst_n -clock wclk2x -add_delay
+set_output_delay -0.5 rdata* -clock rclk
+set_output_delay -clock rclk 0.28 [get_ports rdata*]
+set_output_delay -clock rclk 0.28 [get_ports rempty]
+set_output_delay -clock wclk 0.28 [get_ports wfull]
+setDontUse *DELLN* true
+createBasicPathGroups -expanded
+saveDesign fifo1_sram_floorplan.innovus
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+place_opt_design
+redirect -tee ../reports/fifo1_sram.innovus.place.congestion.2d.rpt { reportCongestion -hotSpot -overflow -includeBlockage }
+redirect -tee ../reports/fifo1_sram.innovus.place.congestion.3d.rpt { reportCongestion -hotSpot -overflow -includeBlockage -3d }
+timeDesign -preCTS -prefix place -outDir ../reports/fifo1_sram.innovus -expandedViews
+redirect -tee ../reports/fifo1_sram.innovus.place.density.rpt { reportDensityMap }
+summaryReport -noHtml -outfile ../reports/fifo1_sram.innovus.place.summary.rpt
+saveDesign fifo1_sram_place.innovus
+setDesignMode -process 28
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+set_ccopt_property update_io_latency false
+set_ccopt_property routing_top_min_fanout 10000
+add_ndr -name CTS_RULE -spacing {M1 0.1 M2:M8 0.112 } -width_multiplier {M3:M8 2 } -generate_via
+create_route_type -name top_type -non_default_rule CTS_RULE -top_preferred_layer M8 -bottom_preferred_layer M7
+set_ccopt_property -net_type top route_type top_type
+create_route_type -name trunk_type -non_default_rule CTS_RULE -top_preferred_layer M6 -bottom_preferred_layer M5
+set_ccopt_property -net_type trunk route_type trunk_type
+setNanoRouteMode -droutePostRouteSpreadWire false
+ccopt_design
+setAnalysisMode -analysisType onChipVariation
+setAnalysisMode -cppr both
+optDesign -postCTS -hold
+report_ccopt_skew_groups -summary -file ../reports/fifo1_sram.innovus.postcts.ccopt_skew_groups.rpt
+report_ccopt_clock_trees -summary -file ../reports/fifo1_sram.innovus.postcts.ccopt_clock_trees.rpt
+timeDesign -postCTS -prefix postcts -outDir ../reports/fifo1_sram.innovus -expandedViews
+timeDesign -postCTS -hold -prefix postcts -outDir ../reports/fifo1_sram.innovus -expandedViews
+redirect -tee ../reports/fifo1_sram.innovus.postcts.density.rpt { reportDensityMap }
+summaryReport -noHtml -outfile ../reports/fifo1_sram.innovus.postcts.summary.rpt
+saveDesign fifo1_sram_postcts.innovus
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+setNanoRouteMode -droutePostRouteSpreadWire false
+routeDesign
+optDesign -postRoute -setup -hold
+globalNetConnect VDD -type pgpin -pin VDD -inst *
+globalNetConnect VSS -type pgpin -pin VSS -inst *
+saveDesign fifo1_sram_route.innovus
+report_ccopt_skew_groups -summary -file ../reports/fifo1_sram.innovus.route.ccopt_skew_groups.rpt
+report_ccopt_clock_trees -summary -file ../reports/fifo1_sram.innovus.route.ccopt_clock_trees.rpt
+verify_drc -limit 100000 -report ../reports/fifo1_sram.innovus.route.drc.all.rpt
+verify_drc -limit 100000 -check_only regular -report ../reports/fifo1_sram.innovus.route.drc.regular.rpt
+verifyConnectivity -error 100000 -noAntenna -report ../reports/fifo1_sram.innovus.route.connectivity.rpt
+timeDesign -postRoute -prefix route -outDir ../reports/fifo1_sram.innovus -expandedViews
+timeDesign -postRoute -si -prefix route_si -outDir ../reports/fifo1_sram.innovus -expandedViews
+timeDesign -postRoute -hold -prefix route -outDir ../reports/fifo1_sram.innovus -expandedViews
+timeDesign -postRoute -hold -si -prefix route_si -outDir ../reports/fifo1_sram.innovus -expandedViews
+report_power > ../reports/fifo1_sram.innovus.route.power.rpt
+redirect -tee ../reports/fifo1_sram.innovus.route.density.rpt { reportDensityMap }
+summaryReport -noHtml -outfile ../reports/fifo1_sram.innovus.route.summary.rpt
+report_power > ../reports/fifo1_sram.innvous.route.power.rpt
+saveNetlist ../outputs/fifo1_sram.route.innovus.vg
+saveModel -spef -dir fifo1_sram_route_spef
+report_timing -machine_readable -path_group reg2reg > foo.mtarpt
+load_timing_debug_report foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1
+highlight_timing_report {-file foo.mtarpt -path 1}
+win on
+setLayerPreference node_layer -isVisible 0
+setLayerPreference violation -isVisible 0
+report_timing -machine_readable -path_group out2reg > foo.mtarpt
+report_timing -machine_readable -path_group in2reg > foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1
+highlight_timing_report {-file foo.mtarpt -path 1}
+load_timing_debug_report foo.mtarpt
+win on
+report_timing -machine_readable -path_group reg2out > foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1
+highlight_timing_report {-file foo.mtarpt -path 1}
+load_timing_debug_report foo.mtarpt
+report_timing -machine_readable -path_group INPUTS > foo.mtarpt
+load_timing_debug_report foo.mtarpt
+zoomIn
+zoomOut
+zoomBox -52.41400 156.17900 2453.18900 1166.10200

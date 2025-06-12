@@ -1,0 +1,83 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Warning: time.si_enable_analysis is on, it could increase the runtime and memory usage. 
+Corner Scaling is off, multiplier is 1.000000
+Number of Site types in the design = 1
+Setting up Chip Core
+Chip Core shape: (100000 100000) (9600000 6286400)
+Number of VARs = 1
+Number of unique PDs = 1
+Number of Power Domains = 1
+Number of Voltage Areas = 1
+Number of supply Nets = 2
+Number of used supplies = 0
+Blocked VAs: 
+ndr: clock_double_spacing added
+ORB: timingScenario func_slow timingCorner slow
+INFO: Using corner slow for worst leakage corner
+Using default layer M5
+new cutoff lpd: 1.21928e-02
+corner scaling: maxCornerId = 1
+corner=slow, tran factor=1.000000 (0.262938 / 0.262938)
+corner scaling: maxCornerId = 1
+corner=slow, tran factor=1.000000 (0.262938 / 0.262938)
+ORB: Nominal = 0.0524849  Design MT = inf  Target = 0.2629384 (5.010 nominal)  MaxRC = 0.173437
+ORB: Fast Target = 0.094186 ( 1.795 nominal )
+ORB: stageDelay=0.17302, stageLength=7295121
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : true
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0400 seconds to build cellmap data
+INFO: creating 50(r) x 50(c) GridCells YDim 12.7728 XDim 19.4
+INFO: number of GridCells (0xa80befc0): 2500
+INFO: creating 50(r) x 50(c) GridCells YDim 12.7728 XDim 19.4
+INFO: number of GridCells (0xa80befc0): 2500
+Total 0.0600 seconds to load 6441 cell instances into cellmap
+Moveable cells: 5701; Application fixed cells: 0; Macro cells: 0; User fixed cells: 740
+Average cell width 2.0828, cell height 1.6720, cell area 3.4825 for total 5701 placed and application fixed cells
+****************************************
+Report : clock qor
+        -type summary
+Design : MMU
+Version: V-2023.12
+Date   : Wed Jun 11 21:49:09 2025
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+===========================================
+==== Summary Reporting for Corner slow ====
+===========================================
+
+============================================================ Summary Table for Corner slow =============================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: func, Scenario: func_slow
+clk                                     M,D       548      3        0      0.00    168.50      0.23      0.00         0         0   2551.97
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                        548      3        0      0.00    168.50      0.23      0.00         0         0   2551.97
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+1

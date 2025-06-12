@@ -1,0 +1,37 @@
+ Info: Initializing timer in CLOCK_SYN_REPORT_MODE
+Information: The value of option cts.compile.enable_cell_relocation has been overridden to "leaf_only" to support latency-driven placement. (CTS-973)
+Warning: time.si_enable_analysis is on, it could increase the runtime and memory usage. 
+****************************************
+Report : clock qor
+        -type summary
+Design : MMU
+Version: V-2023.12
+Date   : Wed Jun 11 21:52:10 2025
+****************************************
+
+Attributes
+===========
+M Master Clock
+G Generated Clock
+& Internal Generated Clock
+U User Defined Skew Group
+D Default Skew Group
+* Generated Clock Balanced Separately
+
+===========================================
+==== Summary Reporting for Corner slow ====
+===========================================
+
+============================================================ Summary Table for Corner slow =============================================================
+Clock /                               Attrs     Sinks Levels    Clock     Clock     Clock       Max    Global  Trans DRC  Cap DRC      Wire
+Skew Group                                                   Repeater  Repeater   Stdcell   Latency      Skew     Count     Count    Length
+                                                                Count      Area      Area
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+### Mode: func, Scenario: func_slow
+clk                                     M,D       548      2       14     64.81     64.81      0.12      0.02         0         0   3077.67
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+All Clocks                                        548      2       14     64.81     64.81      0.12      0.02         0         0   3077.67
+
+
+Warning: Please use -largest / -smallest / -all switches with -show_verbose_paths / -show_paths to report the clock paths. (CTS-956)
+1

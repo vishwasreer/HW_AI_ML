@@ -1,0 +1,748 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v23.10-p003_1, built Thu Feb 1 13:54:57 PST 2024
+Options:	
+Date:		Mon Apr  7 20:36:55 2025
+Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+OS:		CentOS Linux 7 (Core)
+
+License:
+		[20:36:55.350122] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+		invs	Innovus Implementation System	23.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+Sourcing startup file ./enc.tcl
+<CMD> alias fs set top_design fifo1_sram
+<CMD> alias f set top_design fifo1
+<CMD> alias o set top_design ORCA_TOP
+<CMD> alias e set top_design ExampleRocketSystem
+<CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+**WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+<CMD> set_global report_timing_format  {delay arrival slew cell hpin}
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getVersion
+<CMD> define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+        {-window "window coordinates" "" list optional}
+        {-window_size "window size in microns" "" string optional}
+    
+    }
+[INFO] Loading Pegasus 23.20 fill procedures
+<CMD> define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+<CMD> define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+<CMD> define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+<CMD> define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+<CMD> define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+<CMD> define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+<CMD> win
+<CMD> fs
+### Start verbose source output (echo mode) for '../../fifo1_sram.design_config.tcl' ...
+# set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+# set hack_lef_dir /u/bcruik2/hacked_lefs
+# set add_ios 1
+# set pad_design 1
+# set design_size { 580 580  } 
+# set design_io_border 310
+# set dc_floorplanning 1
+# set enable_dft 0
+# set innovus_enable_manual_macro_placement 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+# set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+# set synth_corners $slow_corner
+# set synth_corners_target "ss0p95v125c" 
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set slow_metal Cmax_125
+# set fast_metal Cmax_125
+# set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+# set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+# set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+# set sub_lib_type_target "saed32rvt_"
+# set tech_lef ${hack_lef_dir}/tech.lef 
+# set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+# set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+# set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+# set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+# set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+# set FCL 0
+# set split_constraints 0
+### End verbose source output for '../../fifo1_sram.design_config.tcl'.
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> set search_path {}
+<CMD> set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+<CMD> is_common_ui_mode
+<CMD> is_common_ui_mode
+<CMD> set init_mmmc_file mmmc.tcl
+<CMD> set init_design_netlisttype Verilog
+<CMD> set init_verilog ../../syn/outputs/fifo1_sram.genus.vg
+<CMD> set init_top_cell fifo1_sram
+<CMD> set init_pwr_net VDD
+<CMD> set init_gnd_net VSS
+<CMD> init_design
+#% Begin Load MMMC data ... (date=04/07 20:39:08, mem=1505.3M)
+#% End Load MMMC data ... (date=04/07 20:39:08, total cpu=0:00:00.1, real=0:00:00.0, peak res=1506.5M, current mem=1506.5M)
+cmin cmax
+
+Loading LEF file /u/bcruik2/hacked_lefs/tech.lef ...
+
+Loading LEF file saed32_io_wb_all.lef ...
+Set DBUPerIGU to M2 pitch 152.
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32_io_wb_all.lef at line 285838.
+
+Loading LEF file saed32nm_lvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32nm_lvt_1p9m.lef at line 67466.
+
+Loading LEF file saed32_PLL.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32_PLL.lef at line 372.
+
+Loading LEF file saed32nm_hvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32nm_hvt_1p9m.lef at line 191962.
+
+Loading LEF file saed32nm_rvt_1p9m.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32nm_rvt_1p9m.lef at line 148040.
+
+Loading LEF file saed32sram.lef ...
+WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+Without BUSBITCHARS defined, the LEF file is technically incorrect.
+Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32sram.lef at line 197399.
+
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+Loading view definition file from mmmc.tcl
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84607)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84658)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84709)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120047)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120098)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120149)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226626 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226627 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226628 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+Read 294 cells in library 'saed32rvt_ss0p95v125c' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84611)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84662)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84713)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT3_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120051)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120102)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120153)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT3_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226346 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226347 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226348 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+Read 294 cells in library 'saed32hvt_ss0p95v125c' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib' ...
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 15913 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 15914 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 15915 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+Read 62 cells in library 'saed32io_wb_ss0p95v125c_2p25v' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib' ...
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 24401 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 24402 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 24403 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+Read 35 cells in library 'saed32sram_ss0p95v125c' 
+Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib' ...
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 1766 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 1767 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 1768 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PLL'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+Read 1 cells in library 'saed32pll_ss0p95v125c_2p25v' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84607)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84658)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84709)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120047)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120098)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120149)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226448 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+**WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+Read 294 cells in library 'saed32rvt_ff0p95vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib' ...
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84607)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+**WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84658)
+**WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+Message <TECHLIB-1277> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Message <TECHLIB-313> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+**WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+**WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+Message <TECHLIB-1161> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+**WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 294 cells in library 'saed32rvt_ff1p16vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95vn40c.lib' ...
+Read 294 cells in library 'saed32hvt_ff0p95vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16vn40c.lib' ...
+Read 294 cells in library 'saed32hvt_ff1p16vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ff1p16vn40c_2p75v.lib' ...
+Read 62 cells in library 'saed32io_wb_ff1p16vn40c_2p75v' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16vn40c.lib' ...
+Read 35 cells in library 'saed32sram_ff1p16vn40c' 
+Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ff1p16vn40c_2p75v.lib' ...
+Read 1 cells in library 'saed32pll_ff1p16vn40c_2p75v' 
+*** End library_loading (cpu=0.11min, real=0.12min, mem=29.4M, fe_cpu=0.85min, fe_real=2.37min, fe_mem=1827.1M) ***
+#% Begin Load netlist data ... (date=04/07 20:39:17, mem=1559.1M)
+*** Begin netlist parsing (mem=1827.1M) ***
+Created 686 new cells from 12 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '../../syn/outputs/fifo1_sram.genus.vg'
+
+*** Memory Usage v#2 (Current mem = 1827.109M, initial mem = 812.664M) ***
+*** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=1827.1M) ***
+#% End Load netlist data ... (date=04/07 20:39:17, total cpu=0:00:00.1, real=0:00:00.0, peak res=1580.3M, current mem=1580.3M)
+Set top cell to fifo1_sram.
+Hooked 1960 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell fifo1_sram ...
+***** UseNewTieNetMode *****.
+*** Netlist is unique.
+** info: there are 2428 modules.
+** info: there are 222 stdCell insts.
+** info: there are 0 insts with no signal pins.
+** info: there are 25 Pad insts.
+** info: there are 8 macros.
+
+*** Memory Usage v#2 (Current mem = 1910.535M, initial mem = 812.664M) ***
+Initializing I/O assignment ...
+Adjusting Core to Left to: 0.0480. Core to Bottom to: 0.0480.
+**WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 0 (derived)
+Vertical Layer M2 offset = 0 (derived)
+Start create_tracks
+Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+Extraction setup Started for TopCell fifo1_sram 
+Initializing multi-corner RC extraction with 2 active RC Corners ...
+Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap ...
+Process name: saed32nm_1p9m_Cmax.
+Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap ...
+Process name: saed32nm_1p9m_Cmin.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: func_max_scenario
+    RC-Corner Name        : cmax
+    RC-Corner Index       : 0
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+ 
+ Analysis View: func_min_scenario
+    RC-Corner Name        : cmin
+    RC-Corner Index       : 1
+    RC-Corner Temperature : -40 Celsius
+    RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC Grid density data for preRoute extraction ...
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+Current (total cpu=0:00:53.5, real=0:02:25, peak res=2069.6M, current mem=2069.6M)
+Number of path exceptions in the constraint file = 2
+Number of paths exceptions after getting compressed = 2
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=2102.0M, current mem=2102.0M)
+Current (total cpu=0:00:53.7, real=0:02:26, peak res=2102.0M, current mem=2102.0M)
+Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+Current (total cpu=0:00:53.8, real=0:02:26, peak res=2102.1M, current mem=2102.1M)
+Number of path exceptions in the constraint file = 2
+Number of paths exceptions after getting compressed = 2
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=2102.4M, current mem=2102.4M)
+Current (total cpu=0:00:53.9, real=0:02:26, peak res=2102.4M, current mem=2102.4M)
+**WARN: (TA-976):	Path groups asserted by the group_path constraint are considered by the software to be global in nature - they cannot be restricted to specific constraint modes. Due to this restriction, the group_path constraint is not supported directly in the constraint files which are configured in mode-specific commands such as create_constraint_mode. The current group_path entry will be ignored. You can enter the group_path constraint interactively or as part of a general command script -  where it will be interpreted as global and will be in effect for all modes.
+Total number of combinational cells: 250
+Total number of sequential cells: 264
+Total number of tristate cells: 12
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 32
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+Total number of physical cells: 18
+List of usable buffers: NBUFFX2_HVT NBUFFX16_HVT NBUFFX32_HVT NBUFFX4_HVT NBUFFX8_HVT NBUFFX2_RVT NBUFFX16_RVT NBUFFX32_RVT NBUFFX4_RVT NBUFFX8_RVT
+Total number of usable buffers: 10
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: IBUFFX2_HVT IBUFFX16_HVT IBUFFX32_HVT INVX0_HVT IBUFFX4_HVT IBUFFX8_HVT INVX16_HVT INVX1_HVT INVX2_HVT INVX32_HVT INVX4_HVT IBUFFX2_RVT INVX8_HVT IBUFFX16_RVT IBUFFX32_RVT INVX0_RVT IBUFFX4_RVT IBUFFX8_RVT INVX16_RVT INVX1_RVT INVX2_RVT INVX32_RVT INVX4_RVT INVX8_RVT
+Total number of usable inverters: 24
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: DELLN1X2_HVT DELLN2X2_HVT DELLN3X2_HVT DELLN1X2_RVT DELLN2X2_RVT DELLN3X2_RVT
+Total number of identified usable delay cells: 6
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+#% Begin Load MMMC data post ... (date=04/07 20:39:21, mem=2106.0M)
+#% End Load MMMC data post ... (date=04/07 20:39:21, total cpu=0:00:00.1, real=0:00:00.0, peak res=2106.0M, current mem=2106.0M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+WARNING   TA-976               1  Path groups asserted by the group_path c...
+WARNING   TECHLIB-302         38  No function defined for cell '%s'. The c...
+WARNING   TECHLIB-313         36  Property '%s' can not be set on pin '%s'...
+WARNING   TECHLIB-1161        36  The library level attribute %s on line %...
+WARNING   TECHLIB-1277        36  The %s '%s' has been defined for %s %s '...
+*** Message Summary: 151 warning(s), 0 error(s)
+
+<CMD> all_constraint_modes -active
+func_min_sdc func_max_sdc
+<CMD> set_interactive_constraint_modes [all_constraint_modes -active]
+<CMD> floorPlan -s 580 580 10 10 10 10 -flip s -coreMarginsBy io
+The core width changes from 580.000000 to 580.032000 when snapping to grid "PlacementGrid".
+The core height changes from 580.000000 to 580.032000 when snapping to grid "PlacementGrid".
+**WARN: (IMPFP-4026):	Adjusting core to 'Left' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Right' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-4026):	Adjusting core to 'Top' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+**WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+**WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+Type 'man IMPFP-3961' for more detail.
+Horizontal Layer M1 offset = 0 (derived)
+Vertical Layer M2 offset = 0 (derived)
+Start create_tracks
+Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+<CMD> is_common_ui_mode
+<CMD> loadIoFile fifo1_sram.io
+Reading IO assignment file "fifo1_sram.io" ...
+<CMD> loadIoFile fifo1_sram.io
+Reading IO assignment file "fifo1_sram.io" ...
+### Start verbose source output (echo mode) for '../../fifo1_sram.design_options.tcl' ...
+# if { [info exists synopsys_program_name ] } { 
+    set_app_option -name place.coarse.continue_on_missing_scandef -value true
+
+    #set enable_recovery_removal_arcs true
+    set_app_option -name time.disable_recovery_removal_checks -value false
+    #set timing_enable_multiple_clocks_per_reg true
+    #set timing_remove_clock_reconvergence_pessimism true
+    set_app_option -name timer.remove_clock_reconvergence_pessimism -value true
+
+    #set physopt_enable_via_res_support true
+    #set physopt_hard_keepout_distance 5
+    #set_preferred_routing_direction -direction vertical -l {M2 M4}
+    #set_preferred_routing_direction -direction horizontal -l {M3 M5}
+    set_ignored_layers  -min_routing_layer M2 -max_routing_layer M7
+
+
+    # To optimize DW components (I think only adders right now??) - default is false
+    #set physopt_dw_opto true
+
+    #set_ahfs_options -remove_effort high
+    #set_buffer_opt_strategy -effort medium
+
+    # Dont use delay buffers
+    #set_dont_use [get_lib_cells */DELLN* ]
+    set_lib_cell_purpose -include hold [get_lib_cells */DELLN* ]
+
+    #FIXME
+    #set_host_options -max_cores 1 -num_processes 1 mo.ece.pdx.edu
+    set_app_options -name compile.flow.trial_clock_tree -value false
+    set_app_options -name place_opt.flow.trial_clock_tree -value false
+    set_app_options -name compile.flow.enable_ccd -value false
+    set_app_options -name place_opt.flow.enable_ccd -value false
+    set_app_options -name clock_opt.flow.enable_ccd -value false
+    set_app_options -name route_opt.flow.enable_ccd -value false
+    set_app_options -name ccd.max_postpone -value 0
+    set_app_options -name ccd.max_prepone -value 0
+
+    ###########################  CTS Related
+    create_routing_rule clock_double_spacing -spacings {M1 0.1 M2 0.112 M3 0.112 M4 0.112 M5 0.112 M6 0.112 M7 0.112 M8 0.112}
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type internal -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type root -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    # Set other cts app_options?  Bufs vs Inverters, certain drive strengths.  
+
+    # Allow delay buffers just for hold fixing
+    #set_prefer -min [get_lib_cells */DELLN*HVT ]
+    #set_fix_hold_options -preferred_buffer
+    # fix hold on all clocks
+    #set_fix_hold [all_clocks]
+    # If design blows up, try turning hold fixing off. 
+    # -optimize_dft is good if scan is inserted.
+    # Sometimes better to separate CTS and setup/hold so any hold concerns can be seen before hold fixing.
+    # Can look in the log at the beginning of clock_opt hold fixing to see if there was a large hold problem to fix.
+    # set_app_option -name clock_opt.flow.skip_hold -value true
+
+    ########################## Route related
+    set_app_option -name route_opt.flow.xtalk_reduction -value true
+    set_app_option -name time.si_enable_analysis -value true
+
+    if { $top_design == "ORCA_TOP" } {
+      create_voltage_area  -region {{580 0} {1000 400}} -power_domains PD_RISC_CORE
+    }
+} else {
+
+    # Try reducing the search and repair iterations for now.
+    if [is_common_ui_mode ] { set_db route_design_detail_end_iteration 10
+    } else { setNanoRouteMode -drouteEndIteration 10  }
+}
+<CMD> is_common_ui_mode
+<CMD> setNanoRouteMode -drouteEndIteration 10
+### End verbose source output for '../../fifo1_sram.design_options.tcl'.
+<CMD> placeAIO
+**WARN: (IMPSP-362):	Site 'unit' has one std.Cell height, so ignoring its X-symmetry.
+Type 'man IMPSP-362' for more detail.
+Estimated cell power/ground rail width = 0.209 um
+INFO: #ExclusiveGroups=0
+INFO: There are no Exclusive Groups.
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+Extracting macro/IO cell pins and blockage ...... 
+Pin and blockage extraction finished
+*** Starting "NanoPlace(TM) placement v#12 (mem=2541.0M)" ...
+No user-set net weight.
+Net fanout histogram:
+2		: 163 (59.5%) nets
+3		: 42 (15.3%) nets
+4     -	14	: 65 (23.7%) nets
+15    -	39	: 0 (0.0%) nets
+40    -	79	: 4 (1.5%) nets
+80    -	159	: 0 (0.0%) nets
+160   -	319	: 0 (0.0%) nets
+320   -	639	: 0 (0.0%) nets
+640   -	1279	: 0 (0.0%) nets
+1280  -	2559	: 0 (0.0%) nets
+2560  -	5119	: 0 (0.0%) nets
+5120+		: 0 (0.0%) nets
+Scan chains were not defined.
+#std cell=222 (0 fixed + 222 movable) #buf cell=1 #inv cell=15 #block=8 (8 floating + 0 preplaced)
+#ioInst=25 #net=274 #term=1128 #term/net=4.12, #fixedIo=25, #floatIo=0, #fixedPin=15, #floatPin=0
+stdCell: 222 single + 0 double + 0 multi
+Total standard cell length = 0.6060 (mm), area = 0.0010 (mm^2)
+Average module density = 0.211.
+Density for the design = 0.211.
+       = (stdcell_area 3987 sites (1013 um^2) + block_area 274479 sites (69757 um^2)) / alloc_area 1320336 sites (335555 um^2).
+Pin Density = 0.0008543.
+            = total # of pins 1128 / total area 1320336.
+Applying critslk net weight for 0 nets ...
+Clock gating cells determined by native netlist tracing.
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+Iteration  1: Total net bbox = 1.107e+04 (6.11e+03 4.96e+03)
+              Est.  stn bbox = 1.535e+04 (8.28e+03 7.07e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2544.0M
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+Iteration  2: Total net bbox = 2.097e+04 (6.11e+03 1.49e+04)
+              Est.  stn bbox = 2.840e+04 (8.28e+03 2.01e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2544.0M
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 599288 hiBox.ll.y: 599288 
+WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+Iteration  3: Total net bbox = 2.557e+04 (1.07e+04 1.49e+04)
+              Est.  stn bbox = 3.447e+04 (1.43e+04 2.01e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2544.0M
+Iteration  4: Total net bbox = 2.897e+04 (1.27e+04 1.63e+04)
+              Est.  stn bbox = 3.907e+04 (1.73e+04 2.18e+04)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 2545.0M
+Iteration  5: Total net bbox = 2.867e+04 (1.24e+04 1.63e+04)
+              Est.  stn bbox = 3.880e+04 (1.70e+04 2.18e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration  6: Total net bbox = 2.784e+04 (1.24e+04 1.54e+04)
+              Est.  stn bbox = 3.798e+04 (1.70e+04 2.10e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration  7: Total net bbox = 2.789e+04 (1.25e+04 1.54e+04)
+              Est.  stn bbox = 3.804e+04 (1.70e+04 2.10e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration  8: Total net bbox = 2.817e+04 (1.25e+04 1.57e+04)
+              Est.  stn bbox = 3.845e+04 (1.70e+04 2.14e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration  9: Total net bbox = 2.840e+04 (1.27e+04 1.57e+04)
+              Est.  stn bbox = 3.875e+04 (1.73e+04 2.14e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration 10: Total net bbox = 2.864e+04 (1.27e+04 1.59e+04)
+              Est.  stn bbox = 3.906e+04 (1.73e+04 2.17e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration 11: Total net bbox = 2.880e+04 (1.29e+04 1.59e+04)
+              Est.  stn bbox = 3.925e+04 (1.75e+04 2.17e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+Iteration 12: Total net bbox = 2.910e+04 (1.29e+04 1.62e+04)
+              Est.  stn bbox = 3.960e+04 (1.75e+04 2.21e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2546.0M
+Iteration 13: Total net bbox = 2.915e+04 (1.29e+04 1.63e+04)
+              Est.  stn bbox = 3.965e+04 (1.75e+04 2.21e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2546.0M
+Iteration 14: Total net bbox = 2.924e+04 (1.29e+04 1.64e+04)
+              Est.  stn bbox = 3.975e+04 (1.75e+04 2.22e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2548.0M
+Iteration 15: Total net bbox = 2.923e+04 (1.29e+04 1.64e+04)
+              Est.  stn bbox = 3.973e+04 (1.75e+04 2.22e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2550.0M
+macro_flip: HPWL decrease ratio is 0.000000, horizontally flipped 0, vertically flipped 0
+Iteration 16: Total net bbox = 2.956e+04 (1.32e+04 1.64e+04)
+              Est.  stn bbox = 4.008e+04 (1.78e+04 2.22e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+*** cost = 2.956e+04 (1.32e+04 1.64e+04) (cpu for global=0:00:00.4) real=0:00:00.0***
+Info: 0 clock gating cells identified, 0 (on average) moved 0/12
+*** Starting IO Refinement ...
+**WARN: (IMPSP-6008):	There are no area I/O rows.
+*** End IO Refinement (cpu=0:00:00.0, real=0:00:00.0, mem=2551.0M) ***
+INFO: #ExclusiveGroups=0
+INFO: There are no Exclusive Groups.
+*** Starting "NanoPlace(TM) placement v#12 (mem=2551.0M)" ...
+No user-set net weight.
+Net fanout histogram:
+2		: 163 (59.5%) nets
+3		: 42 (15.3%) nets
+4     -	14	: 65 (23.7%) nets
+15    -	39	: 0 (0.0%) nets
+40    -	79	: 4 (1.5%) nets
+80    -	159	: 0 (0.0%) nets
+160   -	319	: 0 (0.0%) nets
+320   -	639	: 0 (0.0%) nets
+640   -	1279	: 0 (0.0%) nets
+1280  -	2559	: 0 (0.0%) nets
+2560  -	5119	: 0 (0.0%) nets
+5120+		: 0 (0.0%) nets
+Scan chains were not defined.
+#std cell=222 (0 fixed + 222 movable) #buf cell=1 #inv cell=15 #block=8 (8 floating + 0 preplaced)
+#ioInst=25 #net=274 #term=1128 #term/net=4.12, #fixedIo=25, #floatIo=0, #fixedPin=15, #floatPin=0
+stdCell: 222 single + 0 double + 0 multi
+Total standard cell length = 0.6060 (mm), area = 0.0010 (mm^2)
+Average module density = 0.211.
+Density for the design = 0.211.
+       = (stdcell_area 3987 sites (1013 um^2) + block_area 274479 sites (69757 um^2)) / alloc_area 1320336 sites (335555 um^2).
+Pin Density = 0.0008543.
+            = total # of pins 1128 / total area 1320336.
+Applying critslk net weight for 0 nets ...
+Clock gating cells determined by native netlist tracing.
+Iteration  1: Total net bbox = 1.107e+04 (6.11e+03 4.96e+03)
+              Est.  stn bbox = 1.535e+04 (8.28e+03 7.07e+03)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  2: Total net bbox = 2.097e+04 (6.11e+03 1.49e+04)
+              Est.  stn bbox = 2.840e+04 (8.28e+03 2.01e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  3: Total net bbox = 2.557e+04 (1.07e+04 1.49e+04)
+              Est.  stn bbox = 3.447e+04 (1.43e+04 2.01e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  4: Total net bbox = 2.897e+04 (1.27e+04 1.63e+04)
+              Est.  stn bbox = 3.907e+04 (1.73e+04 2.18e+04)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 2551.0M
+Iteration  5: Total net bbox = 2.867e+04 (1.24e+04 1.63e+04)
+              Est.  stn bbox = 3.880e+04 (1.70e+04 2.18e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  6: Total net bbox = 2.784e+04 (1.24e+04 1.54e+04)
+              Est.  stn bbox = 3.798e+04 (1.70e+04 2.10e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  7: Total net bbox = 2.789e+04 (1.25e+04 1.54e+04)
+              Est.  stn bbox = 3.804e+04 (1.70e+04 2.10e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  8: Total net bbox = 2.817e+04 (1.25e+04 1.57e+04)
+              Est.  stn bbox = 3.845e+04 (1.70e+04 2.14e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+Iteration  9: Total net bbox = 2.835e+04 (1.26e+04 1.57e+04)
+              Est.  stn bbox = 3.870e+04 (1.73e+04 2.14e+04)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 2552.0M
+Iteration 10: Total net bbox = 2.884e+04 (1.26e+04 1.62e+04)
+              Est.  stn bbox = 3.927e+04 (1.73e+04 2.20e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2552.0M
+Iteration 11: Total net bbox = 2.909e+04 (1.29e+04 1.62e+04)
+              Est.  stn bbox = 3.956e+04 (1.76e+04 2.20e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2552.0M
+Iteration 12: Total net bbox = 2.933e+04 (1.29e+04 1.64e+04)
+              Est.  stn bbox = 3.983e+04 (1.76e+04 2.23e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2552.0M
+Iteration 13: Total net bbox = 2.935e+04 (1.29e+04 1.65e+04)
+              Est.  stn bbox = 3.984e+04 (1.76e+04 2.23e+04)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 2552.0M
+Iteration 14: Total net bbox = 2.935e+04 (1.29e+04 1.65e+04)
+              Est.  stn bbox = 3.985e+04 (1.76e+04 2.23e+04)
+              cpu = 0:00:00.1 real = 0:00:00.0 mem = 2556.0M
+Iteration 15: Total net bbox = 2.933e+04 (1.29e+04 1.64e+04)
+              Est.  stn bbox = 3.983e+04 (1.76e+04 2.23e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2556.0M
+macro_flip: HPWL decrease ratio is 0.000000, horizontally flipped 0, vertically flipped 0
+Iteration 16: Total net bbox = 2.965e+04 (1.32e+04 1.65e+04)
+              Est.  stn bbox = 4.016e+04 (1.79e+04 2.23e+04)
+              cpu = 0:00:00.0 real = 0:00:00.0 mem = 2556.0M
+*** cost = 2.965e+04 (1.32e+04 1.65e+04) (cpu for global=0:00:00.5) real=0:00:00.0***
+Info: 0 clock gating cells identified, 0 (on average) moved 0/12
+Begin: Reorder Scan Chains
+**WARN: (IMPSP-9025):	No scan chain specified/traced.
+Type 'man IMPSP-9025' for more detail.
+End: Reorder Scan Chains
+*** Starting refinePlace (0:00:56.9 mem=2556.0M) ***
+Total net bbox length = 2.965e+04 (1.319e+04 1.646e+04) (ext = 2.008e+03)
+Max route layer is changed from 127 to 10 because there is no routing track above this layer
+Max route layer is changed from 127 to 10 because there is no routing track above this layer
+Max route layer is changed from 127 to 10 because there is no routing track above this layer
+Max route layer is changed from 127 to 10 because there is no routing track above this layer
+Move report: Detail placement moves 181 insts, mean move: 2.11 um, max move: 12.46 um 
+	Max move on inst (sync_r2w/wq2_rptr_reg_4_): (432.09, 425.40) --> (422.97, 428.74)
+	Runtime: CPU: 0:00:00.2 REAL: 0:00:00.0 MEM: 2524.0MB
+Summary Report:
+Instances move: 181 (out of 230 movable)
+Instances flipped: 28
+Mean displacement: 2.11 um
+Max displacement: 12.46 um (Instance: sync_r2w/wq2_rptr_reg_4_) (432.088, 425.4) -> (422.968, 428.744)
+	Length: 28 sites, height: 1 rows, site name: unit, cell type: DFFARX1_RVT
+Physical-only instances move: 0 (out of 0 movable physical-only)
+Total net bbox length = 2.956e+04 (1.302e+04 1.654e+04) (ext = 2.006e+03)
+Runtime: CPU: 0:00:00.3 REAL: 0:00:00.0 MEM: 2524.0MB
+*** Finished refinePlace (0:00:57.1 mem=2524.0M) ***
+*** End of Placement (cpu=0:00:01.1, real=0:00:01.0, mem=2520.0M) ***
+default core: bins with density > 0.750 = 18.12 % ( 222 / 1225 )
+Density distribution unevenness ratio = 74.695%
+<CMD> deselectAll
+<CMD> select_obj [ get_ports * ]
+<CMD> select_obj {{port:fifo1_sram/rdata[7]} {port:fifo1_sram/rdata[6]} {port:fifo1_sram/rdata[5]} {port:fifo1_sram/rdata[4]} {port:fifo1_sram/rdata[3]} {port:fifo1_sram/rdata[2]} {port:fifo1_sram/rdata[1]} {port:fifo1_sram/rdata[0]} port:fifo1_sram/wfull port:fifo1_sram/rempty {port:fifo1_sram/wdata_in[7]} {port:fifo1_sram/wdata_in[6]} {port:fifo1_sram/wdata_in[5]} {port:fifo1_sram/wdata_in[4]} {port:fifo1_sram/wdata_in[3]} {port:fifo1_sram/wdata_in[2]} {port:fifo1_sram/wdata_in[1]} {port:fifo1_sram/wdata_in[0]} port:fifo1_sram/winc port:fifo1_sram/wclk port:fifo1_sram/wclk2x port:fifo1_sram/wrst_n port:fifo1_sram/rinc port:fifo1_sram/rclk port:fifo1_sram/rrst_n}
+<CMD> select_obj {inst:fifo1_sram/fifomem/genblk1_0__U inst:fifo1_sram/fifomem/genblk1_1__U inst:fifo1_sram/fifomem/genblk1_2__U inst:fifo1_sram/fifomem/genblk1_3__U inst:fifo1_sram/fifomem/genblk1_4__U inst:fifo1_sram/fifomem/genblk1_5__U inst:fifo1_sram/fifomem/genblk1_6__U inst:fifo1_sram/fifomem/genblk1_7__U}
+<CMD> select_obj {inst:fifo1_sram/io_b_rclk inst:fifo1_sram/io_b_rinc inst:fifo1_sram/io_b_rrst_n inst:fifo1_sram/io_b_wclk inst:fifo1_sram/io_b_wclk2x inst:fifo1_sram/io_b_winc inst:fifo1_sram/io_b_wrst_n inst:fifo1_sram/io_l_rdata_0_ inst:fifo1_sram/io_l_rdata_1_ inst:fifo1_sram/io_l_rdata_2_ inst:fifo1_sram/io_l_rdata_3_ inst:fifo1_sram/io_l_rdata_4_ inst:fifo1_sram/io_l_rdata_5_ inst:fifo1_sram/io_l_rdata_6_ inst:fifo1_sram/io_l_rdata_7_ inst:fifo1_sram/io_r_wdata_in_0_ inst:fifo1_sram/io_r_wdata_in_1_ inst:fifo1_sram/io_r_wdata_in_2_ inst:fifo1_sram/io_r_wdata_in_3_ inst:fifo1_sram/io_r_wdata_in_4_ inst:fifo1_sram/io_r_wdata_in_5_ inst:fifo1_sram/io_r_wdata_in_6_ inst:fifo1_sram/io_r_wdata_in_7_ inst:fifo1_sram/io_t_rempty inst:fifo1_sram/io_t_wfull}
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rempty' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'wfull' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[0]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[1]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[2]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[3]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[4]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[5]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[6]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+**WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[7]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+<CMD> defOut -selected ../outputs/fifo1_sram.floorplan.innovus.macros.def
+Writing DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def', current time is Mon Apr  7 20:39:25 2025 ...
+unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def' is written, current time is Mon Apr  7 20:39:25 2025 ...
+
+*** Memory Usage v#2 (Current mem = 2812.117M, initial mem = 812.664M) ***
+*** Message Summary: 174 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:01:13, real=0:05:05, mem=2812.1M) ---

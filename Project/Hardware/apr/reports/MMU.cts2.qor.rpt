@@ -1,0 +1,88 @@
+****************************************
+Report : qor
+Design : MMU
+Version: V-2023.12
+Date   : Wed Jun 11 21:49:34 2025
+****************************************
+Information: The stitching and editing of coupling caps is turned ON for design 'MMU_lib:MMU.design'. (TIM-125)
+Information: Design MMU has 6272 nets, 0 global routed, 15 detail routed. (NEX-024)
+Information: The RC mode used is CTO for design 'MMU'. (NEX-022)
+Information: Crosstalk analysis has been disabled. (TIM-114)
+Information: Design Average RC for design MMU  (NEX-011)
+Information: r = 1.785715 ohm/um, via_r = 0.500000 ohm/cut, c = 0.068742 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 1.785714 ohm/um, via_r = 0.500000 ohm/cut, c = 0.081310 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 6270, routed nets = 15, across physical hierarchy nets = 0, parasitics cached nets = 6270, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+
+Scenario           'func_slow'
+Timing Path Group  'clk'
+----------------------------------------
+Levels of Logic:                     15
+Critical Path Length:              1.95
+Critical Path Slack:              -0.19
+Critical Path Clk Period:          2.00
+Total Negative Slack:             -9.75
+No. of Violating Paths:             160
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:             16
+Hierarchical Port Count:           1708
+Leaf Cell Count:                   5696
+Buf/Inv Cell Count:                 902
+Buf Cell Count:                     425
+Inv Cell Count:                     477
+Combinational Cell Count:          5148
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              548
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       548
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            14907.58
+Noncombinational Area:          4842.46
+Buf/Inv Area:                   2213.09
+Total Buffer Area:              1484.71
+Total Inverter Area:             728.38
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                   61276.84
+Net YLength:                   37830.66
+----------------------------------------
+Cell Area (netlist):                          19750.04
+Cell Area (netlist and physical only):        20690.37
+Net Length:                    99107.51
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:              6465
+Nets with Violations:                 1
+Max Trans Violations:                 0
+Max Cap Violations:                   1
+----------------------------------------
+
+1

@@ -1,0 +1,69 @@
+#@ # 
+#@ # Running icc2_shell Version V-2023.12 for linux64 -- Nov 23, 2023
+#@ # Date:   Mon Apr  8 20:53:56 2024
+#@ # Run by: routh@auto.ece.pdx.edu
+#@ 
+
+source /u/routh/ECE510-2024-SPRING/lab1-vishwasreer/apr/work/.synopsys_icc2.setup
+fs
+source ../scripts/icc2.tcl
+report_qor
+report_qor -path input
+man report_qor
+report_timing -input_pins
+man report_qor
+report_qor path input
+report_qor path
+report_qor path-input
+report_timing path-all_inputs
+man report_timing path
+man report_timing
+report_timing -path_type full
+report_timing -path_type full_clock
+report_timing -all_inputs
+report_timing all_inputs
+report_timing -from all_inputs
+gui_start
+gui_set_pref_value -category {SelectByNamePalette} -key {ObjectType} -value {Logical Cells}
+win_set_filter -visible -class cell -filter {assembly_die_margin clock_margin hard_macro_margin hard_margin route_blockage_margin seal_ring_margin soft_margin} -layer {}
+win_set_filter -visible -class pseudo_bump -filter {deleted} -layer {}
+win_set_filter -visible -class pseudo_tsv -filter {deleted} -layer {}
+win_set_filter -visible -class placement_blockage -filter {wiring} -layer {0-82}
+win_set_filter -expand_cell_types {soft_macro  }
+win_set_select_class -visible {cell port bound routing_blockage shaping_blockage pg_region bump_region pseudo_bump pseudo_tsv pin_blockage block_shielding topology_node topology_edge topology_repeater annotation_shape core_area die_area edit_group shape via terminal fill_cell placement_blockage }
+win_set_filter -class cell -filter {array assembly_die_margin clock_margin hard_macro_margin hard_margin route_blockage_margin seal_ring_margin soft_margin} -layer {}
+win_set_filter -class pseudo_bump -filter {deleted} -layer {}
+win_set_filter -class pseudo_tsv -filter {deleted} -layer {}
+win_set_filter -class placement_blockage -filter {wiring} -layer {0-82}
+win_set_select_class {cell port bound routing_blockage shaping_blockage pg_region bump_region pseudo_bump pseudo_tsv pin_blockage topology_node topology_edge topology_repeater annotation_shape edit_group shape via placement_blockage }
+win_select_objects -slct_targets global -at {600.653 511.253} -radius 2.7937
+win_select_objects -slct_targets global -at {600.653 511.253} -radius 2.7937 -index 1
+win_select_objects -slct_targets global -at {600.653 511.253} -radius 2.7937 -index 2
+win_select_objects -slct_targets global -at {793.421 634.178} -radius 2.7937
+win_select_objects -slct_targets global -at {793.421 634.178} -radius 2.7937 -index 1
+win_select_objects -slct_targets global -at {793.421 634.178} -radius 2.7937 -index 2
+win_select_objects -slct_targets global -at {793.421 634.178} -radius 2.7937 -index 3
+win_select_objects -slct_targets global -at {1170.575 544.778} -radius 2.7937
+win_select_objects -slct_targets global -at {1156.606 645.353} -radius 2.7937
+gui_show_map -window [gui_get_current_window -types Layout -mru] -map {cellDensityMap} -show {true}
+win_select_objects -slct_targets global -at {667.703 553.159} -radius 2.7937
+win_select_objects -slct_targets global -at {667.703 553.159} -radius 2.7937 -index 1
+win_select_objects -within {{595.065 360.392} {667.703 553.159}} -slct_targets global -slct_targets_operation clear
+win_select_objects -slct_targets global -at {595.065 360.392} -radius 2.7937
+win_select_objects -slct_targets global -at {681.671 354.804} -radius 2.7937
+win_select_objects -slct_targets global -at {553.159 474.935} -radius 2.7937
+win_select_objects -slct_targets global -at {553.159 474.935} -radius 2.7937 -index 1
+win_select_objects -slct_targets global -at {553.159 474.935} -radius 2.7937 -index 2
+gui_show_map -window [gui_get_current_window -types Layout -mru] -map {globalCongestionMap} -show {true}
+gui_set_map_option -map {globalCongestionMap} -option {rule_level} -value {hard}
+gui_set_map_option -map {globalCongestionMap} -option {layers} -value {M2 M3 M4 M5 M6 M7}
+gui_show_map -window [gui_get_current_window -types Layout -mru] -map {pinDensityMap} -show {true}
+win_select_objects -slct_targets global -at {1159.400 424.648} -radius 2.7937
+win_select_objects -slct_targets global -at {712.402 569.922} -radius 2.7937
+win_select_objects -slct_targets global -at {642.559 455.379} -radius 2.7937
+win_select_objects -slct_targets global -at {636.972 388.329} -radius 2.7937
+gui_show_map -window [gui_get_current_window -types Layout -mru] -map {vtGroups} -show {true}
+gui_set_map_option -map {vtGroups} -option {show_histogram} -value {false}
+gui_set_map_option -map {vtGroups} -option {show_counts} -value {false}
+win_select_objects -slct_targets global -at {500.079 636.971} -radius 2.7937
+exit

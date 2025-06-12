@@ -1,0 +1,831 @@
+setting auto_restore_mw_cel_lib_setup true
+icc2_shell> fs
+setting top_design to: 
+fifo1_sram
+icc2_shell> 
+icc2_shell> source ../scripts/create_dct_floorplan2.tcl
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+set hack_lef_dir /u/bcruik2/hacked_lefs
+/u/bcruik2/hacked_lefs
+# Decoder ring for the libraries
+# You will need to follow another example or look in the library directories to understand.
+# lib_types is used for the dc/dct linking variables and ICC2 NDM lcoations.
+# /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm
+# /          $lib_dir                   /lib/ $lib_type /db_nldm
+# link_library, Target_library use the sub_lib_types and corner variables. 
+# For sub_lib_types and corner:
+# Example:
+#     saed32hvt_ss0p75v125c.db
+#     |sub_lib  corner    .db
+# The current flow tries to find all sub_lib and all corners in all the search paths.  Any match will be put in the library list.
+# Wild cards can be used, but be careful.  Multiple matches can occur in ways you don't want.
+# For the target library, the same method is used as the link library except only HVT and RVT lib_types are used.
+# ICC2 NDM choosing also uses the sub_lib_types so that only the required libraries and extras are not loaded.
+# fifo1
+#set top_design fifo1
+set add_ios 1
+1
+set pad_design 1
+1
+set design_size { 580 580  } 
+ 580 580  
+set design_io_border 310
+310
+set dc_floorplanning 1
+1
+set enable_dft 0
+0
+set innovus_enable_manual_macro_placement 0
+0
+set rtl_list [list ../rtl/$top_design.sv ]
+../rtl/fifo1_sram.sv
+set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+ss0p95v125c_2p25v ss0p95v125c
+set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
+set synth_corners $slow_corner
+ss0p95v125c_2p25v ss0p95v125c
+set synth_corners_target "ss0p95v125c" 
+ss0p95v125c
+#set synth_corners_target "ss0p95v125c" 
+set synth_corners_slow $slow_corner
+ss0p95v125c_2p25v ss0p95v125c
+set synth_corners_fast $fast_corner
+ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c
+set slow_metal Cmax_125
+Cmax_125
+set fast_metal Cmax_125
+Cmax_125
+set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm
+set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/ndm  /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/ndm
+set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm
+# Get just the main standard cells, srams and IOs
+set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_
+set sub_lib_type_target "saed32rvt_"
+saed32rvt_
+set tech_lef ${hack_lef_dir}/tech.lef 
+/u/bcruik2/hacked_lefs/tech.lef
+# set tech_lef ../../cadence_cap_tech/tech.lef
+set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+/u/bcruik2/hacked_lefs /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/lef/ /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/lef
+#set lef_types [list $lib_dir/stdcell_hvt/lef  $lib_dir/stdcell_rvt/lef $lib_dir/stdcell_lvt/lef $lib_dir/sram/lef $lib_dir/io_std/lef $lib_dir/pll/lef ]
+set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef
+set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/milkyway
+set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*
+#set topdir /u/$env(USER)/PSU_RTL2GDS
+set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+/u/routh/ECE510-2024-SPRING/lab1-vishwasreer/
+set FCL 0
+0
+set split_constraints 0
+0
+# Look for directories like this "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm"
+# This may not be used
+set search_path ""
+foreach i $lib_types { lappend search_path $lib_dir/lib/$i/ndm }
+#set synthetic_library dw_foundation.sldb
+# Changed to only be the slow corner libraries
+#set target_library "saed32hvt_ss0p75v125c.db saed32lvt_ss0p75v125c.db saed32rvt_ss0p75v125c.db"
+# enable the lvt and rvt library for now at the slow corner
+#set target_library "saed32lvt_ss0p75v125c.db saed32rvt_ss0p75v125c.db saed32io_wb_ss0p95v125c_2p25v.db"
+set libs ""
+# should we use _pg_c.ndm, _c.ndm, dlvl_v.ndm, _ulvl_v.ndm
+set suffix "c.ndm 5v.ndm v.ndm"
+c.ndm 5v.ndm v.ndm
+# Look for files like this "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm/saed32hvt$suffix"
+set libs ""
+foreach i $ndm_types { 
+    foreach j $suffix {
+        foreach k $sub_lib_type {
+          foreach m [glob -nocomplain $i/$k$j ] {
+            lappend libs $m
+          }
+        }
+    }
+}
+set tf_dir "$lib_dir/../tech/milkyway/"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/../tech/milkyway/
+set tlu_dir "$lib_dir/../tech/star_rcxt/"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/../tech/star_rcxt/
+#set_tlu_plus_files  -max_tluplus $tlu_dir/saed32nm_1p9m_Cmax.tluplus  \
+#                    -min_tluplus $tlu_dir/saed32nm_1p9m_Cmin.tluplus  \
+#                    -tech2itf_map  $tlu_dir/saed32nm_tf_itf_tluplus.map
+if { [ info exists dc_floorplanning ] && $dc_floorplanning } {
+   set verilog_file ../../syn/outputs/${top_design}.dc.vg
+} else {
+   set verilog_file ../../syn/outputs/${top_design}.dct.vg
+}
+../../syn/outputs/fifo1_sram.dc.vg
+file delete -force $my_lib 
+# Adding the tech file causes problems later with missing routing directions for some reason.
+#create_lib $my_lib -ref_libs $libs -tech $tf_dir/saed32nm_1p9m_mw.tf 
+create_lib $my_lib -ref_libs $libs  -use_technology_lib [lindex $libs 0 ] 
+{fifo1_sram_fp_lib}
+create_block ${top_design}
+Information: Creating block 'fifo1_sram.design' in library 'fifo1_sram_fp_lib'. (DES-013)
+{fifo1_sram_fp_lib:fifo1_sram.design}
+open_block ${top_design}
+Information: The command 'open_block' cleared the undo history. (UNDO-016)
+Information: Incrementing open_count of block 'fifo1_sram_fp_lib:fifo1_sram.design' to 2. (DES-021)
+{fifo1_sram_fp_lib:fifo1_sram.design}
+#import_designs $verilog_file \
+#       -format verilog \
+#       -cel $top_design \
+#       -top $top_design
+read_verilog  -top $top_design  $verilog_file
+Loading verilog file '/u/routh/ECE510-2024-SPRING/lab1-vishwasreer/syn/outputs/fifo1_sram.dc.vg'
+Number of modules read: 6
+Top level ports: 25
+Total ports in all modules: 185
+Total nets in all modules: 627
+Total instances in all modules: 323
+Elapsed = 00:00:00.02, CPU = 00:00:00.01
+1
+# Read the SCANDEF information created by DFTC
+# read_def $scandef_file
+if { [info exists synopsys_program_name ] && (($synopsys_program_name == "icc2_shell") || $synopsys_program_name == "fc_shell" ) } {
+    puts " Creating ICC2 MCMM "
+    create_mode func
+    create_corner slow
+    create_scenario -mode func -corner slow -name func_slow
+    current_scenario func_slow
+    set_operating_conditions ss0p75v125c
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
+    set_parasitic_parameters -early_spec Cmax -early_temperature 125
+    set_parasitic_parameters -late_spec Cmax -late_temperature 125
+    #set_parasitic_parameters -early_spec 1p9m_Cmax -early_temperature 125 -corner default
+    #set_parasitic_parameters -late_spec 1p9m_Cmax -late_temperature 125 -corner default
+
+    #set_scenario_status  default -active false
+    set_scenario_status func_slow -active true -hold true -setup true
+}
+ Creating ICC2 MCMM 
+Using libraries: fifo1_sram_fp_lib saed32rvt_c saed32hvt_c saed32sram_c saed32io_wb_5v
+Linking block fifo1_sram_fp_lib:fifo1_sram.design
+Information: User units loaded from library 'saed32rvt_c' (LNK-040)
+Design 'fifo1_sram' was successfully linked.
+Created scenario func_slow for mode func and corner slow
+All analysis types are activated.
+Warning: use early spec Cmax for late which is not specified
+Warning: use late spec Cmax for early which spec is not specified. 
+Scenario func_slow (mode func corner slow) is active for setup/hold/leakage_power/dynamic_power/max_transition/max_capacitance/min_capacitance analysis.
+1
+set wclk_period 2.0
+2.0
+set rclk_period 2.0
+2.0
+set wclk2x_period [ expr $wclk_period / 2 ]
+1.0
+create_clock -name "wclk" -period $wclk_period  wclk
+{wclk}
+create_clock -name "rclk" -period $rclk_period rclk
+{rclk}
+#Add the new clock.  Make it 1/2 the wclk period since it is called wclk2x
+create_clock -name "wclk2x" -period $wclk2x_period wclk2x
+{wclk2x}
+set_false_path -from [get_clocks wclk ] -to [get_clocks rclk]
+Information: Timer using 1 threads
+1
+set_false_path -from [get_clocks rclk ] -to [ get_clocks wclk]
+1
+# Add input/output delays in relation to related clocks
+# Can tell the related clock by doing report_timing -group INPUTS  or -group OUTPUTS after using group_path
+# External delay should be some percentage of clock period.
+# Tune/relax if violating; most concerned about internal paths.
+# I like set_driving_cell to a std cell from the library.  set_drive works to.
+# set_load
+#group_path -name INTERNAL -from [all_clocks] -to [all_clocks ]
+group_path -name INPUTS -from [ get_ports -filter "direction==in&&full_name!~*clk*" ]
+1
+group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
+1
+Removing existing floorplan objects
+Creating core...
+Core utilization ratio = 21.06%
+Unplacing all cells...
+Creating site array...
+Creating routing tracks...
+Initializing floorplan completed.
+######PLACE
+if { [info exists synopsys_program_name ] } { 
+    set_app_option -name place.coarse.continue_on_missing_scandef -value true
+
+    #set enable_recovery_removal_arcs true
+    set_app_option -name time.disable_recovery_removal_checks -value false
+    #set timing_enable_multiple_clocks_per_reg true
+    #set timing_remove_clock_reconvergence_pessimism true
+    set_app_option -name timer.remove_clock_reconvergence_pessimism -value true
+
+    #set physopt_enable_via_res_support true
+    #set physopt_hard_keepout_distance 5
+    #set_preferred_routing_direction -direction vertical -l {M2 M4}
+    #set_preferred_routing_direction -direction horizontal -l {M3 M5}
+    set_ignored_layers  -min_routing_layer M2 -max_routing_layer M7
+
+
+    # To optimize DW components (I think only adders right now??) - default is false
+    #set physopt_dw_opto true
+
+    #set_ahfs_options -remove_effort high
+    #set_buffer_opt_strategy -effort medium
+
+    # Dont use delay buffers
+    #set_dont_use [get_lib_cells */DELLN* ]
+    set_lib_cell_purpose -include hold [get_lib_cells */DELLN* ]
+
+    #FIXME
+    #set_host_options -max_cores 1 -num_processes 1 mo.ece.pdx.edu
+    set_app_options -name compile.flow.trial_clock_tree -value false
+    set_app_options -name place_opt.flow.trial_clock_tree -value false
+    set_app_options -name compile.flow.enable_ccd -value false
+    set_app_options -name place_opt.flow.enable_ccd -value false
+    set_app_options -name clock_opt.flow.enable_ccd -value false
+    set_app_options -name route_opt.flow.enable_ccd -value false
+    set_app_options -name ccd.max_postpone -value 0
+    set_app_options -name ccd.max_prepone -value 0
+
+    ###########################  CTS Related
+    create_routing_rule clock_double_spacing -spacings {M1 0.1 M2 0.112 M3 0.112 M4 0.112 M5 0.112 M6 0.112 M7 0.112 M8 0.112}
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type internal -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type root -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    # Set other cts app_options?  Bufs vs Inverters, certain drive strengths.  
+
+    # Allow delay buffers just for hold fixing
+    #set_prefer -min [get_lib_cells */DELLN*HVT ]
+    #set_fix_hold_options -preferred_buffer
+    # fix hold on all clocks
+    #set_fix_hold [all_clocks]
+    # If design blows up, try turning hold fixing off. 
+    # -optimize_dft is good if scan is inserted.
+    # Sometimes better to separate CTS and setup/hold so any hold concerns can be seen before hold fixing.
+    # Can look in the log at the beginning of clock_opt hold fixing to see if there was a large hold problem to fix.
+    # set_app_option -name clock_opt.flow.skip_hold -value true
+
+    ########################## Route related
+    set_app_option -name route_opt.flow.xtalk_reduction -value true
+    set_app_option -name time.si_enable_analysis -value true
+
+    if { $top_design == "ORCA_TOP" } {
+      create_voltage_area  -region {{580 0} {1000 400}} -power_domains PD_RISC_CORE
+    }
+} else {
+
+    # Try reducing the search and repair iterations for now.
+    if [is_common_ui_mode ] { set_db route_design_detail_end_iteration 10
+    } else { setNanoRouteMode -drouteEndIteration 10  }
+}
+Warning: application option <timer.remove_clock_reconvergence_pessimism> is deprecated and scheduled for removal in a future release. See the man page for this  application option for migration assistance. (NDMUI-441)
+Information: The command 'set_ignored_layers' cleared the undo history. (UNDO-016)
+Information: The design specific attribute override for lib_cell 'saed32rvt_c:DELLN1X2_RVT.timing' is set in the current block 'fifo1_sram', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for lib_cell 'saed32rvt_c:DELLN2X2_RVT.timing' is set in the current block 'fifo1_sram', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for lib_cell 'saed32rvt_c:DELLN3X2_RVT.timing' is set in the current block 'fifo1_sram', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for lib_cell 'saed32hvt_c:DELLN1X2_HVT.timing' is set in the current block 'fifo1_sram', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for lib_cell 'saed32hvt_c:DELLN2X2_HVT.timing' is set in the current block 'fifo1_sram', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The design specific attribute override for lib_cell 'saed32hvt_c:DELLN3X2_HVT.timing' is set in the current block 'fifo1_sram', because the actual library setting may not be overwritten. (ATTR-12)
+Information: The command 'set_clock_routing_rules' cleared the undo history. (UNDO-016)
+Warning: The application option <route_opt.flow.xtalk_reduction> is deprecated and scheduled for removal in a future release. (NDMUI-443)
+# Do some extra setting up of the IO ring if we are a pad_design
+if { $pad_design } {
+  source -echo -verbose ../scripts/floorplan-ios2.tcl
+}
+if { [ sizeof_coll [ get_cell -quiet io_* ] ] == 0 } {
+ source -echo -verbose ../scripts/add_ios.tcl
+}
+# Move this outside the if statement, and make it configurable through a variable?
+create_io_ring -name outer_ring -corner_height 300
+{outer_ring}
+get_io_guides
+{outer_ring.left outer_ring.bottom outer_ring.right outer_ring.top}
+create_net -power VDD
+{VDD}
+# Maybe try non-power net so that it doesn't complain about multiple powers defined and no UPF?
+#create_net -power VDDIO
+create_net -ground VSS
+{VSS}
+#create_net -ground VSSIO
+add_to_io_guide outer_ring.left [get_cells -phys { io_l_*  } ]
+1
+add_to_io_guide outer_ring.right [get_cells -phys { io_r_*  } ]
+1
+add_to_io_guide outer_ring.bottom [get_cells -phys { io_b_*  } ]
+1
+add_to_io_guide outer_ring.top [get_cells -phys { io_t_*  } ]
+1
+set_power_io_constraints -io_guide_object [get_io_guide { *.left *.right} ] { {reference:VDD_EW} {prefix:VDD} {ratio:5} {connect: {VDD VDD } { VSS VSS} }  }
+Information: The command 'set_power_io_constraints' cleared the undo history. (UNDO-016)
+Warning: some pins remain dangling for power constraints. (DPUI-838)
+Power IO constraints set successfully
+1
+set_power_io_constraints -io_guide_object [get_io_guide { *.top *.bottom} ] { {reference:VDD_NS} {prefix:VDD} {ratio:5} {connect:  {VDD VDD } { VSS VSS} }  }
+Warning: some pins remain dangling for power constraints. (DPUI-838)
+Power IO constraints set successfully
+1
+remove_cell { io_s* io_n* io_w* io_e*}
+Warning: Nothing implicitly matched 'io_s*' (SEL-003)
+Warning: Nothing implicitly matched 'io_n*' (SEL-003)
+Warning: Nothing implicitly matched 'io_w*' (SEL-003)
+Warning: Nothing implicitly matched 'io_e*' (SEL-003)
+Error: Nothing matched for objects (SEL-005)
+0
+#       create_io_filler_cells -prefix filler_ -reference_cells [ list [ list [ get_attribute [get_lib_cells */FILLER?* ] name ] ] ]
+# Library does not have the corner cell of design_type corner.  Try changing it and retry the create_io_corner
+set_app_option -name design.enable_lib_cell_editing -value mutable
+design.enable_lib_cell_editing mutable
+set_attribute [ get_lib_cell */CAPCORNER ] design_type corner
+{saed32io_wb_5v/CAPCORNER}
+#       create_io_corner_cell   -reference_cell CAPCORNER {outer_ring.left outer_ring.bottom}
+place_io -io_guide [get_io_guides * ]
+Information: Starting 'place_io' (FLW-8000)
+Information: Time: 2024-04-08 20:29:10 / Session:  00:02:40 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 482 MB (FLW-8100)
+Information: The command 'place_io' cleared the undo history. (UNDO-016)
+Error: power constraints of IO guide outer_ring.left cannot be satisfied. (DPUI-035)
+Error: power constraints of IO guide outer_ring.bottom cannot be satisfied. (DPUI-035)
+Error: power constraints of IO guide outer_ring.right cannot be satisfied. (DPUI-035)
+Overall runtime for IO placement: 0.021u 0.001s 0:00.02e 99.8%
+Information: Ending   'place_io' (FLW-8001)
+Information: Time: 2024-04-08 20:29:10 / Session:  00:02:40 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 482 MB (FLW-8100)
+1
+check_io_placement -io_guides [ get_io_guides * ]
+------------------------- Start of Overlap Check --------------------------
+-------------------------- End of Overlap Check ---------------------------
+
+--------------------- Start of Bump Assignment Check ----------------------
+---------------------- End of Bump Assignment Check -----------------------
+
+----------------- Start of Pad to Guide Assignment Check ------------------
+------------------ End of Pad to Guide Assignment Check -------------------
+
+------------------ Start of Signal I/O constraints Check ------------------
+------------------- End of Signal I/O constraints Check -------------------
+
+------------------ Start of Power I/O Constraints Check -------------------
+------------------- End of Power I/O Constraints Check --------------------
+
+---------------------- Start of Unplaced Pads Check -----------------------
+----------------------- End of Unplaced Pads Check ------------------------
+
+------------------------- Start of Pad Flip Check -------------------------
+-------------------------- End of Pad Flip Check --------------------------
+
+--------------------------- Start of Gap Check ----------------------------
+ Cell io_b_rclk and cell io_b_rinc have a gap between them. 
+ Cell io_b_rinc and cell io_b_rrst_n have a gap between them. 
+ Cell io_b_rrst_n and cell io_b_wclk have a gap between them. 
+ Cell io_b_wclk and cell io_b_wclk2x have a gap between them. 
+ Cell io_b_wclk2x and cell io_b_winc have a gap between them. 
+ Cell io_b_winc and cell io_b_wrst_n have a gap between them. 
+ Cell io_l_rdata_0_ and cell io_l_rdata_1_ have a gap between them. 
+ Cell io_l_rdata_1_ and cell io_l_rdata_2_ have a gap between them. 
+ Cell io_l_rdata_2_ and cell io_l_rdata_3_ have a gap between them. 
+ Cell io_l_rdata_3_ and cell io_l_rdata_4_ have a gap between them. 
+ ...
+ Total 25 cells have gap violation.
+---------------------------- End of Gap Check -----------------------------
+
+------------------------ Start of Min Pitch Check -------------------------
+------------------------- End of Min Pitch Check --------------------------
+
+{io_l_rdata_7_ io_l_rdata_6_ io_l_rdata_5_ io_l_rdata_4_ io_l_rdata_3_ io_l_rdata_2_ io_l_rdata_1_ io_l_rdata_0_ io_r_wdata_in_7_ io_r_wdata_in_6_ io_r_wdata_in_5_ io_r_wdata_in_4_ io_r_wdata_in_3_ io_r_wdata_in_2_ io_r_wdata_in_1_ io_r_wdata_in_0_ io_t_rempty io_t_wfull io_b_rrst_n io_b_rclk io_b_rinc io_b_wrst_n io_b_wclk2x io_b_wclk io_b_winc}
+# done inside add_ios.tcl right now
+#create_cell sram_example SRAM1RW64x8
+set_attribute -objects [ get_cells -phys io_*  ] -name physical_status -value fixed
+{io_b_rclk io_b_rinc io_b_rrst_n io_b_wclk io_b_wclk2x io_b_winc io_b_wrst_n io_l_rdata_0_ io_l_rdata_1_ io_l_rdata_2_ io_l_rdata_3_ io_l_rdata_4_ io_l_rdata_5_ io_l_rdata_6_ io_l_rdata_7_ io_r_wdata_in_0_ io_r_wdata_in_1_ io_r_wdata_in_2_ io_r_wdata_in_3_ io_r_wdata_in_4_ io_r_wdata_in_5_ io_r_wdata_in_6_ io_r_wdata_in_7_ io_t_rempty io_t_wfull}
+{io_b_rclk io_b_rinc io_b_rrst_n io_b_wclk io_b_wclk2x io_b_winc io_b_wrst_n io_l_rdata_0_ io_l_rdata_1_ io_l_rdata_2_ io_l_rdata_3_ io_l_rdata_4_ io_l_rdata_5_ io_l_rdata_6_ io_l_rdata_7_ io_r_wdata_in_0_ io_r_wdata_in_1_ io_r_wdata_in_2_ io_r_wdata_in_3_ io_r_wdata_in_4_ io_r_wdata_in_5_ io_r_wdata_in_6_ io_r_wdata_in_7_ io_t_rempty io_t_wfull}
+#derive_pg_connection -tie
+connect_pg_net -automatic
+****************************************
+Report : Power/Ground Connection Summary
+Design : fifo1_sram
+Version: V-2023.12
+Date   : Mon Apr  8 20:29:10 2024
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 0/343
+Ground net VSS                0/343
+--------------------------------------------------------------------------------
+Information: connections of 686 power/ground pin(s) are created or changed.
+1
+puts "Starting FP Placement: ..."
+Starting FP Placement: ...
+#set_keepout_margin  -type hard -all_macros -outer {2 2 2 2}
+read_def -exclude { diearea } ../outputs/${top_design}.floorplan.macros.def
+Information: Loading DEF file '/u/routh/ECE510-2024-SPRING/lab1-vishwasreer/apr/outputs/fifo1_sram.floorplan.macros.def' (FILE-007)
+Information: Reading 'VERSION' statement. (DEFR-016)
+Information: Reading 'DIVIDERCHAR' statement. (DEFR-016)
+Information: Reading 'BUSBITCHARS' statement. (DEFR-016)
+Information: Reading 'DESIGN' statement. (DEFR-016)
+Information: Reading 'UNITS' statement. (DEFR-016)
+Information: Reading 'COMPONENTS' section. (DEFR-016)
+Information: Reading 'PINS' section. (DEFR-016)
+Information: Reading 'BLOCKAGES' section. (DEFR-016)
+---------------------------------------
+Number of Processed/Read DEF Constructs
+---------------------------------------
+VERSION                        : 1/1
+DIVIDERCHAR                    : 1/1
+BUSBITCHARS                    : 1/1
+DESIGN                         : 1/1
+UNITS                          : 1/1
+DIEAREA                        : 0/1
+COMPONENTS                     : 8/8
+PINS                           : 27/27
+BLOCKAGES                      : 8/8
+1
+set_attribute [get_cells -hier -filter "is_hard_macro==true" ] physical_status fixed
+{fifomem/genblk1_0__U fifomem/genblk1_1__U fifomem/genblk1_2__U fifomem/genblk1_3__U fifomem/genblk1_4__U fifomem/genblk1_5__U fifomem/genblk1_6__U fifomem/genblk1_7__U}
+set_individual_pin_constraints -sides 4 -ports [get_attribute [get_ports ] name ]
+Information: The command 'set_individual_pin_constraints' cleared the undo history. (UNDO-016)
+1
+place_pins -self
+Information: Starting 'place_pins' (FLW-8000)
+Information: Time: 2024-04-08 20:29:10 / Session:  00:02:41 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 482 MB (FLW-8100)
+Load DB...
+CPU Time for load db: 00:00:00.02u 00:00:00.06s 00:00:00.09e: 
+
+Min routing layer: M2
+Max routing layer: M7
+
+
+CPU Time for Top Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of block ports: 0
+Number of block pin locations assigned from router: 0
+CPU Time for Pin Preparation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of PG ports on blocks: 0
+Number of pins created: 0
+CPU Time for Pin Creation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Total Pin Placement CPU Time: 00:00:00.07u 00:00:00.07s 00:00:00.13e: 
+Information: Ending   'place_pins' (FLW-8001)
+Information: Time: 2024-04-08 20:29:10 / Session:  00:02:41 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 492 MB (FLW-8100)
+1
+# There are layers through M9.  M8/M9 are large.  Maybe use those for power.  Use CTS and signal routing below that?
+# ORCA example uses M7/M8 for power.  Leave M9 open.  M9 for Bump hookup or something?  Why leave it open?
+create_pg_mesh_pattern mesh_pat -layers {  {{vertical_layer: M8} {width: 4} {spacing: interleaving} {pitch: 16}}   \
+    {{horizontal_layer: M7} {width: 2}        {spacing: interleaving} {pitch: 8}}  }
+Successfully create mesh pattern mesh_pat.
+1
+# Orca does 0.350 width VSS two stripes, then 0.7u VDD stripe.  Repeating 16u. for now, do something simpler 
+create_pg_mesh_pattern lmesh_pat -layers {  {{vertical_layer: M2} {width: 0.7} {spacing: interleaving} {pitch: 16}}  } 
+Successfully create mesh pattern lmesh_pat.
+1
+create_pg_std_cell_conn_pattern rail_pat -layers {M1} -rail_width {0.06 0.06}
+Successfully create standard cell rail pattern rail_pat.
+#   -via_rule {       {{layers: M6} {layers: M7} {via_master: default}}        {{layers: M8} {layers: M7} {via_master: VIA78_3x3}}}
+set_pg_strategy mesh_strat -core -extension {{stop:outermost_ring}} -pattern {{pattern:mesh_pat } { nets:{VDD VSS} } } 
+Successfully set PG strategy mesh_strat.
+set_pg_strategy rail_strat -core -pattern {{pattern:rail_pat } { nets:{VDD VSS} } } 
+Successfully set PG strategy rail_strat.
+set_pg_strategy lmesh_strat -core -pattern {{pattern:lmesh_pat } { nets:{VDD VSS} } } 
+Successfully set PG strategy lmesh_strat.
+compile_pg -strategies {mesh_strat rail_strat lmesh_strat}
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Automatic PG net connection through connect_pg_net is disabled.
+Updating PG strategies.
+Updating strategy mesh_strat.
+Updating strategy rail_strat.
+Updating strategy lmesh_strat.
+Loading library and design information.
+Number of Standard Cells: 0
+Number of Hard Macros: 8
+Number of Pads: 25
+Creating straps and vias in power plan.
+Creating wire shapes for strategies mesh_strat lmesh_strat .
+Creating wire shapes runtime: 0 seconds
+Blockage cutting and DRC fixing for wire shapes for strategies mesh_strat lmesh_strat .
+Check and fix DRC for 216 wires for strategy mesh_strat.
+Number of threads: 1
+Number of partitions: 7
+Direction of partitions: vertical
+Number of wires: 72
+Checking DRC for 72 wires:5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Number of threads: 1
+Number of partitions: 14
+Direction of partitions: horizontal
+Number of wires: 144
+Checking DRC for 144 wires:5% 10% 15% 20% 25% 30% 35% 40% 45% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Creating 216 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Check and fix DRC for 205 wires for strategy lmesh_strat.
+Number of threads: 1
+Number of partitions: 7
+Direction of partitions: vertical
+Number of wires: 205
+Checking DRC for 205 wires:5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Creating 210 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via shapes for strategies mesh_strat lmesh_strat .
+Working on strategy mesh_strat.
+Number of detected intersections: 5184
+Working on strategy lmesh_strat.
+Number of detected intersections: 0
+Total runtime of via shapes creation: 0 seconds
+Check and fix DRC for 5184 stacked vias for strategy mesh_strat.
+Number of threads: 1
+Number of partitions: 14
+Direction of partitions: horizontal
+Number of vias: 5184
+Checking DRC for 5184 stacked vias:5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Runtime of via DRC checking for strategy mesh_strat: 3.00 seconds.
+Runtime of via DRC checking for strategy lmesh_strat: 0.00 seconds.
+Creating standard cell rails.
+Creating standard cell rails for strategy rail_strat.
+DRC checking and fixing for standard cell rail strategy rail_strat.
+Number of threads: 1
+Number of partitions: 32
+Direction of partitions: horizontal
+Number of wires: 662
+Checking DRC for 662 wires:5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+Creating 665 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 24004 stacked vias.
+Number of threads: 1
+Number of partitions: 31
+Direction of partitions: horizontal
+Number of vias: 24004
+Checking DRC for 24004 stacked vias:5% 10% 15% 20% 25% 30% 35% 40% 45% 50% 55% 60% 65% 70% 75% 80% 85% 90% 95% 100%
+9734 regular vias are not fixed
+Via DRC checking runtime 135.00 seconds.
+via connection runtime: 136 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy mesh_strat.
+Checking 5184 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 14270 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Found 2864 dangling/floating vias.
+Start iteration 2:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy mesh_strat.
+Checking 5184 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 11406 stacked vias:0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committing wires takes 0.00 seconds.
+Committing vias takes 0.00 seconds.
+Committed 1091 wires.
+Committed 33142 vias.
+Committed 0 wires for via creation.
+Overall PG creation runtime: 143 seconds.
+Successfully compiled PG.
+Overall runtime: 143 seconds.
+1
+set_boundary_cell_rules -left_boundary_cell [get_lib_cell */DCAP_HVT]
+1
+set_boundary_cell_rules -right_boundary_cell [get_lib_cell */DCAP_HVT]
+1
+# Tap Cells are usually needed, but they are not in this library. create_tap_cells
+compile_boundary_cells
+Warning: Detected use of obsolete/unsupported feature.  The following
+                will not be available in a future release of the application:
+                compile_boundary_cells. Use compile_targeted_boundary_cells instead (CMD-100)
+Using AL to insert boundary cells
+Warning: Site master "unit" has both X-Symmetry and Y-Symmetry.Usually, this may not be correct, and may cause the legalization to fail. (LGL-025)
+Information: Using "Y-Symmetry" for site master "unit" in legalization because this is a horizontal design. (LGL-026)
+Warning: Routing direction of metal layer PO is neither "horizontal" nor "vertical".  PDC checks will not be performed on this layer. (PDC-003)
+PDC app_options settings =========
+        place.legalize.enable_prerouted_net_check: 1
+        place.legalize.num_tracks_for_access_check: 1
+        place.legalize.use_eol_spacing_for_access_check: 0
+        place.legalize.allow_touch_track_for_access_check: 1
+        place.legalize.reduce_conservatism_in_eol_check: 0
+        place.legalize.preroute_shape_merge_distance: 0.0
+        place.legalize.enable_non_preferred_direction_span_check: 0
+
+Layer M1: cached 0 shapes out of 665 total shapes.
+Layer M2: cached 210 shapes out of 210 total shapes.
+Cached 11442 vias out of 33142 total vias.
+Information: Starting boundary cell insertion into fifo1_sram using site master "unit". (CHF-200)
+        30% complete ...
+        40% complete ...
+        50% complete ...
+        60% complete ...
+        70% complete ...
+Information: Total 669 left cells inserted successfully into fifo1_sram. (CHF-100)
+Information: Total 669 right cells inserted successfully into fifo1_sram. (CHF-100)
+Information: Total 1338 boundary cells inserted successfully into fifo1_sram. (CHF-100)
+1
+# This is experimenting with ring constraints for SRAM in ICC1
+#set_fp_block_ring_constraints -add -horizontal_layer M5 -vertical_layer M6 -horizontal_width 2 -vertical_width 2 -horizontal_off 0.604 \
+ -vertical_off 0.604 -block_type master -nets {VDD VSS } -block {  SRAM1RW64x8 }
+#set_virtual_pad -net VDD -coordinate { 300 300 }
+#set_virtual_pad -net VDD -coordinate { 900 300 }
+#set_virtual_pad -net VDD -coordinate { 900 900 }
+#set_virtual_pad -net VDD -coordinate { 300 900 }
+#set_virtual_pad -net VSS -coordinate { 300 300 }
+#set_virtual_pad -net VSS -coordinate { 900 300 }
+#set_virtual_pad -net VSS -coordinate { 900 900 }
+#set_virtual_pad -net VSS -coordinate { 300 900 }
+# to check the quality of the PG grid in ICC2:
+#analyze_power_plan
+#ICC1: preroute_standard_cells
+#ICC2:
+#create_pg_std_cell_conn_pattern;
+#set_pg_strategy; compile_pg
+puts "preroute_instances ..."
+preroute_instances ...
+#ICC1: preroute_instances
+#ICC2
+#create_pg_macro_conn_pattern;
+#set_pg_strategy; compile_pg
+# verify_pg_nets
+#write_floorplan  -create_terminal -placement { io hard_macro } -row -track -no_placement_blockage -no_bound -no_plan_group -no_voltage_area -no_route_guide fp.tcl
+puts "Logfile message: writing def file now..."
+Logfile message: writing def file now...
+write_def -compress gzip -include {rows_tracks vias specialnets nets cells ports blockages } -cell_types {macro pad corner} "../outputs/${top_design}.floorplan.def"
+****************************************
+Report : Data Mismatches
+Version: V-2023.12
+Date   : Mon Apr  8 20:31:36 2024
+****************************************
+No mismatches exist on the design.
+---------------------------------------
+Number of Written DEF Constructs
+---------------------------------------
+VERSION                        : 1
+DIVIDERCHAR                    : 1
+BUSBITCHARS                    : 1
+DESIGN                         : 1
+UNITS                          : 1
+DIEAREA                        : 1
+ROW                            : 346
+TRACKS                         : 20
+VIAS                           : 34
+COMPONENTS                     : 33
+PINS                           : 27
+BLOCKAGES                      : 8
+SPECIALNETS                    : 2
+NETS                           : 460
+1
+write_def -include {cells ports blockages } -cell_types {macro pad corner} "../outputs/${top_design}.floorplan.macros.def"
+****************************************
+Report : Data Mismatches
+Version: V-2023.12
+Date   : Mon Apr  8 20:31:36 2024
+****************************************
+No mismatches exist on the design.
+---------------------------------------
+Number of Written DEF Constructs
+---------------------------------------
+VERSION                        : 1
+DIVIDERCHAR                    : 1
+BUSBITCHARS                    : 1
+DESIGN                         : 1
+UNITS                          : 1
+DIEAREA                        : 1
+COMPONENTS                     : 33
+PINS                           : 27
+BLOCKAGES                      : 8
+1
+puts "Logfile message: writing def file completed ..."
+Logfile message: writing def file completed ...
+icc2_shell> 
+icc2_shell> 
+icc2_shell> report_qor
+****************************************
+Report : qor
+Design : fifo1_sram
+Version: V-2023.12
+Date   : Mon Apr  8 20:32:52 2024
+****************************************
+Warning: Corner slow:  0 process number, 0 process label, 2 voltage, and 0 temperature mismatches. (PVT-030)
+Warning: 33 cells affected for early, 33 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+Information: The stitching and editing of coupling caps is turned ON for design 'fifo1_sram_fp_lib:fifo1_sram.design'. (TIM-125)
+Information: Design Average RC for design fifo1_sram  (NEX-011)
+Information: r = 1.785714 ohm/um, via_r = 0.500000 ohm/cut, c = 0.077595 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 1.785714 ohm/um, via_r = 0.500000 ohm/cut, c = 0.091373 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: The RC mode used is VR for design 'fifo1_sram'. (NEX-022)
+Information: Crosstalk analysis has been disabled. (TIM-114)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 394, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 25, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 152. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 enabled
+Timing Window Analysis:                    enabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     enabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+************************************************************
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+
+Scenario           'func_slow'
+Timing Path Group  'wclk'
+----------------------------------------
+Levels of Logic:                     21
+Critical Path Length:              5.89
+Critical Path Slack:              -4.19
+Critical Path Clk Period:          2.00
+Total Negative Slack:           -231.82
+No. of Violating Paths:             150
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'func_slow'
+Timing Path Group  'rclk'
+----------------------------------------
+Levels of Logic:                      2
+Critical Path Length:              5.13
+Critical Path Slack:              -4.31
+Critical Path Clk Period:          2.00
+Total Negative Slack:           -129.18
+No. of Violating Paths:              86
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              5
+Hierarchical Port Count:            170
+Leaf Cell Count:                    318
+Buf/Inv Cell Count:                  60
+Buf Cell Count:                       0
+Inv Cell Count:                      60
+Combinational Cell Count:           214
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              104
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            8
+   Single-bit Sequential Cell Count:                       96
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          8
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:           300388.84
+Noncombinational Area:           833.59
+Buf/Inv Area:                     77.77
+Total Buffer Area:                 0.00
+Total Inverter Area:              77.77
+Macro/Black Box Area:          69436.17
+Net Area:                             0
+Net XLength:                   84073.46
+Net YLength:                   82134.36
+----------------------------------------
+Cell Area (netlist):                         370658.61
+Cell Area (netlist and physical only):       372358.83
+Net Length:                   166207.82
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               461
+Nets with Violations:               147
+Max Trans Violations:                90
+Max Cap Violations:                 112
+----------------------------------------
+
+1
+icc2_shell> 
+icc2_shell> 
+icc2_shell> 
+icc2_shell> exit
+Maximum memory usage for this session: 568.60 MB
+Maximum memory usage for this session including child processes: 568.60 MB
+CPU usage for this session:    178 seconds (  0.05 hours)
+Elapsed time for this session:    699 seconds (  0.19 hours)
+Thank you for using IC Compiler II.
+

@@ -1,0 +1,1607 @@
+[04/07 20:36:55      0s] 
+[04/07 20:36:55      0s] Cadence Innovus(TM) Implementation System.
+[04/07 20:36:55      0s] Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+[04/07 20:36:55      0s] 
+[04/07 20:36:55      0s] Version:	v23.10-p003_1, built Thu Feb 1 13:54:57 PST 2024
+[04/07 20:36:55      0s] Options:	
+[04/07 20:36:55      0s] Date:		Mon Apr  7 20:36:55 2025
+[04/07 20:36:55      0s] Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+[04/07 20:36:55      0s] OS:		CentOS Linux 7 (Core)
+[04/07 20:36:55      0s] 
+[04/07 20:36:55      0s] License:
+[04/07 20:36:55      0s] 		[20:36:55.350122] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+[04/07 20:36:55      0s] 		invs	Innovus Implementation System	23.1	checkout succeeded
+[04/07 20:36:56      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[04/07 20:36:59      2s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[04/07 20:37:22     23s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v23.10-p003_1 (64bit) 02/01/2024 13:54 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:37:26     27s] @(#)CDS: NanoRoute 23.10-p003_1 NR240109-1512/23_10-UB (database version 18.20.618) {superthreading v2.20}
+[04/07 20:37:26     27s] @(#)CDS: AAE 23.10-p002 (64bit) 02/01/2024 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:37:26     27s] @(#)CDS: CTE 23.10-p003_1 () Dec  5 2023 19:42:23 ( )
+[04/07 20:37:26     27s] @(#)CDS: SYNTECH 23.10-p002_1 () Nov 29 2023 02:17:21 ( )
+[04/07 20:37:26     27s] @(#)CDS: CPE v23.10-p004
+[04/07 20:37:26     27s] @(#)CDS: IQuantus/TQuantus 22.1.1-s215 (64bit) Mon Nov 20 10:05:08 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:37:26     27s] @(#)CDS: OA 22.61-p007 Wed Sep 27 19:40:10 2023
+[04/07 20:37:26     27s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[04/07 20:37:26     27s] @(#)CDS: RCDB 11.15.0
+[04/07 20:37:26     27s] @(#)CDS: STYLUS 23.10-a001_1 (12/04/2023 04:39 PST)
+[04/07 20:37:26     27s] @(#)CDS: IntegrityPlanner-23.10-12651 (23.10) (2023-09-06 08:32:42+0800)
+[04/07 20:37:26     27s] @(#)CDS: SYNTHESIS_ENGINE 23.10-b027
+[04/07 20:37:26     27s] Create and set the environment variable TMPDIR to /u/routh/ECE530-2024-SPRING/lab1-vishwasreer/apr/work/innovus_temp_13715_auto.ece.pdx.edu_routh_OjzPjN.
+
+[04/07 20:37:26     27s] Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+[04/07 20:37:30     30s] Sourcing startup file ./enc.tcl
+[04/07 20:37:30     30s] <CMD> alias fs set top_design fifo1_sram
+[04/07 20:37:30     30s] <CMD> alias f set top_design fifo1
+[04/07 20:37:30     30s] <CMD> alias o set top_design ORCA_TOP
+[04/07 20:37:30     30s] <CMD> alias e set top_design ExampleRocketSystem
+[04/07 20:37:30     30s] <CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+[04/07 20:37:30     30s] **WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+[04/07 20:37:30     30s] <CMD> set_global report_timing_format  {delay arrival slew cell hpin}
+[04/07 20:37:30     30s] 
+[04/07 20:37:30     30s] **INFO:  MMMC transition support version v31-84 
+[04/07 20:37:30     30s] 
+[04/07 20:37:30     30s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/07 20:37:30     30s] <CMD> suppressMessage ENCEXT-2799
+[04/07 20:37:31     30s] <CMD> getVersion
+[04/07 20:37:31     30s] <CMD> define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+        {-window "window coordinates" "" list optional}
+        {-window_size "window size in microns" "" string optional}
+    
+    }
+[04/07 20:37:32     31s] [INFO] Loading Pegasus 23.20 fill procedures
+[04/07 20:37:32     31s] <CMD> define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+[04/07 20:37:32     31s] <CMD> define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+[04/07 20:37:32     31s] <CMD> define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+[04/07 20:37:32     31s] <CMD> define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+[04/07 20:37:32     31s] <CMD> define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+[04/07 20:37:32     31s] <CMD> define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+[04/07 20:37:33     31s] <CMD> win
+[04/07 20:38:41     38s] <CMD> fs
+[04/07 20:39:07     41s] ### Start verbose source output (echo mode) for '../../fifo1_sram.design_config.tcl' ...
+[04/07 20:39:07     41s] # set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+# set hack_lef_dir /u/bcruik2/hacked_lefs
+# set add_ios 1
+# set pad_design 1
+# set design_size { 580 580  } 
+# set design_io_border 310
+# set dc_floorplanning 1
+# set enable_dft 0
+# set innovus_enable_manual_macro_placement 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p95v125c_2p25v ss0p95v125c"
+# set fast_corner "ff0p95vn40c ff1p16vn40c_2p75v ff1p16vn40c"
+# set synth_corners $slow_corner
+# set synth_corners_target "ss0p95v125c" 
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set slow_metal Cmax_125
+# set fast_metal Cmax_125
+# set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+# set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+# set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_"
+# set sub_lib_type_target "saed32rvt_"
+# set tech_lef ${hack_lef_dir}/tech.lef 
+# set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+# set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32_io_wb_all.lef saed32_PLL.lef"
+# set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+# set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+# set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+# set FCL 0
+# set split_constraints 0
+### End verbose source output for '../../fifo1_sram.design_config.tcl'.
+[04/07 20:39:07     41s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/07 20:39:07     41s] <CMD> set search_path {}
+[04/07 20:39:08     41s] <CMD> set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+[04/07 20:39:08     41s] <CMD> is_common_ui_mode
+[04/07 20:39:08     41s] <CMD> is_common_ui_mode
+[04/07 20:39:08     41s] <CMD> set init_mmmc_file mmmc.tcl
+[04/07 20:39:08     41s] <CMD> set init_design_netlisttype Verilog
+[04/07 20:39:08     41s] <CMD> set init_verilog ../../syn/outputs/fifo1_sram.genus.vg
+[04/07 20:39:08     41s] <CMD> set init_top_cell fifo1_sram
+[04/07 20:39:08     41s] <CMD> set init_pwr_net VDD
+[04/07 20:39:08     41s] <CMD> set init_gnd_net VSS
+[04/07 20:39:08     41s] <CMD> init_design
+[04/07 20:39:08     41s] #% Begin Load MMMC data ... (date=04/07 20:39:08, mem=1505.3M)
+[04/07 20:39:08     41s] #% End Load MMMC data ... (date=04/07 20:39:08, total cpu=0:00:00.1, real=0:00:00.0, peak res=1506.5M, current mem=1506.5M)
+[04/07 20:39:08     41s] 
+[04/07 20:39:08     41s] Loading LEF file /u/bcruik2/hacked_lefs/tech.lef ...
+[04/07 20:39:08     41s] 
+[04/07 20:39:08     41s] Loading LEF file saed32_io_wb_all.lef ...
+[04/07 20:39:08     41s] Set DBUPerIGU to M2 pitch 152.
+[04/07 20:39:09     41s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+[04/07 20:39:09     41s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/07 20:39:09     41s] Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32_io_wb_all.lef at line 285838.
+[04/07 20:39:09     41s] 
+[04/07 20:39:09     41s] Loading LEF file saed32nm_lvt_1p9m.lef ...
+[04/07 20:39:09     42s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+[04/07 20:39:09     42s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/07 20:39:09     42s] Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32nm_lvt_1p9m.lef at line 67466.
+[04/07 20:39:09     42s] 
+[04/07 20:39:09     42s] Loading LEF file saed32_PLL.lef ...
+[04/07 20:39:09     42s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+[04/07 20:39:09     42s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/07 20:39:09     42s] Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32_PLL.lef at line 372.
+[04/07 20:39:09     42s] 
+[04/07 20:39:09     42s] Loading LEF file saed32nm_hvt_1p9m.lef ...
+[04/07 20:39:09     42s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+[04/07 20:39:09     42s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/07 20:39:09     42s] Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32nm_hvt_1p9m.lef at line 191962.
+[04/07 20:39:09     42s] 
+[04/07 20:39:09     42s] Loading LEF file saed32nm_rvt_1p9m.lef ...
+[04/07 20:39:09     42s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+[04/07 20:39:09     42s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/07 20:39:09     42s] Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32nm_rvt_1p9m.lef at line 148040.
+[04/07 20:39:09     42s] 
+[04/07 20:39:09     42s] Loading LEF file saed32sram.lef ...
+[04/07 20:39:10     42s] WARNING (LEFPARS-2003): BUSBITCHARS is a required statement in LEF files with version 5.5 and earlier.
+[04/07 20:39:10     42s] Without BUSBITCHARS defined, the LEF file is technically incorrect.
+[04/07 20:39:10     42s] Refer to the LEF/DEF 5.5 or earlier Language Reference manual on how to define this statement. See file saed32sram.lef at line 197399.
+[04/07 20:39:10     42s] 
+##  Check design process and node:  
+##  Both design process and tech node are not set.
+
+[04/07 20:39:10     42s] Loading view definition file from mmmc.tcl
+[04/07 20:39:10     43s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib' ...
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84607)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84658)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 84709)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120047)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120098)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib, Line 120149)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226626 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226627 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226628 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:10     43s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] Read 294 cells in library 'saed32rvt_ss0p95v125c' 
+[04/07 20:39:11     44s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib' ...
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84611)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84662)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 84713)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT3_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120051)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT1_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120102)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT2_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib, Line 120153)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT3_HVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226346 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226347 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226348 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT3_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT2_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:11     44s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT1_HVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib)
+[04/07 20:39:12     45s] Read 294 cells in library 'saed32hvt_ss0p95v125c' 
+[04/07 20:39:12     45s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib' ...
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 15913 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 15914 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 15915 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] Read 62 cells in library 'saed32io_wb_ss0p95v125c_2p25v' 
+[04/07 20:39:12     45s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib' ...
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 24401 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 24402 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 24403 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib)
+[04/07 20:39:12     45s] Read 35 cells in library 'saed32sram_ss0p95v125c' 
+[04/07 20:39:12     45s] Reading libs_max timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib' ...
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 1766 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 1767 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 1768 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] **WARN: (TECHLIB-302):	No function defined for cell 'PLL'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib)
+[04/07 20:39:12     45s] Read 1 cells in library 'saed32pll_ss0p95v125c_2p25v' 
+[04/07 20:39:12     45s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib' ...
+[04/07 20:39:12     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84607)
+[04/07 20:39:12     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:12     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84658)
+[04/07 20:39:12     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:12     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 84709)
+[04/07 20:39:12     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120047)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120098)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib, Line 120149)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'PMT3_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load_selection on line 226448 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT2_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-302):	No function defined for cell 'NMT1_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff0p95vn40c.lib)
+[04/07 20:39:13     46s] Read 294 cells in library 'saed32rvt_ff0p95vn40c' 
+[04/07 20:39:13     46s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib' ...
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84607)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT1_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-1277):	The attribute 'fanout_load' has been defined for output pin 'D'. 'fanout_load' cannot be defined at this level and is being ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib, Line 84658)
+[04/07 20:39:13     46s] **WARN: (TECHLIB-313):	Property 'fanout_load' can not be set on pin 'D' of cell 'NMT2_RVT' (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/07 20:39:13     46s] Message <TECHLIB-1277> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/07 20:39:13     46s] Message <TECHLIB-313> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/07 20:39:14     47s] **WARN: (TECHLIB-1161):	The library level attribute default_operating_conditions on line 226446 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/07 20:39:14     47s] **WARN: (TECHLIB-1161):	The library level attribute default_wire_load on line 226447 is defined after at least one cell definition. The attribute will be ignored. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/07 20:39:14     47s] Message <TECHLIB-1161> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/07 20:39:14     47s] **WARN: (TECHLIB-302):	No function defined for cell 'PMT3_RVT'. The cell will only be used for analysis. (File /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ff1p16vn40c.lib)
+[04/07 20:39:14     47s] Message <TECHLIB-302> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[04/07 20:39:14     47s] Read 294 cells in library 'saed32rvt_ff1p16vn40c' 
+[04/07 20:39:14     47s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff0p95vn40c.lib' ...
+[04/07 20:39:15     48s] Read 294 cells in library 'saed32hvt_ff0p95vn40c' 
+[04/07 20:39:15     48s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ff1p16vn40c.lib' ...
+[04/07 20:39:15     49s] Read 294 cells in library 'saed32hvt_ff1p16vn40c' 
+[04/07 20:39:15     49s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ff1p16vn40c_2p75v.lib' ...
+[04/07 20:39:15     49s] Read 62 cells in library 'saed32io_wb_ff1p16vn40c_2p75v' 
+[04/07 20:39:15     49s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ff1p16vn40c.lib' ...
+[04/07 20:39:16     49s] Read 35 cells in library 'saed32sram_ff1p16vn40c' 
+[04/07 20:39:16     49s] Reading libs_min timing library '/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ff1p16vn40c_2p75v.lib' ...
+[04/07 20:39:16     49s] Read 1 cells in library 'saed32pll_ff1p16vn40c_2p75v' 
+[04/07 20:39:17     49s] Ending "PreSetAnalysisView" (total cpu=0:00:06.7, real=0:00:07.0, peak res=1675.0M, current mem=1559.1M)
+[04/07 20:39:17     49s] *** End library_loading (cpu=0.11min, real=0.12min, mem=29.4M, fe_cpu=0.85min, fe_real=2.37min, fe_mem=1827.1M) ***
+[04/07 20:39:17     49s] #% Begin Load netlist data ... (date=04/07 20:39:17, mem=1559.1M)
+[04/07 20:39:17     49s] *** Begin netlist parsing (mem=1827.1M) ***
+[04/07 20:39:17     49s] Created 686 new cells from 12 timing libraries.
+[04/07 20:39:17     49s] Reading netlist ...
+[04/07 20:39:17     49s] Backslashed names will retain backslash and a trailing blank character.
+[04/07 20:39:17     49s] Reading verilog netlist '../../syn/outputs/fifo1_sram.genus.vg'
+[04/07 20:39:17     49s] 
+[04/07 20:39:17     49s] *** Memory Usage v#2 (Current mem = 1827.109M, initial mem = 812.664M) ***
+[04/07 20:39:17     49s] *** End netlist parsing (cpu=0:00:00.1, real=0:00:00.0, mem=1827.1M) ***
+[04/07 20:39:17     49s] #% End Load netlist data ... (date=04/07 20:39:17, total cpu=0:00:00.1, real=0:00:00.0, peak res=1580.3M, current mem=1580.3M)
+[04/07 20:39:17     49s] Set top cell to fifo1_sram.
+[04/07 20:39:17     50s] Hooked 1960 DB cells to tlib cells.
+[04/07 20:39:17     50s] Ending "BindLib:" (total cpu=0:00:00.4, real=0:00:00.0, peak res=1656.1M, current mem=1656.1M)
+[04/07 20:39:17     50s] Starting recursive module instantiation check.
+[04/07 20:39:17     50s] No recursion found.
+[04/07 20:39:17     50s] Building hierarchical netlist for Cell fifo1_sram ...
+[04/07 20:39:17     50s] ***** UseNewTieNetMode *****.
+[04/07 20:39:17     50s] *** Netlist is unique.
+[04/07 20:39:17     50s] Setting Std. cell height to 1672 DBU (smallest netlist inst).
+[04/07 20:39:17     50s] ** info: there are 2428 modules.
+[04/07 20:39:17     50s] ** info: there are 222 stdCell insts.
+[04/07 20:39:17     50s] ** info: there are 0 insts with no signal pins.
+[04/07 20:39:17     50s] ** info: there are 25 Pad insts.
+[04/07 20:39:17     50s] ** info: there are 8 macros.
+[04/07 20:39:17     50s] 
+[04/07 20:39:17     50s] *** Memory Usage v#2 (Current mem = 1910.535M, initial mem = 812.664M) ***
+[04/07 20:39:17     50s] Initializing I/O assignment ...
+[04/07 20:39:17     50s] Adjusting Core to Left to: 0.0480. Core to Bottom to: 0.0480.
+[04/07 20:39:17     50s] **WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:17     50s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:17     50s] **WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:17     50s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:17     50s] **WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:17     50s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:17     50s] **WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:17     50s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:18     50s] Horizontal Layer M1 offset = 0 (derived)
+[04/07 20:39:18     50s] Vertical Layer M2 offset = 0 (derived)
+[04/07 20:39:18     50s] Start create_tracks
+[04/07 20:39:18     50s] Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+[04/07 20:39:18     50s] Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+[04/07 20:39:18     50s] Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+[04/07 20:39:18     50s] Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+[04/07 20:39:18     50s] Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+[04/07 20:39:18     50s] Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+[04/07 20:39:18     50s] Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+[04/07 20:39:18     51s] Extraction setup Started for TopCell fifo1_sram 
+[04/07 20:39:19     51s] Initializing multi-corner RC extraction with 2 active RC Corners ...
+[04/07 20:39:19     51s] Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap ...
+[04/07 20:39:19     51s] Process name: saed32nm_1p9m_Cmax.
+[04/07 20:39:19     51s] Reading Capacitance Table File ../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap ...
+[04/07 20:39:19     51s] Process name: saed32nm_1p9m_Cmin.
+[04/07 20:39:19     51s] Importing multi-corner RC tables ... 
+[04/07 20:39:19     51s] Summary of Active RC-Corners : 
+[04/07 20:39:19     51s]  
+[04/07 20:39:19     51s]  Analysis View: func_max_scenario
+[04/07 20:39:19     51s]     RC-Corner Name        : cmax
+[04/07 20:39:19     51s]     RC-Corner Index       : 0
+[04/07 20:39:19     51s]     RC-Corner Temperature : -40 Celsius
+[04/07 20:39:19     51s]     RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmax.cap'
+[04/07 20:39:19     51s]     RC-Corner PreRoute Res Factor         : 1
+[04/07 20:39:19     51s]     RC-Corner PreRoute Cap Factor         : 1
+[04/07 20:39:19     51s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[04/07 20:39:19     51s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[04/07 20:39:19     51s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[04/07 20:39:19     51s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[04/07 20:39:19     51s]  
+[04/07 20:39:19     51s]  Analysis View: func_min_scenario
+[04/07 20:39:19     51s]     RC-Corner Name        : cmin
+[04/07 20:39:19     51s]     RC-Corner Index       : 1
+[04/07 20:39:19     51s]     RC-Corner Temperature : -40 Celsius
+[04/07 20:39:19     51s]     RC-Corner Cap Table   : '../../cadence_cap_tech/saed32nm_1p9m_Cmin.cap'
+[04/07 20:39:19     51s]     RC-Corner PreRoute Res Factor         : 1
+[04/07 20:39:19     51s]     RC-Corner PreRoute Cap Factor         : 1
+[04/07 20:39:19     51s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[04/07 20:39:19     51s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[04/07 20:39:19     51s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[04/07 20:39:19     51s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[04/07 20:39:19     51s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[04/07 20:39:19     51s] eee: RC Grid memory allocated = 376320 (56 X 56 X 10 X 12b)
+[04/07 20:39:19     51s] Updating RC Grid density data for preRoute extraction ...
+[04/07 20:39:19     51s] eee: pegSigSF=1.070000
+[04/07 20:39:19     51s] Initializing multi-corner capacitance tables ... 
+[04/07 20:39:19     51s] Initializing multi-corner resistance tables ...
+[04/07 20:39:19     51s] eee: Grid unit RC data computation started
+[04/07 20:39:19     51s] eee: Grid unit RC data computation completed
+[04/07 20:39:19     51s] eee: l=1 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=2 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=3 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=4 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=5 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=6 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=7 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=8 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=9 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] eee: l=10 avDens=0.000000 usedTrk=0.000000 availTrk=0.000000 sigTrk=0.000000
+[04/07 20:39:19     51s] {RT cmax 0 2 10  {9 0} 1}
+[04/07 20:39:19     51s] eee: LAM-FP: thresh=1 ; dimX=6043.940789 ; dimY=6026.684211 ; multX=1.000000 ; multY=1.000000 ; minP=152 ; fpMult=1.000000 ;
+[04/07 20:39:19     51s] eee: LAM: n=32 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 pModAss=50 wcR=0.718100 crit=0.000000 siPrev=0 newSi=0.000000 wHLS=1.795300 viaL=0.000000 shortMod=0.000000 fModUnas=0.000000 fModAs=0.000000 pDens=0.500000 
+[04/07 20:39:19     51s] eee: NetCapCache creation started. (Current Mem: 2187.715M) 
+[04/07 20:39:19     51s] eee: NetCapCache completed. (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  Curr Mem: 2187.715M) 
+[04/07 20:39:19     51s] eee: dbu = 1000, Design = [ll(0.000000, 0.000000) ur(918.679000, 916.056000)], Layers = [f(10) b(0)], Grid size = 16.720000 um, Grid Dim = (55 X 55)
+[04/07 20:39:19     51s] eee: Metal Layers Info:
+[04/07 20:39:19     51s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[04/07 20:39:19     51s] eee: |   Layer  |  Id |    W    |    S    |    P    |   uC   |   uR   | D | T | wS |
+[04/07 20:39:19     51s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[04/07 20:39:19     51s] eee: |       M1 |   1 |   0.050 |   0.050 |   0.152 |  0.165 |   2.00 | H | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M2 |   2 |   0.056 |   0.056 |   0.152 |  0.170 |   1.79 | V | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M3 |   3 |   0.056 |   0.056 |   0.152 |  0.170 |   1.79 | H | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M4 |   4 |   0.056 |   0.056 |   0.152 |  0.170 |   1.79 | V | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M5 |   5 |   0.056 |   0.056 |   0.152 |  0.170 |   1.79 | H | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M6 |   6 |   0.056 |   0.056 |   0.152 |  0.170 |   1.79 | V | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M7 |   7 |   0.056 |   0.056 |   0.152 |  0.170 |   1.79 | H | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M8 |   8 |   0.056 |   0.056 |   0.152 |  0.169 |   1.79 | V | 0 |  4 |
+[04/07 20:39:19     51s] eee: |       M9 |   9 |   0.160 |   0.056 |   2.432 |  0.106 |   1.75 | H | 0 |  4 |
+[04/07 20:39:19     51s] eee: |     MRDL |  10 |   2.000 |   2.000 |   4.864 |  0.126 |   0.17 | V | 0 |  2 |
+[04/07 20:39:19     51s] eee: +----------+-----+---------+---------+---------+--------+--------+---+---+----+
+[04/07 20:39:19     51s] eee: uC/uR for corner cmax, min-width/min-spacing, 30 perc over/under densities.
+[04/07 20:39:19     51s] *Info: initialize multi-corner CTS.
+[04/07 20:39:20     51s] Ending "SetAnalysisView" (total cpu=0:00:00.3, real=0:00:01.0, peak res=1962.1M, current mem=1640.5M)
+[04/07 20:39:20     52s] Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+[04/07 20:39:20     52s] Current (total cpu=0:00:53.5, real=0:02:25, peak res=2069.6M, current mem=2069.6M)
+[04/07 20:39:20     52s] Number of path exceptions in the constraint file = 2
+[04/07 20:39:20     52s] Number of paths exceptions after getting compressed = 2
+[04/07 20:39:20     52s] INFO (CTE): Constraints read successfully.
+[04/07 20:39:20     52s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=2102.0M, current mem=2102.0M)
+[04/07 20:39:21     52s] Current (total cpu=0:00:53.7, real=0:02:26, peak res=2102.0M, current mem=2102.0M)
+[04/07 20:39:21     52s] Reading timing constraints file '../../constraints/fifo1_sram.sdc' ...
+[04/07 20:39:21     52s] Current (total cpu=0:00:53.8, real=0:02:26, peak res=2102.1M, current mem=2102.1M)
+[04/07 20:39:21     52s] Number of path exceptions in the constraint file = 2
+[04/07 20:39:21     52s] Number of paths exceptions after getting compressed = 2
+[04/07 20:39:21     52s] INFO (CTE): Constraints read successfully.
+[04/07 20:39:21     52s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=2102.4M, current mem=2102.4M)
+[04/07 20:39:21     52s] Current (total cpu=0:00:53.9, real=0:02:26, peak res=2102.4M, current mem=2102.4M)
+[04/07 20:39:21     52s] **WARN: (TA-976):	Path groups asserted by the group_path constraint are considered by the software to be global in nature - they cannot be restricted to specific constraint modes. Due to this restriction, the group_path constraint is not supported directly in the constraint files which are configured in mode-specific commands such as create_constraint_mode. The current group_path entry will be ignored. You can enter the group_path constraint interactively or as part of a general command script -  where it will be interpreted as global and will be in effect for all modes.
+[04/07 20:39:21     52s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[04/07 20:39:21     52s] 
+[04/07 20:39:21     52s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFX2_RVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFX1_RVT complicate code: 24
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRSSRX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRSSRX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASRX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASRX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRARX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRARX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNX2_RVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNX1_RVT complicate code: 24
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRQX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRQX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRNX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRNX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRARX2_RVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRARX1_RVT complicate code: 33
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNARX2_RVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNARX1_RVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFARX2_RVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFARX1_RVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFX2_RVT complicate code: 9
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFX1_RVT complicate code: 9
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFSRSSRX2_RVT complicate code: 9
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRSSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASRX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASRX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRARX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRARX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNX2_RVT complicate code: 9
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNX1_RVT complicate code: 9
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRQX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRQX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRNX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRNX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRARX2_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRARX1_RVT complicate code: 33.051
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNARX2_RVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNARX1_RVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFARX2_RVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFARX1_RVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFX2_HVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFX1_HVT complicate code: 24
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRSSRX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRSSRX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASRX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRASRX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRARX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFSRARX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNX2_HVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNX1_HVT complicate code: 24
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRQX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRQX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRNX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRASRNX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRARX2_HVT complicate code: 33
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RSDFFNSRARX1_HVT complicate code: 33
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNARX2_HVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFNARX1_HVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFARX2_HVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RSDFFARX1_HVT complicate code: 24
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFX2_HVT complicate code: 9
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFX1_HVT complicate code: 9
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFSRSSRX2_HVT complicate code: 9
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRSSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASRX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRASRX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRARX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFSRARX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNX2_HVT complicate code: 9
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNX1_HVT complicate code: 9
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRQX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRQX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRNX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRASRNX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRARX2_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SB Retention cell Setting to complicate: RDFFNSRARX1_HVT complicate code: 33.051
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNARX2_HVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFNARX1_HVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFARX2_HVT complicate code: 30
+[04/07 20:39:21     52s] SBFF Setting to complicate: RDFFARX1_HVT complicate code: 30
+[04/07 20:39:21     53s] Summary for sequential cells identification: 
+[04/07 20:39:21     53s]   Identified SBFF number: 92
+[04/07 20:39:21     53s]   Identified MBFF number: 0
+[04/07 20:39:21     53s]   Identified SB Latch number: 24
+[04/07 20:39:21     53s]   Identified MB Latch number: 0
+[04/07 20:39:21     53s]   Not identified SBFF number: 120
+[04/07 20:39:21     53s]   Not identified MBFF number: 0
+[04/07 20:39:21     53s]   Not identified SB Latch number: 0
+[04/07 20:39:21     53s]   Not identified MB Latch number: 0
+[04/07 20:39:21     53s]   Number of sequential cells which are not FFs: 28
+[04/07 20:39:21     53s] Total number of combinational cells: 250
+[04/07 20:39:21     53s] Total number of sequential cells: 264
+[04/07 20:39:21     53s] Total number of tristate cells: 12
+[04/07 20:39:21     53s] Total number of level shifter cells: 0
+[04/07 20:39:21     53s] Total number of power gating cells: 0
+[04/07 20:39:21     53s] Total number of isolation cells: 32
+[04/07 20:39:21     53s] Total number of power switch cells: 0
+[04/07 20:39:21     53s] Total number of pulse generator cells: 0
+[04/07 20:39:21     53s] Total number of always on buffers: 0
+[04/07 20:39:21     53s] Total number of retention cells: 0
+[04/07 20:39:21     53s] Total number of physical cells: 18
+[04/07 20:39:21     53s] List of usable buffers: NBUFFX2_HVT NBUFFX16_HVT NBUFFX32_HVT NBUFFX4_HVT NBUFFX8_HVT NBUFFX2_RVT NBUFFX16_RVT NBUFFX32_RVT NBUFFX4_RVT NBUFFX8_RVT
+[04/07 20:39:21     53s] Total number of usable buffers: 10
+[04/07 20:39:21     53s] List of unusable buffers:
+[04/07 20:39:21     53s] Total number of unusable buffers: 0
+[04/07 20:39:21     53s] List of usable inverters: IBUFFX2_HVT IBUFFX16_HVT IBUFFX32_HVT INVX0_HVT IBUFFX4_HVT IBUFFX8_HVT INVX16_HVT INVX1_HVT INVX2_HVT INVX32_HVT INVX4_HVT IBUFFX2_RVT INVX8_HVT IBUFFX16_RVT IBUFFX32_RVT INVX0_RVT IBUFFX4_RVT IBUFFX8_RVT INVX16_RVT INVX1_RVT INVX2_RVT INVX32_RVT INVX4_RVT INVX8_RVT
+[04/07 20:39:21     53s] Total number of usable inverters: 24
+[04/07 20:39:21     53s] List of unusable inverters:
+[04/07 20:39:21     53s] Total number of unusable inverters: 0
+[04/07 20:39:21     53s] List of identified usable delay cells: DELLN1X2_HVT DELLN2X2_HVT DELLN3X2_HVT DELLN1X2_RVT DELLN2X2_RVT DELLN3X2_RVT
+[04/07 20:39:21     53s] Total number of identified usable delay cells: 6
+[04/07 20:39:21     53s] List of identified unusable delay cells:
+[04/07 20:39:21     53s] Total number of identified unusable delay cells: 0
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Deleting Cell Server Begin ...
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Deleting Cell Server End ...
+[04/07 20:39:21     53s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=2105.5M, current mem=2105.5M)
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFX2_HVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFX1_HVT complicate code: 24
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRSSRX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRSSRX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASRX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASRX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRARX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRARX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNX2_HVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNX1_HVT complicate code: 24
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRQX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRQX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRNX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRNX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRARX2_HVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRARX1_HVT complicate code: 33
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNARX2_HVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNARX1_HVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFARX2_HVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFARX1_HVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFX2_HVT complicate code: 9
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFX1_HVT complicate code: 9
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFSRSSRX2_HVT complicate code: 9
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRSSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASRX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASRX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRARX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRARX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNX2_HVT complicate code: 9
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNX1_HVT complicate code: 9
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRQX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRQX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRNX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRNX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRARX2_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRARX1_HVT complicate code: 33.051
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNARX2_HVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNARX1_HVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFARX2_HVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFARX1_HVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFX2_RVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFX1_RVT complicate code: 24
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRSSRX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRSSRX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASRX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRASRX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRARX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFSRARX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNX2_RVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNX1_RVT complicate code: 24
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRQX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRQX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRNX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRASRNX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRARX2_RVT complicate code: 33
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RSDFFNSRARX1_RVT complicate code: 33
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNARX2_RVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFNARX1_RVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFARX2_RVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RSDFFARX1_RVT complicate code: 24
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFX2_RVT complicate code: 9
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFX1_RVT complicate code: 9
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFSRSSRX2_RVT complicate code: 9
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRSSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASRX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRASRX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRARX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFSRARX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNX2_RVT complicate code: 9
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNX1_RVT complicate code: 9
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRQX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRQX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRNX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRASRNX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRARX2_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SB Retention cell Setting to complicate: RDFFNSRARX1_RVT complicate code: 33.051
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNARX2_RVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFNARX1_RVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFARX2_RVT complicate code: 30
+[04/07 20:39:21     53s] SBFF Setting to complicate: RDFFARX1_RVT complicate code: 30
+[04/07 20:39:21     53s] Summary for sequential cells identification: 
+[04/07 20:39:21     53s]   Identified SBFF number: 92
+[04/07 20:39:21     53s]   Identified MBFF number: 0
+[04/07 20:39:21     53s]   Identified SB Latch number: 24
+[04/07 20:39:21     53s]   Identified MB Latch number: 0
+[04/07 20:39:21     53s]   Not identified SBFF number: 120
+[04/07 20:39:21     53s]   Not identified MBFF number: 0
+[04/07 20:39:21     53s]   Not identified SB Latch number: 0
+[04/07 20:39:21     53s]   Not identified MB Latch number: 0
+[04/07 20:39:21     53s]   Number of sequential cells which are not FFs: 28
+[04/07 20:39:21     53s]  Visiting view : func_max_scenario
+[04/07 20:39:21     53s]    : PowerDomain = none : Weighted F : unweighted  = 13.30 (1.000) with rcCorner = 0
+[04/07 20:39:21     53s]    : PowerDomain = none : Weighted F : unweighted  = 13.00 (1.000) with rcCorner = -1
+[04/07 20:39:21     53s]  Visiting view : func_min_scenario
+[04/07 20:39:21     53s]    : PowerDomain = none : Weighted F : unweighted  = 6.80 (1.000) with rcCorner = 1
+[04/07 20:39:21     53s]    : PowerDomain = none : Weighted F : unweighted  = 6.70 (1.000) with rcCorner = -1
+[04/07 20:39:21     53s] TLC MultiMap info (StdDelay):
+[04/07 20:39:21     53s]   : min_corner + libs_min + 1 + no RcCorner := 6.7ps
+[04/07 20:39:21     53s]   : min_corner + libs_min + 1 + cmin := 6.8ps
+[04/07 20:39:21     53s]   : max_corner + libs_max + 1 + no RcCorner := 13ps
+[04/07 20:39:21     53s]   : max_corner + libs_max + 1 + cmax := 13.3ps
+[04/07 20:39:21     53s]  Setting StdDelay to: 13.3ps
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Deleting Cell Server Begin ...
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] TimeStamp Deleting Cell Server End ...
+[04/07 20:39:21     53s] #% Begin Load MMMC data post ... (date=04/07 20:39:21, mem=2106.0M)
+[04/07 20:39:21     53s] #% End Load MMMC data post ... (date=04/07 20:39:21, total cpu=0:00:00.1, real=0:00:00.0, peak res=2106.0M, current mem=2106.0M)
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] *** Summary of all messages that are not suppressed in this session:
+[04/07 20:39:21     53s] Severity  ID               Count  Summary                                  
+[04/07 20:39:21     53s] WARNING   IMPFP-3961           4  The techSite '%s' has no related standar...
+[04/07 20:39:21     53s] WARNING   TA-976               1  Path groups asserted by the group_path c...
+[04/07 20:39:21     53s] WARNING   TECHLIB-302         38  No function defined for cell '%s'. The c...
+[04/07 20:39:21     53s] WARNING   TECHLIB-313         36  Property '%s' can not be set on pin '%s'...
+[04/07 20:39:21     53s] WARNING   TECHLIB-1161        36  The library level attribute %s on line %...
+[04/07 20:39:21     53s] WARNING   TECHLIB-1277        36  The %s '%s' has been defined for %s %s '...
+[04/07 20:39:21     53s] *** Message Summary: 151 warning(s), 0 error(s)
+[04/07 20:39:21     53s] 
+[04/07 20:39:21     53s] <CMD> all_constraint_modes -active
+[04/07 20:39:21     53s] <CMD> set_interactive_constraint_modes [all_constraint_modes -active]
+[04/07 20:39:21     53s] <CMD> floorPlan -s 580 580 10 10 10 10 -flip s -coreMarginsBy io
+[04/07 20:39:21     53s] The core width changes from 580.000000 to 580.032000 when snapping to grid "PlacementGrid".
+[04/07 20:39:21     53s] The core height changes from 580.000000 to 580.032000 when snapping to grid "PlacementGrid".
+[04/07 20:39:21     53s] **WARN: (IMPFP-4026):	Adjusting core to 'Left' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/07 20:39:21     53s] **WARN: (IMPFP-4026):	Adjusting core to 'Bottom' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/07 20:39:21     53s] **WARN: (IMPFP-4026):	Adjusting core to 'Right' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/07 20:39:21     53s] **WARN: (IMPFP-4026):	Adjusting core to 'Top' to 10.032000 due to track/row misalignment. To force the value, specify the -noSnapToGrid option or use fpiSetSnapRule command to specify the die/core to different grid.
+[04/07 20:39:21     53s] **WARN: (IMPFP-3961):	The techSite 'fillSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:21     53s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:21     53s] **WARN: (IMPFP-3961):	The techSite 'cornerSite' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:21     53s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:21     53s] **WARN: (IMPFP-3961):	The techSite 'ioSiteEW' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:21     53s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:21     53s] **WARN: (IMPFP-3961):	The techSite 'ioSiteNS' has no related standard cells in the LEF/OA library. The calculations for this site type cannot be made unless standard cell models of this type exist in the LEF/OA library. Ignore this warning if the SITE is not used by the library. Alternatively, remove the SITE definition for the LEF/OA library to avoid this message.
+[04/07 20:39:21     53s] Type 'man IMPFP-3961' for more detail.
+[04/07 20:39:21     53s] Horizontal Layer M1 offset = 0 (derived)
+[04/07 20:39:21     53s] Vertical Layer M2 offset = 0 (derived)
+[04/07 20:39:21     53s] Start create_tracks
+[04/07 20:39:21     53s] Generated pitch 0.228 in M9 is different from 2.432 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] Generated pitch 0.152 in M8 is different from 1.216 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] Generated pitch 0.152 in M7 is different from 1.216 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] Generated pitch 0.152 in M6 is different from 0.608 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] Generated pitch 0.152 in M5 is different from 0.608 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] Generated pitch 0.152 in M4 is different from 0.304 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] Generated pitch 0.152 in M3 is different from 0.304 defined in technology file in preferred direction.
+[04/07 20:39:21     53s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current floorplan objects are automatically derived based on specified new floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[04/07 20:39:22     53s] <CMD> is_common_ui_mode
+[04/07 20:39:22     53s] <CMD> loadIoFile fifo1_sram.io
+[04/07 20:39:22     53s] Reading IO assignment file "fifo1_sram.io" ...
+[04/07 20:39:22     53s] <CMD> loadIoFile fifo1_sram.io
+[04/07 20:39:22     53s] Reading IO assignment file "fifo1_sram.io" ...
+[04/07 20:39:22     53s] ### Start verbose source output (echo mode) for '../../fifo1_sram.design_options.tcl' ...
+[04/07 20:39:22     53s] # if { [info exists synopsys_program_name ] } { 
+    set_app_option -name place.coarse.continue_on_missing_scandef -value true
+
+    #set enable_recovery_removal_arcs true
+    set_app_option -name time.disable_recovery_removal_checks -value false
+    #set timing_enable_multiple_clocks_per_reg true
+    #set timing_remove_clock_reconvergence_pessimism true
+    set_app_option -name timer.remove_clock_reconvergence_pessimism -value true
+
+    #set physopt_enable_via_res_support true
+    #set physopt_hard_keepout_distance 5
+    #set_preferred_routing_direction -direction vertical -l {M2 M4}
+    #set_preferred_routing_direction -direction horizontal -l {M3 M5}
+    set_ignored_layers  -min_routing_layer M2 -max_routing_layer M7
+
+
+    # To optimize DW components (I think only adders right now??) - default is false
+    #set physopt_dw_opto true
+
+    #set_ahfs_options -remove_effort high
+    #set_buffer_opt_strategy -effort medium
+
+    # Dont use delay buffers
+    #set_dont_use [get_lib_cells */DELLN* ]
+    set_lib_cell_purpose -include hold [get_lib_cells */DELLN* ]
+
+    #FIXME
+    #set_host_options -max_cores 1 -num_processes 1 mo.ece.pdx.edu
+    set_app_options -name compile.flow.trial_clock_tree -value false
+    set_app_options -name place_opt.flow.trial_clock_tree -value false
+    set_app_options -name compile.flow.enable_ccd -value false
+    set_app_options -name place_opt.flow.enable_ccd -value false
+    set_app_options -name clock_opt.flow.enable_ccd -value false
+    set_app_options -name route_opt.flow.enable_ccd -value false
+    set_app_options -name ccd.max_postpone -value 0
+    set_app_options -name ccd.max_prepone -value 0
+
+    ###########################  CTS Related
+    create_routing_rule clock_double_spacing -spacings {M1 0.1 M2 0.112 M3 0.112 M4 0.112 M5 0.112 M6 0.112 M7 0.112 M8 0.112}
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type internal -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    set_clock_routing_rules -clock [ get_clocks * ] -net_type root -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+    # Set other cts app_options?  Bufs vs Inverters, certain drive strengths.  
+
+    # Allow delay buffers just for hold fixing
+    #set_prefer -min [get_lib_cells */DELLN*HVT ]
+    #set_fix_hold_options -preferred_buffer
+    # fix hold on all clocks
+    #set_fix_hold [all_clocks]
+    # If design blows up, try turning hold fixing off. 
+    # -optimize_dft is good if scan is inserted.
+    # Sometimes better to separate CTS and setup/hold so any hold concerns can be seen before hold fixing.
+    # Can look in the log at the beginning of clock_opt hold fixing to see if there was a large hold problem to fix.
+    # set_app_option -name clock_opt.flow.skip_hold -value true
+
+    ########################## Route related
+    set_app_option -name route_opt.flow.xtalk_reduction -value true
+    set_app_option -name time.si_enable_analysis -value true
+
+    if { $top_design == "ORCA_TOP" } {
+      create_voltage_area  -region {{580 0} {1000 400}} -power_domains PD_RISC_CORE
+    }
+} else {
+
+    # Try reducing the search and repair iterations for now.
+    if [is_common_ui_mode ] { set_db route_design_detail_end_iteration 10
+    } else { setNanoRouteMode -drouteEndIteration 10  }
+}
+<CMD> is_common_ui_mode
+[04/07 20:39:22     53s] <CMD> setNanoRouteMode -drouteEndIteration 10
+[04/07 20:39:22     53s] ### End verbose source output for '../../fifo1_sram.design_options.tcl'.
+[04/07 20:39:22     53s] <CMD> placeAIO
+[04/07 20:39:22     53s] OPERPROF: Starting DPlace-Init at level 1, MEM:2387.6M, EPOCH TIME: 1744083562.205147
+[04/07 20:39:22     53s] Processing tracks to init pin-track alignment.
+[04/07 20:39:22     53s] z: 2, totalTracks: 1
+[04/07 20:39:22     53s] z: 4, totalTracks: 1
+[04/07 20:39:22     53s] z: 6, totalTracks: 1
+[04/07 20:39:22     53s] z: 8, totalTracks: 1
+[04/07 20:39:22     54s] #spOpts: N=32 hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/07 20:39:22     54s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:22     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] # Building fifo1_sram llgBox search-tree.
+[04/07 20:39:22     54s] OPERPROF:   Starting SiteArray-Init at level 2, MEM:2405.6M, EPOCH TIME: 1744083562.820542
+[04/07 20:39:22     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] OPERPROF:     Starting SiteArray-Init-FPlan at level 3, MEM:2405.6M, EPOCH TIME: 1744083562.821115
+[04/07 20:39:22     54s] Max number of tech site patterns supported in site array is 256.
+[04/07 20:39:22     54s] **WARN: (IMPSP-362):	Site 'unit' has one std.Cell height, so ignoring its X-symmetry.
+[04/07 20:39:22     54s] Type 'man IMPSP-362' for more detail.
+[04/07 20:39:22     54s] Core basic site is unit
+[04/07 20:39:22     54s] DP-Init: Signature of floorplan is 65b88a7222057000. Signature of routing blockage is 0.
+[04/07 20:39:22     54s] After signature check, allow fast init is false, keep pre-filter is false.
+[04/07 20:39:22     54s] After signature check and other controls, allow fast init is false, keep pre-filter is false.
+[04/07 20:39:22     54s] Use non-trimmed site array because memory saving is not enough.
+[04/07 20:39:22     54s] SiteArray: non-trimmed site array dimensions = 346 x 3816
+[04/07 20:39:22     54s] SiteArray: use 6,643,712 bytes
+[04/07 20:39:22     54s] SiteArray: current memory after site array memory allocation 2413.0M
+[04/07 20:39:22     54s] SiteArray: FP blocked sites are writable
+[04/07 20:39:22     54s] SY_THREAD_POOL_QUEUE SY-GLB-THREAD-POOL (0x4717e3e0): Create thread pool 0x7fc3e5a688c0.
+[04/07 20:39:22     54s] SY_THREAD_POOL_QUEUE SY-GLB-THREAD-POOL (0x4717e3e0): 0 out of 1 thread pools are available.
+[04/07 20:39:22     54s] Estimated cell power/ground rail width = 0.209 um
+[04/07 20:39:22     54s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/07 20:39:22     54s] OPERPROF:       Starting Routing-Blockage-From-Wire-Via-StBox at level 4, MEM:2541.0M, EPOCH TIME: 1744083562.902529
+[04/07 20:39:22     54s] Process 0 wires and vias for routing blockage analysis
+[04/07 20:39:22     54s] OPERPROF:       Finished Routing-Blockage-From-Wire-Via-StBox at level 4, CPU:0.000, REAL:0.000, MEM:2541.0M, EPOCH TIME: 1744083562.902675
+[04/07 20:39:22     54s] SiteArray: number of non floorplan blocked sites for llg default is 1320336
+[04/07 20:39:22     54s] Atter site array init, number of instance map data is 0.
+[04/07 20:39:22     54s] OPERPROF:     Finished SiteArray-Init-FPlan at level 3, CPU:0.100, REAL:0.095, MEM:2541.0M, EPOCH TIME: 1744083562.916262
+[04/07 20:39:22     54s] 
+[04/07 20:39:22     54s] Scanning PG Shapes for Pre-Colorizing...Done.
+[04/07 20:39:22     54s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:22     54s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:22     54s] OPERPROF:     Starting CMU at level 3, MEM:2541.0M, EPOCH TIME: 1744083562.921340
+[04/07 20:39:22     54s] OPERPROF:     Finished CMU at level 3, CPU:0.000, REAL:0.000, MEM:2541.0M, EPOCH TIME: 1744083562.921769
+[04/07 20:39:22     54s] 
+[04/07 20:39:22     54s] Bad Lib Cell Checking (CMU) is done! (0)
+[04/07 20:39:22     54s] OPERPROF:   Finished SiteArray-Init at level 2, CPU:0.110, REAL:0.106, MEM:2541.0M, EPOCH TIME: 1744083562.926220
+[04/07 20:39:22     54s] OPERPROF:   Starting Placement-Init-SB-Tree at level 2, MEM:2541.0M, EPOCH TIME: 1744083562.926315
+[04/07 20:39:22     54s] OPERPROF:   Finished Placement-Init-SB-Tree at level 2, CPU:0.000, REAL:0.000, MEM:2541.0M, EPOCH TIME: 1744083562.926765
+[04/07 20:39:22     54s] [CPU] DPlace-Init (cpu=0:00:00.7, real=0:00:00.0, mem=2541.0MB).
+[04/07 20:39:22     54s] OPERPROF: Finished DPlace-Init at level 1, CPU:0.740, REAL:0.736, MEM:2541.0M, EPOCH TIME: 1744083562.941453
+[04/07 20:39:22     54s] OPERPROF: Starting DPlace-Cleanup(auto) at level 1, MEM:2541.0M, EPOCH TIME: 1744083562.941544
+[04/07 20:39:22     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:22     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:22     54s] # Resetting pin-track-align track data.
+[04/07 20:39:22     54s] OPERPROF: Finished DPlace-Cleanup(auto) at level 1, CPU:0.010, REAL:0.015, MEM:2541.0M, EPOCH TIME: 1744083562.956870
+[04/07 20:39:22     54s] INFO: #ExclusiveGroups=0
+[04/07 20:39:22     54s] INFO: There are no Exclusive Groups.
+[04/07 20:39:22     54s] Extracting standard cell pins and blockage ...... 
+[04/07 20:39:23     54s] Pin and blockage extraction finished
+[04/07 20:39:23     54s] Extracting macro/IO cell pins and blockage ...... 
+[04/07 20:39:23     54s] Pin and blockage extraction finished
+[04/07 20:39:23     54s] *** Starting "NanoPlace(TM) placement v#12 (mem=2541.0M)" ...
+[04/07 20:39:23     54s] No user-set net weight.
+[04/07 20:39:23     54s] Net fanout histogram:
+[04/07 20:39:23     54s] 2		: 163 (59.5%) nets
+[04/07 20:39:23     54s] 3		: 42 (15.3%) nets
+[04/07 20:39:23     54s] 4     -	14	: 65 (23.7%) nets
+[04/07 20:39:23     54s] 15    -	39	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 40    -	79	: 4 (1.5%) nets
+[04/07 20:39:23     54s] 80    -	159	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 160   -	319	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 320   -	639	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 640   -	1279	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 1280  -	2559	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 2560  -	5119	: 0 (0.0%) nets
+[04/07 20:39:23     54s] 5120+		: 0 (0.0%) nets
+[04/07 20:39:23     54s] no activity file in design. spp won't run.
+[04/07 20:39:23     54s] Options: clkGateAware ignoreScan pinGuide congEffort=medium gpEffort=fast 
+[04/07 20:39:23     54s] Scan chains were not defined.
+[04/07 20:39:23     54s] Processing tracks to init pin-track alignment.
+[04/07 20:39:23     54s] z: 2, totalTracks: 1
+[04/07 20:39:23     54s] z: 4, totalTracks: 1
+[04/07 20:39:23     54s] z: 6, totalTracks: 1
+[04/07 20:39:23     54s] z: 8, totalTracks: 1
+[04/07 20:39:23     54s] #spOpts: N=32 mergeVia=F hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/07 20:39:23     54s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:23     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] # Building fifo1_sram llgBox search-tree.
+[04/07 20:39:23     54s] #std cell=222 (0 fixed + 222 movable) #buf cell=1 #inv cell=15 #block=8 (8 floating + 0 preplaced)
+[04/07 20:39:23     54s] #ioInst=25 #net=274 #term=1128 #term/net=4.12, #fixedIo=25, #floatIo=0, #fixedPin=15, #floatPin=0
+[04/07 20:39:23     54s] stdCell: 222 single + 0 double + 0 multi
+[04/07 20:39:23     54s] Total standard cell length = 0.6060 (mm), area = 0.0010 (mm^2)
+[04/07 20:39:23     54s] OPERPROF: Starting SiteArray-Init at level 1, MEM:2543.0M, EPOCH TIME: 1744083563.087401
+[04/07 20:39:23     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] OPERPROF:   Starting SiteArray-Init-FPlan at level 2, MEM:2543.0M, EPOCH TIME: 1744083563.088016
+[04/07 20:39:23     54s] Max number of tech site patterns supported in site array is 256.
+[04/07 20:39:23     54s] Core basic site is unit
+[04/07 20:39:23     54s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:23     54s] After signature check and other controls, allow fast init is false, keep pre-filter is false.
+[04/07 20:39:23     54s] SiteArray: non-trimmed site array dimensions = 346 x 3816
+[04/07 20:39:23     54s] SiteArray: use 6,643,712 bytes
+[04/07 20:39:23     54s] SiteArray: current memory after site array memory allocation 2543.0M
+[04/07 20:39:23     54s] SiteArray: FP blocked sites are writable
+[04/07 20:39:23     54s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/07 20:39:23     54s] OPERPROF:     Starting Routing-Blockage-From-Wire-Via-StBox at level 3, MEM:2543.0M, EPOCH TIME: 1744083563.154715
+[04/07 20:39:23     54s] Process 0 wires and vias for routing blockage analysis
+[04/07 20:39:23     54s] OPERPROF:     Finished Routing-Blockage-From-Wire-Via-StBox at level 3, CPU:0.010, REAL:0.000, MEM:2543.0M, EPOCH TIME: 1744083563.155108
+[04/07 20:39:23     54s] SiteArray: number of non floorplan blocked sites for llg default is 1320336
+[04/07 20:39:23     54s] Atter site array init, number of instance map data is 0.
+[04/07 20:39:23     54s] OPERPROF:   Finished SiteArray-Init-FPlan at level 2, CPU:0.090, REAL:0.081, MEM:2543.0M, EPOCH TIME: 1744083563.168563
+[04/07 20:39:23     54s] 
+[04/07 20:39:23     54s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:23     54s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:23     54s] OPERPROF: Finished SiteArray-Init at level 1, CPU:0.100, REAL:0.098, MEM:2543.0M, EPOCH TIME: 1744083563.184953
+[04/07 20:39:23     54s] 
+[04/07 20:39:23     54s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:23     54s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:23     54s] Average module density = 0.211.
+[04/07 20:39:23     54s] Density for the design = 0.211.
+[04/07 20:39:23     54s]        = (stdcell_area 3987 sites (1013 um^2) + block_area 274479 sites (69757 um^2)) / alloc_area 1320336 sites (335555 um^2).
+[04/07 20:39:23     54s] Pin Density = 0.0008543.
+[04/07 20:39:23     54s]             = total # of pins 1128 / total area 1320336.
+[04/07 20:39:23     54s] OPERPROF: Starting Setup-Regin-Box-For-Spare-Inst-Group at level 1, MEM:2543.0M, EPOCH TIME: 1744083563.214550
+[04/07 20:39:23     54s] OPERPROF: Finished Setup-Regin-Box-For-Spare-Inst-Group at level 1, CPU:0.020, REAL:0.015, MEM:2543.0M, EPOCH TIME: 1744083563.229075
+[04/07 20:39:23     54s] OPERPROF: Starting Compute-Min-Padding at level 1, MEM:2543.0M, EPOCH TIME: 1744083563.235706
+[04/07 20:39:23     54s] OPERPROF:   Starting Get-Context-Min-Padding at level 2, MEM:2543.0M, EPOCH TIME: 1744083563.235985
+[04/07 20:39:23     54s] OPERPROF:   Finished Get-Context-Min-Padding at level 2, CPU:0.000, REAL:0.000, MEM:2543.0M, EPOCH TIME: 1744083563.236044
+[04/07 20:39:23     54s] OPERPROF: Finished Compute-Min-Padding at level 1, CPU:0.000, REAL:0.000, MEM:2543.0M, EPOCH TIME: 1744083563.236123
+[04/07 20:39:23     54s] Initial padding reaches pin density 0.390 for top
+[04/07 20:39:23     54s] InitPadU 0.211 -> 0.211 for top
+[04/07 20:39:23     54s] OPERPROF: Starting GP-eGR-PG-Init at level 1, MEM:2543.0M, EPOCH TIME: 1744083563.315241
+[04/07 20:39:23     54s] OPERPROF: Finished GP-eGR-PG-Init at level 1, CPU:0.000, REAL:0.000, MEM:2543.0M, EPOCH TIME: 1744083563.315489
+[04/07 20:39:23     54s] OPERPROF: Starting Section-Head-Init at level 1, MEM:2543.0M, EPOCH TIME: 1744083563.315857
+[04/07 20:39:23     54s] OPERPROF: Finished Section-Head-Init at level 1, CPU:0.020, REAL:0.021, MEM:2543.0M, EPOCH TIME: 1744083563.336969
+[04/07 20:39:23     54s] OPERPROF: Starting Placement-Init-Net-Weight at level 1, MEM:2543.0M, EPOCH TIME: 1744083563.343270
+[04/07 20:39:23     54s] no activity file in design. spp won't run.
+[04/07 20:39:23     54s] [spp] 0
+[04/07 20:39:23     54s] [adp] 0:1:1:3
+[04/07 20:39:23     54s] Applying critslk net weight for 0 nets ...
+[04/07 20:39:23     54s] OPERPROF: Finished Placement-Init-Net-Weight at level 1, CPU:0.000, REAL:0.000, MEM:2543.0M, EPOCH TIME: 1744083563.343643
+[04/07 20:39:23     54s] Clock gating cells determined by native netlist tracing.
+[04/07 20:39:23     54s] no activity file in design. spp won't run.
+[04/07 20:39:23     54s] no activity file in design. spp won't run.
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/07 20:39:23     54s] Iteration  1: Total net bbox = 1.107e+04 (6.11e+03 4.96e+03)
+[04/07 20:39:23     54s]               Est.  stn bbox = 1.535e+04 (8.28e+03 7.07e+03)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2544.0M
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 599288 
+[04/07 20:39:23     54s] Iteration  2: Total net bbox = 2.097e+04 (6.11e+03 1.49e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 2.840e+04 (8.28e+03 2.01e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2544.0M
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 599288 hiBox.ll.y: 599288 
+[04/07 20:39:23     54s] WARNING: loBox or hiBox ASSERT error, loBox.ll.y: 310032 hiBox.ll.y: 310032 
+[04/07 20:39:23     54s] Iteration  3: Total net bbox = 2.557e+04 (1.07e+04 1.49e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.447e+04 (1.43e+04 2.01e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2544.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.461016
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.461390
+[04/07 20:39:23     54s] Iteration  4: Total net bbox = 2.897e+04 (1.27e+04 1.63e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.907e+04 (1.73e+04 2.18e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.479749
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.479927
+[04/07 20:39:23     54s] Iteration  5: Total net bbox = 2.867e+04 (1.24e+04 1.63e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.880e+04 (1.70e+04 2.18e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.498959
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.499124
+[04/07 20:39:23     54s] Iteration  6: Total net bbox = 2.784e+04 (1.24e+04 1.54e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.798e+04 (1.70e+04 2.10e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.518240
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.518402
+[04/07 20:39:23     54s] Iteration  7: Total net bbox = 2.789e+04 (1.25e+04 1.54e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.804e+04 (1.70e+04 2.10e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.530136
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.530314
+[04/07 20:39:23     54s] Iteration  8: Total net bbox = 2.817e+04 (1.25e+04 1.57e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.845e+04 (1.70e+04 2.14e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.541522
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.541685
+[04/07 20:39:23     54s] Iteration  9: Total net bbox = 2.840e+04 (1.27e+04 1.57e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.875e+04 (1.73e+04 2.14e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.554059
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.554242
+[04/07 20:39:23     54s] Iteration 10: Total net bbox = 2.864e+04 (1.27e+04 1.59e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.906e+04 (1.73e+04 2.17e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2545.0M, EPOCH TIME: 1744083563.567450
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2545.0M, EPOCH TIME: 1744083563.567621
+[04/07 20:39:23     54s] Iteration 11: Total net bbox = 2.880e+04 (1.29e+04 1.59e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.925e+04 (1.75e+04 2.17e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2545.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2546.0M, EPOCH TIME: 1744083563.583136
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2546.0M, EPOCH TIME: 1744083563.583308
+[04/07 20:39:23     54s] Iteration 12: Total net bbox = 2.910e+04 (1.29e+04 1.62e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.960e+04 (1.75e+04 2.21e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2546.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2546.0M, EPOCH TIME: 1744083563.600644
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2546.0M, EPOCH TIME: 1744083563.600817
+[04/07 20:39:23     54s] Iteration 13: Total net bbox = 2.915e+04 (1.29e+04 1.63e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.965e+04 (1.75e+04 2.21e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2546.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2548.0M, EPOCH TIME: 1744083563.623767
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2548.0M, EPOCH TIME: 1744083563.623957
+[04/07 20:39:23     54s] Iteration 14: Total net bbox = 2.924e+04 (1.29e+04 1.64e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.975e+04 (1.75e+04 2.22e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2548.0M
+[04/07 20:39:23     54s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2550.0M, EPOCH TIME: 1744083563.652996
+[04/07 20:39:23     54s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:23     54s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2550.0M, EPOCH TIME: 1744083563.653166
+[04/07 20:39:23     54s] Iteration 15: Total net bbox = 2.923e+04 (1.29e+04 1.64e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 3.973e+04 (1.75e+04 2.22e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2550.0M
+[04/07 20:39:23     54s] macro_flip: HPWL decrease ratio is 0.000000, horizontally flipped 0, vertically flipped 0
+[04/07 20:39:23     54s] Iteration 16: Total net bbox = 2.956e+04 (1.32e+04 1.64e+04)
+[04/07 20:39:23     54s]               Est.  stn bbox = 4.008e+04 (1.78e+04 2.22e+04)
+[04/07 20:39:23     54s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:23     54s] *** cost = 2.956e+04 (1.32e+04 1.64e+04) (cpu for global=0:00:00.4) real=0:00:00.0***
+[04/07 20:39:23     54s] Info: 0 clock gating cells identified, 0 (on average) moved 0/12
+[04/07 20:39:23     54s] OPERPROF: Starting GP-eGR-PG-Cleanup at level 1, MEM:2551.0M, EPOCH TIME: 1744083563.695218
+[04/07 20:39:23     54s] OPERPROF: Finished GP-eGR-PG-Cleanup at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083563.695278
+[04/07 20:39:23     54s] Saved padding area to DB
+[04/07 20:39:23     54s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:23     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:554).
+[04/07 20:39:23     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] # Resetting pin-track-align track data.
+[04/07 20:39:23     54s] OPERPROF: Starting DPlace-Init at level 1, MEM:2551.0M, EPOCH TIME: 1744083563.714973
+[04/07 20:39:23     54s] Processing tracks to init pin-track alignment.
+[04/07 20:39:23     54s] z: 2, totalTracks: 1
+[04/07 20:39:23     54s] z: 4, totalTracks: 1
+[04/07 20:39:23     54s] z: 6, totalTracks: 1
+[04/07 20:39:23     54s] z: 8, totalTracks: 1
+[04/07 20:39:23     54s] #spOpts: N=32 hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/07 20:39:23     54s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:23     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] # Building fifo1_sram llgBox search-tree.
+[04/07 20:39:23     54s] OPERPROF:   Starting SiteArray-Init at level 2, MEM:2551.0M, EPOCH TIME: 1744083563.722263
+[04/07 20:39:23     54s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     54s] OPERPROF:     Starting SiteArray-Init-FPlan at level 3, MEM:2551.0M, EPOCH TIME: 1744083563.722829
+[04/07 20:39:23     54s] Max number of tech site patterns supported in site array is 256.
+[04/07 20:39:23     54s] Core basic site is unit
+[04/07 20:39:23     54s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:23     54s] After signature check and other controls, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:23     54s] Fast DP-INIT is on for default
+[04/07 20:39:23     55s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/07 20:39:23     55s] Atter site array init, number of instance map data is 0.
+[04/07 20:39:23     55s] OPERPROF:     Finished SiteArray-Init-FPlan at level 3, CPU:0.060, REAL:0.056, MEM:2551.0M, EPOCH TIME: 1744083563.779247
+[04/07 20:39:23     55s] 
+[04/07 20:39:23     55s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:23     55s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:23     55s] OPERPROF:     Starting CMU at level 3, MEM:2551.0M, EPOCH TIME: 1744083563.784017
+[04/07 20:39:23     55s] OPERPROF:     Finished CMU at level 3, CPU:0.000, REAL:0.001, MEM:2551.0M, EPOCH TIME: 1744083563.785097
+[04/07 20:39:23     55s] 
+[04/07 20:39:23     55s] Bad Lib Cell Checking (CMU) is done! (0)
+[04/07 20:39:23     55s] OPERPROF:   Finished SiteArray-Init at level 2, CPU:0.070, REAL:0.067, MEM:2551.0M, EPOCH TIME: 1744083563.789639
+[04/07 20:39:23     55s] OPERPROF:   Starting Placement-Init-SB-Tree at level 2, MEM:2551.0M, EPOCH TIME: 1744083563.789739
+[04/07 20:39:23     55s] OPERPROF:   Finished Placement-Init-SB-Tree at level 2, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083563.790101
+[04/07 20:39:23     55s] [CPU] DPlace-Init (cpu=0:00:00.1, real=0:00:00.0, mem=2551.0MB).
+[04/07 20:39:23     55s] OPERPROF: Finished DPlace-Init at level 1, CPU:0.070, REAL:0.075, MEM:2551.0M, EPOCH TIME: 1744083563.790328
+[04/07 20:39:23     55s] *** Starting IO Refinement ...
+[04/07 20:39:23     55s] **WARN: (IMPSP-6008):	There are no area I/O rows.
+[04/07 20:39:23     55s] *** End IO Refinement (cpu=0:00:00.0, real=0:00:00.0, mem=2551.0M) ***
+[04/07 20:39:23     55s] OPERPROF: Starting DPlace-Cleanup(auto) at level 1, MEM:2551.0M, EPOCH TIME: 1744083563.790917
+[04/07 20:39:23     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:23     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] # Resetting pin-track-align track data.
+[04/07 20:39:23     55s] OPERPROF: Finished DPlace-Cleanup(auto) at level 1, CPU:0.010, REAL:0.013, MEM:2551.0M, EPOCH TIME: 1744083563.803630
+[04/07 20:39:23     55s] INFO: #ExclusiveGroups=0
+[04/07 20:39:23     55s] INFO: There are no Exclusive Groups.
+[04/07 20:39:23     55s] *** Starting "NanoPlace(TM) placement v#12 (mem=2551.0M)" ...
+[04/07 20:39:23     55s] No user-set net weight.
+[04/07 20:39:23     55s] Net fanout histogram:
+[04/07 20:39:23     55s] 2		: 163 (59.5%) nets
+[04/07 20:39:23     55s] 3		: 42 (15.3%) nets
+[04/07 20:39:23     55s] 4     -	14	: 65 (23.7%) nets
+[04/07 20:39:23     55s] 15    -	39	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 40    -	79	: 4 (1.5%) nets
+[04/07 20:39:23     55s] 80    -	159	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 160   -	319	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 320   -	639	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 640   -	1279	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 1280  -	2559	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 2560  -	5119	: 0 (0.0%) nets
+[04/07 20:39:23     55s] 5120+		: 0 (0.0%) nets
+[04/07 20:39:23     55s] no activity file in design. spp won't run.
+[04/07 20:39:23     55s] Options: clkGateAware ignoreScan pinGuide congEffort=auto gpEffort=medium 
+[04/07 20:39:23     55s] Scan chains were not defined.
+[04/07 20:39:23     55s] Processing tracks to init pin-track alignment.
+[04/07 20:39:23     55s] z: 2, totalTracks: 1
+[04/07 20:39:23     55s] z: 4, totalTracks: 1
+[04/07 20:39:23     55s] z: 6, totalTracks: 1
+[04/07 20:39:23     55s] z: 8, totalTracks: 1
+[04/07 20:39:23     55s] #spOpts: N=32 hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/07 20:39:23     55s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:23     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] # Building fifo1_sram llgBox search-tree.
+[04/07 20:39:23     55s] #std cell=222 (0 fixed + 222 movable) #buf cell=1 #inv cell=15 #block=8 (8 floating + 0 preplaced)
+[04/07 20:39:23     55s] #ioInst=25 #net=274 #term=1128 #term/net=4.12, #fixedIo=25, #floatIo=0, #fixedPin=15, #floatPin=0
+[04/07 20:39:23     55s] stdCell: 222 single + 0 double + 0 multi
+[04/07 20:39:23     55s] Total standard cell length = 0.6060 (mm), area = 0.0010 (mm^2)
+[04/07 20:39:23     55s] OPERPROF: Starting SiteArray-Init at level 1, MEM:2551.0M, EPOCH TIME: 1744083563.814280
+[04/07 20:39:23     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:23     55s] OPERPROF:   Starting SiteArray-Init-FPlan at level 2, MEM:2551.0M, EPOCH TIME: 1744083563.814609
+[04/07 20:39:23     55s] Max number of tech site patterns supported in site array is 256.
+[04/07 20:39:23     55s] Core basic site is unit
+[04/07 20:39:23     55s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:23     55s] After signature check and other controls, allow fast init is false, keep pre-filter is false.
+[04/07 20:39:23     55s] SiteArray: non-trimmed site array dimensions = 346 x 3816
+[04/07 20:39:23     55s] SiteArray: use 6,643,712 bytes
+[04/07 20:39:23     55s] SiteArray: current memory after site array memory allocation 2551.0M
+[04/07 20:39:23     55s] SiteArray: FP blocked sites are writable
+[04/07 20:39:23     55s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/07 20:39:23     55s] OPERPROF:     Starting Routing-Blockage-From-Wire-Via-StBox at level 3, MEM:2551.0M, EPOCH TIME: 1744083563.877337
+[04/07 20:39:23     55s] Process 0 wires and vias for routing blockage analysis
+[04/07 20:39:23     55s] OPERPROF:     Finished Routing-Blockage-From-Wire-Via-StBox at level 3, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083563.877639
+[04/07 20:39:23     55s] SiteArray: number of non floorplan blocked sites for llg default is 1320336
+[04/07 20:39:23     55s] Atter site array init, number of instance map data is 0.
+[04/07 20:39:23     55s] OPERPROF:   Finished SiteArray-Init-FPlan at level 2, CPU:0.070, REAL:0.076, MEM:2551.0M, EPOCH TIME: 1744083563.890960
+[04/07 20:39:23     55s] 
+[04/07 20:39:23     55s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:23     55s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:23     55s] OPERPROF: Finished SiteArray-Init at level 1, CPU:0.080, REAL:0.088, MEM:2551.0M, EPOCH TIME: 1744083563.902153
+[04/07 20:39:23     55s] 
+[04/07 20:39:23     55s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:23     55s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:23     55s] Average module density = 0.211.
+[04/07 20:39:23     55s] Density for the design = 0.211.
+[04/07 20:39:23     55s]        = (stdcell_area 3987 sites (1013 um^2) + block_area 274479 sites (69757 um^2)) / alloc_area 1320336 sites (335555 um^2).
+[04/07 20:39:23     55s] Pin Density = 0.0008543.
+[04/07 20:39:23     55s]             = total # of pins 1128 / total area 1320336.
+[04/07 20:39:23     55s] OPERPROF: Starting Setup-Regin-Box-For-Spare-Inst-Group at level 1, MEM:2551.0M, EPOCH TIME: 1744083563.922867
+[04/07 20:39:23     55s] OPERPROF: Finished Setup-Regin-Box-For-Spare-Inst-Group at level 1, CPU:0.020, REAL:0.012, MEM:2551.0M, EPOCH TIME: 1744083563.934493
+[04/07 20:39:23     55s] OPERPROF: Starting Compute-Min-Padding at level 1, MEM:2551.0M, EPOCH TIME: 1744083563.941125
+[04/07 20:39:23     55s] OPERPROF:   Starting Get-Context-Min-Padding at level 2, MEM:2551.0M, EPOCH TIME: 1744083563.941503
+[04/07 20:39:23     55s] OPERPROF:   Finished Get-Context-Min-Padding at level 2, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083563.941568
+[04/07 20:39:23     55s] OPERPROF: Finished Compute-Min-Padding at level 1, CPU:0.000, REAL:0.001, MEM:2551.0M, EPOCH TIME: 1744083563.941629
+[04/07 20:39:23     55s] Initial padding reaches pin density 0.390 for top
+[04/07 20:39:23     55s] InitPadU 0.211 -> 0.211 for top
+[04/07 20:39:24     55s] OPERPROF: Starting GP-eGR-PG-Init at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.011486
+[04/07 20:39:24     55s] OPERPROF: Finished GP-eGR-PG-Init at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.011828
+[04/07 20:39:24     55s] OPERPROF: Starting Section-Head-Init at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.012012
+[04/07 20:39:24     55s] OPERPROF: Finished Section-Head-Init at level 1, CPU:0.020, REAL:0.018, MEM:2551.0M, EPOCH TIME: 1744083564.030242
+[04/07 20:39:24     55s] OPERPROF: Starting Placement-Init-Net-Weight at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.035897
+[04/07 20:39:24     55s] no activity file in design. spp won't run.
+[04/07 20:39:24     55s] [spp] 0
+[04/07 20:39:24     55s] [adp] 0:1:1:3
+[04/07 20:39:24     55s] Applying critslk net weight for 0 nets ...
+[04/07 20:39:24     55s] OPERPROF: Finished Placement-Init-Net-Weight at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.036150
+[04/07 20:39:24     55s] Clock gating cells determined by native netlist tracing.
+[04/07 20:39:24     55s] no activity file in design. spp won't run.
+[04/07 20:39:24     55s] no activity file in design. spp won't run.
+[04/07 20:39:24     55s] Iteration  1: Total net bbox = 1.107e+04 (6.11e+03 4.96e+03)
+[04/07 20:39:24     55s]               Est.  stn bbox = 1.535e+04 (8.28e+03 7.07e+03)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] Iteration  2: Total net bbox = 2.097e+04 (6.11e+03 1.49e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 2.840e+04 (8.28e+03 2.01e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] Iteration  3: Total net bbox = 2.557e+04 (1.07e+04 1.49e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.447e+04 (1.43e+04 2.01e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.149415
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.149656
+[04/07 20:39:24     55s] Iteration  4: Total net bbox = 2.897e+04 (1.27e+04 1.63e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.907e+04 (1.73e+04 2.18e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.167039
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.167197
+[04/07 20:39:24     55s] Iteration  5: Total net bbox = 2.867e+04 (1.24e+04 1.63e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.880e+04 (1.70e+04 2.18e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.185392
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.185545
+[04/07 20:39:24     55s] Iteration  6: Total net bbox = 2.784e+04 (1.24e+04 1.54e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.798e+04 (1.70e+04 2.10e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.204674
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.204830
+[04/07 20:39:24     55s] Iteration  7: Total net bbox = 2.789e+04 (1.25e+04 1.54e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.804e+04 (1.70e+04 2.10e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.216239
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.216390
+[04/07 20:39:24     55s] Iteration  8: Total net bbox = 2.817e+04 (1.25e+04 1.57e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.845e+04 (1.70e+04 2.14e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2551.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2551.0M, EPOCH TIME: 1744083564.227374
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2551.0M, EPOCH TIME: 1744083564.227525
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] enableMT= 3
+[04/07 20:39:24     55s] useHNameCompare= 3 (lazy mode)
+[04/07 20:39:24     55s] doMTMainInit= 1
+[04/07 20:39:24     55s] doMTFlushLazyWireDelete= 1
+[04/07 20:39:24     55s] useFastLRoute= 0
+[04/07 20:39:24     55s] useFastCRoute= 1
+[04/07 20:39:24     55s] doMTNetInitAdjWires= 1
+[04/07 20:39:24     55s] wireMPoolNoThreadCheck= 1
+[04/07 20:39:24     55s] allMPoolNoThreadCheck= 1
+[04/07 20:39:24     55s] doNotUseMPoolInCRoute= 1
+[04/07 20:39:24     55s] doMTSprFixZeroViaCodes= 1
+[04/07 20:39:24     55s] doMTDtrRoute1CleanupA= 1
+[04/07 20:39:24     55s] doMTDtrRoute1CleanupB= 1
+[04/07 20:39:24     55s] doMTWireLenCalc= 0
+[04/07 20:39:24     55s] doSkipQALenRecalc= 1
+[04/07 20:39:24     55s] doMTMainCleanup= 1
+[04/07 20:39:24     55s] doMTMoveCellTermsToMSLayer= 1
+[04/07 20:39:24     55s] doMTConvertWiresToNewViaCode= 1
+[04/07 20:39:24     55s] doMTRemoveAntenna= 1
+[04/07 20:39:24     55s] doMTCheckConnectivity= 1
+[04/07 20:39:24     55s] enableRuntimeLog= 0
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Iteration  9: Total net bbox = 2.835e+04 (1.26e+04 1.57e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.870e+04 (1.73e+04 2.14e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2552.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2552.0M, EPOCH TIME: 1744083564.271880
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2552.0M, EPOCH TIME: 1744083564.272043
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Iteration 10: Total net bbox = 2.884e+04 (1.26e+04 1.62e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.927e+04 (1.73e+04 2.20e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2552.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2552.0M, EPOCH TIME: 1744083564.310282
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2552.0M, EPOCH TIME: 1744083564.310433
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Iteration 11: Total net bbox = 2.909e+04 (1.29e+04 1.62e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.956e+04 (1.76e+04 2.20e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2552.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2552.0M, EPOCH TIME: 1744083564.355737
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2552.0M, EPOCH TIME: 1744083564.355883
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Iteration 12: Total net bbox = 2.933e+04 (1.29e+04 1.64e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.983e+04 (1.76e+04 2.23e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2552.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2552.0M, EPOCH TIME: 1744083564.401994
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2552.0M, EPOCH TIME: 1744083564.402161
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Iteration 13: Total net bbox = 2.935e+04 (1.29e+04 1.65e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.984e+04 (1.76e+04 2.23e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2552.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2552.0M, EPOCH TIME: 1744083564.454862
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2552.0M, EPOCH TIME: 1744083564.455031
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Initialize trialRoute multiThread mode= 16383 (=0x3fff) and nrThread= 0.
+[04/07 20:39:24     55s] Iteration 14: Total net bbox = 2.935e+04 (1.29e+04 1.65e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.985e+04 (1.76e+04 2.23e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.1 real = 0:00:00.0 mem = 2556.0M
+[04/07 20:39:24     55s] OPERPROF: Starting Move-Gated-Clock at level 1, MEM:2556.0M, EPOCH TIME: 1744083564.527070
+[04/07 20:39:24     55s] *Info(CAP): clkGateAware moves 0 insts, mean move: 0.00 um, max move: 0.00 um
+[04/07 20:39:24     55s] OPERPROF: Finished Move-Gated-Clock at level 1, CPU:0.000, REAL:0.000, MEM:2556.0M, EPOCH TIME: 1744083564.527249
+[04/07 20:39:24     55s] Iteration 15: Total net bbox = 2.933e+04 (1.29e+04 1.64e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 3.983e+04 (1.76e+04 2.23e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2556.0M
+[04/07 20:39:24     55s] macro_flip: HPWL decrease ratio is 0.000000, horizontally flipped 0, vertically flipped 0
+[04/07 20:39:24     55s] Iteration 16: Total net bbox = 2.965e+04 (1.32e+04 1.65e+04)
+[04/07 20:39:24     55s]               Est.  stn bbox = 4.016e+04 (1.79e+04 2.23e+04)
+[04/07 20:39:24     55s]               cpu = 0:00:00.0 real = 0:00:00.0 mem = 2556.0M
+[04/07 20:39:24     55s] *** cost = 2.965e+04 (1.32e+04 1.65e+04) (cpu for global=0:00:00.5) real=0:00:00.0***
+[04/07 20:39:24     55s] Info: 0 clock gating cells identified, 0 (on average) moved 0/12
+[04/07 20:39:24     55s] OPERPROF: Starting GP-eGR-PG-Cleanup at level 1, MEM:2556.0M, EPOCH TIME: 1744083564.550334
+[04/07 20:39:24     55s] OPERPROF: Finished GP-eGR-PG-Cleanup at level 1, CPU:0.000, REAL:0.000, MEM:2556.0M, EPOCH TIME: 1744083564.550382
+[04/07 20:39:24     55s] Saved padding area to DB
+[04/07 20:39:24     55s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:24     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:554).
+[04/07 20:39:24     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     55s] # Resetting pin-track-align track data.
+[04/07 20:39:24     55s] Begin: Reorder Scan Chains
+[04/07 20:39:24     55s] **WARN: (IMPSP-9025):	No scan chain specified/traced.
+[04/07 20:39:24     55s] Type 'man IMPSP-9025' for more detail.
+[04/07 20:39:24     55s] End: Reorder Scan Chains
+[04/07 20:39:24     55s] OPERPROF: Starting Refine-Place-Init at level 1, MEM:2556.0M, EPOCH TIME: 1744083564.563963
+[04/07 20:39:24     55s] OPERPROF:   Starting DPlace-Init at level 2, MEM:2556.0M, EPOCH TIME: 1744083564.564112
+[04/07 20:39:24     55s] Processing tracks to init pin-track alignment.
+[04/07 20:39:24     55s] z: 2, totalTracks: 1
+[04/07 20:39:24     55s] z: 4, totalTracks: 1
+[04/07 20:39:24     55s] z: 6, totalTracks: 1
+[04/07 20:39:24     55s] z: 8, totalTracks: 1
+[04/07 20:39:24     55s] #spOpts: N=32 mergeVia=F hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/07 20:39:24     55s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:24     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     55s] # Building fifo1_sram llgBox search-tree.
+[04/07 20:39:24     55s] OPERPROF:     Starting SiteArray-Init at level 3, MEM:2556.0M, EPOCH TIME: 1744083564.569914
+[04/07 20:39:24     55s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     55s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     55s] OPERPROF:       Starting SiteArray-Init-FPlan at level 4, MEM:2556.0M, EPOCH TIME: 1744083564.570369
+[04/07 20:39:24     55s] Max number of tech site patterns supported in site array is 256.
+[04/07 20:39:24     55s] Core basic site is unit
+[04/07 20:39:24     55s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:24     55s] After signature check and other controls, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:24     55s] Fast DP-INIT is on for default
+[04/07 20:39:24     55s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/07 20:39:24     55s] Atter site array init, number of instance map data is 0.
+[04/07 20:39:24     55s] OPERPROF:       Finished SiteArray-Init-FPlan at level 4, CPU:0.050, REAL:0.050, MEM:2556.0M, EPOCH TIME: 1744083564.620726
+[04/07 20:39:24     55s] 
+[04/07 20:39:24     55s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:24     55s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:24     55s] OPERPROF:       Starting CMU at level 4, MEM:2556.0M, EPOCH TIME: 1744083564.625086
+[04/07 20:39:24     55s] OPERPROF:       Finished CMU at level 4, CPU:0.000, REAL:0.001, MEM:2556.0M, EPOCH TIME: 1744083564.625747
+[04/07 20:39:24     55s] 
+[04/07 20:39:24     55s] Bad Lib Cell Checking (CMU) is done! (0)
+[04/07 20:39:24     55s] OPERPROF:     Finished SiteArray-Init at level 3, CPU:0.070, REAL:0.060, MEM:2556.0M, EPOCH TIME: 1744083564.629721
+[04/07 20:39:24     55s] OPERPROF:     Starting Placement-Init-SB-Tree at level 3, MEM:2556.0M, EPOCH TIME: 1744083564.629815
+[04/07 20:39:24     55s] OPERPROF:     Finished Placement-Init-SB-Tree at level 3, CPU:0.000, REAL:0.000, MEM:2556.0M, EPOCH TIME: 1744083564.630194
+[04/07 20:39:24     55s] [CPU] DPlace-Init (cpu=0:00:00.1, real=0:00:00.0, mem=2556.0MB).
+[04/07 20:39:24     55s] OPERPROF:   Finished DPlace-Init at level 2, CPU:0.090, REAL:0.080, MEM:2556.0M, EPOCH TIME: 1744083564.644294
+[04/07 20:39:24     55s] OPERPROF: Finished Refine-Place-Init at level 1, CPU:0.090, REAL:0.080, MEM:2556.0M, EPOCH TIME: 1744083564.644395
+[04/07 20:39:24     55s] TDRefine: refinePlace mode is spiral
+[04/07 20:39:24     55s] GigaOpt Checkpoint: Intermediate DB Saving Point beforeRefinePlace.13715.1
+[04/07 20:39:24     55s] OPERPROF: Starting Refine-Place at level 1, MEM:2556.0M, EPOCH TIME: 1744083564.644605
+[04/07 20:39:24     55s] *** Starting refinePlace (0:00:56.9 mem=2556.0M) ***
+[04/07 20:39:24     55s] Total net bbox length = 2.965e+04 (1.319e+04 1.646e+04) (ext = 2.008e+03)
+[04/07 20:39:24     55s] 
+[04/07 20:39:24     55s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:24     55s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:24     55s] Move report: placeLevelShifters moves 0 insts, mean move: 0.00 um, max move: 0.00 um 
+[04/07 20:39:24     55s] OPERPROF:   Starting Cell-Halo-Init at level 2, MEM:2556.0M, EPOCH TIME: 1744083564.649847
+[04/07 20:39:24     55s] OPERPROF:   Finished Cell-Halo-Init at level 2, CPU:0.000, REAL:0.000, MEM:2556.0M, EPOCH TIME: 1744083564.649982
+[04/07 20:39:24     55s] Set min layer with default ( 2 )
+[04/07 20:39:24     55s] Set max layer with default ( 127 )
+[04/07 20:39:24     55s] Max route layer is changed from 127 to 10 because there is no routing track above this layer
+[04/07 20:39:24     55s] Min route layer (adjusted) = 2
+[04/07 20:39:24     55s] Max route layer (adjusted) = 10
+[04/07 20:39:24     55s] Set min layer with default ( 2 )
+[04/07 20:39:24     55s] Set max layer with default ( 127 )
+[04/07 20:39:24     55s] Max route layer is changed from 127 to 10 because there is no routing track above this layer
+[04/07 20:39:24     55s] Min route layer (adjusted) = 2
+[04/07 20:39:24     55s] Max route layer (adjusted) = 10
+[04/07 20:39:24     55s] OPERPROF:   Starting Cell-Halo-Init at level 2, MEM:2556.0M, EPOCH TIME: 1744083564.663956
+[04/07 20:39:24     55s] OPERPROF:   Finished Cell-Halo-Init at level 2, CPU:0.000, REAL:0.000, MEM:2556.0M, EPOCH TIME: 1744083564.664087
+[04/07 20:39:24     55s] OPERPROF:   Starting Refine-Place-V2 at level 2, MEM:2556.0M, EPOCH TIME: 1744083564.664142
+[04/07 20:39:24     55s] Starting refinePlace ...
+[04/07 20:39:24     55s] Set min layer with default ( 2 )
+[04/07 20:39:24     55s] Set max layer with default ( 127 )
+[04/07 20:39:24     55s] Max route layer is changed from 127 to 10 because there is no routing track above this layer
+[04/07 20:39:24     55s] Min route layer (adjusted) = 2
+[04/07 20:39:24     55s] Max route layer (adjusted) = 10
+[04/07 20:39:24     55s] 
+[04/07 20:39:24     55s]  === Spiral for Logical I: (movable: 8) ===
+[04/07 20:39:24     55s] 
+[04/07 20:39:24     55s] Running Spiral with 1 thread in Normal Mode  fetchWidth=289 
+[04/07 20:39:24     55s] Set min layer with default ( 2 )
+[04/07 20:39:24     55s] Set max layer with default ( 127 )
+[04/07 20:39:24     55s] Max route layer is changed from 127 to 10 because there is no routing track above this layer
+[04/07 20:39:24     55s] Min route layer (adjusted) = 2
+[04/07 20:39:24     55s] Max route layer (adjusted) = 10
+[04/07 20:39:24     55s] DDP initSite1 nrRow 346 nrJob 346
+[04/07 20:39:24     55s] DDP markSite nrRow 346 nrJob 346
+[04/07 20:39:24     55s] Info: dbgTechHead->isTsmcN2Feature() is false. 
+[04/07 20:39:24     55s]  ** Cut row section cpu time 0:00:00.0.
+[04/07 20:39:24     55s]  ** Cut row section real time 0:00:00.0.
+[04/07 20:39:24     55s]    Spread Effort: high, standalone mode, useDDP on.
+[04/07 20:39:24     55s] [CPU] RefinePlace/preRPlace (cpu=0:00:00.1, real=0:00:00.0, mem=2556.0MB) @(0:00:56.9 - 0:00:57.0).
+[04/07 20:39:24     55s] Move report: preRPlace moves 168 insts, mean move: 1.49 um, max move: 3.80 um 
+[04/07 20:39:24     55s] 	Max move on inst (rptr_empty/rptr_reg_8_): (441.21, 443.79) --> (439.08, 445.46)
+[04/07 20:39:24     55s] 	Length: 28 sites, height: 1 rows, site name: unit, cell type: DFFARX1_HVT
+[04/07 20:39:24     55s] OPERPROF:     Starting spsTweakCongEngine::run at level 3, MEM:2556.0M, EPOCH TIME: 1744083564.759421
+[04/07 20:39:24     55s] Tweakage: fix icg 1, fix clk 0.
+[04/07 20:39:24     55s] Tweakage: density cost 0, scale 0.4.
+[04/07 20:39:24     55s] Tweakage: activity cost 0, scale 1.0.
+[04/07 20:39:24     55s] OPERPROF:       Starting Tweak-Cong-Engine/Core-Operation at level 4, MEM:2556.0M, EPOCH TIME: 1744083564.760428
+[04/07 20:39:24     55s] OPERPROF:         Starting Tweak-Cong-Engine/Run-Tweak-WL-Only at level 5, MEM:2556.0M, EPOCH TIME: 1744083564.767840
+[04/07 20:39:24     56s] Tweakage swap 24 pairs.
+[04/07 20:39:24     56s] Tweakage perm 25 insts, flip 65 insts.
+[04/07 20:39:24     56s] Tweakage perm 10 insts, flip 17 insts.
+[04/07 20:39:24     56s] Tweakage swap 22 pairs.
+[04/07 20:39:24     56s] Tweakage perm 4 insts, flip 6 insts.
+[04/07 20:39:24     56s] Tweakage perm 0 insts, flip 0 insts.
+[04/07 20:39:24     56s] Tweakage swap 5 pairs.
+[04/07 20:39:24     56s] Tweakage swap 3 pairs.
+[04/07 20:39:24     56s] Tweakage perm 3 insts, flip 11 insts.
+[04/07 20:39:24     56s] Tweakage perm 1 insts, flip 1 insts.
+[04/07 20:39:24     56s] OPERPROF:         Finished Tweak-Cong-Engine/Run-Tweak-WL-Only at level 5, CPU:0.100, REAL:0.118, MEM:2556.0M, EPOCH TIME: 1744083564.886206
+[04/07 20:39:24     56s] OPERPROF:       Finished Tweak-Cong-Engine/Core-Operation at level 4, CPU:0.110, REAL:0.130, MEM:2556.0M, EPOCH TIME: 1744083564.890469
+[04/07 20:39:24     56s] OPERPROF:     Finished spsTweakCongEngine::run at level 3, CPU:0.110, REAL:0.132, MEM:2556.0M, EPOCH TIME: 1744083564.891759
+[04/07 20:39:24     56s] Move report: Congestion aware Tweak moves 118 insts, mean move: 2.87 um, max move: 12.62 um 
+[04/07 20:39:24     56s] 	Max move on inst (rptr_empty/g490__2398): (431.02, 432.09) --> (435.28, 440.45)
+[04/07 20:39:24     56s] [CPU] RefinePlace/Congestion aware tweakage (cpu=0:00:00.1, real=0:00:00.0, mem=2556.0mb) @(0:00:57.0 - 0:00:57.1).
+[04/07 20:39:24     56s] 
+[04/07 20:39:24     56s]  === Spiral for Logical I: (movable: 222) ===
+[04/07 20:39:24     56s] 
+[04/07 20:39:24     56s] Running Spiral with 1 thread in Normal Mode  fetchWidth=289 
+[04/07 20:39:24     56s] 
+[04/07 20:39:24     56s]  Info: 0 filler has been deleted!
+[04/07 20:39:24     56s] Move report: legalization moves 0 insts, mean move: 0.00 um, max move: 0.00 um spiral
+[04/07 20:39:24     56s] [CPU] RefinePlace/Spiral (cpu=0:00:00.0, real=0:00:00.0)
+[04/07 20:39:24     56s] [CPU] RefinePlace/Commit (cpu=0:00:00.0, real=0:00:00.0), EEQ(cpu=0:00:00.0, real=0:00:00.0), MTComit(cpu=0:00:00.0, real=0:00:00.0), leftOver(cpu=0:00:00.0, real=0:00:00.0)
+[04/07 20:39:24     56s] [CPU] RefinePlace/Legalization (cpu=0:00:00.0, real=0:00:00.0, mem=2524.0MB) @(0:00:57.1 - 0:00:57.1).
+[04/07 20:39:24     56s] Move report: Detail placement moves 181 insts, mean move: 2.11 um, max move: 12.46 um 
+[04/07 20:39:24     56s] 	Max move on inst (sync_r2w/wq2_rptr_reg_4_): (432.09, 425.40) --> (422.97, 428.74)
+[04/07 20:39:24     56s] 	Runtime: CPU: 0:00:00.2 REAL: 0:00:00.0 MEM: 2524.0MB
+[04/07 20:39:24     56s] Statistics of distance of Instance movement in refine placement:
+[04/07 20:39:24     56s]   maximum (X+Y) =        12.46 um
+[04/07 20:39:24     56s]   inst (sync_r2w/wq2_rptr_reg_4_) with max move: (432.088, 425.4) -> (422.968, 428.744)
+[04/07 20:39:24     56s]   mean    (X+Y) =         2.11 um
+[04/07 20:39:24     56s] Total instances flipped for legalization: 28
+[04/07 20:39:24     56s] Summary Report:
+[04/07 20:39:24     56s] Instances move: 181 (out of 230 movable)
+[04/07 20:39:24     56s] Instances flipped: 28
+[04/07 20:39:24     56s] Mean displacement: 2.11 um
+[04/07 20:39:24     56s] Max displacement: 12.46 um (Instance: sync_r2w/wq2_rptr_reg_4_) (432.088, 425.4) -> (422.968, 428.744)
+[04/07 20:39:24     56s] 	Length: 28 sites, height: 1 rows, site name: unit, cell type: DFFARX1_RVT
+[04/07 20:39:24     56s] 	Violation at original loc: Overlapping with other instance
+[04/07 20:39:24     56s] Physical-only instances move: 0 (out of 0 movable physical-only)
+[04/07 20:39:24     56s] Total instances moved : 181
+[04/07 20:39:24     56s] OPERPROF:   Finished Refine-Place-V2 at level 2, CPU:0.240, REAL:0.266, MEM:2524.0M, EPOCH TIME: 1744083564.930219
+[04/07 20:39:24     56s] Total net bbox length = 2.956e+04 (1.302e+04 1.654e+04) (ext = 2.006e+03)
+[04/07 20:39:24     56s] Runtime: CPU: 0:00:00.3 REAL: 0:00:00.0 MEM: 2524.0MB
+[04/07 20:39:24     56s] [CPU] RefinePlace/total (cpu=0:00:00.3, real=0:00:00.0, mem=2524.0MB) @(0:00:56.9 - 0:00:57.1).
+[04/07 20:39:24     56s] *** Finished refinePlace (0:00:57.1 mem=2524.0M) ***
+[04/07 20:39:24     56s] GigaOpt Checkpoint: Intermediate DB Saving Point afterRefinePlace.13715.1
+[04/07 20:39:24     56s] OPERPROF: Finished Refine-Place at level 1, CPU:0.260, REAL:0.287, MEM:2524.0M, EPOCH TIME: 1744083564.931865
+[04/07 20:39:24     56s] OPERPROF: Starting DPlace-Cleanup(auto) at level 1, MEM:2524.0M, EPOCH TIME: 1744083564.932058
+[04/07 20:39:24     56s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:1330).
+[04/07 20:39:24     56s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:24     56s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] # Resetting pin-track-align track data.
+[04/07 20:39:24     56s] OPERPROF: Finished DPlace-Cleanup(auto) at level 1, CPU:0.020, REAL:0.019, MEM:2520.0M, EPOCH TIME: 1744083564.950934
+[04/07 20:39:24     56s] *** End of Placement (cpu=0:00:01.1, real=0:00:01.0, mem=2520.0M) ***
+[04/07 20:39:24     56s] Processing tracks to init pin-track alignment.
+[04/07 20:39:24     56s] z: 2, totalTracks: 1
+[04/07 20:39:24     56s] z: 4, totalTracks: 1
+[04/07 20:39:24     56s] z: 6, totalTracks: 1
+[04/07 20:39:24     56s] z: 8, totalTracks: 1
+[04/07 20:39:24     56s] #spOpts: N=32 mergeVia=F hrOri=1 hrSnap=1 rpCkHalo=4 
+[04/07 20:39:24     56s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:24     56s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] # Building fifo1_sram llgBox search-tree.
+[04/07 20:39:24     56s] OPERPROF: Starting SiteArray-Init at level 1, MEM:2520.0M, EPOCH TIME: 1744083564.963465
+[04/07 20:39:24     56s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:24     56s] OPERPROF:   Starting SiteArray-Init-FPlan at level 2, MEM:2520.0M, EPOCH TIME: 1744083564.964123
+[04/07 20:39:24     56s] Max number of tech site patterns supported in site array is 256.
+[04/07 20:39:24     56s] Core basic site is unit
+[04/07 20:39:25     56s] After signature check, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:25     56s] After signature check and other controls, allow fast init is true, keep pre-filter is true.
+[04/07 20:39:25     56s] Fast DP-INIT is on for default
+[04/07 20:39:25     56s] Layer info - lib-1st H=1, V=2.  Cell-FPin=1. Top-pin=2
+[04/07 20:39:25     56s] Atter site array init, number of instance map data is 0.
+[04/07 20:39:25     56s] OPERPROF:   Finished SiteArray-Init-FPlan at level 2, CPU:0.090, REAL:0.086, MEM:2520.0M, EPOCH TIME: 1744083565.049677
+[04/07 20:39:25     56s] 
+[04/07 20:39:25     56s] Verbose-2062: PG Shapes are colorized in Pre_CCE_Colorize flow.
+[04/07 20:39:25     56s]  Pre_CCE_Colorizing is not ON! (0:0:1050:0)
+[04/07 20:39:25     56s] OPERPROF: Finished SiteArray-Init at level 1, CPU:0.100, REAL:0.103, MEM:2520.0M, EPOCH TIME: 1744083565.066565
+[04/07 20:39:25     56s] default core: bins with density > 0.750 = 18.12 % ( 222 / 1225 )
+[04/07 20:39:25     56s] Density distribution unevenness ratio = 74.695%
+[04/07 20:39:25     56s] Density distribution unevenness ratio (U70) = 23.246%
+[04/07 20:39:25     56s] Density distribution unevenness ratio (U80) = 14.624%
+[04/07 20:39:25     56s] Density distribution unevenness ratio (U90) = 6.831%
+[04/07 20:39:25     56s] OPERPROF: Starting DPlace-Cleanup(auto) at level 1, MEM:2520.0M, EPOCH TIME: 1744083565.126613
+[04/07 20:39:25     56s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:25     56s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:25     56s] Cell fifo1_sram LLGs are deleted
+[04/07 20:39:25     56s] Before cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:25     56s] After cleanup instance map, number of data still kept is (map:0, fakeMap:0, inst:0).
+[04/07 20:39:25     56s] # Resetting pin-track-align track data.
+[04/07 20:39:25     56s] OPERPROF: Finished DPlace-Cleanup(auto) at level 1, CPU:0.010, REAL:0.015, MEM:2520.0M, EPOCH TIME: 1744083565.141609
+[04/07 20:39:25     56s] <CMD> deselectAll
+[04/07 20:39:25     56s] <CMD> select_obj [ get_ports * ]
+[04/07 20:39:25     56s] <CMD> select_obj {{port:fifo1_sram/rdata[7]} {port:fifo1_sram/rdata[6]} {port:fifo1_sram/rdata[5]} {port:fifo1_sram/rdata[4]} {port:fifo1_sram/rdata[3]} {port:fifo1_sram/rdata[2]} {port:fifo1_sram/rdata[1]} {port:fifo1_sram/rdata[0]} port:fifo1_sram/wfull port:fifo1_sram/rempty {port:fifo1_sram/wdata_in[7]} {port:fifo1_sram/wdata_in[6]} {port:fifo1_sram/wdata_in[5]} {port:fifo1_sram/wdata_in[4]} {port:fifo1_sram/wdata_in[3]} {port:fifo1_sram/wdata_in[2]} {port:fifo1_sram/wdata_in[1]} {port:fifo1_sram/wdata_in[0]} port:fifo1_sram/winc port:fifo1_sram/wclk port:fifo1_sram/wclk2x port:fifo1_sram/wrst_n port:fifo1_sram/rinc port:fifo1_sram/rclk port:fifo1_sram/rrst_n}
+[04/07 20:39:25     56s] <CMD> select_obj {inst:fifo1_sram/fifomem/genblk1_0__U inst:fifo1_sram/fifomem/genblk1_1__U inst:fifo1_sram/fifomem/genblk1_2__U inst:fifo1_sram/fifomem/genblk1_3__U inst:fifo1_sram/fifomem/genblk1_4__U inst:fifo1_sram/fifomem/genblk1_5__U inst:fifo1_sram/fifomem/genblk1_6__U inst:fifo1_sram/fifomem/genblk1_7__U}
+[04/07 20:39:25     56s] <CMD> select_obj {inst:fifo1_sram/io_b_rclk inst:fifo1_sram/io_b_rinc inst:fifo1_sram/io_b_rrst_n inst:fifo1_sram/io_b_wclk inst:fifo1_sram/io_b_wclk2x inst:fifo1_sram/io_b_winc inst:fifo1_sram/io_b_wrst_n inst:fifo1_sram/io_l_rdata_0_ inst:fifo1_sram/io_l_rdata_1_ inst:fifo1_sram/io_l_rdata_2_ inst:fifo1_sram/io_l_rdata_3_ inst:fifo1_sram/io_l_rdata_4_ inst:fifo1_sram/io_l_rdata_5_ inst:fifo1_sram/io_l_rdata_6_ inst:fifo1_sram/io_l_rdata_7_ inst:fifo1_sram/io_r_wdata_in_0_ inst:fifo1_sram/io_r_wdata_in_1_ inst:fifo1_sram/io_r_wdata_in_2_ inst:fifo1_sram/io_r_wdata_in_3_ inst:fifo1_sram/io_r_wdata_in_4_ inst:fifo1_sram/io_r_wdata_in_5_ inst:fifo1_sram/io_r_wdata_in_6_ inst:fifo1_sram/io_r_wdata_in_7_ inst:fifo1_sram/io_t_rempty inst:fifo1_sram/io_t_wfull}
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rempty' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'wfull' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[0]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[1]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[2]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[3]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[4]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[5]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[6]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] **WARN: (IMPDBTCL-1005):	It is not allow to use set_db to change the pin 'rdata[7]' place status from unplaced to other status. Place the pin to get the desired status on this pin.
+[04/07 20:39:25     56s] <CMD> defOut -selected ../outputs/fifo1_sram.floorplan.innovus.macros.def
+[04/07 20:39:25     56s] Writing DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def', current time is Mon Apr  7 20:39:25 2025 ...
+[04/07 20:39:25     56s] unitPerMicron=1000, dbgMicronPerDBU=0.001000, unitPerDBU=1.000000
+[04/07 20:39:25     56s] DEF file '../outputs/fifo1_sram.floorplan.innovus.macros.def' is written, current time is Mon Apr  7 20:39:25 2025 ...
+[04/07 20:42:00     72s] 
+[04/07 20:42:00     72s] *** Memory Usage v#2 (Current mem = 2812.117M, initial mem = 812.664M) ***
+[04/07 20:42:00     72s] 
+[04/07 20:42:00     72s] *** Summary of all messages that are not suppressed in this session:
+[04/07 20:42:00     72s] Severity  ID               Count  Summary                                  
+[04/07 20:42:00     72s] WARNING   IMPFP-325            1  Floorplan of the design is resized. All ...
+[04/07 20:42:00     72s] WARNING   IMPFP-3961           8  The techSite '%s' has no related standar...
+[04/07 20:42:00     72s] WARNING   IMPFP-4026           4  Adjusting core to '%s' to %f due to trac...
+[04/07 20:42:00     72s] WARNING   IMPDBTCL-1005       10  It is not allow to use set_db to change ...
+[04/07 20:42:00     72s] WARNING   IMPSP-9025           1  No scan chain specified/traced.          
+[04/07 20:42:00     72s] WARNING   IMPSP-362            1  Site '%s' has %s std.Cell height, so ign...
+[04/07 20:42:00     72s] WARNING   IMPSP-6008           1  There are no area I/O rows.              
+[04/07 20:42:00     72s] WARNING   TA-976               1  Path groups asserted by the group_path c...
+[04/07 20:42:00     72s] WARNING   TCLCMD-1083          1  '%s'                                     
+[04/07 20:42:00     72s] WARNING   TECHLIB-302         38  No function defined for cell '%s'. The c...
+[04/07 20:42:00     72s] WARNING   TECHLIB-313         36  Property '%s' can not be set on pin '%s'...
+[04/07 20:42:00     72s] WARNING   TECHLIB-1161        36  The library level attribute %s on line %...
+[04/07 20:42:00     72s] WARNING   TECHLIB-1277        36  The %s '%s' has been defined for %s %s '...
+[04/07 20:42:00     72s] *** Message Summary: 174 warning(s), 0 error(s)
+[04/07 20:42:00     72s] 
+[04/07 20:42:00     72s] --- Ending "Innovus" (totcpu=0:01:13, real=0:05:05, mem=2812.1M) ---

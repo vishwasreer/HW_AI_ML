@@ -1,0 +1,59 @@
+ 
+****************************************
+Report : constraint
+        -all_violators
+Design : MMU
+Version: Q-2019.12-SP3
+Date   : Wed Jun 11 21:40:56 2025
+****************************************
+
+
+   max_transition
+
+                             Required        Actual
+   Net                      Transition     Transition        Slack
+   -----------------------------------------------------------------
+   acc_out[103]                 0.09           0.09           0.00  (VIOLATED: increase significant digits)
+   acc_out[34]                  0.09           0.09           0.00  (VIOLATED: increase significant digits)
+
+   -----------------------------------------------------------------
+   Total                      2                  -0.00  
+
+   max_capacitance
+
+                             Required        Actual
+   Net                      Capacitance    Capacitance       Slack
+   -----------------------------------------------------------------
+   m03/n220                    16.00          17.41          -1.41  (VIOLATED)
+   m30/n203                     8.00           9.32          -1.32  (VIOLATED)
+   m23/n176                    16.00          17.28          -1.28  (VIOLATED)
+   m23/n29                      8.00           9.09          -1.09  (VIOLATED)
+   m20/N48                     32.00          33.06          -1.06  (VIOLATED)
+   N117                        32.00          33.05          -1.05  (VIOLATED)
+   m20/n211                     8.00           8.83          -0.83  (VIOLATED)
+   m33/n195                     8.00           8.82          -0.82  (VIOLATED)
+   m03/n212                    16.00          16.76          -0.76  (VIOLATED)
+   acc_out[103]                16.00          16.57          -0.57  (VIOLATED)
+   acc_out[34]                 16.00          16.52          -0.52  (VIOLATED)
+   m23/n58                      8.00           8.43          -0.43  (VIOLATED)
+   acc_out[46]                 16.00          16.35          -0.35  (VIOLATED)
+   m20/N50                     32.00          32.27          -0.27  (VIOLATED)
+   m23/n166                    16.00          16.18          -0.18  (VIOLATED)
+   m33/n61                      8.00           8.17          -0.17  (VIOLATED)
+   acc_out[108]                16.00          16.07          -0.07  (VIOLATED)
+   m22/n130                     8.00           8.06          -0.06  (VIOLATED)
+   acc_out[12]                  8.00           8.02          -0.02  (VIOLATED)
+
+   -----------------------------------------------------------------
+   Total                      19                -12.25  
+
+   max_leakage_power
+
+                             Required        Actual
+   Design                   Leakage Power  Leakage Power     Slack
+   -----------------------------------------------------------------
+   MMU                          0.00       2155662336.00  -2155662336.00
+                                                                    (VIOLATED)
+
+
+1

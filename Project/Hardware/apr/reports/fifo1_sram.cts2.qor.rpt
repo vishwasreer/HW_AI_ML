@@ -1,0 +1,130 @@
+****************************************
+Report : qor
+Design : fifo1_sram
+Version: V-2023.12
+Date   : Tue Apr  9 21:25:51 2024
+****************************************
+Information: The stitching and editing of coupling caps is turned ON for design 'fifo1_sram_lib:fifo1_sram.design'. (TIM-125)
+Information: Design fifo1_sram has 658 nets, 0 global routed, 5 detail routed. (NEX-024)
+Information: The RC mode used is CTO for design 'fifo1_sram'. (NEX-022)
+Information: Crosstalk analysis has been disabled. (TIM-114)
+Information: Design Average RC for design fifo1_sram  (NEX-011)
+Information: r = 1.785714 ohm/um, via_r = 0.500000 ohm/cut, c = 0.077207 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 1.785714 ohm/um, via_r = 0.500000 ohm/cut, c = 0.090888 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 656, routed nets = 5, across physical hierarchy nets = 0, parasitics cached nets = 656, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 179. (TIM-112)
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+
+Scenario           'func_slow'
+Timing Path Group  'wclk'
+----------------------------------------
+Levels of Logic:                     12
+Critical Path Length:              1.93
+Critical Path Slack:              -0.23
+Critical Path Clk Period:          2.00
+Total Negative Slack:             -0.29
+No. of Violating Paths:               3
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'func_slow'
+Timing Path Group  'rclk'
+----------------------------------------
+Levels of Logic:                     11
+Critical Path Length:              2.06
+Critical Path Slack:              -0.35
+Critical Path Clk Period:          2.00
+Total Negative Slack:             -0.42
+No. of Violating Paths:               5
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'func_slow'
+Timing Path Group  'INPUTS'
+----------------------------------------
+Levels of Logic:                      1
+Critical Path Length:              0.44
+Critical Path Slack:              -0.02
+Critical Path Clk Period:          1.00
+Total Negative Slack:             -0.03
+No. of Violating Paths:               2
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+Scenario           'func_slow'
+Timing Path Group  'OUTPUTS'
+----------------------------------------
+Levels of Logic:                      5
+Critical Path Length:              2.51
+Critical Path Slack:              -0.07
+Critical Path Clk Period:          2.00
+Total Negative Slack:             -0.31
+No. of Violating Paths:               8
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              5
+Hierarchical Port Count:            212
+Leaf Cell Count:                    584
+Buf/Inv Cell Count:                 221
+Buf Cell Count:                     141
+Inv Cell Count:                      80
+Combinational Cell Count:           480
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:              104
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            8
+   Single-bit Sequential Cell Count:                       96
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          8
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:           301286.99
+Noncombinational Area:           839.18
+Buf/Inv Area:                    715.67
+Total Buffer Area:               580.72
+Total Inverter Area:             134.95
+Macro/Black Box Area:          69436.17
+Net Area:                             0
+Net XLength:                   32673.13
+Net YLength:                   38220.13
+----------------------------------------
+Cell Area (netlist):                         371562.34
+Cell Area (netlist and physical only):       373262.57
+Net Length:                    70893.26
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               722
+Nets with Violations:                19
+Max Trans Violations:                 0
+Max Cap Violations:                  19
+----------------------------------------
+
+1

@@ -1,0 +1,21 @@
+****************************************
+Report : clock timing
+        -type skew
+        -nworst 1
+        -setup
+Design : MMU
+Version: V-2023.12
+Date   : Wed Jun 11 21:53:28 2025
+****************************************
+Information: Timer using 'SI, Timing Window Analysis, CRPR'. (TIM-050)
+
+  Mode: func
+  Clock: clk
+
+  Clock Pin                                 Latency      CRP      Skew             Corner
+---------------------------------------------------------------------------------------------------
+  m12/data_out_reg_6_/CLK                      0.12                       rp-+       slow
+  m22/acc_out_reg_14_/CLK                      0.09     0.00      0.03    rp-+       slow
+
+---------------------------------------------------------------------------------------------------
+1

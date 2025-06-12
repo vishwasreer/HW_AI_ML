@@ -1,0 +1,93 @@
+[04/07 20:43:46      0s] 
+[04/07 20:43:46      0s] Cadence Innovus(TM) Implementation System.
+[04/07 20:43:46      0s] Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+[04/07 20:43:46      0s] 
+[04/07 20:43:46      0s] Version:	v23.10-p003_1, built Thu Feb 1 13:54:57 PST 2024
+[04/07 20:43:46      0s] Options:	
+[04/07 20:43:46      0s] Date:		Mon Apr  7 20:43:46 2025
+[04/07 20:43:46      0s] Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+[04/07 20:43:46      0s] OS:		CentOS Linux 7 (Core)
+[04/07 20:43:46      0s] 
+[04/07 20:43:46      0s] License:
+[04/07 20:43:47      0s] 		[20:43:47.350114] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+[04/07 20:43:47      0s] 		invs	Innovus Implementation System	23.1	checkout succeeded
+[04/07 20:43:47      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[04/07 20:43:49      1s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[04/07 20:44:08     19s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v23.10-p003_1 (64bit) 02/01/2024 13:54 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:44:12     22s] @(#)CDS: NanoRoute 23.10-p003_1 NR240109-1512/23_10-UB (database version 18.20.618) {superthreading v2.20}
+[04/07 20:44:12     22s] @(#)CDS: AAE 23.10-p002 (64bit) 02/01/2024 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:44:12     22s] @(#)CDS: CTE 23.10-p003_1 () Dec  5 2023 19:42:23 ( )
+[04/07 20:44:12     22s] @(#)CDS: SYNTECH 23.10-p002_1 () Nov 29 2023 02:17:21 ( )
+[04/07 20:44:12     22s] @(#)CDS: CPE v23.10-p004
+[04/07 20:44:12     22s] @(#)CDS: IQuantus/TQuantus 22.1.1-s215 (64bit) Mon Nov 20 10:05:08 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[04/07 20:44:12     22s] @(#)CDS: OA 22.61-p007 Wed Sep 27 19:40:10 2023
+[04/07 20:44:12     22s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[04/07 20:44:12     22s] @(#)CDS: RCDB 11.15.0
+[04/07 20:44:12     22s] @(#)CDS: STYLUS 23.10-a001_1 (12/04/2023 04:39 PST)
+[04/07 20:44:12     22s] @(#)CDS: IntegrityPlanner-23.10-12651 (23.10) (2023-09-06 08:32:42+0800)
+[04/07 20:44:12     22s] @(#)CDS: SYNTHESIS_ENGINE 23.10-b027
+[04/07 20:44:12     22s] Create and set the environment variable TMPDIR to /u/routh/ECE530-2024-SPRING/lab1-vishwasreer/apr/work/innovus_temp_19958_auto.ece.pdx.edu_routh_JiyAQR.
+
+[04/07 20:44:12     22s] Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+[04/07 20:44:16     25s] Sourcing startup file ./enc.tcl
+[04/07 20:44:16     25s] <CMD> alias fs set top_design fifo1_sram
+[04/07 20:44:16     25s] <CMD> alias f set top_design fifo1
+[04/07 20:44:16     25s] <CMD> alias o set top_design ORCA_TOP
+[04/07 20:44:16     25s] <CMD> alias e set top_design ExampleRocketSystem
+[04/07 20:44:16     25s] <CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+[04/07 20:44:16     25s] **WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+[04/07 20:44:16     25s] <CMD> set_global report_timing_format  {delay arrival slew cell hpin}
+[04/07 20:44:16     25s] 
+[04/07 20:44:16     25s] **INFO:  MMMC transition support version v31-84 
+[04/07 20:44:16     25s] 
+[04/07 20:44:16     25s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[04/07 20:44:16     25s] <CMD> suppressMessage ENCEXT-2799
+[04/07 20:44:16     25s] <CMD> getVersion
+[04/07 20:44:16     25s] <CMD> define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+        {-window "window coordinates" "" list optional}
+        {-window_size "window size in microns" "" string optional}
+    
+    }
+[04/07 20:44:17     26s] [INFO] Loading Pegasus 23.20 fill procedures
+[04/07 20:44:17     26s] <CMD> define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+[04/07 20:44:17     26s] <CMD> define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+[04/07 20:44:17     26s] <CMD> define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+[04/07 20:44:17     26s] <CMD> define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+[04/07 20:44:17     26s] <CMD> define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+[04/07 20:44:17     26s] <CMD> define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+[04/07 20:44:18     26s] <CMD> win
+[04/07 20:49:35     57s] 
+[04/07 20:49:35     57s] *** Memory Usage v#2 (Current mem = 1766.801M, initial mem = 812.664M) ***
+[04/07 20:49:35     57s] 
+[04/07 20:49:35     57s] *** Summary of all messages that are not suppressed in this session:
+[04/07 20:49:35     57s] Severity  ID               Count  Summary                                  
+[04/07 20:49:35     57s] WARNING   TCLCMD-1083          1  '%s'                                     
+[04/07 20:49:35     57s] *** Message Summary: 1 warning(s), 0 error(s)
+[04/07 20:49:35     57s] 
+[04/07 20:49:35     57s] --- Ending "Innovus" (totcpu=0:00:58.7, real=0:05:49, mem=1766.8M) ---

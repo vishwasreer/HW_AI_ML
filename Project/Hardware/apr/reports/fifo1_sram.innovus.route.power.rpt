@@ -1,0 +1,283 @@
+
+Power Net Detected:
+        Voltage	    Name
+             0V	    VSS
+          0.95V	    VDD
+Using Power View: func_max_scenario.
+AAE_INFO: opIsDesignInPostRouteState() is 1
+AAE_INFO: resetNetProps viewIdx 0 
+Starting SI iteration 1 using Infinite Timing Windows
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: fifo1_sram
+# Design Mode: 28nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: SPEF/RCDB 
+# Signoff Settings: SI On 
+#################################################################################
+AAE_INFO: 1 threads acquired from CTE.
+Start delay calculation (fullDC) (1 T). (MEM=2212.57)
+*** Calculating scaling factor for libs_max libraries using the default operating condition of each library.
+**WARN: (IMPMSMV-1810):	Net CTS_4, driver CTS_csf_buf_00006/Y (cell NBUFFX32_RVT) voltage 0.95 does not match receiver io_b_wclk2x/PADIO (cell I1025_NS) voltage 2.25 for view func_max_scenario.
+Type 'man IMPMSMV-1810' for more detail.
+**WARN: (IMPMSMV-1810):	Net CTS_2, driver CTS_csf_buf_00003/Y (cell NBUFFX32_RVT) voltage 0.95 does not match receiver io_b_wclk/PADIO (cell I1025_NS) voltage 2.25 for view func_max_scenario.
+Type 'man IMPMSMV-1810' for more detail.
+**WARN: (IMPMSMV-1810):	Net CTS_1, driver CTS_csf_buf_00001/Y (cell NBUFFX32_RVT) voltage 0.95 does not match receiver io_b_rclk/PADIO (cell I1025_NS) voltage 2.25 for view func_max_scenario.
+Type 'man IMPMSMV-1810' for more detail.
+**WARN: (IMPESI-3095):	Net: 'n_32' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_24' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_25' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_26' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_27' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_28' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_29' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_30' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_31' has no receivers. SI analysis is not performed.
+**WARN: (IMPESI-3095):	Net: 'n_23' has no receivers. SI analysis is not performed.
+Total number of fetched objects 1941
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+AAE_INFO-618: Total number of nets in the design is 1955,  99.6 percent of the nets selected for SI analysis
+End delay calculation. (MEM=2271.88 CPU=0:00:01.0 REAL=0:00:01.0)
+End delay calculation (fullDC). (MEM=2271.88 CPU=0:00:01.1 REAL=0:00:02.0)
+Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 2279.9M)
+Add other clocks and setupCteToAAEClockMapping during iter 1
+Loading CTE timing window is completed (CPU = 0:00:00.1, REAL = 0:00:00.0, MEM = 2279.9M)
+Starting SI iteration 2
+Start delay calculation (fullDC) (1 T). (MEM=2245.99)
+Glitch Analysis: View func_max_scenario -- Total Number of Nets Skipped = 14. 
+Glitch Analysis: View func_max_scenario -- Total Number of Nets Analyzed = 1941. 
+Total number of fetched objects 1941
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+AAE_INFO-618: Total number of nets in the design is 1955,  10.0 percent of the nets selected for SI analysis
+End delay calculation. (MEM=2287.16 CPU=0:00:00.3 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=2287.16 CPU=0:00:00.3 REAL=0:00:00.0)
+Load RC corner of view func_max_scenario
+
+Begin Power Analysis
+
+             0V	    VSS
+          0.95V	    VDD
+
+Begin Processing Timing Library for Power Calculation
+
+Begin Processing Timing Library for Power Calculation
+
+
+
+Begin Processing Power Net/Grid for Power Calculation
+
+Ended Processing Power Net/Grid for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1762.85MB/3834.31MB/2132.20MB)
+
+Begin Processing Timing Window Data for Power Calculation
+
+wclk2x(1000MHz) CK: assigning clock wclk2x to net wclk2x
+wclk(500MHz) CK: assigning clock wclk to net wclk
+rclk(500MHz) CK: assigning clock rclk to net rclk
+** INFO:  (VOLTUS_POWR-2054): Setting default frequency to the dominant frequency 500MHz.
+
+	To force set default frequency/period. Use either of the following command options:
+		set_power_analysis_mode        -default_frequency <frequency value>
+		set_default_switching_activity -period            <period value>.
+
+Ended Processing Timing Window Data for Power Calculation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1762.95MB/3834.31MB/2132.20MB)
+
+Begin Processing User Attributes
+
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1763.03MB/3834.31MB/2132.20MB)
+
+Begin Processing Signal Activity
+
+
+Starting Levelizing
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT)
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 10%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 20%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 30%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 40%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 50%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 60%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 70%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 80%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 90%
+
+Finished Levelizing
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT)
+
+Starting Activity Propagation
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT)
+** INFO:  (VOLTUS_POWR-1356): No default input activity has been set. Defaulting to 0.2.
+Use 'set_default_switching_activity -input_activity' command to change the default activity value.
+
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 10%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 20%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 30%
+
+Finished Activity Propagation
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT)
+Ended Processing Signal Activity: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1763.27MB/3834.31MB/2132.20MB)
+
+Begin Power Computation
+
+      ----------------------------------------------------------
+      # of cell(s) missing both power/leakage table: 0
+      # of cell(s) missing power table: 0
+      # of cell(s) missing leakage table: 1
+      ----------------------------------------------------------
+CellName                                  Missing Table(s)
+SRAM2RW128x8                              leakage power, 
+
+
+** WARN:  (VOLTUS_POWR-3401): Leakage Power table for pg_pins VDDIO VDD not present in library of cell D8I1025_NS.
+
+** WARN:  (VOLTUS_POWR-3401): Leakage Power table for pg_pins VDDIO VDD not present in library of cell I1025_NS.
+
+
+Starting Calculating power
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT)
+ ... Calculating switching power
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 10%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 20%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 30%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 40%
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 50%
+ ... Calculating internal and leakage power
+2024-Apr-09 22:58:47 (2024-Apr-10 05:58:47 GMT): 60%
+2024-Apr-09 22:58:48 (2024-Apr-10 05:58:48 GMT): 70%
+2024-Apr-09 22:58:48 (2024-Apr-10 05:58:48 GMT): 80%
+2024-Apr-09 22:58:48 (2024-Apr-10 05:58:48 GMT): 90%
+
+Finished Calculating power
+2024-Apr-09 22:58:48 (2024-Apr-10 05:58:48 GMT)
+      # of MSMV cell(s) missing power_level: 0
+Ended Power Computation: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1764.46MB/3842.32MB/2132.20MB)
+
+Begin Processing User Attributes
+
+Ended Processing User Attributes: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1764.47MB/3842.32MB/2132.20MB)
+
+Ended Power Analysis: (cpu=0:00:00, real=0:00:00, mem(process/total/peak)=1764.52MB/3842.32MB/2132.20MB)
+
+Begin Boundary Leakage Calculation
+Ended Boundary Leakage Calculation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=1764.60MB/3842.32MB/2132.20MB)
+Begin Static Power Report Generation
+*----------------------------------------------------------------------------------------
+*	Innovus 21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2024-Apr-09 22:58:48 (2024-Apr-10 05:58:48 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: fifo1_sram
+*
+*	Liberty Libraries used:
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95v125c.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm/saed32io_wb_ss0p95v125c_2p25v.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm/saed32sram_ss0p95v125c.lib
+*	        func_max_scenario: /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.lib
+*
+*	Parasitic Files used:
+*
+*       Power View : func_max_scenario
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs
+*
+*       report_power
+*
+-----------------------------------------------------------------------------------------
+*
+
+
+
+Total Power
+-----------------------------------------------------------------------------------------
+Total Internal Power:       10.92410199 	   61.4410%
+Total Switching Power:       5.66527875 	   31.8635%
+Total Leakage Power:         1.19045252 	    6.6955%
+Total Power:                17.77983327
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                        0.3076    0.009182     0.01616       0.333       1.873
+Macro                           0.003758     0.03018           0     0.03393      0.1909
+IO                                 10.13      0.7229       1.039       11.89        66.9
+Combinational                     0.3812       0.275      0.1254      0.7816       4.396
+Clock (Combinational)            0.09856       4.628    0.009783       4.736       26.64
+Clock (Sequential)                     0           0           0           0           0
+-----------------------------------------------------------------------------------------
+Total                              10.92       5.665        1.19       17.78         100
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                      0.95      10.92       5.665        1.19       17.78         100
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+rclk                              0.5028       1.205     0.04526       1.753       9.862
+wclk2x                            0.7749       2.345     0.04546       3.166       17.81
+wclk                              0.5019       1.209     0.04546       1.756       9.878
+-----------------------------------------------------------------------------------------
+Total                               1.78        4.76      0.1362       6.675       37.55
+-----------------------------------------------------------------------------------------
+Clock: rclk
+Clock Period: 0.002000 usec 
+Clock Toggle Rate:  1000.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: wclk2x
+Clock Period: 0.002000 usec 
+Clock Toggle Rate:  2000.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+Clock: wclk
+Clock Period: 0.002000 usec 
+Clock Toggle Rate:  1000.0000 Mhz 
+Clock Static Probability:  0.5000
+  
+ 
+ 
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*              Highest Average Power:         CTS_csf_buf_00006 (NBUFFX32_RVT):            2.361
+*              Highest Leakage Power:                 io_b_rclk (I1025_NS):          0.04213
+*                Total Cap:      2.80842e-11 F
+*                Total instances in design:  1718
+*                Total instances in design with no power:     0
+*                Total instances in design with no activty:     0
+
+*                Total Fillers and Decap:     0
+-----------------------------------------------------------------------------------------
+ 
+** INFO:  (VOLTUS_POWR-3465): There are 0 decaps and 0 fillers in the design
+
+Ended Static Power Report Generation: (cpu=0:00:00, real=0:00:00,
+mem(process/total/peak)=1765.09MB/3842.32MB/2132.20MB)
+

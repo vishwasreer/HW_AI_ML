@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version Q-2019.12-SP3 for linux64 -- Apr 21, 2020
-#@ # Date:   Wed Jun 11 20:22:40 2025
+#@ # Date:   Wed Jun 11 21:35:57 2025
 #@ # Run by: routh@auto.ece.pdx.edu
 #@ 
 
@@ -5110,6 +5110,498 @@ source /pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/admin/setup/.synops
 #@ if { $synopsys_program_name == "icc_shell" ||      (($synopsys_program_name == "dc_shell") && ([shell_is_in_topographical_mode])) } {
 #@     source $synopsys_root/auxx/syn/psyn/verify_ilm.tcl
 #@ }
+#@ # -- Starting source /pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/auxx/syn/psyn/verify_ilm.tcl
+
+#@ ################################################################################
+#@ #
+#@ #  FILE         verify_ilm.tcl
+#@ #
+#@ #  ABSTRACT     This file contains the  Tcl procedure verify_ilm. verify_ilm
+#@ #               can be run inside psyn_shell and dc_shell to verify the 
+#@ #               correctnesss of ILM models. This script is based on PrimeTime 
+#@ #               script verify_model.tcl.
+#@ #
+#@ #  HISTORY:    
+#@ #       Mar 27 2001 - Sriram Ananth : Created.
+#@ #       Jul 17 2002 - William K. Foster : Put ?: expressions in {curly braces}
+#@ #                         to account for fact these are now evaluated whereas
+#@ #                         before they were complied inline.  The compiler was
+#@ #                         accepting the old syntax, but the interpreter does
+#@ #                         not.  The reason for this change is the addition of a
+#@ #                         Tcl trace in /vobs/syn/sh/dcsh_teqn.c, the presence
+#@ #                         of which prohibits inline compilation.
+#@ #       Jun 18, 2008 - Malleswara Gupta: Added Tag_name for useful for MCMM case.
+#@ #                         Modified the output to print tag_name and port/pin name
+#@ #                         on every line. Added capability to specify through_cells
+#@ #                         meant for ILM verification in top-level context 
+#@ #
+#@ #################################################################################
+#@ 
+#@ #################################################################################
+#@ #
+#@ # PROCEDURE:  verify_ilm
+#@ #
+#@ # ABSTRACT:  
+#@ #       Verify the worst case slacks both from the input ports and to the output
+#@ #       ports of the ILM model by comparing these with the original design. For 
+#@ #       each port, all four worst slacks are considered: min_fall, min_rise, 
+#@ #       max_fall and max_rise.The script does not verify all paths exhaustively 
+#@ #       as that could easily become too large.
+#@ #       
+#@ #
+#@ # SYNOPSIS:
+#@ #       verify_ilm -mode mode [-data_label label] 
+#@ #                         [-ignore_port port_list] [-output_file file_name]
+#@ #                         [-tolerance float_number] 
+#@ #
+#@ # OPTIONS:    
+#@ #       -mode   This is a required option to specify the mode of the current run.
+#@ #               The value can only be either "save" or "verify". 
+#@ #               If you use value "save",  the timing data are gathered and saved 
+#@ #               as references internally by Tcl arrays. They are not written out 
+#@ #               to any files. If you use value "verify", the data for the model 
+#@ #               are gathered and then compared against the reference data saved 
+#@ #               during the run for the design.
+#@ #              
+#@ #      -data_label  This is not a required option. The values can be any string. 
+#@ #               be used to label the data so that it's possible to do multiple
+#@ #               comparisons  against one set of reference data obtained during
+#@ #               one run for the design.  Default value is "DESIGN" for "save"
+#@ #               mode and "MODEL" for "verify" mode.
+#@ #
+#@ #      -tag_name This is not a required option. The default value is "default". 
+#@ #               This can be useful in MCMM case by tagging the data of a scenario
+#@ #               in "save" step so that it can be retrieved later and compared with
+#@ #               the corresponding tagged data during verify step.
+#@ #
+#@ #       -through_cells This option is not a required option when verifying the 
+#@ #               model against design independently. This option is required if
+#@ #               the top-level linked with a model is to be compared with top-level
+#@ #               linked with the reference design (or other model). The list of 
+#@ #               cells specifies the cells of interest for comparing timing paths
+#@ #               through them. Example, when Top is linked with the ILMs, the list
+#@ #               ILM instances  (say {I_ALU I_STACK_TOP} ) will need to be specified.
+#@ #               The timing comparison will happen for every pin of the cell and the
+#@ #               worst paths going through that pin in the test design will be 
+#@ #               compared with the reference design.
+#@ #
+#@ #       -reset_data This is not required option. When used along with -mode save
+#@ #               this clear all the slack data stored by the script. This is recommended
+#@ #               to clear any data due to earlier runs of verify_ilm if the same is
+#@ #               multiple times with same tag name and -mode save.
+#@ #
+#@ #      -ignore_ports   You can exclude some ports by the use of -ignore_ports 
+#@ #                option. The ports listed will be ignored and the timing 
+#@ #                data on these ports will not be considered in the 
+#@ #                verification. The default value is an empty list 
+#@ #                so all the boundary IO ports will be considered.
+#@ #
+#@ #       -tolerance  A floating number specified as the tolerance value to decide 
+#@ #                the result of comparisons of timing data. If the discrepancy 
+#@ #                is larger than the tolerance, the verification on the port is 
+#@ #                reported as FAILED, otherwise OK. The default tolerance value 
+#@ #                is 0.1. Note that this tolerance assumes no unit, so you need
+#@ #                to make sure that the number specified as tolerance makes 
+#@ #                sense.
+#@ #
+#@ #       -output_file   To specify a file for writing out the final report. 
+#@ #                The default  behavior is output to the stdout. Also, if there 
+#@ #                is any error in opening the specified file, an error message 
+#@ #                will  print out and report will be redirected to the stdout.
+#@ #
+#@ ###############################################################################
+#@ 
+#@ proc verify_ilm args {
+#@     global slacks
+#@     global all_path_slacks
+#@     global ref_label
+#@     global tag_name
+#@     global mode
+#@ 
+#@     global old_approach
+#@     global verify_ilm_use_get_timing_path
+#@   
+#@     parse_proc_arguments -args $args options
+#@ 
+#@     set mode $options(-mode)
+#@     set label [expr { ($mode=="save") ? "DESIGN" : "MODEL" } ]
+#@     set tag_name "default"
+#@     set tolerance    0.1
+#@     set output_file  ""
+#@     set ignore_ports ""
+#@     set check_for "timing"
+#@     set verbose    0
+#@     set reset_data   0
+#@     set through_cells  ""
+#@     set all_path_groups 0
+#@ 
+#@     if {[info exists options(-data_label)]}   {	set label $options(-data_label)  }
+#@     if {[info exists options(-tag_name)]}   {	set tag_name $options(-tag_name)  }
+#@     if {[info exists options(-ignore_ports)]} {	set ignore_ports $options(-ignore_ports)  }
+#@     if {[info exists options(-tolerance)]}    { set tolerance $options(-tolerance)        }
+#@     if {[info exists options(-output_file)]}  { set output_file $options(-output_file)    } 
+#@     if {[info exists options(-verbose)]} { set verbose 1 }
+#@     if {[info exists options(-reset_data)]} { set reset_data 1 }
+#@     if {[info exists options(-through_cells)]} { set through_cells $options(-through_cells) }
+#@     if {[info exists options(-all_path_groups)]} {set all_path_groups 1 }
+#@ 
+#@ #    if {[info exists options(-check)]}  { set check_for $options(-check)    }
+#@     if { [info exists verify_ilm_use_get_timing_path] } { 
+#@       set old_approach $verify_ilm_use_get_timing_path
+#@     } else { 
+#@       set old_approach false
+#@     }
+#@     
+#@     if { $through_cells != "" } {
+#@       set old_approach true
+#@     }
+#@ 
+#@     if { $mode == "verify"} {
+#@ 	if { ![info exists ref_label] } { print_cmd_usage;  return }
+#@ 	if { $label == $ref_label } { puts stderr "Warning:the labels for data are the same" }
+#@ 	if [catch {open $output_file "w+"} file] {
+#@ 	    set file  "__stdout__"
+#@ 	    if { $output_file!="" } {
+#@ 		puts stderr "Error: Cannot open file $output_file for writting. Redirect to stdout."	    
+#@ 	    } 
+#@ 	}
+#@     }
+#@     if { $mode == "save" } {
+#@ 	# reset data cache
+#@ 	if ($reset_data) { catch { unset slacks } catch_rtn }
+#@         set reset_data 0 ;# should not applied again and again
+#@ 	set ref_label $label
+#@     }        
+#@ 
+#@     if { $check_for == "full" } {	
+#@ 	puts stderr "Error: full check not implemented yet."; return;
+#@     } elseif {$check_for == "physical"} {
+#@ 	puts stderr "Error: physical check not implemented yet."; return;
+#@     }
+#@ 
+#@     set abs_tolerance [expr abs($tolerance)]
+#@     set port_dircs    {"from" "to" }
+#@     set delay_types   {"min" "max"}
+#@ #    set trans_types   {"fall" "rise"}
+#@ 
+#@     # init all files
+#@     #global rpt_file
+#@ #
+#@ #    foreach d $delay_types {
+#@ #        foreach t $trans_types {
+#@ #                set rpt_file(${mode}_${d}_${t}) "verify_ilm.${tag_name}.${mode}.${d}_${t}.rpt"
+#@ #                redirect $rpt_file(${mode}_${d}_${t}) { }
+#@ #        }
+#@ ##    }
+#@ 
+#@     if { $through_cells == "" } {
+#@        set ports(from)   [remove_from_collection [all_inputs]   $ignore_ports]
+#@        set ports(to)     [remove_from_collection [all_outputs]  $ignore_ports] 
+#@     } elseif { $through_cells != "" } {
+#@        set ports(from)   ""
+#@        set ports(to)     ""
+#@        set ports(through) [remove_from_collection [get_pins -of_objects $through_cells ] $ignore_ports ]
+#@        set port_dircs    {"through" }
+#@     }
+#@    
+#@     #start looping through all directions, ports, delay_types and transition_types
+#@     foreach dir $port_dircs {     
+#@         set port_title [expr { ($dir=="from") ? "INPUT-PORT" : [expr {($dir=="to") ? "OUTPUT-PORT" : "THROUGH-PIN" } ] } ]
+#@ 	if { $mode == "verify" } {	 
+#@         set design [current_design ]
+#@         if { $design == "" } {
+#@           puts stderr "Error: Current design not defined" ; return;
+#@         }
+#@ 	    print_out_string  $file "\nDesign : [get_attribute -quiet [current_design] name]"
+#@       if { $all_path_groups==0} {
+#@ 	    print_out_data   "Tag_name" $port_title "DIR" "WORST_SLACK" $ref_label $label "DIFF" "STATUS" $file
+#@ 	    print_out_string  $file [string repeat "-" 85]
+#@       } else {
+#@       print_out_data_all   "Tag_name" $port_title "DIR" "WORST_SLACK" "Path_Group" $ref_label $label "DIFF" "STATUS" $file
+#@       print_out_string  $file [string repeat "-" 95]
+#@       }
+#@ 	}
+#@   if { $all_path_groups==0} {
+#@ 	foreach_in_collection port $ports($dir) {	    
+#@ 	    set port_name [get_attribute -quiet $port "full_name"]
+#@       set port_dir [get_attribute -quiet $port "direction"]
+#@ 	    foreach d_type $delay_types {
+#@ 		    set key [format %s_%s_%s_%s_%s $tag_name $label $port_name $dir $d_type]
+#@ 		    set slacks($key) [get_port_worst_slack $port $dir $d_type]
+#@ 
+#@ 		    if ($verbose) {
+#@ 			if { $mode == "verify" } {
+#@ 			    echo "Verifying timing data for port:" $port_name [string toupper [format %s $d_type ] ]
+#@ 			} else {
+#@ 			    echo "Saving timing data for port:" $port_name [string toupper [format %s $d_type ] ]
+#@ 			}
+#@ 
+#@ 		    }
+#@ 
+#@ 		    if { $mode == "verify" } {
+#@ 			set ref_key   [format %s_%s_%s_%s_%s $tag_name $ref_label $port_name $dir $d_type ]
+#@ 			set chk_slack [expr [info exists slacks($key)]?"$slacks($key)":"unconst"]
+#@ 			set ref_slack [expr [info exists slacks($ref_key)]?"$slacks($ref_key)":"unconst"]
+#@ 			set result    [compare_data $ref_slack $chk_slack $abs_tolerance]
+#@ 			set data_format "%8.4f"
+#@   		        #set output_name [expr { ($d_type=="min"&&$t_type=="fall") ? $port_name : "" } ]		
+#@   		        set output_name $port_name
+#@ 			print_out_data $tag_name $output_name [string toupper [format %s $port_dir]]          [string toupper [format %s $d_type ] ]			    [report_format_data $ref_slack  $data_format] 			    [report_format_data $chk_slack  $data_format] 			    [report_format_data [lindex $result 0] $data_format] 			    [lindex $result 1] $file			
+#@       unset slacks($ref_key)
+#@ 		    }
+#@ 	    }
+#@ 	}
+#@   } else {
+#@   foreach_in_collection port $ports($dir) {
+#@       set port_name [get_attribute -quiet $port "full_name"]
+#@       set port_dir [get_attribute -quiet $port "direction"]
+#@       foreach d_type $delay_types {
+#@         if {$d_type == "min"} {
+#@           set path_name "---"
+#@           set cur_slack [get_port_worst_slack $port $dir $d_type]
+#@           set key [format %s_%s_%s_%s_%s_%s $tag_name $label $port_name $dir $d_type $path_name]
+#@           if { $mode == "save" } {
+#@               set all_path_slacks($key) $cur_slack
+#@           }
+#@           if ($verbose) {
+#@       if { $mode == "verify" } {
+#@           echo "Verifying timing data for port:" $port_name [string toupper [format %s $d_type ] ]
+#@       } else {
+#@           echo "Saving timing data for port:" $port_name [string toupper [format %s $d_type ] ]
+#@       }
+#@         }
+#@         if { $mode == "verify" } {
+#@       set ref_key   [format %s_%s_%s_%s_%s_%s $tag_name $ref_label $port_name $dir $d_type $path_name ]
+#@       set chk_slack $cur_slack
+#@       # set ref_slack [expr [info exists all_path_slacks($ref_key)]?"$all_path_slacks($ref_key)":"unconst"]
+#@       if {[info exists all_path_slacks($ref_key)]} {
+#@         set ref_slack "$all_path_slacks($ref_key)"
+#@         unset all_path_slacks($ref_key)
+#@       } else {
+#@         set ref_slack "unconst"
+#@       }
+#@       set result    [compare_data $ref_slack $chk_slack $abs_tolerance]
+#@       set data_format "%8.4f"
+#@       set output_name $port_name
+#@       print_out_data_all $tag_name $output_name [string toupper [format %s $port_dir]]          [string toupper [format %s $d_type ] ] $path_name          [report_format_data $ref_slack  $data_format]           [report_format_data $chk_slack  $data_format]           [report_format_data [lindex $result 0] $data_format]           [lindex $result 1] $file
+#@         }
+#@         } else {
+#@         if {$old_approach} {
+#@           set paths_coll [get_timing_paths -delay_type $d_type -$dir $port]
+#@           set paths [list]
+#@           if {[sizeof_collection $paths_coll] != 0} {
+#@             foreach_in_collection path $paths_coll {
+#@               set cur_slack [get_attribute -quiet $path slack]
+#@               set path_name [get_object_name [get_attribute -quiet $path path_group]]
+#@               lappend paths [list $cur_slack $path_name]
+#@             }
+#@           }
+#@         } else {
+#@           set paths [print_min_max_paths -delay_type $d_type -$dir $port]
+#@         }
+#@         if {[llength $paths] != 0} {
+#@           foreach path $paths {
+#@               set cur_slack [lindex $path 0]
+#@               set path_name [lindex $path 1]
+#@             if { ($path_name == "") || ($path_name == "**default**") } {
+#@               set path_name "no_path_g"
+#@             }
+#@             if {$cur_slack == "INFINITY" || $cur_slack == "UNINIT" } {
+#@               set cur_slack "unconst"
+#@             }
+#@             set key [format %s_%s_%s_%s_%s_%s $tag_name $label $port_name $dir $d_type $path_name]
+#@             if { $mode == "save" } {
+#@               set all_path_slacks($key) $cur_slack
+#@             }
+#@           
+#@ 
+#@         if ($verbose) {
+#@       if { $mode == "verify" } {
+#@           echo "Verifying timing data for port:" $port_name [string toupper [format %s $d_type ] ]
+#@       } else {
+#@           echo "Saving timing data for port:" $port_name [string toupper [format %s $d_type ] ]
+#@       }
+#@ 
+#@         }
+#@ 
+#@         if { $mode == "verify" } {
+#@       set ref_key   [format %s_%s_%s_%s_%s_%s $tag_name $ref_label $port_name $dir $d_type $path_name ]
+#@       set chk_slack $cur_slack
+#@       # set ref_slack [expr [info exists all_path_slacks($ref_key)]?"$all_path_slacks($ref_key)":"unconst"]
+#@       if {[info exists all_path_slacks($ref_key)]} {
+#@         set ref_slack "$all_path_slacks($ref_key)"
+#@         unset all_path_slacks($ref_key)
+#@       } else {
+#@         set ref_slack "unconst"
+#@       }
+#@       set result    [compare_data $ref_slack $chk_slack $abs_tolerance]
+#@       set data_format "%8.4f"
+#@               #set output_name [expr { ($d_type=="min"&&$t_type=="fall") ? $port_name : "" } ]
+#@               set output_name $port_name
+#@       print_out_data_all $tag_name $output_name [string toupper [format %s $port_dir]]          [string toupper [format %s $d_type ] ] $path_name          [report_format_data $ref_slack  $data_format]           [report_format_data $chk_slack  $data_format]           [report_format_data [lindex $result 0] $data_format]           [lindex $result 1] $file
+#@       #unset all_path_slacks($ref_key)
+#@         }
+#@           }
+#@         }
+#@         }
+#@       }
+#@   }
+#@   }
+#@     }
+#@ #  print_out_string  $file "\n"
+#@   if {$mode == "verify"} {
+#@   if { $all_path_groups==1} {
+#@   foreach left_key [array names all_path_slacks] {
+#@     if {[regexp ^${tag_name}_* $left_key]} {
+#@   set chk_slack "unconst"
+#@   # set ref_slack [expr [info exists all_path_slacks($left_key)]?"$all_path_slacks($left_key)":"unconst"]
+#@   if {[info exists all_path_slacks($left_key)]} {
+#@     set ref_slack "$all_path_slacks($left_key)"
+#@   } else {
+#@     set ref_slack "unconst"
+#@   }
+#@   set result    [compare_data $ref_slack $chk_slack $abs_tolerance]
+#@   print_out_string  $file "$left_key $ref_slack $chk_slack : $result"
+#@     }
+#@   }
+#@   }
+#@   }
+#@ }
+#@ 
+#@ ###############################################################################
+#@ #
+#@ #  Utility procedures to support verify_ilm 
+#@ #
+#@ ###############################################################################
+#@ define_proc_attributes verify_ilm -hidden     -info "Save and verify the most critical path slack for each boundary port on the original design and the ILM"     -define_args       {{-mode  "specify that the data is for the design or the model" AString 	       one_of_string {required value_help {values {save verify}}}} 	   {-data_label  "to label the data" AString string {hidden optional} } 	   {-tag_name  "to tag the data e.g. MCMM scenario_name" AString string {optional} } 	   {-ignore_ports "specify a list of ports to be ignored" AList list {optional}} 	   {-output_file "output file name for verification report" AString string optional} 	   {-tolerance "tolerance for timing comparison. Default is 0.1" AFloat float optional} 	   {-verbose "print info messages while processing" "" boolean {hidden optional}} 	   {-reset_data "Reset all data stored by verify_ilm script" "" boolean optional} 	   {-all_path_groups "Compare WNS for all path groups" "" boolean {hidden optional}} 	   {-through_cells "Do checking for interface paths through specified cells" AList list {hidden optional}}} 
+#@ 
+#@ #          {-rpt_file "rpt file name for verification report" AString string optional} 
+#@ proc report_format_data {number {format_str %g} } {
+#@     switch -exact -- $number {
+#@ 	UNINIT   { }
+#@ 	INFINITY { }
+#@ 	unconst  { }
+#@ 	----     { }
+#@ 	default {set number [format $format_str $number]}
+#@     }
+#@     return $number
+#@ }
+#@ 
+#@ define_proc_attributes report_format_data -hidden     -hide_body
+#@ 
+#@ proc print_out_data { tag_name port_name port_dir slack_type ref_data model_data diff status file} {
+#@     if { $file == "__stdout__" } {
+#@ 	echo [format "%12s %15s(%5s)  %10s %10s %10s %10s  %5s" $tag_name $port_name $port_dir $slack_type 		  $ref_data $model_data $diff $status]
+#@     } else {
+#@ 	puts $file [format "%12s %15s(%5s)  %10s %10s %10s %10s  %5s" $tag_name $port_name $port_dir $slack_type 			$ref_data $model_data $diff $status]
+#@ 	flush $file
+#@     }
+#@ }
+#@ 
+#@ define_proc_attributes print_out_data -hidden     -hide_body
+#@ 
+#@ proc print_out_data_all { tag_name port_name port_dir slack_type path_name ref_data model_data diff status file} {
+#@     if { $file == "__stdout__" } {
+#@ 	echo [format "%12s %15s(%5s)  %10s %10s %10s %10s %10s  %5s" $tag_name $port_name $port_dir $slack_type $path_name		  $ref_data $model_data $diff $status]
+#@     } else {
+#@ 	puts $file [format "%12s %15s(%5s)  %10s %10s %10s %10s %10s  %5s" $tag_name $port_name $port_dir $slack_type $path_name			$ref_data $model_data $diff $status]
+#@ 	flush $file
+#@     }
+#@ }
+#@ 
+#@ define_proc_attributes print_out_data_all -hidden     -hide_body
+#@ 
+#@ proc print_out_string { file str } {
+#@     if { $file == "__stdout__" } {
+#@ 	echo $str
+#@     } else {
+#@ 	puts $file $str
+#@ 	flush $file
+#@     }
+#@ }
+#@ 
+#@ define_proc_attributes print_out_string -hidden     -hide_body
+#@ 
+#@ proc get_port_worst_slack { port port_dir d_type } {
+#@ 
+#@     global mode
+#@     #global rpt_file
+#@     global old_approach
+#@ 
+#@     set worst_slack "unconst"
+#@     set path_type [format %s  $d_type ]
+#@     if {$old_approach} {
+#@       set paths_coll [get_timing_paths -delay_type $d_type -$port_dir $port]
+#@       set paths [list]
+#@       if {[sizeof_collection $paths_coll] != 0} {
+#@         foreach_in_collection path $paths_coll {
+#@           set cur_slack [get_attribute -quiet $path slack]
+#@           set path_name [get_object_name [get_attribute -quiet $path path_group]]
+#@           lappend paths [list $cur_slack $path_name]
+#@         }
+#@       }
+#@     } else {
+#@       set paths [print_min_max_paths -delay_type $path_type -$port_dir $port]
+#@     }
+#@ 
+#@     #redirect -append $rpt_file(${mode}_$path_type) {
+#@     #     report_timing -through $port -input_pins -cap -trans -nets -sig 3 -delay $path_type 
+#@     #}
+#@ 
+#@     if {[llength $paths] != 0} {
+#@     foreach path $paths {
+#@         set cur_slack [lindex $path 0]
+#@ 	    if {$cur_slack == "INFINITY" || $cur_slack == "UNINIT" } {
+#@ 		set cur_slack "unconst"
+#@ 	    }
+#@ 	    if { $worst_slack == "unconst" || 
+#@ 		 ($cur_slack != "unconst" && $cur_slack < $worst_slack) } {
+#@ 		set worst_slack $cur_slack
+#@ 	    }
+#@ 	}
+#@     }
+#@     return $worst_slack
+#@ }
+#@ 
+#@ define_proc_attributes get_port_worst_slack -hidden     -hide_body
+#@ 
+#@ proc compare_data { ref chk tolerance} {
+#@     set difference    0.0
+#@     set status        "OK"
+#@     if {$ref == "unconst"} {
+#@ 	if {$chk != "unconst"} {
+#@ 	    set difference "----"
+#@ 	    set status "FAILED"
+#@ 	}
+#@     } elseif {$chk == "unconst"} {
+#@ 	if {$ref != "unconst"} {
+#@ 	    set difference "----"
+#@ 	    set status "FAILED"
+#@ 	}
+#@     } else {
+#@ 	set difference [expr $ref - $chk]
+#@ 	if { [expr abs($difference)] > $tolerance} {
+#@ 	    set status "FAILED"
+#@ 	}
+#@     }
+#@     return [list $difference $status]
+#@ }
+#@ 
+#@ define_proc_attributes compare_data -hidden     -hide_body
+#@ 
+#@ proc print_cmd_usage {} {
+#@     echo "Error: reference data not defined!"
+#@     echo "Usage:"
+#@     echo "      <...read design...do assertions...>"
+#@     echo "      verify_ilm -mode save"
+#@     echo "      <...create model...remove design...load model...do assertions>"
+#@     echo "      verify_ilm -mode verify"
+#@ }
+#@ 
+#@ define_proc_attributes print_cmd_usage -hidden     -hide_body
+#@ 
+#@ # -- End source /pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/auxx/syn/psyn/verify_ilm.tcl
+
 #@ 
 #@ # Enable vh psyn commands
 #@ if { $synopsys_program_name == "psyn_shell" } {
@@ -6679,12 +7171,11 @@ source /pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/admin/setup/.synops
 #@ # -- End source /pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/admin/setup/.synopsys_dc.setup
 
 set top_design MMU
-source ../dc.tcl
-#@ # -- Starting source ../dc.tcl
+source ../dct.tcl
+#@ # -- Starting source ../dct.tcl
 
-#@ set top_design MMU
-#@ source -echo -verbose ../$top_design.design_config.tcl
-#@ # -- Starting source ../MMU.design_config.tcl
+#@ source -echo -verbose ../../$top_design.design_config.tcl
+#@ # -- Starting source ../../MMU.design_config.tcl
 
 #@ set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
 #@ set hack_lef_dir /u/bcruik2/hacked_lefs
@@ -6808,13 +7299,12 @@ source ../dc.tcl
 #@ } elseif {[get_db root: .program_short_name] == "genus"} {
 #@   set_db / .max_cpus_per_server 8 
 #@ }
-#@ # -- End source ../MMU.design_config.tcl
+#@ # -- End source ../../MMU.design_config.tcl
 
 #@ 
-#@ set rtl_list [list ../rtl/MMU.sv ../rtl/TPU.sv ../rtl/MAC.sv]
-#@ 
 #@ # List all current designs
-#@ #set this_design [ list_designs ]
+#@ set this_design [ list_designs ]
+#@ 
 #@ 
 #@ source ../dc-get-timlibs.tcl
 #@ # -- Starting source ../dc-get-timlibs.tcl
@@ -6882,82 +7372,78 @@ source ../dc.tcl
 #@ # -- End source ../dc-get-timlibs.tcl
 
 #@ 
+#@ source ../dct-getcreate-mwlib.tcl
+#@ # -- Starting source ../dct-getcreate-mwlib.tcl
+
+#@ # Remove any existing MW direotory
+#@ exec rm -rf ${top_design}.mw
+#@ 
+#@ #creating milky way physical library linking information
+#@ # you will end up with something like this:
+#@ # /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway/saed32nm_rvt_1p9m /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway/saed32nm_lvt_1p9m /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/milkyway/SRAM32NM
+#@ # Sometimes there are two directories of milkyway directories, so try using the first one if there are more than one.  This works for now.
+#@ # Example:
+#@ #   /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway/saed32nm_hvt_1p9m
+#@ #   /            $lib_dir                 /lib/ $lib_type /milkyway/ first_directory_found
+#@ set mw_lib ""
+#@ foreach i $mwlib_types {
+#@    foreach j $sub_mwlib_type { 
+#@       set mw_lib1 [lindex [glob -nocomplain -type d $i/$j ] 0 ] 
+#@       if { [ llength $mw_lib1 ] > 0 } {
+#@          lappend mw_lib $mw_lib1 
+#@       }
+#@    }
+#@ }
+#@ 
+#@ # Form the Tech File and TLUplus parasitic information pointers
+#@ set tf_dir $lib_dir/../tech/milkyway
+#@ set tlu_dir $lib_dir/../tech/star_rcxt/
+#@ set_tlu_plus_files  -max_tluplus $tlu_dir/saed32nm_1p9m_Cmax.tluplus                      -min_tluplus $tlu_dir/saed32nm_1p9m_Cmin.tluplus                      -tech2itf_map  $tlu_dir/saed32nm_tf_itf_tluplus.map
+#@ 
+#@ # And create the Milkyway library for our design database storage
+#@ create_mw_lib ${top_design}.mw -technology $tf_dir/saed32nm_1p9m_mw.tf  -mw_reference_library $mw_lib -open
+#@ 
+#@ 
+#@ # -- End source ../dct-getcreate-mwlib.tcl
+
+#@ 
 #@ # Analyzing the files for the design
 #@ analyze $rtl_list -autoread -define SYNTHESIS
-#@ #analyze MAC.sv -autoread -define SYNTHESIS
-#@ #analyze TPU.sv -autoread -define SYNTHESIS
-#@ #analyze MMU.sv -autoread -define SYNTHESIS
-#@ #set top_design MMU
+#@ 
 #@ 
 #@ # Elaborate the FIFO design
-#@ elaborate ${top_design} 
-#@ #elaborate MAC.sv
-#@ #elaborate TPU.sv
-#@ #elaborate MMU.sv
-#@ #set top_design MMU
+#@ elaborate ${top_design}
 #@ 
+#@ if { [ info exists add_ios ] && $add_ios } {
+#@    source -echo -verbose ../scripts/add_ios.tcl
+#@    # Source the design dependent code that will put IOs on different sides
+#@    source ../../$top_design.add_ios.tcl
+#@ }
 #@ 
 #@ change_names -rules verilog -hierarchy
 #@ 
-#@ # Load the timing and design constraints
-#@ source -echo -verbose ../${top_design}.sdc
-#@ # -- Starting source ../MMU.sdc
-
-#@ if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_shell") } {
-#@     puts " Creating ICC2 MCMM "
-#@     create_mode func
-#@     create_corner slow
-#@     create_scenario -mode func -corner slow -name func_slow
-#@     current_scenario func_slow
-#@     set_operating_conditions ss0p75v125c
-#@     read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
-#@     read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
-#@     set_parasitic_parameters -early_spec Cmax -early_temperature 125
-#@     set_parasitic_parameters -late_spec Cmax -late_temperature 125
-#@     #set_parasitic_parameters -early_spec 1p9m_Cmax -early_temperature 125 -corner default
-#@     #set_parasitic_parameters -late_spec 1p9m_Cmax -late_temperature 125 -corner default
-#@ 
-#@     #set_scenario_status  default -active false
-#@     set_scenario_status func_slow -active true -hold true -setup true
-#@ }
-#@ set clk_period 2.0
+#@ # Comment the line below if no DEF is available.  Generic floorplan will be created.
+#@ extract_physical_constraints ../../apr/outputs/${top_design}.floorplan.def.gz
+#@ set_attribute [all_macro_cells] is_fixed true
+#@ source -echo -verbose ../../constraints/${top_design}.sdc
 #@ 
 #@ 
-#@ create_clock -name "clk" -period $clk_period  clk
-#@ set_clock_uncertainty -setup 0.025 clk
-#@ set_clock_uncertainty -hold 0.025 clk
-#@ set_clock_latency 0.23 clk
-#@ set_clock_transition 0.025 clk
-#@ # Add input/output delays in relation to related clocks
-#@ # Can tell the related clock by doing report_timing -group INPUTS  or -group OUTPUTS after using group_path
-#@ # External delay should be some percentage of clock period.
-#@ # Tune/relax if violating; most concerned about internal paths.
-#@ 
-#@ # I like set_driving_cell to a std cell from the library.  set_drive works to.
-#@ 
-#@ # set_load
-#@ 
-#@ #group_path -name INTERNAL -from [all_clocks] -to [all_clocks ]
-#@ group_path -name INPUTS -from [ get_ports -filter "direction==in&&full_name!~*clk*" ]
-#@ group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
-#@ 
-#@ # -- End source ../MMU.sdc
-
-#@ 
-#@ # any additional non-design specific constraints
+#@ # Constrain the overall data path of the design.
+#@ # 50% or so of the clock period is good.
 #@ set_max_transition 0.5 [current_design ]
+#@ set_ignored_layers -min_routing_layer M2 -max_routing_layer M7
 #@ 
-#@ # Duplicate any non-unique modules so details can be different inside for synthesis
+#@ 
 #@ set_dont_use [get_lib_cells */DELLN* ]
 #@ 
 #@ uniquify
 #@ 
-#@ #compile with ultra features and with scan FFs
-#@ compile_ultra  -scan  -no_autoungroup
+#@ 
+#@ compile_ultra  -scan -no_autoungroup
+#@ 
 #@ change_names -rules verilog -hierarchy
 #@ 
-#@ # output reports
-#@ set stage dc
+#@ set stage dct
 #@ report_qor > ../reports/${top_design}.$stage.qor.rpt
 #@ report_constraint -all_viol > ../reports/${top_design}.$stage.constraint.rpt
 #@ report_timing -delay max -input -tran -cross -sig 4 -derate -net -cap  -max_path 10000 -slack_less 0 > ../reports/${top_design}.$stage.timing.max.rpt
@@ -6965,12 +7451,13 @@ source ../dc.tcl
 #@ check_design > ../reports/${top_design}.$stage.check_design.rpt
 #@ check_mv_design  > ../reports/${top_design}.$stage.mvrc.rpt
 #@ 
-#@ # output netlist
 #@ write -hier -format verilog -output ../outputs/${top_design}.$stage.vg
 #@ write -hier -format ddc -output ../outputs/${top_design}.$stage.ddc
+#@ write_def -blockages -macro -pins -output ../outputs/${top_design}.$stage.def
 #@ save_upf ../outputs/${top_design}.$stage.upf
+#@ write_def -scanchain -output ../outputs/${top_design}.$stage.scan.def
 #@ 
-#@ # -- End source ../dc.tcl
+#@ # -- End source ../dct.tcl
 
 gui_start
 #@ # -- Starting source /pkgs/synopsys/2020/design_compiler/syn/Q-2019.12-SP3/auxx/tcllib/lib/itk4.0.2/itk.tcl
@@ -43336,14 +43823,5 @@ gui_start
 change_selection [get_s MMU]
 gui_zoom -window [gui_get_current_window -view] -full
 change_selection [get_s MMU]
-gui_zoom -window [gui_get_current_window -view] -full
-change_selection [get_s m03]
-gui_zoom -window [gui_get_current_window -view] -full
-gui_zoom -window [gui_get_current_window -view] -full
-change_selection [get_s m32]
-change_selection [get_s m32]
-change_selection [get_s m32]
-change_selection [get_s U185]
-change_selection [get_s U185]
 gui_zoom -window [gui_get_current_window -view] -full
 exit

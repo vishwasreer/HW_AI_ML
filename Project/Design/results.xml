@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1749754707" />
+    <testcase classname="Apb_master" file="/u/routh/HW_AI_ML/Project/Design/Apb_master.py" lineno="6" name="simple_test" ratio_time="37397.70909880846" sim_time_ns="220.001" time="0.005882740020751953" />
+  </testsuite>
+</testsuites>

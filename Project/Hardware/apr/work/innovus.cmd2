@@ -1,0 +1,59 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Apr  9 20:34:29 2024                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+fs
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+is_common_ui_mode
+is_common_ui_mode
+set init_mmmc_file mmmc.tcl
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/fifo1_sram.genus.vg
+set init_top_cell fifo1_sram
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+is_common_ui_mode
+setNanoRouteMode -drouteEndIteration 10
+defIn ../outputs/fifo1_sram.floorplan.innovus.macros.def
+add_tracks -honor_pitch
+clearGlobalNets
+globalNetConnect VDD -type pgpin -pin VDD -inst *
+globalNetConnect VSS -type pgpin -pin VSS -inst *
+checkDesign -powerGround -noHtml -outfile pg.rpt
+addRing -type core_rings -nets {VDD VSS} -layer {top M8 bottom M8 left M7 right M7} -offset 1 -width 4 -spacing 1.0
+addStripe -nets {VDD VSS} -direction vertical -layer M4 -width 0.060 -set_to_set_distance 20 -spacing 10
+addStripe -nets {VDD VSS} -direction horizontal -layer M5 -width 0.120 -set_to_set_distance 20 -spacing 10
+addStripe -nets {VDD VSS} -direction vertical -layer M6 -width 0.120 -set_to_set_distance 20 -spacing 10
+addStripe -nets {VDD VSS} -direction horizontal -layer M7 -width 2 -set_to_set_distance 40 -spacing 20
+addStripe -nets {VDD VSS} -direction vertical -layer M8 -width 4 -set_to_set_distance 80 -spacing 40
+sroute -connect {corePin padPin} -crossoverViaLayerRange {1 4}
+createRow -area {0.0000 0.0000 580 580} -site unitdouble
+deleteInst {fifomem/g234__2398 fifomem/g235__5107 fifomem/g236__6260 fifomem/g237__4319 fifomem/g238__8428 fifomem/g239__5526 fifomem/g240__6783 fifomem/g241__3680 fifomem/g242 fifomem/g243__1617 fifomem/g244__2802 fifomem/g245 fifomem/g246__1705 fifomem/g247__5122 fifomem/g248 fifomem/g249 fifomem/g250 fifomem/g251__8246 fifomem/g252__7098 fifomem/g253__6131 fifomem/g254__1881 fifomem/g255__5115 fifomem/g256__7482 fifomem/g257__4733 fifomem/g258__6161 fifomem/g259 fifomem/g260__9315 fifomem/g261__9945 fifomem/g262 fifomem/g263__2883 fifomem/g264__2346 fifomem/g265 fifomem/g266 fifomem/g267 rptr_empty/rptr_reg_7_ rptr_empty/rptr_reg_6_ rptr_empty/rptr_reg_5_ rptr_empty/g472__1666 rptr_empty/rptr_reg_8_ rptr_empty/rptr_reg_9_ rptr_empty/rptr_reg_4_ rptr_empty/rptr_reg_2_ rptr_empty/rptr_reg_3_ rptr_empty/g481__7410 rptr_empty/rptr_reg_1_ rptr_empty/g486__6417 rptr_empty/g487__5477 rptr_empty/g490__2398 rptr_empty/g491__5107 rptr_empty/rptr_reg_0_ rptr_empty/g493__6260 rptr_empty/g494__4319 rptr_empty/g496__8428 rptr_empty/g497__5526 rptr_empty/g498__6783 rptr_empty/g499__3680 rptr_empty/g500__1617 rptr_empty/g501 rptr_empty/g504__2802 rptr_empty/g506__1705 rptr_empty/g508__5122 rptr_empty/g510__8246 rptr_empty/g512__7098 rptr_empty/g514__6131 rptr_empty/g516__1881 rptr_empty/g518__5115 rptr_empty/g520__7482 rptr_empty/g522__4733 rptr_empty/g524__6161 rptr_empty/g526__9315 rptr_empty/g528__9945 rptr_empty/rempty_reg rptr_empty/g440__2883 rptr_empty/g441__2346 rptr_empty/g442__1666 rptr_empty/g443__7410 rptr_empty/g444__6417 rptr_empty/g445__5477 rptr_empty/g446__2398 rptr_empty/g447__5107 rptr_empty/g449__6260 rptr_empty/g450__4319 rptr_empty/g451__8428 rptr_empty/g452__5526 rptr_empty/rbin_reg_2_ rptr_empty/rbin_reg_3_ rptr_empty/rbin_reg_4_ rptr_empty/rbin_reg_5_ rptr_empty/rbin_reg_6_ rptr_empty/rbin_reg_7_ rptr_empty/g459__6783 rptr_empty/rbin_reg_9_ rptr_empty/rbin_reg_10_ rptr_empty/rbin_reg_1_ rptr_empty/rbin_reg_0_ rptr_empty/g464__3680 rptr_empty/rbin_reg_8_ rptr_empty/g466 rptr_empty/g467 rptr_empty/drc_bufs529 rptr_empty/g469__1617 sync_r2w/wq2_rptr_reg_7_ sync_r2w/wq2_rptr_reg_9_ sync_r2w/wq2_rptr_reg_10_ sync_r2w/wq2_rptr_reg_3_ sync_r2w/wq2_rptr_reg_2_ sync_r2w/wq2_rptr_reg_6_ sync_r2w/wq2_rptr_reg_1_ sync_r2w/wq2_rptr_reg_0_ sync_r2w/wq2_rptr_reg_8_ sync_r2w/wq2_rptr_reg_5_ sync_r2w/wq2_rptr_reg_4_ sync_r2w/wq1_rptr_reg_8_ sync_r2w/wq1_rptr_reg_7_ sync_r2w/wq1_rptr_reg_6_ sync_r2w/wq1_rptr_reg_9_ sync_r2w/wq1_rptr_reg_10_ sync_r2w/wq1_rptr_reg_5_ sync_r2w/wq1_rptr_reg_1_ sync_r2w/wq1_rptr_reg_3_ sync_r2w/wq1_rptr_reg_0_ sync_r2w/wq1_rptr_reg_2_ sync_r2w/wq1_rptr_reg_4_ sync_w2r/rq2_wptr_reg_7_ sync_w2r/rq2_wptr_reg_9_ sync_w2r/rq2_wptr_reg_10_ sync_w2r/rq2_wptr_reg_3_ sync_w2r/rq2_wptr_reg_2_ sync_w2r/rq2_wptr_reg_6_ sync_w2r/rq2_wptr_reg_1_ sync_w2r/rq2_wptr_reg_0_ sync_w2r/rq2_wptr_reg_8_ sync_w2r/rq2_wptr_reg_5_ sync_w2r/rq2_wptr_reg_4_ sync_w2r/rq1_wptr_reg_8_ sync_w2r/rq1_wptr_reg_7_ sync_w2r/rq1_wptr_reg_6_ sync_w2r/rq1_wptr_reg_9_ sync_w2r/rq1_wptr_reg_10_ sync_w2r/rq1_wptr_reg_5_ sync_w2r/rq1_wptr_reg_1_ sync_w2r/rq1_wptr_reg_3_ sync_w2r/rq1_wptr_reg_0_ sync_w2r/rq1_wptr_reg_2_ sync_w2r/rq1_wptr_reg_4_ wptr_full/wptr_reg_7_ wptr_full/wptr_reg_6_ wptr_full/wptr_reg_5_ wptr_full/g478__2802 wptr_full/wptr_reg_8_ wptr_full/wptr_reg_9_ wptr_full/wptr_reg_4_ wptr_full/wptr_reg_2_ wptr_full/wptr_reg_3_ wptr_full/g487__1705 wptr_full/wptr_reg_1_ wptr_full/g492__5122 wptr_full/g493__8246 wptr_full/g496__7098 wptr_full/g497__6131 wptr_full/wptr_reg_0_ wptr_full/g499__1881 wptr_full/g500__5115 wptr_full/g502__7482 wptr_full/g503__4733 wptr_full/g504__6161 wptr_full/g505__9315 wptr_full/g506__9945 wptr_full/g509__2883 wptr_full/g511__2346 wptr_full/g513__1666 wptr_full/g515__7410 wptr_full/g517__6417 wptr_full/g519__5477 wptr_full/g521__2398 wptr_full/g523__5107 wptr_full/g525__6260 wptr_full/g527__4319 wptr_full/g529__8428 wptr_full/g531__5526 wptr_full/g533__6783 wptr_full/wfull_reg wptr_full/g442__3680 wptr_full/g443__1617 wptr_full/g444__2802 wptr_full/g445__1705 wptr_full/g446__5122 wptr_full/g447__8246 wptr_full/g448__7098 wptr_full/g449__6131 wptr_full/g450__1881 wptr_full/g451__5115 wptr_full/g452__7482 wptr_full/g453__4733 wptr_full/g454__6161 wptr_full/wbin_reg_6_ wptr_full/wbin_reg_3_ wptr_full/wbin_reg_4_ wptr_full/wbin_reg_5_ wptr_full/wbin_reg_2_ wptr_full/wbin_reg_7_ wptr_full/wbin_reg_8_ wptr_full/wbin_reg_9_ wptr_full/g463__9315 wptr_full/wbin_reg_0_ wptr_full/wbin_reg_1_ wptr_full/g466__9945 wptr_full/g467__2883 wptr_full/g468__2346 wptr_full/g469__1666 wptr_full/g470__7410 wptr_full/wbin_reg_10_ wptr_full/g472 wptr_full/g473 wdata_reg_4_ wdata_reg_5_ wdata_reg_0_ wdata_reg_3_ wdata_reg_1_ wdata_reg_7_ wdata_reg_2_ wdata_reg_6_}
+defOut -noStdCells ../outputs/fifo1_sram.floorplan.innovus.def
+deselectAll
+select_obj [ get_ports * ]
+select_obj {inst:fifo1_sram/fifomem/genblk1_0__U inst:fifo1_sram/fifomem/genblk1_1__U inst:fifo1_sram/fifomem/genblk1_2__U inst:fifo1_sram/fifomem/genblk1_3__U inst:fifo1_sram/fifomem/genblk1_4__U inst:fifo1_sram/fifomem/genblk1_5__U inst:fifo1_sram/fifomem/genblk1_6__U inst:fifo1_sram/fifomem/genblk1_7__U}
+select_obj {inst:fifo1_sram/io_b_rclk inst:fifo1_sram/io_b_rinc inst:fifo1_sram/io_b_rrst_n inst:fifo1_sram/io_b_wclk inst:fifo1_sram/io_b_wclk2x inst:fifo1_sram/io_b_winc inst:fifo1_sram/io_b_wrst_n inst:fifo1_sram/io_l_rdata_0_ inst:fifo1_sram/io_l_rdata_1_ inst:fifo1_sram/io_l_rdata_2_ inst:fifo1_sram/io_l_rdata_3_ inst:fifo1_sram/io_l_rdata_4_ inst:fifo1_sram/io_l_rdata_5_ inst:fifo1_sram/io_l_rdata_6_ inst:fifo1_sram/io_l_rdata_7_ inst:fifo1_sram/io_r_wdata_in_0_ inst:fifo1_sram/io_r_wdata_in_1_ inst:fifo1_sram/io_r_wdata_in_2_ inst:fifo1_sram/io_r_wdata_in_3_ inst:fifo1_sram/io_r_wdata_in_4_ inst:fifo1_sram/io_r_wdata_in_5_ inst:fifo1_sram/io_r_wdata_in_6_ inst:fifo1_sram/io_r_wdata_in_7_ inst:fifo1_sram/io_t_rempty inst:fifo1_sram/io_t_wfull}

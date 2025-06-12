@@ -1,0 +1,473 @@
+setting auto_restore_mw_cel_lib_setup true
+icc2_shell> set top_design MMU
+MMU
+icc2_shell> source ../scripts/floorplan-macros2.tcl
+set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+set hack_lef_dir /u/bcruik2/hacked_lefs
+/u/bcruik2/hacked_lefs
+# Decoder ring for the libraries
+# You will need to follow another example or look in the library directories to understand.
+# lib_types is used for the dc/dct linking variables and ICC2 NDM lcoations.
+# /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm
+# /          $lib_dir                   /lib/ $lib_type /db_nldm
+# link_library, Target_library use the sub_lib_types and corner variables. 
+# For sub_lib_types and corner:
+# Example:
+#     saed32hvt_ss0p75v125c.db
+#     |sub_lib  corner    .db
+# The current flow tries to find all sub_lib and all corners in all the search paths.  Any match will be put in the library list.
+# Wild cards can be used, but be careful.  Multiple matches can occur in ways you don't want.
+# For the target library, the same method is used as the link library except only HVT and RVT lib_types are used.
+# ICC2 NDM choosing also uses the sub_lib_types so that only the required libraries and extras are not loaded.
+# ORCA
+# The RTL version does not currently have macros
+# The one pulled from a lab does have macros, but no RTL.  Similar to the version with RTL.
+# Below is an effort to get the design pulled from a lap working for ICC2
+# Original lab had sram_lp memories, but the NDMs don't seem to be build correctly for the current libraries.  Converted code to regular SRAMs.
+#set top_design ORCA_TOP
+set FCL 0
+0
+set add_ios 0
+0
+set pad_design 0
+0
+set design_size {950 620}
+950 620
+set design_io_border 10
+10
+set dc_floorplanning 1
+1
+set enable_dft  1
+1
+set innovus_enable_manual_macro_placement 1
+1
+set split_constraints 0
+0
+# This is the raw RTL without SRAMS
+#set rtl_list [list [glob /pkgs/synopsys/32_28nm/SAED_EDK32.28nm_REF_v_15032018/SAED32_EDK/references/orca/dc/rtl/*.vhd ] ../rtl/MUX21X2.sv ]
+# This is hacked P&R netlist with SRAMs and test and level shifters removed.
+set rtl_list [list ../rtl/$top_design.sv ]
+../rtl/MMU.sv
+set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v
+set synth_corners_slow $slow_corner
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+set synth_corners_fast $fast_corner
+ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v
+set slow_metal Cmax.tlup_-40
+Cmax.tlup_-40
+set fast_metal Cmin.tlup_-40
+Cmin.tlup_-40
+set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_lvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/db_nldm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/db_nldm
+set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_lvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/ndm /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/ndm  /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/ndm
+set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/db_nldm
+set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_ saed32?vt_ulvl_ saed32?vt_dlvl_"
+saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_ saed32?vt_ulvl_ saed32?vt_dlvl_
+set sub_lib_type_target "saed32rvt_"
+saed32rvt_
+set synth_corners_target "ss0p95vn40c ss0p75vn40c" 
+ss0p95vn40c ss0p75vn40c
+#set synth_corners_target "ss0p95v125c" 
+set tech_lef ${hack_lef_dir}/tech.lef 
+/u/bcruik2/hacked_lefs/tech.lef
+# set tech_lef ../../cadence_cap_tech/tech.lef
+set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+/u/bcruik2/hacked_lefs /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/lef/ /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/lef /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/lef
+#set lef_types [list $lib_dir/stdcell_hvt/lef  $lib_dir/stdcell_rvt/lef $lib_dir/stdcell_lvt/lef $lib_dir/sram/lef $lib_dir/io_std/lef $lib_dir/pll/lef ]
+set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32io_std_wb saed32_PLL.lef"
+saed32nm_?vt_*.lef saed32sram.lef saed32io_std_wb saed32_PLL.lef
+set synth_corners $slow_corner
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+set synth_corners_slow $slow_corner
+ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v
+set synth_corners_fast $fast_corner
+ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v
+set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_rvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_lvt/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/io_std/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/sram/milkyway /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/pll/milkyway
+set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*
+#set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram"
+# Get just the main standard cells, srams
+#set sub_lib_type "saed32?vt_ saed32sram_ saed32?vt_ulvl_ saed32?vt_dlvl_ "
+# Full MCMM Corners
+if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+#set topdir /u/$env(USER)/PSU_RTL2GDS
+set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+/u/routh/HW_AI_ML/Project/Hardware/
+#declaring sub blocks
+set sub_block {SDRAM_TOP 
+                                BLENDER_0 
+                                PCI_TOP 
+                                CONTEXT_MEM 
+                                RISC_CORE 
+                                CLOCKING 
+                                BLENDER_1 
+                                PARSER 
+                                }
+SDRAM_TOP 
+                                BLENDER_0 
+                                PCI_TOP 
+                                CONTEXT_MEM 
+                                RISC_CORE 
+                                CLOCKING 
+                                BLENDER_1 
+                                PARSER 
+                                
+set sub_block_I {I_SDRAM_TOP I_BLENDER_1  I_BLENDER_0 I_RISC_CORE I_CONTEXT_MEM I_PCI_TOP I_PARSER I_CLOCKING}
+I_SDRAM_TOP I_BLENDER_1  I_BLENDER_0 I_RISC_CORE I_CONTEXT_MEM I_PCI_TOP I_PARSER I_CLOCKING
+set macro_block {I_SDRAM_TOP I_PCI_TOP I_RISC_CORE I_CONTEXT_MEM}
+I_SDRAM_TOP I_PCI_TOP I_RISC_CORE I_CONTEXT_MEM
+if {[info exists synopsys_program_name]} {
+        if { $synopsys_program_name == "dc_shell" } {
+           set_host_options -max_cores 4
+        } 
+        if { ( $synopsys_program_name == "icc2_shell" ) || ($synopsys_program_name == "fc_shell" ) } {
+           set_host_options -max_cores 4
+        }
+} elseif {[get_db root: .program_short_name] == "innovus"} {
+        if [is_common_ui_mode ] {set_multi_cpu_usage -local_cpu 8  
+        } else { setMultiCpuUsage -localCpu 8 }
+} elseif {[get_db root: .program_short_name] == "genus"} {
+  set_db / .max_cpus_per_server 8 
+}
+1
+# Look for directories like this "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm"
+# This may not be used
+set search_path ""
+foreach i $lib_types { lappend search_path $lib_dir/lib/$i/ndm }
+#set synthetic_library dw_foundation.sldb
+# Changed to only be the slow corner libraries
+#set target_library "saed32hvt_ss0p75v125c.db saed32lvt_ss0p75v125c.db saed32rvt_ss0p75v125c.db"
+# enable the lvt and rvt library for now at the slow corner
+#set target_library "saed32lvt_ss0p75v125c.db saed32rvt_ss0p75v125c.db saed32io_wb_ss0p95v125c_2p25v.db"
+set libs ""
+# should we use _pg_c.ndm, _c.ndm, dlvl_v.ndm, _ulvl_v.ndm
+set suffix "c.ndm 5v.ndm v.ndm"
+c.ndm 5v.ndm v.ndm
+# Look for files like this "/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/stdcell_hvt/ndm/saed32hvt$suffix"
+set libs ""
+foreach i $ndm_types { 
+    foreach j $suffix {
+        foreach k $sub_lib_type {
+          foreach m [glob -nocomplain $i/$k$j ] {
+            lappend libs $m
+          }
+        }
+    }
+}
+set tf_dir "$lib_dir/../tech/milkyway/"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/../tech/milkyway/
+set tlu_dir "$lib_dir/../tech/star_rcxt/"
+/pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib/../tech/star_rcxt/
+#set_tlu_plus_files  -max_tluplus $tlu_dir/saed32nm_1p9m_Cmax.tluplus  \
+#                    -min_tluplus $tlu_dir/saed32nm_1p9m_Cmin.tluplus  \
+#                    -tech2itf_map  $tlu_dir/saed32nm_tf_itf_tluplus.map
+if { [ info exists dc_floorplanning ] && $dc_floorplanning } {
+   set verilog_file ../../syn/outputs/${top_design}.dc.vg
+} else {
+   set verilog_file ../../syn/outputs/${top_design}.dct.vg
+}
+../../syn/outputs/MMU.dc.vg
+file delete -force $my_lib 
+# Adding the tech file causes problems later with missing routing directions for some reason.
+#create_lib $my_lib -ref_libs $libs -tech $tf_dir/saed32nm_1p9m_mw.tf 
+create_lib $my_lib -ref_libs $libs  -use_technology_lib [lindex $libs 0 ] 
+{MMU_lib}
+create_block ${top_design}
+Information: Creating block 'MMU.design' in library 'MMU_lib'. (DES-013)
+{MMU_lib:MMU.design}
+open_block ${top_design}
+Information: The command 'open_block' cleared the undo history. (UNDO-016)
+Information: Incrementing open_count of block 'MMU_lib:MMU.design' to 2. (DES-021)
+{MMU_lib:MMU.design}
+#import_designs $verilog_file \
+#       -format verilog \
+#       -cel $top_design \
+#       -top $top_design
+read_verilog  -top $top_design  $verilog_file
+Loading verilog file '/u/routh/HW_AI_ML/Project/Hardware/syn/outputs/MMU.dc.vg'
+Number of modules read: 17
+Top level ports: 771
+Total ports in all modules: 2355
+Total nets in all modules: 8804
+Total instances in all modules: 4962
+Elapsed = 00:00:00.06, CPU = 00:00:00.05
+1
+# Read the SCANDEF information created by DFTC
+# read_def $scandef_file
+if { [info exists synopsys_program_name ] && ($synopsys_program_name == "icc2_shell") } {
+    puts " Creating ICC2 MCMM "
+    create_mode func
+    create_corner slow
+    create_scenario -mode func -corner slow -name func_slow
+    current_scenario func_slow
+    set_operating_conditions ss0p75v125c
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmax.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmax
+    read_parasitic_tech -tlup $tlu_dir/saed32nm_1p9m_Cmin.tluplus -layermap $tlu_dir/saed32nm_tf_itf_tluplus.map -name Cmin
+    set_parasitic_parameters -early_spec Cmax -early_temperature 125
+    set_parasitic_parameters -late_spec Cmax -late_temperature 125
+    #set_parasitic_parameters -early_spec 1p9m_Cmax -early_temperature 125 -corner default
+    #set_parasitic_parameters -late_spec 1p9m_Cmax -late_temperature 125 -corner default
+
+    #set_scenario_status  default -active false
+    set_scenario_status func_slow -active true -hold true -setup true
+}
+ Creating ICC2 MCMM 
+Using libraries: MMU_lib saed32rvt_c saed32rvt_ulvl_v saed32rvt_dlvl_v saed32lvt_c saed32lvt_ulvl_v saed32lvt_dlvl_v saed32hvt_c saed32hvt_ulvl_v saed32hvt_dlvl_v saed32sram_c saed32io_wb_5v
+Linking block MMU_lib:MMU.design
+Information: User units loaded from library 'saed32rvt_c' (LNK-040)
+Design 'MMU' was successfully linked.
+Created scenario func_slow for mode func and corner slow
+All analysis types are activated.
+Warning: use early spec Cmax for late which is not specified
+Warning: use late spec Cmax for early which spec is not specified. 
+Scenario func_slow (mode func corner slow) is active for setup/hold/leakage_power/dynamic_power/max_transition/max_capacitance/min_capacitance analysis.
+1
+set clk_period 2.0
+2.0
+create_clock -name "clk" -period $clk_period  clk
+{clk}
+set_clock_uncertainty -setup 0.025 clk
+1
+set_clock_uncertainty -hold 0.025 clk
+1
+set_clock_latency 0.23 clk
+1
+set_clock_transition 0.025 clk
+1
+# Add input/output delays in relation to related clocks
+# Can tell the related clock by doing report_timing -group INPUTS  or -group OUTPUTS after using group_path
+# External delay should be some percentage of clock period.
+# Tune/relax if violating; most concerned about internal paths.
+# I like set_driving_cell to a std cell from the library.  set_drive works to.
+# set_load
+#group_path -name INTERNAL -from [all_clocks] -to [all_clocks ]
+group_path -name INPUTS -from [ get_ports -filter "direction==in&&full_name!~*clk*" ]
+Information: Timer using 4 threads
+1
+group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
+1
+Removing existing floorplan objects
+Creating core...
+Core utilization ratio = 2.83%
+Unplacing all cells...
+Creating site array...
+Creating routing tracks...
+Initializing floorplan completed.
+****************************************
+Report : Power/Ground Connection Summary
+Design : MMU
+Version: V-2023.12
+Date   : Wed Jun 11 21:19:37 2025
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 0/4946
+Ground net VSS                0/4946
+--------------------------------------------------------------------------------
+Information: connections of 9892 power/ground pin(s) are created or changed.
+Starting FP Placement: ...
+Warning: No placement_blockage objects matched '*' (SEL-004)
+Error: Nothing matched for blockage_list (SEL-005)
+Warning: application option <plan.macro.macros_on_edge> is deprecated and scheduled for removal in a future release. See the man page for this  application option for migration assistance. (NDMUI-441)
+#set tool [get_db root: .program_short_name]
+if {[info exists synopsys_program_name]} {
+
+        if { $synopsys_program_name == "dc_shell" } {
+        
+                set auto_insert_level_shifters_on_clocks all
+        }
+
+        if { $synopsys_program_name == "icc2_shell" } {
+
+                ####### FLOORPLANNING OPTIONS
+                if { [sizeof_collection [get_placement_blockage io_pblockage ] ] ==0 } {
+                  #create_placement_blockage -type hard_macro -boundary {{10.0 10.0} {1000 50}} -name io_pblockage
+                  #create_placement_blockage -type hard_macro -boundary {{10.0 10.0} {800 30}} -name io_pblockage
+                }
+
+                set_individual_pin_constraints -sides 4 -ports [get_attribute [get_ports ] name ] -offset 500 -pin_spacing 1 -allowed_layers [ get_layers { M4 M5 M6 M7 } ]
+                set_individual_pin_constraints -sides 4 -ports [get_attribute [get_ports ] name ]
+                place_pins -self
+                #set_individual_pin_constraints -sides 4 -ports [get_attribute [get_ports ] name ]
+            #load_upf ../../syn/outputs/ORCA_TOP.dc.upf.place_2020
+
+                if { [ sizeof_collection [get_voltage_areas * ] ] < 2 && $FCL==0} {
+                        create_voltage_area -power_domains {PD_RISC_CORE} -power VDDH -ground VSS -cells [get_cells I_RISC_CORE/*] -region {{11 433} {417 649}} -name RISC_CORE_VA
+                #       create_voltage_area  -region {{10.0 433.0480} {418.27 653.72}} -power_domains PD_RISC_CORE
+                }
+
+                
+                if { [sizeof_collection [ get_placement_blockages pb* ] ] == 0 && $FCL==0 } {
+                create_placement_blockage -name pb_PCI -type allow_buffer_only -blocked_percentage 0 -boundary {{12.5400 11.6720} {12.5400 459.1800} {136.7500 459.1800} {136.7500 136.5420} {275.9600 136.5420} {275.9600 11.6720}}
+                create_placement_blockage -name pb_SDRAM -type allow_buffer_only -blocked_percentage 0 -boundary {{729.9360 216.8970} {1007.7480 216.8970} {1007.7480 12.0810} {729.9360 12.0810}}
+                create_placement_blockage -name pb_CONTEXT -type allow_buffer_only -blocked_percentage 0 -boundary {{829.0800 216.8970} {829.0800 505.3040} {537.9270 505.3040} {537.9270 651.7880} {1008.1820 651.7880} {1008.1820 216.8970}}
+                create_placement_blockage -name pb_RISC -type allow_buffer_only -blocked_percentage 0 -boundary {{11.6720 459.1800} {11.6720 650.0060} {303.6600 650.0060} {303.6600 459.1800}}
+                
+                }
+                ######PLACE
+
+                set_app_option -name place.coarse.continue_on_missing_scandef -value true
+
+                set_app_option -name place_opt.initial_place.effort -value medium
+                set_app_option -name place_opt.final_place.effort -value medium
+
+
+                #set enable_recovery_removal_arcs true
+                set_app_option -name time.disable_recovery_removal_checks -value false
+                #set timing_enable_multiple_clocks_per_reg true
+                #set timing_remove_clock_reconvergence_pessimism true
+                set_app_option -name timer.remove_clock_reconvergence_pessimism -value true
+
+                #set physopt_enable_via_res_support true
+                #set physopt_hard_keepout_distance 5
+                #set_preferred_routing_direction -direction vertical -l {M2 M4}
+                #set_preferred_routing_direction -direction horizontal -l {M3 M5}
+                set_ignored_layers  -min_routing_layer M2 -max_routing_layer M7
+
+
+                # To optimize DW components (I think only adders right now??) - default is false
+                #set physopt_dw_opto true
+
+                #set_ahfs_options -remove_effort high
+                #set_buffer_opt_strategy -effort medium
+
+
+                ###########################  CTS Related
+                create_routing_rule clock_double_spacing -spacings {M1 0.1 M2 0.112 M3 0.112 M4 0.112 M5 0.112 M6 0.112 M7 0.112 M8 0.112}
+                #set_clock_routing_rules -clock [ get_clocks * ] -net_type leaf -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+                set_clock_routing_rules -clock [ get_clocks * ] -net_type internal -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+                set_clock_routing_rules -clock [ get_clocks * ] -net_type root -rule clock_double_spacing -max_routing_layer M6 -min_routing_layer M3
+
+                set cts_clks [get_clocks {SDRAM_CLK SYS_2x_CLK SYS_CLK PCI_CLK} ]
+
+                # don't allow X16 or X32.  Maybe just stop X32.  They are extremely high drive and could cause EM problems.
+                set_lib_cell_purpose -include none [get_lib_cell {*/*X32*} ]
+
+                # dont allow INV* for CTS since I think they are unbalanced rise/fall
+                set_lib_cell_purpose -exclude cts [ get_lib_cell */INV* ]
+
+                # potentially try to disallow IBUF (inverter buffers) or NBUF (non-inverting buffers) to see if all inverters or all buffers makes a difference
+                set_lib_cell_purpose -exclude cts [ get_lib_cell */IBUF* ]
+                #set_lib_cell_purpose -exclude cts [ get_lib_cell */NBUF* ]
+
+                # dont allow slower cells on clock trees.  
+                set_lib_cell_purpose -exclude cts [ get_lib_cell { */*HVT */*RVT } ]
+
+                set_max_transition 0.15 -clock_path $cts_clks 
+
+                # Other potential options
+                # set_max_capacitance cap_value -clock_path $cts_clks
+                # set_app_option -name cts.common.max_net_length  -value float
+                # set_app_option -name cts.common.max_fanout  -value <2-1000000>
+                # set_clock_tree_options -target_skew value -clock $cts_clks 
+                # set_clock_tree_options -target_latency value -clock $cts_clks
+
+                #set_host_options -max_cores 1 -num_processes 1 mo.ece.pdx.edu
+                set_app_options -name place_opt.flow.enable_ccd -value false
+                set_app_options -name clock_opt.flow.enable_ccd -value false
+                set_app_options -name route_opt.flow.enable_ccd -value false
+                set_app_options -name ccd.max_postpone -value 0
+                set_app_options -name ccd.max_prepone -value 0
+
+
+                # If design blows up, try turning hold fixing off. 
+                # set_app_option -name clock_opt.flow.skip_hold -value true
+
+                # Dont use delay buffers
+                #set_dont_use [get_lib_cells */DELLN* ]
+                set_lib_cell_purpose -include none [get_lib_cells */DELLN* ]
+                set_lib_cell_purpose -include hold [get_lib_cells */DELLN* ]
+
+                ########################## Route related
+                set_app_option -name route_opt.flow.xtalk_reduction -value true
+                set_app_option -name time.si_enable_analysis -value true
+
+        }
+} elseif {[get_db root: .program_short_name] == "innovus"} {
+        setNanoRouteMode -drouteEndIteration 10
+        set cts_clks [get_clocks {SDRAM_CLK SYS_2x_CLK SYS_CLK PCI_CLK} ]
+
+  setMultiCpuUsage -localCpu 4 
+        #set_max_transition 0.1 -clock_path $cts_clks
+        set_ccopt_property target_max_trans 0.3ns
+
+}
+Warning: No placement_blockage objects matched 'io_pblockage' (SEL-004)
+Information: The command 'set_individual_pin_constraints' cleared the undo history. (UNDO-016)
+Information: Starting 'place_pins' (FLW-8000)
+Information: Time: 2025-06-11 21:19:37 / Session:  00:00:46 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 571 MB (FLW-8100)
+Load DB...
+CPU Time for load db: 00:00:00.02u 00:00:00.01s 00:00:00.03e: 
+
+Min routing layer: M1
+Max routing layer: MRDL
+
+
+CPU Time for Top Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of block ports: 771
+Number of block pin locations assigned from router: 0
+CPU Time for Pin Preparation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of PG ports on blocks: 0
+Number of pins created: 771
+CPU Time for Pin Creation: 00:00:01.47u 00:00:00.00s 00:00:01.47e: 
+Total Pin Placement CPU Time: 00:00:01.51u 00:00:00.02s 00:00:01.53e: 
+Information: Ending   'place_pins' (FLW-8001)
+Information: Time: 2025-06-11 21:19:39 / Session:  00:00:48 / Command:  00:00:01 / CPU:  00:00:01 / Memory: 577 MB (FLW-8100)
+Warning: No cell objects matched 'I_RISC_CORE/*' (SEL-004)
+Warning: Nothing implicitly matched 'PD_RISC_CORE' (SEL-003)
+Error: Nothing matched for -power_domains (SEL-005)
+Error: bad value specified for option -power_domains
+        Use error_info for more info. (CMD-013)
+Information: script '/u/routh/HW_AI_ML/Project/Hardware/MMU.design_options.tcl'
+                stopped at line 25 due to error. (CMD-081)
+Extended error info:
+bad value specified for option -power_domains
+    while executing
+"create_voltage_area -power_domains {PD_RISC_CORE} -power VDDH -ground VSS -cells [get_cells I_RISC_CORE/*] -region {{11 433} {417 649}} -name RISC_COR..."
+    (file "/u/routh/HW_AI_ML/Project/Hardware/MMU.design_options.tcl" line 25)
+ -- End Extended Error Info
+Information: script '/u/routh/HW_AI_ML/Project/Hardware/apr/scripts/floorplan-macros2.tcl'
+                stopped at line 77 due to error. (CMD-081)
+Extended error info:
+bad value specified for option -power_domains
+    while executing
+"create_voltage_area -power_domains {PD_RISC_CORE} -power VDDH -ground VSS -cells [get_cells I_RISC_CORE/*] -region {{11 433} {417 649}} -name RISC_COR..."
+    (file "/u/routh/HW_AI_ML/Project/Hardware/MMU.design_options.tcl" line 25)
+    invoked from within
+"source -echo -verbose ../../${top_design}.design_options.tcl"
+    (file "/u/routh/HW_AI_ML/Project/Hardware/apr/scripts/floorplan-macros2.tcl" line 77)
+ -- End Extended Error Info
+icc2_shell> exit
+Maximum memory usage for this session: 576.87 MB
+Maximum memory usage for this session including child processes: 576.87 MB
+CPU usage for this session:     11 seconds (  0.00 hours)
+Elapsed time for this session:    198 seconds (  0.06 hours)
+Thank you for using IC Compiler II.
+

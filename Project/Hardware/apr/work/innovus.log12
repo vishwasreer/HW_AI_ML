@@ -1,0 +1,45 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v23.10-p003_1, built Thu Feb 1 13:54:57 PST 2024
+Options:	-stylus 
+Date:		Mon Apr  7 20:44:04 2025
+Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+OS:		CentOS Linux 7 (Core)
+
+License:
+		[20:44:04.350066] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+		invs	Innovus Implementation System	23.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Create and set the environment variable TMPDIR to /u/routh/ECE530-2024-SPRING/lab1-vishwasreer/apr/work/innovus_temp_20243_auto.ece.pdx.edu_routh_6KPlOk.
+
+Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+[INFO] Loading Pegasus 23.20 fill procedures
+#@ Loading startup files...
+@innovus 1> source innovus_startup.tcl
+#@ Begin verbose source (pre): source innovus_startup.tcl
+@@file 1: alias fs set top_design fifo1_sram
+@@file 2: alias f set top_design fifo1
+@@file 3: alias o set top_design ORCA_TOP
+@@file 4: alias e set top_design ExampleRocketSystem
+@file 5:
+@@file 6: set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+**WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+@file 7: set_global report_timing_format  {delay arrival slew cell hpin}
+**ERROR: (IMPSYC-6318):	Legacy timing global variables are now represented as root attributes in the software.  You should use the get_db and set_db commands for controlling the state of these attributes.  You can also use the get_common_ui_map command to determine if commands or global names have changed in the current software. Similar commands would be dbSet, dbGet.
+@file 8:
+@file 9: history keep 100
+@file 10: #set systemTime [clock seconds]
+@file 11: #set timefield  [clock format $systemTime -format %y-%m-%d_%H-%m]
+@file 12: #set_db log_file innovus.log.$timefield
+@file 13: #set_db logv_file innovus.cmd.$timefield
+@file 14:
+#@ End verbose source: innovus_startup.tcl
+
+**INFO:  MMMC transition support version v31-84 
+
+@innovus 2> 

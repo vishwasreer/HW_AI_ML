@@ -1,0 +1,200 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Tue Apr  9 21:42:04 2024                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+alias fs set top_design fifo1_sram
+alias f set top_design fifo1
+alias o set top_design ORCA_TOP
+alias e set top_design ExampleRocketSystem
+set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+set_global report_timing_format  {delay arrival slew cell hpin}
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+suppressMessage ENCEXT-2799
+win
+fs
+set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+set search_path {}
+set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32_io_wb_all.lef saed32nm_lvt_1p9m.lef saed32_PLL.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32sram.lef}
+is_common_ui_mode
+is_common_ui_mode
+set init_mmmc_file mmmc.tcl
+set init_design_netlisttype Verilog
+set init_verilog ../../syn/outputs/fifo1_sram.genus_phys.vg
+set init_top_cell fifo1_sram
+set init_pwr_net VDD
+set init_gnd_net VSS
+init_design
+defIn ../outputs/fifo1_sram.floorplan.innovus.def
+add_tracks -honor_pitch
+is_common_ui_mode
+setNanoRouteMode -drouteEndIteration 10
+all_constraint_modes -active
+set_interactive_constraint_modes [all_constraint_modes -active]
+create_clock -name "wclk" -period $wclk_period  wclk
+set_clock_uncertainty -setup 0.025 wclk
+set_clock_uncertainty -hold 0.025 wclk
+set_clock_latency 0.23 wclk
+set_clock_transition 0.025 wclk
+create_clock -name "rclk" -period $rclk_period rclk
+set_clock_uncertainty -setup 0.025 rclk
+set_clock_uncertainty -hold 0.025 rclk
+set_clock_latency 0.23 rclk
+set_clock_transition 0.025 rclk
+create_clock -name "wclk2x" -period $wclk2x_period wclk2x
+set_clock_uncertainty -setup 0.025 wclk2x
+set_clock_uncertainty -hold 0.025 wclk2x
+set_clock_latency 0.23 wclk2x
+set_clock_transition 0.025 wclk2x
+set_false_path -from [get_clocks wclk ] -to [get_clocks rclk]
+set_false_path -from [get_clocks rclk ] -to [ get_clocks wclk]
+group_path -name INPUTS -from [ get_ports -filter "direction==in&&full_name!~*clk*" ]
+group_path -name OUTPUTS -to [ get_ports -filter "direction==out" ]
+set_input_delay 0.1 wdata_in* -clock wclk
+set_output_delay -0.5 rdata* -clock rclk
+setDontUse *DELLN* true
+createBasicPathGroups -expanded
+saveDesign fifo1_sram_floorplan.innovus
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+place_opt_design
+redirect -tee ../reports/fifo1_sram.innovus.place.congestion.2d.rpt { reportCongestion -hotSpot -overflow -includeBlockage }
+redirect -tee ../reports/fifo1_sram.innovus.place.congestion.3d.rpt { reportCongestion -hotSpot -overflow -includeBlockage -3d }
+timeDesign -preCTS -prefix place -outDir ../reports/fifo1_sram.innovus -expandedViews
+redirect -tee ../reports/fifo1_sram.innovus.place.density.rpt { reportDensityMap }
+summaryReport -noHtml -outfile ../reports/fifo1_sram.innovus.place.summary.rpt
+saveDesign fifo1_sram_place.innovus
+setDesignMode -process 28
+setOptMode -usefulSkew false
+setOptMode -usefulSkewCCOpt none
+setOptMode -usefulSkewPostRoute false
+setOptMode -usefulSkewPreCTS false
+set_ccopt_property update_io_latency false
+set_ccopt_property routing_top_min_fanout 10000
+add_ndr -name CTS_RULE -spacing {M1 0.1 M2:M8 0.112 } -width_multiplier {M3:M8 2 } -generate_via
+create_route_type -name top_type -non_default_rule CTS_RULE -top_preferred_layer M8 -bottom_preferred_layer M7
+set_ccopt_property -net_type top route_type top_type
+create_route_type -name trunk_type -non_default_rule CTS_RULE -top_preferred_layer M6 -bottom_preferred_layer M5
+set_ccopt_property -net_type trunk route_type trunk_type
+setNanoRouteMode -droutePostRouteSpreadWire false
+ccopt_design
+report_timing -machine_readable -path_group reg2reg > foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1 -noarrow
+highlight_timing_report {-file foo.mtarpt -path 1 -noarrow}
+report_timing -machine_readable -path_group reg2reg > foo.mtarpt
+load_timing_debug_report foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1
+highlight_timing_report {-file foo.mtarpt -path 1}
+win on
+setLayerPreference node_layer -isVisible 0
+zoomBox -1034.02800 -1305.14400 6781.87400 1845.17900
+zoomBox -1288.98900 -1632.24000 7906.19000 2074.02200
+zoomBox -3420.03800 -4366.21800 17303.58700 3986.76700
+zoomBox 17.05700 43.32600 2146.82000 901.76100
+zoomBox 76.10900 119.08700 1886.40900 848.75700
+zoomBox 333.23400 448.96300 752.53400 617.96900
+zoomBox 344.85900 463.87900 701.26500 607.53400
+zoomBox 354.74000 476.55700 657.68600 598.66400
+zoomBox 392.78600 525.36900 489.90500 564.51400
+fit
+zoomBox -1037.53300 732.06100 2237.62900 2052.16700
+zoomBox -1330.42700 664.31000 2522.70500 2217.37600
+zoomBox -1675.00800 584.60300 2858.08900 2411.73900
+zoomBox -2080.39700 490.83000 3252.65800 2640.40200
+zoomBox -3131.34700 383.70300 4250.04500 3358.89000
+zoomBox -3799.67800 315.57800 4884.31300 3815.79800
+zoomBox -3799.67800 3465.77600 4884.31300 6965.99600
+zoomBox -3799.67800 665.60000 4884.31300 4165.82000
+zoomBox -3799.67800 -2484.59800 4884.31300 1015.62200
+zoomBox -3799.67800 -1084.51000 4884.31300 2415.71000
+zoomBox -3799.67800 1715.66600 4884.31300 5215.88600
+zoomBox -7879.55100 367.65900 8756.24900 7072.98100
+zoomBox -13242.63300 -1404.32700 13845.99200 9514.17200
+zoomBox -13242.63300 6238.62300 13845.99200 17157.12200
+fit
+zoomIn
+zoomIn
+zoomBox 418.09500 468.03700 782.00200 614.71500
+zoomBox 418.09500 409.36500 782.00200 556.04300
+zoomBox 418.09500 394.69700 782.00200 541.37500
+zoomBox 389.70700 280.32500 1209.86300 610.90200
+zoomBox 370.10700 201.36000 1505.27100 658.90600
+zoomBox 342.98000 92.06600 1914.14100 725.34700
+zoomBox 325.72900 22.56200 2174.15400 767.59900
+zoomBox 181.54000 -558.37100 4347.42500 1120.75500
+zoomBox 135.80000 -742.65700 5036.84100 1232.78500
+zoomBox 81.98800 -959.46500 5847.91900 1364.58500
+zoomBox 18.67900 -1214.53200 6802.12800 1519.64400
+zoomBox 18.67900 425.97600 6802.12800 3160.15200
+zoomBox 18.67900 2339.90200 6802.12800 5074.07800
+zoomBox 18.67900 3433.57400 6802.12800 6167.75000
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomBox 3410.34500 4800.59900 3410.46000 4800.64500
+zoomBox 3410.34500 4800.53900 3410.46000 4800.58500
+zoomBox 3410.34500 4800.59400 3410.46000 4800.64000
+zoomBox 3410.34500 4800.63400 3410.46000 4800.68000
+zoomBox 3410.34500 4800.69400 3410.46000 4800.74000
+zoomBox 3410.34500 4800.74400 3410.46000 4800.79000
+zoomBox 3410.34500 4800.77400 3410.46000 4800.82000
+fit
+zoomIn
+zoomIn
+zoomOut
+zoomBox 54.18800 512.04200 1145.90900 952.07700
+zoomBox -42.74800 490.32700 1241.62900 1008.01500
+zoomBox -156.79100 464.78000 1354.24100 1073.82500
+zoomBox -290.95900 434.72400 1486.72600 1151.24800
+zoomBox -290.95900 936.28800 1486.72600 1652.81200
+zoomIn
+zoomBox 114.26200 1133.16300 1079.15200 1522.07700
+zoomBox 28.58700 1113.97000 1163.75200 1571.51600
+zoomBox -494.42400 996.80700 1680.19800 1873.32300
+zoomBox -687.51400 953.55200 1870.86500 1984.74700
+zoomBox -1866.24600 689.49900 3034.80700 2664.94600
+zoomBox -4124.32600 183.65700 5264.55700 3967.99500
+zoomBox -4957.98700 -3.09500 6087.76000 4449.06800
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+zoomIn
+fit
+zoomIn
+zoomIn
+zoomSelected
+zoomOut
+zoomIn
+zoomOut
+setLayerPreference node_module -isVisible 0
+setLayerPreference node_module -isVisible 1
+setLayerPreference node_floorplan -isVisible 1
+setLayerPreference node_floorplan -isVisible 0
+setLayerPreference node_floorplan -isVisible 1
+setLayerPreference node_floorplan -isVisible 0
+setLayerPreference node_floorplan -isVisible 1
+setLayerPreference node_floorplan -isVisible 0
+report_timing -machine_readable -path_group in2reg > foo.mtarpt
+load_timing_debug_report foo.mtarpt
+highlight_timing_report -file foo.mtarpt -path 1
+highlight_timing_report {-file foo.mtarpt -path 1}
