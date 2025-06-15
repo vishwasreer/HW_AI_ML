@@ -37,3 +37,44 @@ Comprehensive documentation and waveform captures included
        /outputs         # APR output files (route_db, spef, logs)
 
 /README.md              # This file — project overview and instructions
+
+# Prerequisites
+Python 3.8+
+
+Cocotb (for testbench and verification)
+
+SystemVerilog simulator (e.g., Questa)
+
+
+# Getting Started
+Clone the repository
+
+
+git clone https://github.com/yourusername/systolic-matmul-accelerator.git
+cd systolic-matmul-accelerator
+Set up Python environment
+
+Create a virtual environment and install dependencies:
+
+
+python3 -m venv venv
+source venv/bin/activate   # On Windows use: venv\Scripts\activate
+pip install -r requirements.txt
+Run simulations
+
+To simulate the design and run verification tests using Cocotb:
+
+
+make sim
+This will compile the RTL, run the testbench, and generate waveform files in /waveforms.
+
+Run the Python benchmark script
+
+
+# Project Details
+The systolic array module implements a grid of multiply-accumulate units arranged for data flow efficiency.
+
+The APB slave module provides register-based control and data access, allowing software to initiate matrix operations and read results.
+
+The testbench exercises functional correctness and timing, including corner cases such as zero matrices and non-square inputs.
+
