@@ -16,7 +16,8 @@ Repository Structure
 
 /Design                 # SystemVerilog RTL source files
 
-/Hardware               
+/Hardware
+
    /syn                 # Synthesis-related files and data
    
        /scripts         # Synthesis scripts (e.g., DC Shell scripts)
