@@ -12,12 +12,10 @@ Fully verified using Cocotb testbench framework
 Performance benchmarking against NumPy matrix multiplication
 Comprehensive documentation and waveform captures included
 
-Repository Structure
+## Repository Structure
 
 /Design                 # SystemVerilog RTL source files
-
-/Hardware
-
+/Hardware               # Hardware for MMU 
    /syn                 # Synthesis-related files and data
    
        /scripts         # Synthesis scripts (e.g., DC Shell scripts)
