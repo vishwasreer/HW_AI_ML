@@ -1,10 +1,10 @@
-Matrix Multiplication Using Systolic Arrays - Hardware Accelerator
+### Matrix Multiplication Using Systolic Arrays - Hardware Accelerator
 
-Overview
+## Overview
 This project implements a hardware accelerator for matrix multiplication using systolic array architecture in SystemVerilog. It features a modular, scalable design optimized for AI/ML workloads. The accelerator interfaces with software via an APB slave interface, enabling seamless communication and control from Python or other host programs.
 The goal is to demonstrate hardware-software co-design by offloading matrix multiplication to a custom accelerator and comparing its performance with standard CPU-based libraries like NumPy.
 
-Features
+## Features
 Parameterizable matrix size (e.g., 32x32)
 Systolic array design for efficient parallel multiply-accumulate operations
 APB slave interface for communication with host software
