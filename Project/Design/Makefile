@@ -7,6 +7,7 @@ SIM = questa
 VERILOG_SOURCES = $(shell pwd)/apb_if.sv \
                   $(shell pwd)/MAC.sv \
                   $(shell pwd)/MMU.sv \
+                  $(shell pwd)/apb_slave.sv \
                   $(shell pwd)/matmul_top.sv
 
 # Top-level module name

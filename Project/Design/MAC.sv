@@ -1,6 +1,6 @@
 module MAC #(
     parameter int bit_width = 8,
-    parameter int acc_width = 32
+    parameter int acc_width = 128
 )(
     input  logic                     clk,
     input  logic                     control,

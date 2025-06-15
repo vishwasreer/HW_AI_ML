@@ -1,10 +1,10 @@
 `include "MAC.sv"
 
 module MMU #(
-    parameter int depth = 32,
+    parameter int depth = 4,
     parameter int bit_width = 8,
     parameter int acc_width = 32,
-    parameter int size = 32
+    parameter int size = 4
 )(
     input  logic                     clk,
     input  logic                     control,

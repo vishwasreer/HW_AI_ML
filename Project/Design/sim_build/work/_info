@@ -11,10 +11,10 @@ z2
 cModel Technology
 Z0 d/u/routh/HW_AI_ML/Project/Design
 T_opt
-!s110 1749764814
-V=_QCiF>J<b7Cm]23ER[463
+!s110 1749945870
+V6[NJSzDljZS`;GD;hKz2X0
 04 10 4 work matmul_top fast 0
-=1-5254006cf05e-684b4acd-d7157-3475
+=1-5254006cf05e-684e0e0d-9a1d5-3215
 !s124 OEM100
 o-quiet +acc -auto_acc_if_foreign -work work +acc
 Z1 tCvgOpt 0
@@ -22,38 +22,63 @@ n@_opt
 OL;O;2021.3_1;73
 Yapb_if
 Z2 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z3 !s110 1749764813
+Z3 !s110 1749945869
 !i10b 1
-!s100 i;b`YHC[co]OfL8R8Tm]D0
-Ib:0G17[<O^=>b`8JDaR;i2
+!s100 I`_5`P;EMU:CU1bIU4:C50
+IdNd_KF=oEa9E>86fB]3_i1
 S1
 R0
-w1749695840
-8apb_if.sv
-Fapb_if.sv
+w1749941821
+8/u/routh/HW_AI_ML/Project/Design/apb_if.sv
+F/u/routh/HW_AI_ML/Project/Design/apb_if.sv
 !i122 0
-L0 2 0
+L0 1 0
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 Z5 OL;L;2021.3_1;73
 r1
 !s85 0
 31
-Z6 !s108 1749764813.000000
-Z7 !s107 apb_if.sv|MAC.sv|/u/routh/HW_AI_ML/Project/Design/matmul_top.sv|/u/routh/HW_AI_ML/Project/Design/MMU.sv|/u/routh/HW_AI_ML/Project/Design/MAC.sv|/u/routh/HW_AI_ML/Project/Design/apb_if.sv|
-Z8 !s90 -work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|-sv|+acc|/u/routh/HW_AI_ML/Project/Design/apb_if.sv|/u/routh/HW_AI_ML/Project/Design/MAC.sv|/u/routh/HW_AI_ML/Project/Design/MMU.sv|/u/routh/HW_AI_ML/Project/Design/matmul_top.sv|
+Z6 !s108 1749945868.000000
+Z7 !s107 MAC.sv|/u/routh/HW_AI_ML/Project/Design/matmul_top.sv|/u/routh/HW_AI_ML/Project/Design/apb_slave.sv|/u/routh/HW_AI_ML/Project/Design/MMU.sv|/u/routh/HW_AI_ML/Project/Design/MAC.sv|/u/routh/HW_AI_ML/Project/Design/apb_if.sv|
+Z8 !s90 -work|work|+define+COCOTB_SIM|-sv|-timescale|1ns/1ps|-mfcu|-sv|+acc|/u/routh/HW_AI_ML/Project/Design/apb_if.sv|/u/routh/HW_AI_ML/Project/Design/MAC.sv|/u/routh/HW_AI_ML/Project/Design/MMU.sv|/u/routh/HW_AI_ML/Project/Design/apb_slave.sv|/u/routh/HW_AI_ML/Project/Design/matmul_top.sv|
 !i113 0
 Z9 o-work work -sv -timescale 1ns/1ps -mfcu -sv +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 Z10 !s92 -work work +define+COCOTB_SIM -sv -timescale 1ns/1ps -mfcu -sv +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+vapb_slave
+R2
+R3
+!i10b 1
+!s100 eafZFdPO2WZi0i9`KRIZF2
+Il]NI0aGUBl:3H`5Nb[?_F2
+S1
+R0
+w1749944872
+8/u/routh/HW_AI_ML/Project/Design/apb_slave.sv
+F/u/routh/HW_AI_ML/Project/Design/apb_slave.sv
+!i122 0
+L0 1 24
+R4
+R5
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 0
+R9
+R10
 R1
 vMAC
 R2
 R3
 !i10b 1
-!s100 b8X2_cMN0oJfad2iIn0W=1
-IHKRj0a<dLR:JWTzM2;HWZ0
+!s100 5FIJLoPWA727knQK=;8NU1
+IQDVlM[_zl=C8jdfn<e51R0
 S1
 R0
-w1749696031
+w1749940525
 8MAC.sv
 FMAC.sv
 !i122 0
@@ -75,15 +100,15 @@ vmatmul_top
 R2
 R3
 !i10b 1
-!s100 g8P>lJ4>[AH]GgJgKo`X<3
-ITJVA=D^Dg3>2jAecoo9b@1
+!s100 >b5__nCT2GBmBWo3^<9gY0
+I8QQ7QOlUCC_hR4;nDI8GA1
 S1
 R0
-w1749754006
+w1749945416
 8/u/routh/HW_AI_ML/Project/Design/matmul_top.sv
 F/u/routh/HW_AI_ML/Project/Design/matmul_top.sv
 !i122 0
-L0 3 43
+L0 1 36
 R4
 R5
 r1
@@ -100,11 +125,11 @@ vMMU
 R2
 R3
 !i10b 1
-!s100 oW@^_<c7F:<OJ<_aV=^:93
-INbjG<?@E5BeWX;8`U`Moh0
+!s100 hd`88J?o1RgX_2c@GYGoJ0
+I=?HJX>kiXL]SM]mVV4_=]0
 S1
 R0
-w1749696430
+w1749940891
 8/u/routh/HW_AI_ML/Project/Design/MMU.sv
 F/u/routh/HW_AI_ML/Project/Design/MMU.sv
 !i122 0

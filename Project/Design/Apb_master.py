@@ -1,59 +1,32 @@
+# Apb_master.py
 import cocotb
-from cocotb.clock import Clock
+import numpy as np
 from cocotb.triggers import RisingEdge
-from apb_driver import SimpleApbMaster
-
-
-def parse_mem_file(filename):
-    """Parse a .mem file with space-separated hex bytes and return list of 32-bit ints."""
-    data_words = []
-    with open(filename, "r") as f:
-        for line in f:
-            tokens = line.strip().split()
-            # Group every 4 hex bytes to form a 32-bit word (big-endian)
-            for i in range(0, len(tokens), 4):
-                word_hex = "".join(tokens[i:i+4])
-                if len(word_hex) == 8:  # Only if full 32-bit
-                    data_words.append(int(word_hex, 16))
-    return data_words
-
+from apb import ApbMaster
 
 @cocotb.test()
-async def simple_test(dut):
-    cocotb.start_soon(Clock(dut.clk, 10, units="ns").start())
+async def run_hw_test(dut):
+    clk = dut.clk
+    bus = dut  # Assuming APB signals are top-level
+    master = ApbMaster(bus, clk)
 
-    # Reset
-    dut.rst_n.value = 0
-    for _ in range(5):
-        await RisingEdge(dut.clk)
-    dut.rst_n.value = 1
-    await RisingEdge(dut.clk)
+    A = np.load("matrix_A.npy")  # Shape (10, 10)
+    B = np.load("matrix_B.npy")  # Shape (10, m)
+    result = np.zeros((10, B.shape[1]))
 
-    master = SimpleApbMaster(dut.apb, dut.clk)
+    for col in range(B.shape[1]):
+        for row in range(10):
+            acc = 0
+            for k in range(10):
+                # You must implement logic to feed A[row][k] and B[k][col]
+                # Here's pseudocode assuming address mapping
+                await master.write(0x00, int(A[row, k]))  # A value
+                await master.write(0x04, int(B[k, col]))  # B value
+                await master.write(0x08, 1)               # Start signal
+                await RisingEdge(clk)
+                val = await master.read(0x0C)             # Read result
+                acc += val  # or accumulate in hardware
+            result[row, col] = acc  # Replace with val if done in HW
 
-    # Read and parse matrix files
-    matrix_a = parse_mem_file("matrix_a.mem")
-    matrix_b = parse_mem_file("matrix_b.mem")
-
-    # Send weights (control = 1)
-    for val in matrix_b:
-        await master.write(0x08, val)
-        await master.write(0x0C, 0x1)
-        await RisingEdge(dut.clk)
-
-    # Send data (control = 0)
-    for val in matrix_a:
-        await master.write(0x00, val)
-        await master.write(0x0C, 0x0)
-        await RisingEdge(dut.clk)
-
-    # Trigger optional post-processing
-    await master.write(0x10, 0x0)
-
-    # Wait for output to settle
-    for _ in range(10):
-        await RisingEdge(dut.clk)
-
-    result = await master.read(0x00)
-    dut._log.info(f"Read acc_out = 0x{result:08X}")
+    np.save("matmul_result.npy", result)
 

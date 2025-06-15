@@ -55,16 +55,16 @@ if { ! [ info exists flow ] } { set flow "fpcr" }
 if { [regexp -nocase "f" $flow ] } {
     puts "######## STARTING INITIALIZE and FLOORPLAN #################"
 
-    set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+    #set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
 
     source ../scripts/innovus-get-timlibslefs.tcl
-    source ../../constraints/${top_design}.mmmc.sdc
-
-    set init_design_netlisttype Verilog
-    set init_verilog ../../syn/outputs/${top_design}.genus_phys.vg
+        set init_design_netlisttype Verilog
+    set init_verilog ../../syn/outputs/${top_design}.dct.vg
     set init_top_cell $top_design
     set init_pwr_net VDD
     set init_gnd_net VSS
+source ../../${top_design}.sdc
+
 
 
     init_design
@@ -102,7 +102,7 @@ if { [regexp -nocase "f" $flow ] } {
     # Setting the interactive_constrint mode overwrites constraints applied 
     # for each scenario. 
     set_interactive_constraint_modes [all_constraint_modes -active]
-    source ../../constraints/$top_design.sdc
+    source ../../$top_design.sdc
 
     setDontUse *DELLN* true
 

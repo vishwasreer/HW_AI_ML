@@ -1,0 +1,181 @@
+[06/14 17:46:06      0s] 
+[06/14 17:46:06      0s] Cadence Innovus(TM) Implementation System.
+[06/14 17:46:06      0s] Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+[06/14 17:46:06      0s] 
+[06/14 17:46:06      0s] Version:	v23.10-p003_1, built Thu Feb 1 13:54:57 PST 2024
+[06/14 17:46:06      0s] Options:	
+[06/14 17:46:06      0s] Date:		Sat Jun 14 17:46:06 2025
+[06/14 17:46:06      0s] Host:		auto.ece.pdx.edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (1core*32cpus*Intel Xeon Processor (Cascadelake) 16384KB)
+[06/14 17:46:06      0s] OS:		CentOS Linux 7 (Core)
+[06/14 17:46:06      0s] 
+[06/14 17:46:06      0s] License:
+[06/14 17:46:06      0s] 		[17:46:06.350146] Configured Lic search path (23.02-s003): 5280@cadence-lic.cecs.pdx.edu:27000@synopsys-lic.cat.pdx.edu
+
+[06/14 17:46:06      0s] 		invs	Innovus Implementation System	23.1	checkout succeeded
+[06/14 17:46:06      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[06/14 17:46:12      3s] {{{ isCertus 0,  isCertusOrDistOptClient = 0, isInnovusCertusClient = 0}}}
+[06/14 17:46:34     22s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v23.10-p003_1 (64bit) 02/01/2024 13:54 (Linux 3.10.0-693.el7.x86_64)
+[06/14 17:46:42     26s] @(#)CDS: NanoRoute 23.10-p003_1 NR240109-1512/23_10-UB (database version 18.20.618) {superthreading v2.20}
+[06/14 17:46:42     26s] @(#)CDS: AAE 23.10-p002 (64bit) 02/01/2024 (Linux 3.10.0-693.el7.x86_64)
+[06/14 17:46:42     26s] @(#)CDS: CTE 23.10-p003_1 () Dec  5 2023 19:42:23 ( )
+[06/14 17:46:42     26s] @(#)CDS: SYNTECH 23.10-p002_1 () Nov 29 2023 02:17:21 ( )
+[06/14 17:46:42     26s] @(#)CDS: CPE v23.10-p004
+[06/14 17:46:42     26s] @(#)CDS: IQuantus/TQuantus 22.1.1-s215 (64bit) Mon Nov 20 10:05:08 PST 2023 (Linux 3.10.0-693.el7.x86_64)
+[06/14 17:46:42     26s] @(#)CDS: OA 22.61-p007 Wed Sep 27 19:40:10 2023
+[06/14 17:46:42     26s] @(#)CDS: SGN 23.10-d005 (03-Oct-2023) (64 bit executable, TkQt5.15.9)
+[06/14 17:46:42     26s] @(#)CDS: RCDB 11.15.0
+[06/14 17:46:42     26s] @(#)CDS: STYLUS 23.10-a001_1 (12/04/2023 04:39 PST)
+[06/14 17:46:42     26s] @(#)CDS: IntegrityPlanner-23.10-12651 (23.10) (2023-09-06 08:32:42+0800)
+[06/14 17:46:42     26s] @(#)CDS: SYNTHESIS_ENGINE 23.10-b027
+[06/14 17:46:42     26s] Create and set the environment variable TMPDIR to /u/routh/HW_AI_ML/Project/Hardware/apr/work/innovus_temp_4613_auto.ece.pdx.edu_routh_an0Vto.
+
+[06/14 17:46:42     26s] Change the soft stacksize limit to 0.2%RAM (245 mbytes). Set global soft_stack_size_limit to change the value.
+[06/14 17:46:47     30s] Sourcing startup file ./enc.tcl
+[06/14 17:46:47     30s] <CMD> alias fs set top_design fifo1_sram
+[06/14 17:46:47     30s] <CMD> alias f set top_design fifo1
+[06/14 17:46:47     30s] <CMD> alias o set top_design ORCA_TOP
+[06/14 17:46:47     30s] <CMD> alias e set top_design ExampleRocketSystem
+[06/14 17:46:47     30s] <CMD> set_table_style -name report_timing -max_widths { 8,6,23,70} -no_frame_fix_width
+[06/14 17:46:47     30s] **WARN: (TCLCMD-1083):	'-no_frame_fix_width are global controls that affect all of the various timing reports.  The -name option is used to specify a report-specific behavior, and therefore cannot be used with these global options. You should use a separate set_table_style command to specify the desired global options. You can then use additional set_table_style commands to refine the behaviors of specific timing reports.'
+[06/14 17:46:47     30s] <CMD> set_global report_timing_format  {delay arrival slew cell hpin}
+[06/14 17:46:47     30s] 
+[06/14 17:46:47     30s] **INFO:  MMMC transition support version v31-84 
+[06/14 17:46:47     30s] 
+[06/14 17:46:47     30s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[06/14 17:46:47     30s] <CMD> suppressMessage ENCEXT-2799
+[06/14 17:46:47     30s] <CMD> getVersion
+[06/14 17:46:48     30s] <CMD> define_proc_arguments ViaFillQor -info {This procedure extracts Viafill details from innovus db} -define_args {
+        {-window "window coordinates" "" list optional}
+        {-window_size "window size in microns" "" string optional}
+    
+    }
+[06/14 17:46:49     31s] [INFO] Loading Pegasus 23.20 fill procedures
+[06/14 17:46:49     31s] <CMD> define_proc_arguments ProcessFills -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+[06/14 17:46:50     31s] <CMD> define_proc_arguments FillQor -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+[06/14 17:46:50     31s] <CMD> define_proc_arguments ProcessFills_fast -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+				{-csvName "File path for Fill Data csv file" "Path of CSV file" string required}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list required}
+    {-output_data "Boolean Flag to output Fill Data for further processing" "" string required}
+}
+[06/14 17:46:50     31s] <CMD> define_proc_arguments FillQor_fast -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+				{-selectFill "type of fill to be selected in session" "list of BRIDGE/EXTENSION/STAMP/FLOATING" list optional}
+				{-outData "Boolean Flag to output Fill Data for further processing" "" boolean optional}
+    {-outDataFile "File path for Fill Data csv file" "Path of CSV file" string optional}
+}
+[06/14 17:46:50     31s] <CMD> define_proc_arguments ProcessFills_fast_stampOnly -info {This procedure processes Fill types} -define_args {
+    {-fillInfo "Design Fill data" "" list required}
+	
+}
+[06/14 17:46:50     31s] <CMD> define_proc_arguments FillQor_fast_stampOnly -info {This procedure extracts fill details from innovus db} -define_args {
+    {-layers "Fills Cleanup on which all layers" "list of Metal/Routing layers" list optional}
+}
+[06/14 17:46:50     31s] <CMD> win
+[06/14 17:49:53     50s] ### Start verbose source output (echo mode) for '../../MMU.design_config.tcl' ...
+[06/14 17:49:53     50s] # set lib_dir /pkgs/synopsys/2020/32_28nm/SAED32_EDK/lib
+# set hack_lef_dir /u/bcruik2/hacked_lefs
+# set FCL 0
+# set add_ios 0
+# set pad_design 0
+# set design_size {950 620}
+# set design_io_border 10
+# set dc_floorplanning 1
+# set enable_dft  1
+# set innovus_enable_manual_macro_placement 1
+# set split_constraints 0
+# set rtl_list [list ../rtl/$top_design.sv ]
+# set slow_corner "ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+# set fast_corner "ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set slow_metal Cmax.tlup_-40
+# set fast_metal Cmin.tlup_-40
+# set lib_types "$lib_dir/stdcell_rvt/db_nldm $lib_dir/stdcell_lvt/db_nldm $lib_dir/stdcell_hvt/db_nldm $lib_dir/io_std/db_nldm $lib_dir/sram/db_nldm $lib_dir/pll/db_nldm"
+# set ndm_types "$lib_dir/stdcell_rvt/ndm $lib_dir/stdcell_lvt/ndm $lib_dir/stdcell_hvt/ndm $lib_dir/sram/ndm $lib_dir/io_std/ndm  $lib_dir/pll/ndm"
+# set lib_types_target "$lib_dir/stdcell_rvt/db_nldm"
+# set sub_lib_type "saed32?vt_ saed32sram_ saed32io_wb_ saed32pll_ saed32?vt_ulvl_ saed32?vt_dlvl_"
+# set sub_lib_type_target "saed32rvt_"
+# set synth_corners_target "ss0p95vn40c ss0p75vn40c" 
+# set tech_lef ${hack_lef_dir}/tech.lef 
+# set lef_types [list $hack_lef_dir  \
+$lib_dir/sram/lef/ \
+$lib_dir/io_std/lef \
+$lib_dir/pll/lef \
+]
+# set sub_lef_type "saed32nm_?vt_*.lef saed32sram.lef saed32io_std_wb saed32_PLL.lef"
+# set synth_corners $slow_corner
+# set synth_corners_slow $slow_corner
+# set synth_corners_fast $fast_corner
+# set mwlib_types [list $lib_dir/stdcell_hvt/milkyway \
+$lib_dir/stdcell_rvt/milkyway \
+$lib_dir/stdcell_lvt/milkyway  \
+$lib_dir/io_std/milkyway \
+$lib_dir/sram/milkyway $lib_dir/pll/milkyway \
+ ]
+# set sub_mwlib_type "saed32nm_?vt_* SRAM32NM saed32io_wb_* SAED32_PLL_FR*"
+# if { 0 } {
+    set corners ""
+    #Add Worst corners
+    set corners "$corners ss0p75vn40c ss0p75vn40c_i0p95v ss0p75vn40c_i0p75v ss0p95vn40c ss0p95vn40c_i0p75v"
+    #Add Best corners
+    set corners "$corners ff0p95vn40c ff0p95vn40c_i1p16v ff0p95vn40c_i0p95v ff1p16vn40c ff1p16vn40c_i1p16v ff1p16vn40c_i0p95v"
+    #Add Leakage corners
+    set corners "$corners ff0p95v125c f0p95v125c_i1p16v ff0p95v125c_i0p95v ff1p16v125c ff1p16v125c_i1p16v ff1p16v125c ff1p16v125c_i0p95v"
+    set lib_types "stdcell_hvt stdcell_rvt stdcell_lvt sram_lp"
+    # Get the main standard cells, and also the level shifters.  Plus srams.
+    set sub_lib_type "saed32?vt_ saed32?vt_ulvl_ saed32?vt_dlvl_ saed32sram_"
+}
+# set topdir [ lindex [ regexp -inline "(.*)\(syn\|pt\|apr\)" [pwd] ] 1 ]
+# set sub_block {SDRAM_TOP 
+				BLENDER_0 
+				PCI_TOP 
+				CONTEXT_MEM 
+				RISC_CORE 
+				CLOCKING 
+				BLENDER_1 
+				PARSER 
+				}
+# set sub_block_I {I_SDRAM_TOP I_BLENDER_1  I_BLENDER_0 I_RISC_CORE I_CONTEXT_MEM I_PCI_TOP I_PARSER I_CLOCKING}
+# set macro_block {I_SDRAM_TOP I_PCI_TOP I_RISC_CORE I_CONTEXT_MEM}
+# if {[info exists synopsys_program_name]} {
+        if { $synopsys_program_name == "dc_shell" } {
+           set_host_options -max_cores 4
+        } 
+        if { ( $synopsys_program_name == "icc2_shell" ) || ($synopsys_program_name == "fc_shell" ) } {
+           set_host_options -max_cores 4
+        }
+} elseif {[get_db root: .program_short_name] == "innovus"} {
+        if [is_common_ui_mode ] {set_multi_cpu_usage -local_cpu 8  
+        } else { setMultiCpuUsage -localCpu 8 }
+} elseif {[get_db root: .program_short_name] == "genus"} {
+  set_db / .max_cpus_per_server 8 
+}
+<CMD> is_common_ui_mode
+[06/14 17:49:53     50s] <CMD> setMultiCpuUsage -localCpu 8
+[06/14 17:49:53     50s] ### End verbose source output for '../../MMU.design_config.tcl'.
+[06/14 17:49:53     50s] <CMD> set search_path {}
+[06/14 17:49:54     50s] <CMD> set init_lef_file {/u/bcruik2/hacked_lefs/tech.lef saed32nm_lvt_1p9m.lef saed32sram.lef saed32nm_hvt_1p9m.lef saed32nm_rvt_1p9m.lef saed32_PLL.lef}
+[06/14 17:49:54     50s] <CMD> create_clock -name "clk" -period $clk_period  clk
+[06/14 17:49:54     50s] **ERROR: (TCLCMD-1129):	Design must be in memory before running 'create_clock'.
+
+[06/14 17:50:59     57s] 
+[06/14 17:50:59     57s] *** Memory Usage v#2 (Current mem = 1768.785M, initial mem = 820.664M) ***
+[06/14 17:50:59     57s] 
+[06/14 17:50:59     57s] *** Summary of all messages that are not suppressed in this session:
+[06/14 17:50:59     57s] Severity  ID               Count  Summary                                  
+[06/14 17:50:59     57s] WARNING   TCLCMD-1083          1  '%s'                                     
+[06/14 17:50:59     57s] ERROR     TCLCMD-1129          1  Design must be in memory before running ...
+[06/14 17:50:59     57s] *** Message Summary: 1 warning(s), 1 error(s)
+[06/14 17:50:59     57s] 
+[06/14 17:50:59     57s] --- Ending "Innovus" (totcpu=0:00:59.6, real=0:04:53, mem=1768.8M) ---

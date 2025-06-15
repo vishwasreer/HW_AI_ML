@@ -1,6 +1,10 @@
-// File: apb_if.sv
-interface apb_if #(parameter ADDR_WIDTH = 32, DATA_WIDTH = 32, STRB_WIDTH = 4)(input logic clk);
-
+interface apb_if #(
+    parameter ADDR_WIDTH = 32,
+    parameter DATA_WIDTH = 32,
+    parameter STRB_WIDTH = 4
+) (
+    input logic clk
+);
     logic psel;
     logic penable;
     logic pwrite;

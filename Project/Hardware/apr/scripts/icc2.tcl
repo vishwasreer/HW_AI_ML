@@ -39,8 +39,8 @@ if { [regexp -nocase "f" $flow ] } {
     # Use the DCT netlist
     set dc_floorplanning 0
 
-    source -echo -verbose ../scripts/setup2.tcl
-    source -echo -verbose ../scripts/read2.tcl
+#    source -echo -verbose ../scripts/setup2.tcl
+#   source -echo -verbose ../scripts/read2.tcl
 
     # Source before floorplan in case we want to use timing to place pins
     # Our time to load constraints is relatively small so we can do it at this spot if we want
