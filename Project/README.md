@@ -14,10 +14,12 @@ Comprehensive documentation and waveform captures included
 
 ## Repository Structure
 
-/Design                 # SystemVerilog RTL source files
+/Design                 # SystemVerilog RTL source files (.py)
 
 
-/Hardware               # Hardware for MMU 
+/Hardware               # Hardware for MMU (.sv)
+
+
    /syn                 # Synthesis-related files and data
    
        /scripts         # Synthesis scripts (e.g., DC Shell scripts)
