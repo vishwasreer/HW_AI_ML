@@ -1,9 +1,0 @@
-<?xml-stylesheet type="text/xsl" href=".MMU_27474.cmvd.xslt" ?>
-<!DOCTYPE treebrowser>
-<treebrowser version="2.0" title="MV Advisor" data="name:MMU;port_count:771;hier_cell_count:16;leaf_cell_count:5143;">
-<table>
-  <column id="1" text="Title" />
-  <column id="2" text="Count" />
-  <column id="3" text="Description" />
-</table>
-</treebrowser>
