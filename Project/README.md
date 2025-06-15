@@ -15,6 +15,8 @@ Comprehensive documentation and waveform captures included
 ## Repository Structure
 
 /Design                 # SystemVerilog RTL source files
+
+
 /Hardware               # Hardware for MMU 
    /syn                 # Synthesis-related files and data
    
