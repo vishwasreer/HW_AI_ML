@@ -18,13 +18,19 @@ Repository Structure
 
 /Hardware               
    /syn                 # Synthesis-related files and data
+   
        /scripts         # Synthesis scripts (e.g., DC Shell scripts)
+       
        /reports         # Synthesis reports (area, timing, power)
+       
        /outputs         # Synthesis output files (netlists, logs)
 
    /apr                 # Automatic Place and Route files and data
+   
        /scripts         # APR scripts (for place and route tools)
+       
        /reports         # APR reports (congestion, timing, utilization)
+       
        /outputs         # APR output files (route_db, spef, logs)
 
 /README.md              # This file — project overview and instructions
